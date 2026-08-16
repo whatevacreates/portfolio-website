@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowLeft, ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Menu, Play, X } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import data from './portfolio-data.json';
@@ -74,6 +74,22 @@ function Work({ openProject }) {
   </main>;
 }
 
+function VideoEmbed({ video, eager }) {
+  const [playing, setPlaying] = useState(false);
+  return <figure className="case-video">
+    {playing
+      ? <iframe
+          src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1`}
+          title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen loading="lazy" />
+      : <button className="video-facade" onClick={() => setPlaying(true)} aria-label={`Play video: ${video.title}`}>
+          <img src={video.poster} alt="" loading={eager ? 'eager' : 'lazy'} />
+          <span className="video-play"><Play /></span>
+        </button>}
+    <figcaption>{video.title}</figcaption>
+  </figure>;
+}
+
 function Project({ project, close }) {
   const root = useRef();
   useEffect(() => { scrollTo(0, 0); }, [project.slug]);
@@ -81,7 +97,7 @@ function Project({ project, close }) {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       gsap.from('.case-title > *, .case-back', { y: 30, opacity: 0, duration: .8, stagger: .07, ease: 'power3.out' });
-      gsap.utils.toArray('.case-image').forEach((image) => gsap.from(image, { y: 55, opacity: 0, duration: .9, scrollTrigger: { trigger: image, start: 'top 90%', once: true } }));
+      gsap.utils.toArray('.case-image, .case-video').forEach((item) => gsap.from(item, { y: 55, opacity: 0, duration: .9, scrollTrigger: { trigger: item, start: 'top 90%', once: true } }));
     }, root);
     return () => ctx.revert();
   }, [project.slug]);
@@ -92,6 +108,12 @@ function Project({ project, close }) {
       <h1>{project.title}</h1>
       <p className="case-description">{project.description}</p>
     </section>
+    {project.videos?.length > 0 && <section className="case-videos">
+      <h2 className="case-videos-heading">{project.videos.length > 1 ? `Films · ${project.videos.length}` : 'Film'}</h2>
+      <div className={`video-grid${project.videos.length > 1 ? ' video-grid-multi' : ''}`}>
+        {project.videos.map((video, i) => <VideoEmbed key={video.id} video={video} eager={i < 2} />)}
+      </div>
+    </section>}
     <div className="case-gallery">{project.images.slice(1).map((image, i) => <figure className="case-image" key={image}><img src={image} alt={`${project.title}, project image ${i + 1}`} loading={i < 2 ? 'eager' : 'lazy'} /></figure>)}</div>
     <button className="next-button" onClick={close}>Back to all projects <ArrowUpRight /></button>
   </main>;

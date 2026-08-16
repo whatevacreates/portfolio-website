@@ -28,6 +28,38 @@
         "/media/team-nl-19-114317-banner-teamnl-300x600-v3.webp",
         "/media/team-nl-20-ezgif-4-b86755396a.webp",
         "/media/team-nl-21-screen-shot-2019-04-03-at-21-22-47.webp"
+      ],
+      "videos": [
+        {
+          "id": "4pUNqdjT8tU",
+          "title": "TeamNL: Zo doen we dat",
+          "poster": "/media/posters/4pUNqdjT8tU.jpg"
+        },
+        {
+          "id": "oWera6XxzWM",
+          "title": "Roy Meyer (judo)",
+          "poster": "/media/posters/oWera6XxzWM.jpg"
+        },
+        {
+          "id": "BgyzuO-hDoI",
+          "title": "Britt Eerland (tafeltennis)",
+          "poster": "/media/posters/BgyzuO-hDoI.jpg"
+        },
+        {
+          "id": "RUbtULOtfUE",
+          "title": "Ellen Hoog (hockey)",
+          "poster": "/media/posters/RUbtULOtfUE.jpg"
+        },
+        {
+          "id": "TZp1SOkAi6M",
+          "title": "Marc van der Kuilen (rolstoelbasketbal)",
+          "poster": "/media/posters/TZp1SOkAi6M.jpg"
+        },
+        {
+          "id": "FxmTxb9agas",
+          "title": "Roy Meyer — blooper",
+          "poster": "/media/posters/FxmTxb9agas.jpg"
+        }
       ]
     },
     {
@@ -95,6 +127,13 @@
         "/media/100-days-of-summer-by-walls-07-story3.webp",
         "/media/100-days-of-summer-by-walls-08-free.webp",
         "/media/100-days-of-summer-by-walls-09-safety-guidelines-poster.webp"
+      ],
+      "videos": [
+        {
+          "id": "F9ju5Toi5oU",
+          "title": "100 Days of Summer — Covid-19 edit",
+          "poster": "/media/posters/F9ju5Toi5oU.jpg"
+        }
       ]
     },
     {
@@ -120,6 +159,13 @@
         "/media/new-page-14-hoe-het-werkt-3.webp",
         "/media/new-page-15-screenshot-2024-10-05-at-17-44-19.webp",
         "/media/new-page-16-screenshot-2024-10-05-at-17-46-03.webp"
+      ],
+      "videos": [
+        {
+          "id": "7txu1nvs4lA",
+          "title": "Dobbi — Skip Your Laundry",
+          "poster": "/media/posters/7txu1nvs4lA.jpg"
+        }
       ]
     },
     {
@@ -138,6 +184,13 @@
         "/media/adidas-ub-07-kv2.webp",
         "/media/adidas-ub-08-kv1.webp",
         "/media/adidas-ub-09-photoshoot.webp"
+      ],
+      "videos": [
+        {
+          "id": "Daa-EdL9VP0",
+          "title": "adidas UltraBOOST All Terrain",
+          "poster": "/media/posters/Daa-EdL9VP0.jpg"
+        }
       ]
     },
     {
@@ -258,6 +311,13 @@
         "/media/royal-canin-social-campaign-2-09-overweight-leaflet-dog-inside.webp",
         "/media/royal-canin-social-campaign-2-10-overweight-leaflet-cat-outside.webp",
         "/media/royal-canin-social-campaign-2-11-overweight-leaflet-cat-inside.webp"
+      ],
+      "videos": [
+        {
+          "id": "sMEADTnUi80",
+          "title": "Royal Canin — Life Expectancy",
+          "poster": "/media/posters/sMEADTnUi80.jpg"
+        }
       ]
     },
     {
@@ -294,6 +354,75 @@
         "/media/magnum-social-01-magnum2.webp",
         "/media/magnum-social-02-magnujm-grid.webp",
         "/media/magnum-social-03-magnum.webp"
+      ]
+    },
+    {
+      "slug": "flower-council",
+      "title": "Flower Council of Holland",
+      "client": "Flower Council of Holland",
+      "category": "Social content",
+      "description": "CLIENT: Flower Council of Holland PROBLEM: Lack of coherent image in social media MY ROLE: creative lead, concept + art direction. I was responsible for 8 accounts in NL, FR, DE and UK.",
+      "images": [
+        "/media/flower-council-01-flower-council-icons.webp"
+      ],
+      "videos": [
+        {
+          "id": "SJ9oBXAH90c",
+          "title": "News feed",
+          "poster": "/media/posters/SJ9oBXAH90c.jpg"
+        },
+        {
+          "id": "TEdxN4ZDxJk",
+          "title": "Happy Mother’s Day",
+          "poster": "/media/posters/TEdxN4ZDxJk.jpg"
+        },
+        {
+          "id": "UaBr7TspwaU",
+          "title": "Trends — Instagram stories",
+          "poster": "/media/posters/UaBr7TspwaU.jpg"
+        },
+        {
+          "id": "aKGeFwBd2-s",
+          "title": "To read and to look",
+          "poster": "/media/posters/aKGeFwBd2-s.jpg"
+        },
+        {
+          "id": "dvU3Is1pzEE",
+          "title": "Brother and Sister Day",
+          "poster": "/media/posters/dvU3Is1pzEE.jpg"
+        },
+        {
+          "id": "eotH39bNHSs",
+          "title": "Calathea + chrysant",
+          "poster": "/media/posters/eotH39bNHSs.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "wellant-open-day",
+      "title": "Wellant Open Day",
+      "client": "Wellantcollege",
+      "category": "Brand activation",
+      "description": "CLIENT: Wellantcollege PROBLEM: How to convince kids to come to High School Open Day? MY ROLE: concept + art direction",
+      "images": [
+        "/media/wellant-open-day-01-wellant-ikonka.webp"
+      ],
+      "videos": [
+        {
+          "id": "ld0oWhbY8CA",
+          "title": "MBO Open Day ad",
+          "poster": "/media/posters/ld0oWhbY8CA.jpg"
+        },
+        {
+          "id": "r8H0AznBgig",
+          "title": "Wellant canvas ad",
+          "poster": "/media/posters/r8H0AznBgig.jpg"
+        },
+        {
+          "id": "uOB3qvSmrfs",
+          "title": "MBO Open Day — Instagram stories",
+          "poster": "/media/posters/uOB3qvSmrfs.jpg"
+        }
       ]
     }
   ],
