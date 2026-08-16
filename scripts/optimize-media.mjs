@@ -13,10 +13,13 @@ for (const file of files) {
   const inputPath = join(mediaDir.pathname, file);
   const finalPath = join(mediaDir.pathname, output);
   const outputPath = file.endsWith('.webp') ? `${finalPath}.tmp` : finalPath;
-  const animated = /-01-/.test(file) && ['.gif', '.webp'].includes(extension.toLowerCase());
+  // Detect animation from the file itself. Keying off the "-01-" cover naming
+  // flattened every in-page GIF to a single frame.
+  const { pages = 1 } = await sharp(inputPath, { animated: true, limitInputPixels: false }).metadata();
+  const animated = pages > 1;
   await sharp(inputPath, { animated, pages: animated ? -1 : 1, limitInputPixels: false })
-    .resize({ width: animated ? 760 : 960, height: animated ? 760 : 960, fit: 'inside', withoutEnlargement: true })
-    .webp({ quality: animated ? 38 : 58, effort: 6 })
+    .resize({ width: animated ? 1100 : 2000, height: animated ? 1100 : 2000, fit: 'inside', withoutEnlargement: true })
+    .webp({ quality: animated ? 68 : 82, effort: 6 })
     .toFile(outputPath);
   if (file.endsWith('.webp')) await rename(outputPath, finalPath);
   else await unlink(inputPath);
