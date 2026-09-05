@@ -1,8 +1,9 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowLeft, ArrowUpRight, Menu, Play, X } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowUpRight, Menu, Play, X } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Opening from './opening.jsx';
 import data from './portfolio-data.json';
 import './styles.css';
 
@@ -63,15 +64,43 @@ function Work({ openProject }) {
     return () => ctx.revert();
   }, []);
   return <main ref={root}>
-    <Intro />
+    <Opening />
     <section className="work-heading"><p>Selected work</p><span>{data.projects.length} projects · 2016—2025</span></section>
     <div className="project-grid">
       {data.projects.map((project, index) => <button className="project-card" key={project.slug} onClick={() => openProject(project.slug)}>
-        <div className="project-image"><img src={project.images[0]} alt="" loading={index < 4 ? 'eager' : 'lazy'} /><span className="project-number">{String(index + 1).padStart(2, '0')}</span><span className="view-project">View project <ArrowUpRight /></span></div>
+        <div className="project-image"><img src={project.images[0]} alt="" loading={index < 4 ? 'eager' : 'lazy'} /><span className="project-number">{String(index + 1).padStart(2, '0')}</span><span className="view-project">View project<ArrowUpRight /></span></div>
         <div className="project-meta"><h2>{project.title}</h2><p>{project.client} · {project.category}</p></div>
       </button>)}
     </div>
   </main>;
+}
+
+// Small assets (banners, animated icons) look upscaled and soft when stretched
+// across the full gallery width, so they run three-up at their intrinsic size.
+// Runs of consecutive small images are chunked in place to keep the case order.
+const SMALL_WIDTH = 1000;
+
+function layoutGallery(images) {
+  const blocks = [];
+  let run = [];
+  const flush = () => {
+    // a lone small image would sit at a third-width with two empty cells,
+    // so it gets centred at its own size instead of forced into a row
+    if (run.length === 1) { blocks.push({ solo: run.pop() }); return; }
+    const rows = [];
+    while (run.length) rows.push(run.splice(0, 3));
+    // a run of 4 chunks to [3,1], stranding one — rebalance the tail to [2,2]
+    const last = rows[rows.length - 1];
+    if (rows.length > 1 && last.length === 1) last.unshift(rows[rows.length - 2].pop());
+    rows.forEach((row) => blocks.push({ row }));
+  };
+  for (const image of images) {
+    const meta = data.meta?.[image];
+    if (meta && (meta.animated || meta.w < SMALL_WIDTH)) run.push(image);
+    else { flush(); blocks.push({ full: image }); }
+  }
+  flush();
+  return blocks;
 }
 
 function VideoEmbed({ video, eager }) {
@@ -114,8 +143,22 @@ function Project({ project, close }) {
         {project.videos.map((video, i) => <VideoEmbed key={video.id} video={video} eager={i < 2} />)}
       </div>
     </section>}
-    <div className="case-gallery">{project.images.slice(1).map((image, i) => <figure className="case-image" key={image}><img src={image} alt={`${project.title}, project image ${i + 1}`} loading={i < 2 ? 'eager' : 'lazy'} /></figure>)}</div>
-    <button className="next-button" onClick={close}>Back to all projects <ArrowUpRight /></button>
+    <div className="case-gallery">{layoutGallery(project.images.slice(1)).map((block, b) => {
+      const lazy = b < 2 ? 'eager' : 'lazy';
+      if (block.row) return <div className="case-row" key={`row-${b}`} style={{ gridTemplateColumns: `repeat(${Math.min(block.row.length, 3)},1fr)` }}>
+        {block.row.map((image, i) => <figure className="case-image case-image-small" key={image}>
+          <img src={image} alt={`${project.title}, project image ${b + i + 1}`} loading={lazy} />
+        </figure>)}
+      </div>;
+      if (block.solo) return <figure className="case-image case-image-solo" key={block.solo}>
+        <img src={block.solo} alt={`${project.title}, project image ${b + 1}`} loading={lazy}
+          style={{ maxWidth: `${data.meta[block.solo]?.w ?? 900}px` }} />
+      </figure>;
+      return <figure className="case-image" key={block.full}>
+        <img src={block.full} alt={`${project.title}, project image ${b + 1}`} loading={lazy} />
+      </figure>;
+    })}</div>
+    <button className="next-button" onClick={close}>All work<ArrowDown /></button>
   </main>;
 }
 
