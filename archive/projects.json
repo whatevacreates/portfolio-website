@@ -1,617 +1,688 @@
 {
-  "note": "Archived from whatevacreates.com. Not rendered by the site — preservation only.",
-  "scrapedFrom": "https://www.whatevacreates.com",
-  "projects": [
+ "note": "Archived from whatevacreates.com. Not rendered by the site — preservation only.",
+ "scrapedFrom": "https://www.whatevacreates.com",
+ "projects": [
+  {
+   "slug": "print-ads",
+   "title": "My best print ads",
+   "client": "TBWA\\United and others",
+   "category": "Print advertising",
+   "note": "Print ads incl. Ministerie van OCW and Ploom TECH.",
+   "sourcePages": [
+    "https://www.whatevacreates.com/my-best-print-ads-1",
+    "https://www.whatevacreates.com/my-best-print-ads-2",
+    "https://www.whatevacreates.com/tbwaunited-print-ad"
+   ],
+   "videos": [],
+   "images": [
     {
-      "slug": "print-ads",
-      "title": "My best print ads",
-      "client": "TBWA\\United and others",
-      "category": "Print advertising",
-      "note": "Print ads incl. Ministerie van OCW and Ploom TECH.",
-      "sourcePages": [
-        "https://www.whatevacreates.com/my-best-print-ads-1",
-        "https://www.whatevacreates.com/my-best-print-ads-2",
-        "https://www.whatevacreates.com/tbwaunited-print-ad"
-      ],
-      "videos": [],
-      "images": [
-        {
-          "file": "print-ads-01-feels-like-running-winter-edition-2.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532520266557-KDYAKR0YDMFJK0JKIH7X/feels+like+running+winter+edition+2.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-02-feels-like-running-main-key-visual-winter.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532520449890-88UV1VOUMY5PRYDPERS9/feels+like+running+main+key+visual+WINTER.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-03-feels-like-running-main-key-visual.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532520235870-P7CEMTID4QHLDHOIX4WC/feels+like+running+main+key+visual.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-04-feelslikerunning-windowdisplay-02.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532520680068-HYLNEYRDO98OS01QU0HK/FeelsLikeRunning_WindowDisplay_02.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-05-feelslikerunning-shoedisplay-02.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532528360310-PIKW8PF5H2NBQ4NMLLM1/FeelsLikeRunning_ShoeDisplay_02.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-06-poster.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1509701784660-NY7B3F52P7JWGY6E43XB/POSTER.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-07-fanatomy-detail.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532449017169-EN8LWKLAN6O0IBR5BVP8/fanatomy-detail.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-08-007c7f50755627-58de57c662e3c.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532420543398-2OA3Y1U6ZPN8TLFA602P/007c7f50755627.58de57c662e3c.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-09-ploom-ooh-magazine.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532448264909-ZN46NRNS53WTDMX5L2N4/ploom-ooh-magazine.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-10-wooow.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532448460952-O0J663NNWSIUAPB227ZX/wooow.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-11-whaaat.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532448597430-LNMJLK4X33FB56JQILSN/whaaat.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-12-ploom-duzy-budynek-revolution-is-happening-v2.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533334828193-8Z07LJJHMTG83IO6TK89/ploom-duzy-budynek-revolution-is-happening-v2.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-13-ploom-duzy-budynek-revolution-is-happening-2.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533334758170-RGWVGNMTUO5YNI880L9G/ploom-duzy-budynek-revolution-is-happening-2.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-14-revolution-is-happening-3.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533389088799-EFJK24SSS8AVNUW6F0JU/revolution-is-happening-3.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-15-think-bike.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532463909859-9TYTT9OFYS5LB0LZ6PZ1/think-bike.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-16-posters.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532527589244-IKEDUJAKFETLJ2A6496Z/posters.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-17-fire-fighter.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532532327535-4KKDOOXN7NJX2ZWGKQUG/fire-fighter.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-18-pilot.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532532431911-PU9PNUQDGQVJGAHBRPXR/pilot.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-19-do-you-see-more.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1534767752081-WZWSR7WY3RWINP4DK74I/do-you-see-more.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "print-ads-20-poster2.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533302587617-NW1KUJZBOU8Q91EB2JKB/poster2.gif",
-          "animated": true,
-          "frames": 12
-        }
-      ]
+     "file": "print-ads-01-feels-like-running-winter-edition-2.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532520266557-KDYAKR0YDMFJK0JKIH7X/feels+like+running+winter+edition+2.jpg",
+     "animated": false,
+     "frames": 1
     },
     {
-      "slug": "drawings-illustrations",
-      "title": "Drawings + Illustrations",
-      "client": "Personal",
-      "category": "Illustration",
-      "note": "Selection of favourite drawings and illustrations.",
-      "sourcePages": [
-        "https://www.whatevacreates.com/drawings-illustrations-1",
-        "https://www.whatevacreates.com/illustrations"
-      ],
-      "videos": [],
-      "images": [
-        {
-          "file": "drawings-illustrations-01-bouncer.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532963044319-EQ5NZDT3W8NFMF3WXD88/bouncer.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-02-deskorolka.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533552372137-IZNS8JW2OZR3837FONKX/deskorolka.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-03-dobre-praktyki-w-sklepie.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532962994043-TSJYNHC7GV859I0QEK4L/dobre+praktyki+w+sklepie.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-04-pedros.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533552738170-RPNZQ4ENLDL4E719USJL/pedros.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-05-rysunek.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532963200627-I2MH3W99PN3EEJFJJA74/rysunek.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-06-1.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533549740822-YFXS73HQWB0ZNWAFF44W/1.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-07-wilk-i-longboard.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533571215259-5FITLEI9TAN5TPGZUZ14/wilk-i-longboard.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-08-longboardzistka.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533552186573-91KM2UG69F0L28Z2TNSF/longboardzistka.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-09-potworki.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533554060079-YYGV8YIY6MPH6GNY26Q0/potworki.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-10-5.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1556007164867-ICT9462L15VM7V28B0VC/5.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-11-nigdy-nie-zapomne.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533562849985-64MPG0UYOY9FGVSL1SMK/nigdy-nie-zapomne.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-12-bakoma-komiks.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533578972797-TJ5NX0E7UERJLJIGRSRJ/BAKOMA-KOMIKS.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-13-grafy.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532963239879-M3NXCSCSPEXY989FMYPO/grafy.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-14-drawing-v3.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1534524420424-2HIGQV8O44XCSLFKFIQ7/drawing+v3.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-15-322158-2204630526556-1571182062-32225312-757050367-o.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1556007395987-4X7M7W3Q8RVX26XK6OIR/322158_2204630526556_1571182062_32225312_757050367_o.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-16-surf.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1556008966334-DHTK26IVPPY1H90JCL82/SURF.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-17-card.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1556008759462-0BKL5G1SWD2OPVXJAVGU/card.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-18-nested2.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1560462956776-3J3YW5825KFG3H38OL0L/nested2.png",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "drawings-illustrations-19-drawings.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533301157929-469SLZ2MH7AEBGRQ5DAX/drawings.gif",
-          "animated": true,
-          "frames": 9
-        },
-        {
-          "file": "drawings-illustrations-20-cover-mos-copy.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532962963902-BSTV85P6Y182HAUMCNXO/cover+mos+copy.jpg",
-          "animated": false,
-          "frames": 1
-        }
-      ]
+     "file": "print-ads-02-feels-like-running-main-key-visual-winter.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532520449890-88UV1VOUMY5PRYDPERS9/feels+like+running+main+key+visual+WINTER.jpg",
+     "animated": false,
+     "frames": 1
     },
     {
-      "slug": "muru",
-      "title": "MURU",
-      "client": "MURU",
-      "category": "Fashion branding",
-      "note": "Clothes made from ecological fabrics; palette inspired by nature.",
-      "sourcePages": [
-        "https://www.whatevacreates.com/muru",
-        "https://www.whatevacreates.com/muru-2"
-      ],
-      "videos": [],
-      "images": [
-        {
-          "file": "muru-01-23270360-1759642754337315-337977509452106330-o.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728180107-4CQ1KHQBPCCXJE14Y4A6/23270360_1759642754337315_337977509452106330_o.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "muru-02-15826748-1635354243432834-6855333044813010398-n.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728000461-UMD4K6WEMO2NY3FX7Y9Z/15826748_1635354243432834_6855333044813010398_n.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "muru-03-17212034-1662469900721268-3438531301443608883-o.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533727879763-JCIDH50R9Z16CPIAFT2R/17212034_1662469900721268_3438531301443608883_o.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "muru-04-16487629-1648615382106720-3389473847724990130-o.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728148704-1U0R7S51196VQ5VRUC85/16487629_1648615382106720_3389473847724990130_o.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "muru-05-23511017-1760451860923071-5920291710248345678-o.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728224788-PHS1CTEXBNVEED5EY7VG/23511017_1760451860923071_5920291710248345678_o.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "muru-06-17759882-1676234516011473-568195496164535807-n.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728365952-NRBW3LB6ZOJPHVWM37AP/17759882_1676234516011473_568195496164535807_n.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "muru-07-17903355-1679102029058055-1719443024402803630-n.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728402748-2B27MPKFSEJKC1YYEBOY/17903355_1679102029058055_1719443024402803630_n.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "muru-08-23376349-1760837307551193-2480361267656792709-n.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728426402-N02MZSOY0LZS24L8VQZL/23376349_1760837307551193_2480361267656792709_n.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "muru-09-muru.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533726981474-KJ5MH80SXE57LP1L5JG0/muru.gif",
-          "animated": true,
-          "frames": 2
-        }
-      ]
+     "file": "print-ads-03-feels-like-running-main-key-visual.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532520235870-P7CEMTID4QHLDHOIX4WC/feels+like+running+main+key+visual.jpg",
+     "animated": false,
+     "frames": 1
     },
     {
-      "slug": "heartbeats",
-      "title": "Heartbeats — electronic duo branding",
-      "client": "Heartbeats",
-      "category": "Identity design",
-      "note": "Visual identity for an electronic music duo.",
-      "sourcePages": [
-        "https://www.whatevacreates.com/heartbeats-electronic-duo-branding",
-        "https://www.whatevacreates.com/heartbeats-electronic-duo-branding-2"
-      ],
-      "videos": [],
-      "images": [
-        {
-          "file": "heartbeats-01-heartbeats-updated.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532690834105-5L4L7Y9G0XZO5SVR8JES/heartbeats-updated.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "heartbeats-02-heartbeats.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554308417522-M2BFXD5S8WBX6ERBLNYF/heartbeats.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "heartbeats-03-heartbeats-v1.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554308539717-IC2V06ZIBLYYXQQIKQLB/heartbeats+v1.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "heartbeats-04-heartbeats-v3.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554308716038-73BUO9F6PH3X3XCVPY16/heartbeats+v3.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "heartbeats-05-heartbeats-v2.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554308616070-M0634MUFRH5YT68DKWTO/heartbeats+v2.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "heartbeats-06-heartbeat.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532682740609-LL7XNEL5NU99HPWTFHZZ/heartbeat.gif",
-          "animated": true,
-          "frames": 24
-        },
-        {
-          "file": "heartbeats-07-heartbeats2.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1426612391193-GUZX70XWHFDSXT8RC14D/heartbeats2.jpg",
-          "animated": false,
-          "frames": 1
-        }
-      ]
+     "file": "print-ads-04-feelslikerunning-windowdisplay-02.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532520680068-HYLNEYRDO98OS01QU0HK/FeelsLikeRunning_WindowDisplay_02.jpg",
+     "animated": false,
+     "frames": 1
     },
     {
-      "slug": "citylooker",
-      "title": "Citylooker",
-      "client": "Concept",
-      "category": "Advertising concept",
-      "note": "Advertising concept. Role: concept + art direction.",
-      "sourcePages": [
-        "https://www.whatevacreates.com/citylooker-advertising-concept"
-      ],
-      "videos": [],
-      "images": [
-        {
-          "file": "citylooker-01-patrzac.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1427368876449-EKREG8V4SUDGXUK4VZ80/patrzac.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "citylooker-02-city-looker.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1517952819710-2W179DNPQ3JZ6WPWMVLE/city-looker.jpg",
-          "animated": false,
-          "frames": 1
-        }
-      ]
+     "file": "print-ads-05-feelslikerunning-shoedisplay-02.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532528360310-PIKW8PF5H2NBQ4NMLLM1/FeelsLikeRunning_ShoeDisplay_02.jpg",
+     "animated": false,
+     "frames": 1
     },
     {
-      "slug": "personal-projects",
-      "title": "Personal projects",
-      "client": "Personal",
-      "category": "Mixed",
-      "note": "Incl. Warsaw through the eyes of photographers.",
-      "sourcePages": [
-        "https://www.whatevacreates.com/personal-projects"
-      ],
-      "videos": [],
-      "images": [
-        {
-          "file": "personal-projects-01-2-jpg-845x0.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1539850357450-OTQZHV5P1QCQGNA6QALU/2.jpg_845x0.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "personal-projects-02-1-jpg.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1539850375867-9A6AF9KVVZYH8AYOA0XU/1.jpg.jpg",
-          "animated": false,
-          "frames": 1
-        }
-      ]
+     "file": "print-ads-06-poster.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1509701784660-NY7B3F52P7JWGY6E43XB/POSTER.jpg",
+     "animated": false,
+     "frames": 1
     },
     {
-      "slug": "extras",
-      "title": "Unfiled extras",
-      "client": "Various",
-      "category": "Loose assets",
-      "note": "Images present on live pages but absent from the built site.",
-      "sourcePages": [
-        "https://www.whatevacreates.com/teamnl-brand-campaign-1",
-        "https://www.whatevacreates.com/teamnl-brand-campaign",
-        "https://www.whatevacreates.com/design",
-        "https://www.whatevacreates.com/design-2",
-        "https://www.whatevacreates.com/design-3",
-        "https://www.whatevacreates.com/photography",
-        "https://www.whatevacreates.com/photography-1",
-        "https://www.whatevacreates.com/photography-2",
-        "https://www.whatevacreates.com/photography-4",
-        "https://www.whatevacreates.com/advertising",
-        "https://www.whatevacreates.com/adidas-product-advertising-1",
-        "https://www.whatevacreates.com/adidas-product-advertising-2",
-        "https://www.whatevacreates.com/mcwalk-2",
-        "https://www.whatevacreates.com/dobbi-powered-by-persil-1"
-      ],
-      "videos": [
-        "4pUNqdjT8tU",
-        "oWera6XxzWM",
-        "BgyzuO-hDoI",
-        "RUbtULOtfUE",
-        "TZp1SOkAi6M",
-        "FxmTxb9agas",
-        "Daa-EdL9VP0",
-        "YpzZU9M-tuA",
-        "7txu1nvs4lA"
-      ],
-      "images": [
-        {
-          "file": "extras-01-team-nl-volleyballer.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532353327108-V7KAUR879PFH8G6JDE1F/TEAM-NL-volleyballer.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-02-wij-gaan-vlammen-magazine.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532939817240-3L4VZRIBY7DCRHIOBQKN/wij-gaan-vlammen-magazine.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-03-medal-alarm.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533232519631-9LJZWQS0GNFETB1JKHAL/MEDAL-ALARM.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-04-sprinter-op-jacht-naar-0-01-seconde-not-coming-back-10.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533545826065-9D29ZRCBG6OGDA52GCRS/SPRINTER-Op-jacht-naar-0%2C01-seconde-not-coming-back-10-SEC-_1.gif",
-          "animated": true,
-          "frames": 24
-        },
-        {
-          "file": "extras-05-team-nl.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533248877448-AJJEKPO4N3B2YL0K9GWL/TEAM-nl.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-06-515c3a41604219-57c695320f638.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533548880578-NTDC80N6RBOWY3N75V9O/515c3a41604219.57c695320f638.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-07-javelin.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533249098497-1NNI3AGL2TNOZGG1BL54/javelin.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-08-9d8b96a8c0ed4de56e87fc53787e28a9.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1509310460913-9FSAB6FHK2YJNROWYW3R/9d8b96a8c0ed4de56e87fc53787e28a9.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-09-tom-dumoulinns.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532518792522-EHPLL8DCDWSXQ5FMXP11/tom-dumoulinns.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-10-c7631504aaf965bca2988fb534cd18d4.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1509310374396-TZVFOC2TXE4E9HMZHCCL/c7631504aaf965bca2988fb534cd18d4.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-11-banerek.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1535491886780-RVCK6GZNSXHD50612J35/banerek.gif",
-          "animated": true,
-          "frames": 200
-        },
-        {
-          "file": "extras-12-design-icons.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533293552434-486GEWS7QVXNL0UHG7BD/design-icons.gif",
-          "animated": true,
-          "frames": 9
-        },
-        {
-          "file": "extras-13-4-masthead-final-pdf.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532946555104-VKHXD05UOJZSKMJU6PYP/4_Masthead-Final-PDF.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-14-1-final-pdf-of-desktop.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532946595616-Y10B7IVICOQG6RUJLLXD/1-final-pdf-of-desktop.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-15-img-2612.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554321510949-W7V3AJ73NRX124H5K9GD/IMG_2612.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-16-photography2.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533304933789-9HC3RI3OEFWANUB3NYRO/photography2.gif",
-          "animated": true,
-          "frames": 2
-        },
-        {
-          "file": "extras-17-fk-art-director.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533398986174-UY8B5B5HOJEWQ9OPRNFI/FK-ART-DIRECTOR.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-18-96637.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532615202647-UERZ22YPZBN8KY625VQX/96637.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-19-96638.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532615238875-U9H6VWIJ5V8N8DP8DXYD/96638.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-20-screen-shot-2018-07-30-at-16-42-40.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532961833048-VP6UY7KJUBEHQR60P6IE/Screen+Shot+2018-07-30+at+16.42.40.png",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-21-mc-walk.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533568216138-QH1CD6F5RGW7O1OTQVHF/mc-walk.jpg",
-          "animated": false,
-          "frames": 1
-        },
-        {
-          "file": "extras-22-dobbi-icons.webp",
-          "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532424771754-87HXJFMJPHTAKROQ7CGV/dobbi-icons.jpg",
-          "animated": false,
-          "frames": 1
-        }
-      ]
+     "file": "print-ads-07-fanatomy-detail.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532449017169-EN8LWKLAN6O0IBR5BVP8/fanatomy-detail.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-08-007c7f50755627-58de57c662e3c.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532420543398-2OA3Y1U6ZPN8TLFA602P/007c7f50755627.58de57c662e3c.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-09-ploom-ooh-magazine.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532448264909-ZN46NRNS53WTDMX5L2N4/ploom-ooh-magazine.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-10-wooow.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532448460952-O0J663NNWSIUAPB227ZX/wooow.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-11-whaaat.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532448597430-LNMJLK4X33FB56JQILSN/whaaat.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-12-ploom-duzy-budynek-revolution-is-happening-v2.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533334828193-8Z07LJJHMTG83IO6TK89/ploom-duzy-budynek-revolution-is-happening-v2.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-13-ploom-duzy-budynek-revolution-is-happening-2.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533334758170-RGWVGNMTUO5YNI880L9G/ploom-duzy-budynek-revolution-is-happening-2.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-14-revolution-is-happening-3.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533389088799-EFJK24SSS8AVNUW6F0JU/revolution-is-happening-3.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-15-think-bike.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532463909859-9TYTT9OFYS5LB0LZ6PZ1/think-bike.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-16-posters.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532527589244-IKEDUJAKFETLJ2A6496Z/posters.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-17-fire-fighter.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532532327535-4KKDOOXN7NJX2ZWGKQUG/fire-fighter.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-18-pilot.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532532431911-PU9PNUQDGQVJGAHBRPXR/pilot.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-19-do-you-see-more.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1534767752081-WZWSR7WY3RWINP4DK74I/do-you-see-more.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "print-ads-20-poster2.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533302587617-NW1KUJZBOU8Q91EB2JKB/poster2.gif",
+     "animated": true,
+     "frames": 12
     }
-  ]
+   ]
+  },
+  {
+   "slug": "drawings-illustrations",
+   "title": "Drawings + Illustrations",
+   "client": "Personal",
+   "category": "Illustration",
+   "note": "Selection of favourite drawings and illustrations.",
+   "sourcePages": [
+    "https://www.whatevacreates.com/drawings-illustrations-1",
+    "https://www.whatevacreates.com/illustrations"
+   ],
+   "videos": [],
+   "images": [
+    {
+     "file": "drawings-illustrations-01-bouncer.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532963044319-EQ5NZDT3W8NFMF3WXD88/bouncer.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-02-deskorolka.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533552372137-IZNS8JW2OZR3837FONKX/deskorolka.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-03-dobre-praktyki-w-sklepie.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532962994043-TSJYNHC7GV859I0QEK4L/dobre+praktyki+w+sklepie.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-04-pedros.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533552738170-RPNZQ4ENLDL4E719USJL/pedros.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-05-rysunek.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532963200627-I2MH3W99PN3EEJFJJA74/rysunek.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-06-1.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533549740822-YFXS73HQWB0ZNWAFF44W/1.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-07-wilk-i-longboard.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533571215259-5FITLEI9TAN5TPGZUZ14/wilk-i-longboard.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-08-longboardzistka.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533552186573-91KM2UG69F0L28Z2TNSF/longboardzistka.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-09-potworki.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533554060079-YYGV8YIY6MPH6GNY26Q0/potworki.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-10-5.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1556007164867-ICT9462L15VM7V28B0VC/5.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-11-nigdy-nie-zapomne.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533562849985-64MPG0UYOY9FGVSL1SMK/nigdy-nie-zapomne.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-12-bakoma-komiks.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533578972797-TJ5NX0E7UERJLJIGRSRJ/BAKOMA-KOMIKS.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-13-grafy.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532963239879-M3NXCSCSPEXY989FMYPO/grafy.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-14-drawing-v3.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1534524420424-2HIGQV8O44XCSLFKFIQ7/drawing+v3.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-15-322158-2204630526556-1571182062-32225312-757050367-o.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1556007395987-4X7M7W3Q8RVX26XK6OIR/322158_2204630526556_1571182062_32225312_757050367_o.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-16-surf.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1556008966334-DHTK26IVPPY1H90JCL82/SURF.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-17-card.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1556008759462-0BKL5G1SWD2OPVXJAVGU/card.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-18-nested2.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1560462956776-3J3YW5825KFG3H38OL0L/nested2.png",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "drawings-illustrations-19-drawings.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533301157929-469SLZ2MH7AEBGRQ5DAX/drawings.gif",
+     "animated": true,
+     "frames": 9
+    },
+    {
+     "file": "drawings-illustrations-20-cover-mos-copy.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532962963902-BSTV85P6Y182HAUMCNXO/cover+mos+copy.jpg",
+     "animated": false,
+     "frames": 1
+    }
+   ]
+  },
+  {
+   "slug": "muru",
+   "title": "MURU",
+   "client": "MURU",
+   "category": "Fashion branding",
+   "note": "Clothes made from ecological fabrics; palette inspired by nature.",
+   "sourcePages": [
+    "https://www.whatevacreates.com/muru",
+    "https://www.whatevacreates.com/muru-2"
+   ],
+   "videos": [],
+   "images": [
+    {
+     "file": "muru-01-23270360-1759642754337315-337977509452106330-o.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728180107-4CQ1KHQBPCCXJE14Y4A6/23270360_1759642754337315_337977509452106330_o.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "muru-02-15826748-1635354243432834-6855333044813010398-n.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728000461-UMD4K6WEMO2NY3FX7Y9Z/15826748_1635354243432834_6855333044813010398_n.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "muru-03-17212034-1662469900721268-3438531301443608883-o.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533727879763-JCIDH50R9Z16CPIAFT2R/17212034_1662469900721268_3438531301443608883_o.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "muru-04-16487629-1648615382106720-3389473847724990130-o.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728148704-1U0R7S51196VQ5VRUC85/16487629_1648615382106720_3389473847724990130_o.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "muru-05-23511017-1760451860923071-5920291710248345678-o.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728224788-PHS1CTEXBNVEED5EY7VG/23511017_1760451860923071_5920291710248345678_o.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "muru-06-17759882-1676234516011473-568195496164535807-n.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728365952-NRBW3LB6ZOJPHVWM37AP/17759882_1676234516011473_568195496164535807_n.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "muru-07-17903355-1679102029058055-1719443024402803630-n.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728402748-2B27MPKFSEJKC1YYEBOY/17903355_1679102029058055_1719443024402803630_n.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "muru-08-23376349-1760837307551193-2480361267656792709-n.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533728426402-N02MZSOY0LZS24L8VQZL/23376349_1760837307551193_2480361267656792709_n.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "muru-09-muru.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533726981474-KJ5MH80SXE57LP1L5JG0/muru.gif",
+     "animated": true,
+     "frames": 2
+    }
+   ]
+  },
+  {
+   "slug": "heartbeats",
+   "title": "Heartbeats — electronic duo branding",
+   "client": "Heartbeats",
+   "category": "Identity design",
+   "note": "Visual identity for an electronic music duo.",
+   "sourcePages": [
+    "https://www.whatevacreates.com/heartbeats-electronic-duo-branding",
+    "https://www.whatevacreates.com/heartbeats-electronic-duo-branding-2"
+   ],
+   "videos": [],
+   "images": [
+    {
+     "file": "heartbeats-01-heartbeats-updated.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532690834105-5L4L7Y9G0XZO5SVR8JES/heartbeats-updated.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "heartbeats-02-heartbeats.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554308417522-M2BFXD5S8WBX6ERBLNYF/heartbeats.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "heartbeats-03-heartbeats-v1.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554308539717-IC2V06ZIBLYYXQQIKQLB/heartbeats+v1.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "heartbeats-04-heartbeats-v3.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554308716038-73BUO9F6PH3X3XCVPY16/heartbeats+v3.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "heartbeats-05-heartbeats-v2.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554308616070-M0634MUFRH5YT68DKWTO/heartbeats+v2.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "heartbeats-06-heartbeat.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532682740609-LL7XNEL5NU99HPWTFHZZ/heartbeat.gif",
+     "animated": true,
+     "frames": 24
+    },
+    {
+     "file": "heartbeats-07-heartbeats2.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1426612391193-GUZX70XWHFDSXT8RC14D/heartbeats2.jpg",
+     "animated": false,
+     "frames": 1
+    }
+   ]
+  },
+  {
+   "slug": "citylooker",
+   "title": "Citylooker",
+   "client": "Concept",
+   "category": "Advertising concept",
+   "note": "Advertising concept. Role: concept + art direction.",
+   "sourcePages": [
+    "https://www.whatevacreates.com/citylooker-advertising-concept"
+   ],
+   "videos": [],
+   "images": [
+    {
+     "file": "citylooker-01-patrzac.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1427368876449-EKREG8V4SUDGXUK4VZ80/patrzac.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "citylooker-02-city-looker.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1517952819710-2W179DNPQ3JZ6WPWMVLE/city-looker.jpg",
+     "animated": false,
+     "frames": 1
+    }
+   ]
+  },
+  {
+   "slug": "personal-projects",
+   "title": "Personal projects",
+   "client": "Personal",
+   "category": "Mixed",
+   "note": "Incl. Warsaw through the eyes of photographers.",
+   "sourcePages": [
+    "https://www.whatevacreates.com/personal-projects"
+   ],
+   "videos": [],
+   "images": [
+    {
+     "file": "personal-projects-01-2-jpg-845x0.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1539850357450-OTQZHV5P1QCQGNA6QALU/2.jpg_845x0.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "personal-projects-02-1-jpg.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1539850375867-9A6AF9KVVZYH8AYOA0XU/1.jpg.jpg",
+     "animated": false,
+     "frames": 1
+    }
+   ]
+  },
+  {
+   "slug": "extras",
+   "title": "Unfiled extras",
+   "client": "Various",
+   "category": "Loose assets",
+   "note": "Images present on live pages but absent from the built site.",
+   "sourcePages": [
+    "https://www.whatevacreates.com/teamnl-brand-campaign-1",
+    "https://www.whatevacreates.com/teamnl-brand-campaign",
+    "https://www.whatevacreates.com/design",
+    "https://www.whatevacreates.com/design-2",
+    "https://www.whatevacreates.com/design-3",
+    "https://www.whatevacreates.com/photography",
+    "https://www.whatevacreates.com/photography-1",
+    "https://www.whatevacreates.com/photography-2",
+    "https://www.whatevacreates.com/photography-4",
+    "https://www.whatevacreates.com/advertising",
+    "https://www.whatevacreates.com/adidas-product-advertising-1",
+    "https://www.whatevacreates.com/adidas-product-advertising-2",
+    "https://www.whatevacreates.com/mcwalk-2",
+    "https://www.whatevacreates.com/dobbi-powered-by-persil-1"
+   ],
+   "videos": [
+    "4pUNqdjT8tU",
+    "oWera6XxzWM",
+    "BgyzuO-hDoI",
+    "RUbtULOtfUE",
+    "TZp1SOkAi6M",
+    "FxmTxb9agas",
+    "Daa-EdL9VP0",
+    "YpzZU9M-tuA",
+    "7txu1nvs4lA"
+   ],
+   "images": [
+    {
+     "file": "extras-01-team-nl-volleyballer.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532353327108-V7KAUR879PFH8G6JDE1F/TEAM-NL-volleyballer.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-02-wij-gaan-vlammen-magazine.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532939817240-3L4VZRIBY7DCRHIOBQKN/wij-gaan-vlammen-magazine.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-03-medal-alarm.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533232519631-9LJZWQS0GNFETB1JKHAL/MEDAL-ALARM.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-04-sprinter-op-jacht-naar-0-01-seconde-not-coming-back-10.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533545826065-9D29ZRCBG6OGDA52GCRS/SPRINTER-Op-jacht-naar-0%2C01-seconde-not-coming-back-10-SEC-_1.gif",
+     "animated": true,
+     "frames": 24
+    },
+    {
+     "file": "extras-05-team-nl.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533248877448-AJJEKPO4N3B2YL0K9GWL/TEAM-nl.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-06-515c3a41604219-57c695320f638.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533548880578-NTDC80N6RBOWY3N75V9O/515c3a41604219.57c695320f638.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-07-javelin.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533249098497-1NNI3AGL2TNOZGG1BL54/javelin.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-08-9d8b96a8c0ed4de56e87fc53787e28a9.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1509310460913-9FSAB6FHK2YJNROWYW3R/9d8b96a8c0ed4de56e87fc53787e28a9.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-09-tom-dumoulinns.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532518792522-EHPLL8DCDWSXQ5FMXP11/tom-dumoulinns.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-10-c7631504aaf965bca2988fb534cd18d4.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1509310374396-TZVFOC2TXE4E9HMZHCCL/c7631504aaf965bca2988fb534cd18d4.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-11-banerek.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1535491886780-RVCK6GZNSXHD50612J35/banerek.gif",
+     "animated": true,
+     "frames": 200
+    },
+    {
+     "file": "extras-12-design-icons.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533293552434-486GEWS7QVXNL0UHG7BD/design-icons.gif",
+     "animated": true,
+     "frames": 9
+    },
+    {
+     "file": "extras-13-4-masthead-final-pdf.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532946555104-VKHXD05UOJZSKMJU6PYP/4_Masthead-Final-PDF.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-14-1-final-pdf-of-desktop.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532946595616-Y10B7IVICOQG6RUJLLXD/1-final-pdf-of-desktop.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-15-img-2612.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1554321510949-W7V3AJ73NRX124H5K9GD/IMG_2612.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-16-photography2.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533304933789-9HC3RI3OEFWANUB3NYRO/photography2.gif",
+     "animated": true,
+     "frames": 2
+    },
+    {
+     "file": "extras-17-fk-art-director.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533398986174-UY8B5B5HOJEWQ9OPRNFI/FK-ART-DIRECTOR.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-18-96637.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532615202647-UERZ22YPZBN8KY625VQX/96637.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-19-96638.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532615238875-U9H6VWIJ5V8N8DP8DXYD/96638.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-20-screen-shot-2018-07-30-at-16-42-40.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532961833048-VP6UY7KJUBEHQR60P6IE/Screen+Shot+2018-07-30+at+16.42.40.png",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-21-mc-walk.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1533568216138-QH1CD6F5RGW7O1OTQVHF/mc-walk.jpg",
+     "animated": false,
+     "frames": 1
+    },
+    {
+     "file": "extras-22-dobbi-icons.webp",
+     "source": "https://images.squarespace-cdn.com/content/v1/54d52b22e4b07faf95d8f444/1532424771754-87HXJFMJPHTAKROQ7CGV/dobbi-icons.jpg",
+     "animated": false,
+     "frames": 1
+    }
+   ]
+  },
+  {
+   "slug": "flower-council",
+   "title": "Flower Council of Holland",
+   "client": "Flower Council of Holland",
+   "category": "Social content",
+   "description": "CLIENT: Flower Council of Holland PROBLEM: Lack of coherent image in social media MY ROLE: creative lead, concept + art direction. I was responsible for 8 accounts in NL, FR, DE and UK.",
+   "images": [
+    "/media/flower-council-01-flower-council-icons.webp"
+   ],
+   "videos": [
+    {
+     "id": "SJ9oBXAH90c",
+     "title": "News feed",
+     "poster": "/media/posters/SJ9oBXAH90c.jpg"
+    },
+    {
+     "id": "TEdxN4ZDxJk",
+     "title": "Happy Mother’s Day",
+     "poster": "/media/posters/TEdxN4ZDxJk.jpg"
+    },
+    {
+     "id": "UaBr7TspwaU",
+     "title": "Trends — Instagram stories",
+     "poster": "/media/posters/UaBr7TspwaU.jpg"
+    },
+    {
+     "id": "aKGeFwBd2-s",
+     "title": "To read and to look",
+     "poster": "/media/posters/aKGeFwBd2-s.jpg"
+    },
+    {
+     "id": "dvU3Is1pzEE",
+     "title": "Brother and Sister Day",
+     "poster": "/media/posters/dvU3Is1pzEE.jpg"
+    },
+    {
+     "id": "eotH39bNHSs",
+     "title": "Calathea + chrysant",
+     "poster": "/media/posters/eotH39bNHSs.jpg"
+    }
+   ],
+   "note": "Moved from the published site to match whatevacreates.com portfolio listing."
+  },
+  {
+   "slug": "wellant-open-day",
+   "title": "Wellant Open Day",
+   "client": "Wellantcollege",
+   "category": "Brand activation",
+   "description": "CLIENT: Wellantcollege PROBLEM: How to convince kids to come to High School Open Day? MY ROLE: concept + art direction",
+   "images": [
+    "/media/wellant-open-day-01-wellant-ikonka.webp"
+   ],
+   "videos": [
+    {
+     "id": "ld0oWhbY8CA",
+     "title": "MBO Open Day ad",
+     "poster": "/media/posters/ld0oWhbY8CA.jpg"
+    },
+    {
+     "id": "r8H0AznBgig",
+     "title": "Wellant canvas ad",
+     "poster": "/media/posters/r8H0AznBgig.jpg"
+    },
+    {
+     "id": "uOB3qvSmrfs",
+     "title": "MBO Open Day — Instagram stories",
+     "poster": "/media/posters/uOB3qvSmrfs.jpg"
+    }
+   ],
+   "note": "Moved from the published site to match whatevacreates.com portfolio listing."
+  }
+ ]
 }

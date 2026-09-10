@@ -9,6 +9,11 @@ import './styles.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// media lives in public/media and is referenced as "/media/..." in the data.
+// BASE_URL-relative resolution keeps those URLs working when the site is
+// hosted under a subpath (e.g. GitHub Pages project sites).
+const asset = (p) => import.meta.env.BASE_URL + p.replace(/^\//, '');
+
 const nav = [
   ['work', 'Work'],
   ['photography', 'Photography'],
@@ -21,7 +26,7 @@ function Header({ page, navigate }) {
   return <header className="site-header">
     <button className="brand" onClick={() => go('work')} aria-label="Go home">
       <strong>Eva Przybyla</strong>
-      <span>Art Director · Designer · Developer</span>
+      <span>· Marketing & Creative Lead</span>
     </button>
     <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">
       {open ? <X /> : <Menu />}
@@ -32,46 +37,35 @@ function Header({ page, navigate }) {
   </header>;
 }
 
-function Intro() {
-  const root = useRef();
-  useLayoutEffect(() => {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const ctx = gsap.context(() => {
-      gsap.from('.intro-kicker, .intro h1 span, .intro-foot > *', { y: 45, opacity: 0, duration: 1, stagger: .08, ease: 'power3.out' });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-  return <section className="intro" ref={root}>
-    <p className="intro-kicker">Independent creative · Lausanne, Switzerland</p>
-    <h1><span>Ideas with</span><span>character, built</span><span>to move people.</span></h1>
-    <div className="intro-foot">
-      <p>Creating human-centered brand worlds, campaigns and digital experiences with a decade of art direction behind them.</p>
-      <span className="scroll-cue">Scroll to explore <i>↓</i></span>
-    </div>
-  </section>;
-}
+// only the gifs — no headings, no cards, no counters. each one quietly
+// opens its project.
+const reels = [
+  ['/media/team-nl-01-zo-doen-we-dat3.webp', 'team-nl'],
+  ['/media/reebok-01-go-elemental-xx.webp', 'reebok'],
+  ['/media/mcwalk-01-mcwalk.webp', 'mcwalk'],
+  ['/media/adidas-ub-01-adidas-product-video-icons.webp', 'adidas-ub'],
+];
 
 function Work({ openProject }) {
   const root = useRef();
   useLayoutEffect(() => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
-      gsap.utils.toArray('.project-card').forEach((card) => gsap.from(card, {
-        y: 70, opacity: 0, duration: .8, ease: 'power3.out',
-        scrollTrigger: { trigger: card, start: 'top 88%', once: true }
+      gsap.utils.toArray('.reel > *').forEach((el) => gsap.from(el, {
+        y: 55, opacity: 0, duration: .9, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
       }));
     }, root);
     return () => ctx.revert();
   }, []);
   return <main ref={root}>
     <Opening />
-    <section className="work-heading"><p>Selected work</p><span>{data.projects.length} projects · 2016—2025</span></section>
-    <div className="project-grid">
-      {data.projects.map((project, index) => <button className="project-card" key={project.slug} onClick={() => openProject(project.slug)}>
-        <div className="project-image"><img src={project.images[0]} alt="" loading={index < 4 ? 'eager' : 'lazy'} /><span className="project-number">{String(index + 1).padStart(2, '0')}</span><span className="view-project">View project<ArrowUpRight /></span></div>
-        <div className="project-meta"><h2>{project.title}</h2><p>{project.client} · {project.category}</p></div>
+    <section className="reel">
+      {reels.map(([src, slug], i) => <button className="reel-item" key={src} onClick={() => openProject(slug)} aria-label="View project">
+        <img src={asset(src)} alt="" loading={i < 2 ? 'eager' : 'lazy'} />
       </button>)}
-    </div>
+      <p className="reel-wit">Ideas are cheap. This site cost exactly one.</p>
+    </section>
   </main>;
 }
 
@@ -112,11 +106,49 @@ function VideoEmbed({ video, eager }) {
           title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen loading="lazy" />
       : <button className="video-facade" onClick={() => setPlaying(true)} aria-label={`Play video: ${video.title}`}>
-          <img src={video.poster} alt="" loading={eager ? 'eager' : 'lazy'} />
+          <img src={asset(video.poster)} alt="" loading={eager ? 'eager' : 'lazy'} />
           <span className="video-play"><Play /></span>
         </button>}
     <figcaption>{video.title}</figcaption>
   </figure>;
+}
+
+// story-driven case pages: text, quotes and films interleaved with the
+// imagery, in the order the original whatevacreates.com page tells it.
+// consecutive images run through the same size-aware gallery layout.
+function renderStory(story, title) {
+  const out = [];
+  let run = [];
+  let counter = 0;
+  const flush = () => {
+    if (!run.length) return;
+    const imgs = run; run = [];
+    out.push(<div className="case-gallery" key={`g${out.length}`}>{layoutGallery(imgs).map((block, b) => {
+      counter += 1;
+      if (block.row) return <div className="case-row" key={`row-${b}-${block.row[0]}`} style={{ gridTemplateColumns: `repeat(${Math.min(block.row.length, 3)},1fr)` }}>
+        {block.row.map((image) => <figure className="case-image case-image-small" key={image}>
+          <img src={asset(image)} alt={`${title}, project image`} loading={counter < 3 ? 'eager' : 'lazy'} />
+        </figure>)}
+      </div>;
+      if (block.solo) return <figure className="case-image case-image-solo" key={block.solo}>
+        <img src={asset(block.solo)} alt={`${title}, project image`} loading={counter < 3 ? 'eager' : 'lazy'}
+          style={{ maxWidth: `${data.meta[block.solo]?.w ?? 900}px` }} />
+      </figure>;
+      return <figure className="case-image" key={block.full}>
+        <img src={asset(block.full)} alt={`${title}, project image`} loading={counter < 3 ? 'eager' : 'lazy'} />
+      </figure>;
+    })}</div>);
+  };
+  story.forEach((item, i) => {
+    if (item.img) { run.push(item.img); return; }
+    flush();
+    if (item.text) out.push(<p className="case-text" key={i}>{item.text}</p>);
+    else if (item.quote) out.push(<blockquote className="case-quote" key={i}>{item.quote}</blockquote>);
+    else if (item.heading) out.push(<h2 className="case-h2" key={i}>{item.heading}</h2>);
+    else if (item.video) out.push(<div className="case-videos" key={i}><div className="video-grid"><VideoEmbed video={item.video} eager /></div></div>);
+  });
+  flush();
+  return out;
 }
 
 function Project({ project, close }) {
@@ -137,6 +169,7 @@ function Project({ project, close }) {
       <h1>{project.title}</h1>
       <p className="case-description">{project.description}</p>
     </section>
+    {project.story ? <div className="case-story">{renderStory(project.story, project.title)}</div> : <>
     {project.videos?.length > 0 && <section className="case-videos">
       <h2 className="case-videos-heading">{project.videos.length > 1 ? `Films · ${project.videos.length}` : 'Film'}</h2>
       <div className={`video-grid${project.videos.length > 1 ? ' video-grid-multi' : ''}`}>
@@ -147,17 +180,18 @@ function Project({ project, close }) {
       const lazy = b < 2 ? 'eager' : 'lazy';
       if (block.row) return <div className="case-row" key={`row-${b}`} style={{ gridTemplateColumns: `repeat(${Math.min(block.row.length, 3)},1fr)` }}>
         {block.row.map((image, i) => <figure className="case-image case-image-small" key={image}>
-          <img src={image} alt={`${project.title}, project image ${b + i + 1}`} loading={lazy} />
+          <img src={asset(image)} alt={`${project.title}, project image ${b + i + 1}`} loading={lazy} />
         </figure>)}
       </div>;
       if (block.solo) return <figure className="case-image case-image-solo" key={block.solo}>
-        <img src={block.solo} alt={`${project.title}, project image ${b + 1}`} loading={lazy}
+        <img src={asset(block.solo)} alt={`${project.title}, project image ${b + 1}`} loading={lazy}
           style={{ maxWidth: `${data.meta[block.solo]?.w ?? 900}px` }} />
       </figure>;
       return <figure className="case-image" key={block.full}>
-        <img src={block.full} alt={`${project.title}, project image ${b + 1}`} loading={lazy} />
+        <img src={asset(block.full)} alt={`${project.title}, project image ${b + 1}`} loading={lazy} />
       </figure>;
     })}</div>
+    </>}
     <button className="next-button" onClick={close}>All work<ArrowDown /></button>
   </main>;
 }
@@ -171,16 +205,33 @@ function Photography() {
   }, []);
   return <main className="editorial-page" ref={root}>
     <section className="page-title"><p>Personal archive · Observations</p><h1>Photography</h1><span>A selection of places, people and quiet in-between moments.</span></section>
-    <div className="photo-grid">{data.photography.map((photo, i) => <figure key={photo} className={`photo photo-${i % 7}`}><img src={photo} alt={`Eva Przybyla photography ${i + 1}`} loading={i < 6 ? 'eager' : 'lazy'} /></figure>)}</div>
+    <div className="photo-grid">{data.photography.map((photo, i) => <figure key={photo} className={`photo photo-${i % 7}`}><img src={asset(photo)} alt={`Eva Przybyla photography ${i + 1}`} loading={i < 6 ? 'eager' : 'lazy'} /></figure>)}</div>
   </main>;
 }
 
 function About() {
   return <main className="about-page">
-    <section className="about-hero"><div><p>About · Contact</p><h1>Designer’s eye.<br/>Developer’s mind.</h1></div><img src={data.aboutImage} alt="Eva Przybyla" /></section>
+    <section className="about-hero"><div><p className="lead">I combine brand strategy, creative leadership and technical understanding to turn audience insight into distinctive brands, campaigns and product launches.</p></div><img src={asset(data.aboutImage)} alt="Eva Przybyla" /></section>
     <section className="about-copy">
-      <p className="lead">I create things that work for real people — from brand campaigns and visual identities to thoughtful digital experiences.</p>
-      <div><p>I learned human-centered design through years of prototyping, testing and refining at the E. Geppert Academy of Fine Arts and London College of Communication. That approach stayed with me while creating for adidas, Reebok, McDonald’s and many more.</p><p>Now I’m expanding the technical side at 42 Lausanne, bringing design and development together to make digital experiences feel effortless. I love a good idea, sharp craft and code that makes both come alive.</p></div>
+      <p className="lead">I always thought my calling was to be a writer. But I couldn’t let go of images. So I learned to combine the two, telling stories through words, visuals and the relationship between them.</p>
+      <div>
+        <p>That took me to leading international advertising agencies, including TBWA, DDB and OLIVER, where I developed campaign concepts, helped win accounts and directed multidisciplinary teams across markets. I worked with brands including adidas, McDonald’s, KitKat, Mercedes-Benz, TeamNL, Lipton, Magnum, Cornetto, Reebok and Wall’s.</p>
+        <p>Over a decade, I learned how to turn audience insight into a clear strategic direction, bring people behind an idea and carry it through production. My work involved aligning clients, strategists, designers, writers, filmmakers and developers, including directing teams across India, Kuala Lumpur and South Africa.</p>
+        <p>Along the way, the work earned recognition. TeamNL’s “Zo Doen We Dat!” campaign received praise from Effie Netherlands for its art direction and strong visual brand expression. My campaign for Wall’s “Ice Cream Slime” earned a Unilever Global Silver award. I also supervised work on Dobbi’s app and contributed to its integrated launch; the business was named the world’s most innovative dry cleaner by CINET in 2018.</p>
+        <p>My creative background also includes a Print shortlist in Poland’s Young Creatives competition for Cannes Young Lions, a shared Siemens Future Living distinction for an architectural design concept, first place with my team in a short-film competition in London, and second place in a Focus magazine advertising competition.</p>
+      </div>
+    </section>
+    <section className="about-copy">
+      <p className="lead">Curiosity about how products work took me to 42 Lausanne, where I completed the intensive software-engineering common core over two years. Programming sharpened my analytical thinking and gave me another way to bring ideas to life.</p>
+      <div>
+        <p>Today, I can question technical assumptions, work closely with engineers and build tools myself. I developed a content studio that lets anyone on my team generate branded assets and content on demand, turning brand guidelines into something people can actually use.</p>
+        <p>I also built a marketing platform that connects our big ideas, goals, campaigns and ideal customer profiles with performance metrics and audience insights. It gives the team a shared view of what we’re trying to achieve, what’s working and what we’re learning, helping us make better decisions about where to focus next.</p>
+        <p>At Scholé AI, I bring these disciplines together in a broad marketing role. I’ve led rebranding, developed positioning and integrated campaigns, and planned advertising budgets. My work connects landing pages, email automation and marketing funnels with sales decks and pitch narratives, giving each stage of the customer journey a clear purpose.</p>
+        <p>I led two product launches, including Scholé’s debut on Product Hunt, which earned <strong>#1 Product of the Day</strong>, ranking ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus on 2 May 2026.</p>
+        <p>Working directly with founders, product and engineering, I also help improve onboarding and the platform experience, using feedback and performance data to guide decisions. I’ve contributed to hiring two team members, directed creative execution, designed event booths and represented the company at industry events.</p>
+        <p>I bring the experience to set direction and the practical understanding to deliver it. I connect positioning, people, budgets and execution, taking responsibility for the decisions that shape the work and using results to decide what comes next.</p>
+        <p><strong>Based in Switzerland. Open to marketing lead and senior marketing opportunities.</strong></p>
+      </div>
     </section>
     <section className="contact"><p>Have a project, role or idea in mind?</p><a href="mailto:whatevacreates@gmail.com">Let’s make something great <ArrowUpRight /></a><div><a href="tel:+41782154258">+41 78 215 42 58</a><a href="mailto:whatevacreates@gmail.com">whatevacreates@gmail.com</a></div></section>
   </main>;
