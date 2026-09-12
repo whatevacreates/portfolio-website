@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="./offline.js"></script>
+    <meta charset="UTF-8" />
+    <script>
+      // Deep-link restore. On GitHub Pages only the ROOT 404.html answers
+      // URLs with no real file behind it; it forwards the original path here
+      // as ?p= (URL-encoded). Restore it before the module script boots the
+      // router, so /r/<token> and /save/<token> links resolve. The leading-/
+      // guard keeps ?p= from ever navigating off-site.
+      (function () {
+        var p = new URLSearchParams(location.search).get('p');
+        if (p && p.charAt(0) === '/') history.replaceState(null, '', p);
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/test-ai-maturity/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Maturity Assessment · Scholé</title>
+    <meta
+      name="description"
+      content="Map your AI maturity in 3 minutes. 16 questions, a personal profile across eight dimensions, and how you compare with others in your role."
+    />
+
+    <!-- Social preview.
+         og:image must be an absolute URL that a crawler can fetch anonymously —
+         LinkedIn and Slack will not follow a relative path and will not log in.
+         og.png lives in public/ so it is served from the deploy origin. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scholé" />
+    <meta property="og:url" content="https://ai-maturity.schole.ai/" />
+    <meta property="og:title" content="How AI-mature are you?" />
+    <meta
+      property="og:description"
+      content="16 questions, 3 minutes. Get your AI maturity profile and see how you compare with others in your role."
+    />
+    <meta property="og:image" content="https://try.schole.ai/ai-maturity-test/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Scholé AI Maturity Assessment" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/test-ai-maturity/assets/index-aDMxG1va.js"></script>
+    <link rel="stylesheet" crossorigin href="/test-ai-maturity/assets/index-B-I_RAyh.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>window.rdt=function(){};window.gtag=function(){};window.lintrk=function(){};</script>
+  </body>
+</html>

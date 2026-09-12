@@ -109,7 +109,6 @@ function Work({ openProject }) {
           <em className="reel-label">{tr(project.label, labelsDe[slug])}</em>
         </button>;
       })}
-      <p className="reel-wit">{tr('Ideas are cheap. This site cost exactly one.', 'Ideen sind billig. Diese Website hat genau eine gekostet.')}</p>
     </section>
   </main>;
 }
@@ -157,13 +156,34 @@ function VideoEmbed({ video, eager }) {
           <img src={asset(video.poster)} alt="" loading={eager ? 'eager' : 'lazy'} />
           <span className="video-play"><Play /></span>
         </button>}
-    <figcaption>{video.title}</figcaption>
   </figure>;
 }
 
 // story-driven case pages: text, quotes and films interleaved with the
 // imagery, in the order the original whatevacreates.com page tells it.
 // consecutive images run through the same size-aware gallery layout.
+// live pages embedded in a case: a self-contained copy of the page sits in
+// public/<slug>/ and loads inside a browser-like frame. Copies are static
+// (no API, no LLM calls), so they keep working when the live sites change.
+function CaseEmbed({ item, tr }) {
+  const [open, setOpen] = useState(false);
+  return <figure className="case-embed" style={item.height ? { '--embed-h': item.height } : undefined}>
+    <div className="case-embed-frame">
+      <div className="case-embed-bar"><i /><i /><i /><span>{item.url}</span></div>
+      {open
+        ? <iframe src={asset(item.embed)} title={tr(item.caption, item.captionDe)} loading="lazy" />
+        : <button className="case-embed-poster" onClick={() => setOpen(true)} aria-label={tr('Open the interactive page', 'Interaktive Seite öffnen')}>
+            <img src={asset(item.poster)} alt="" loading="lazy" />
+            <span>{tr('Click to explore the page', 'Klicken, um die Seite zu erkunden')}</span>
+          </button>}
+    </div>
+    <figcaption>
+      <span>{tr(item.caption, item.captionDe)}</span>
+      {item.url && <a href={`https://${item.url}`} target="_blank" rel="noreferrer">{tr('Live page', 'Live-Seite')} <ArrowUpRight /></a>}
+    </figcaption>
+  </figure>;
+}
+
 function renderStory(story, title, tr) {
   const out = [];
   let run = [];
@@ -194,6 +214,7 @@ function renderStory(story, title, tr) {
     else if (item.quote) out.push(<blockquote className="case-quote" key={i}>{item.quote}</blockquote>);
     else if (item.heading) out.push(<h2 className="case-h2" key={i}>{tr(item.heading, item.headingDe)}</h2>);
     else if (item.video) out.push(<div className="case-videos" key={i}><div className="video-grid"><VideoEmbed video={item.video} eager /></div></div>);
+    else if (item.embed) out.push(<CaseEmbed item={item} tr={tr} key={i} />);
   });
   flush();
   return out;
@@ -206,7 +227,7 @@ function Project({ project, close }) {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       gsap.from('.case-title > *, .case-back', { y: 30, opacity: 0, duration: .8, stagger: .07, ease: 'power3.out' });
-      gsap.utils.toArray('.case-image, .case-video').forEach((item) => gsap.from(item, { y: 55, opacity: 0, duration: .9, scrollTrigger: { trigger: item, start: 'top 90%', once: true } }));
+      gsap.utils.toArray('.case-image, .case-video, .polaroid').forEach((item) => gsap.from(item, { y: 55, opacity: 0, duration: .9, scrollTrigger: { trigger: item, start: 'top 90%', once: true } }));
     }, root);
     return () => ctx.revert();
   }, [project.slug]);
@@ -214,10 +235,35 @@ function Project({ project, close }) {
   return <main className="case" ref={root}>
     <button className="case-back" onClick={close}><ArrowLeft /> {tr('All work', 'Alle Projekte')}</button>
     <section className="case-title">
-      <p>{project.client} · {tr(project.category, project.categoryDe)}</p>
-      <h1>{project.title}</h1>
+      {project.titleImage
+        ? <h1 className="case-logo"><img src={asset(project.titleImage)} alt={project.title} /></h1>
+        : <h1>{project.title}</h1>}
       <p className="case-description">{tr(project.description, project.descriptionDe)}</p>
     </section>
+    {project.clip && <figure className="case-clip">
+      <em className="clip-note">{tr('before rebranding', 'vor dem Rebranding')}</em>
+      <video src={asset(project.clip.src)} poster={asset(project.clip.poster)} autoPlay muted loop playsInline preload="metadata" />
+    </figure>}
+    {project.polaroids && <section className="case-offline">
+      <div className="case-polaroids">
+        {project.polaroids.map((p) => <figure className="polaroid" key={p.img}>
+          {p.print ? <div className="tee-mockup" role="img" aria-label={tr(p.caption, p.captionDe)}>
+            <div className="tee-mockup-person">
+              <img className="tee-mockup-model" src={asset(p.img)} alt="" loading="lazy" />
+              <img className="tee-mockup-print" src={asset(p.print)} alt="" loading="lazy" />
+            </div>
+          </div> : <img src={asset(p.img)} alt={tr(p.caption, p.captionDe)} loading="lazy" style={p.focus ? { objectPosition: p.focus } : undefined} />}
+          <figcaption>{tr(p.caption, p.captionDe)}</figcaption>
+        </figure>)}
+      </div>
+      <h2 className="co-heading">{tr('Offline · Learning Technologies London', 'Offline · Learning Technologies London')}</h2>
+      <p className="co-caption">{tr('Stand & tee — my concept and design, printed and produced with a London agency.',
+        'Stand & Shirt — mein Konzept und Design, gedruckt und produziert mit einer Londoner Agentur.')}</p>
+    </section>}
+    {project.award && <div className="case-award">
+      <em>{tr(project.award.text, project.award.textDe)}</em>
+      <img src={asset(project.award.badge)} alt="Product Hunt — #1 Product of the Day" />
+    </div>}
     {project.story ? <div className="case-story">{renderStory(project.story, project.title, tr)}</div> : <>
     {project.videos?.length > 0 && <section className="case-videos">
       <h2 className="case-videos-heading">{project.videos.length > 1 ? tr(`Films · ${project.videos.length}`, `Filme · ${project.videos.length}`) : 'Film'}</h2>
@@ -254,7 +300,7 @@ function Photography() {
   }, []);
   const tr = useT();
   return <main className="editorial-page" ref={root}>
-    <section className="page-title"><p>{tr('Personal archive · Observations', 'Persönliches Archiv · Beobachtungen')}</p><h1>{tr('Photography', 'Fotografie')}</h1><span>{tr('A selection of places, people and quiet in-between moments.', 'Eine Auswahl von Orten, Menschen und stillen Momenten dazwischen.')}</span></section>
+    <section className="page-title"><h1>{tr('Photography', 'Fotografie')}</h1></section>
     <div className="photo-grid">{data.photography.map((photo, i) => <figure key={photo} className={`photo photo-${i % 7}`}><img src={asset(photo)} alt={`Eva Przybyla photography ${i + 1}`} loading={i < 6 ? 'eager' : 'lazy'} /></figure>)}</div>
   </main>;
 }
@@ -311,11 +357,51 @@ function About() {
           'I bring the experience to set direction and the practical understanding to deliver it. I connect positioning, people, budgets and execution, taking responsibility for the decisions that shape the work and using results to decide what comes next.',
           'Ich bringe die Erfahrung mit, Richtung vorzugeben, und das praktische Verständnis, sie umzusetzen. Ich verbinde Positionierung, Menschen, Budgets und Umsetzung — übernehme Verantwortung für die Entscheidungen, die die Arbeit prägen, und nutze Ergebnisse, um zu entscheiden, was als Nächstes kommt.')}</p>
         <p><strong>{tr(
-          'Based in Switzerland. Open to marketing lead and senior marketing opportunities.',
+          'Based in Switzerland.',
           'Wohnhaft in der Schweiz.')}</strong></p>
       </div>
     </section>
-    <section className="contact">{tr(<p>Have a project, role or idea in mind?</p>, '')}<a href="mailto:whatevacreates@gmail.com">{tr('Let’s make something great', 'Lass uns etwas Großartiges machen')} <ArrowUpRight /></a><div><a href="tel:+41782154258">+41 78 215 42 58</a><a href="mailto:whatevacreates@gmail.com">whatevacreates@gmail.com</a></div></section>
+    <div className="case-polaroids about-polaroids">
+      {[
+        // pinned in four rows — 5 / 5 / 5 / 6
+        [
+          ['04', 'still slightly excited by mountains', 'Berge begeistern mich immer noch', 'rotate(-2.6deg) translateY(4px)'],
+          ['09', 'new pens', 'neue Stifte', 'rotate(1.4deg) translateY(-6px)'],
+          ['01', 'sliding into Feb', 'in den Februar gerutscht', 'rotate(3.1deg) translateY(8px)'],
+          ['12', 'shot while shooting', 'fotografiert beim Fotografieren', 'rotate(-1.8deg) translateY(-3px)'],
+          ['06', 'Aiguille du Midi, good morning', 'Aiguille du Midi, guten Morgen', 'rotate(2.2deg) translateY(-9px)'],
+        ],
+        [
+          ['13', '30 years of training', '30 Jahre Training', 'rotate(-3.4deg) translateY(5px)'],
+          ['08', 'morning meditation', 'Morgenmeditation', 'rotate(-0.9deg) translateY(12px)'],
+          ['02', 'hey, what is out there?', 'hey, was ist da draußen?', 'rotate(2.7deg) translateY(-4px)'],
+          ['10', 'art school days', 'Kunsthochschul-Zeiten', 'rotate(1.1deg) translateY(6px)'],
+          ['05', 'morning routine', 'Morgenroutine', 'rotate(-2.9deg) translateY(-7px)'],
+        ],
+        [
+          ['14', 'Chamonix mornings', 'Chamonix-Morgen', 'rotate(3.6deg) translateY(3px)'],
+          ['03', 'almost landed it', 'fast gestanden', 'rotate(-1.5deg) translateY(10px)'],
+          ['15', 'landed it this time', 'diesmal gestanden', 'rotate(-2.3deg) translateY(7px)'],
+          ['11', 'still painting', 'immer noch am Malen', 'rotate(-3.1deg) translateY(-5px)'],
+          ['07', 'back in my mountain paradise', 'zurück in meinem Bergparadies', 'rotate(2deg) translateY(-11px)'],
+        ],
+        [
+          ['17', 'board meeting', 'Board-Meeting', 'rotate(-2.1deg) translateY(6px)'],
+          ['19', 'is it a bird', 'ist es ein Vogel', 'rotate(2.8deg) translateY(-8px)'],
+          ['16', 'hello', 'hallo', 'rotate(-1.2deg) translateY(9px)'],
+          ['21', 'bowl for lunch', 'Bowl zum Lunch', 'rotate(3.2deg) translateY(-4px)'],
+          ['18', 'whatever it takes', 'koste es, was es wolle', 'rotate(-3deg) translateY(5px)'],
+          ['20', 'downhill days', 'Downhill-Tage', 'rotate(1.6deg) translateY(-10px)'],
+        ],
+      ].map((row, ri) => <React.Fragment key={ri}>
+        {ri > 0 && <span className="polaroid-break" aria-hidden="true" />}
+        {row.map(([n, caption, captionDe, tilt]) => <figure className="polaroid" key={n} style={{ transform: tilt }}>
+          <img src={asset(`/media/about-life-${n}.webp`)} alt={tr(caption, captionDe)} loading="lazy" />
+          <figcaption>{tr(caption, captionDe)}</figcaption>
+        </figure>)}
+      </React.Fragment>)}
+    </div>
+    <section className="contact"><a href="mailto:whatevacreates@gmail.com"><HoloMesh /><span className="contact-ink">{tr('Let’s make something that works.', 'Lass uns etwas machen, das funktioniert.')} <ArrowUpRight /></span></a><div><a href="tel:+41782154258">+41 78 215 42 58</a><a href="mailto:whatevacreates@gmail.com">whatevacreates@gmail.com</a></div></section>
   </main>;
 }
 
@@ -323,7 +409,7 @@ function About() {
 // with the site's slate ink on top
 function Footer() {
   const tr = useT();
-  return <footer><HoloMesh /><span>© {new Date().getFullYear()} Eva Przybyla</span><span>Design · Direction · Development</span><a href="mailto:whatevacreates@gmail.com">{tr('Start a conversation', 'Schreib mir')} ↗</a></footer>;
+  return <footer><HoloMesh /><span>© {new Date().getFullYear()} Eva Przybyla</span><span className="footer-claim">Ideas that sell. Brand strategy. Creative direction. Growth marketing. Design.</span><a href="mailto:whatevacreates@gmail.com">{tr('Let’s talk', 'Lass uns reden')} <ArrowUpRight /></a></footer>;
 }
 
 function App() {

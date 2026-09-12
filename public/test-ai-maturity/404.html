@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Deep-link restore. On GitHub Pages only the ROOT 404.html answers
+      // URLs with no real file behind it; it forwards the original path here
+      // as ?p= (URL-encoded). Restore it before the module script boots the
+      // router, so /r/<token> and /save/<token> links resolve. The leading-/
+      // guard keeps ?p= from ever navigating off-site.
+      (function () {
+        var p = new URLSearchParams(location.search).get('p');
+        if (p && p.charAt(0) === '/') history.replaceState(null, '', p);
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/test-ai-maturity/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Maturity Assessment · Scholé</title>
+    <meta
+      name="description"
+      content="Map your AI maturity in 3 minutes. 16 questions, a personal profile across eight dimensions, and how you compare with others in your role."
+    />
+
+    <!-- Social preview.
+         og:image must be an absolute URL that a crawler can fetch anonymously —
+         LinkedIn and Slack will not follow a relative path and will not log in.
+         og.png lives in public/ so it is served from the deploy origin. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scholé" />
+    <meta property="og:url" content="https://ai-maturity.schole.ai/" />
+    <meta property="og:title" content="How AI-mature are you?" />
+    <meta
+      property="og:description"
+      content="16 questions, 3 minutes. Get your AI maturity profile and see how you compare with others in your role."
+    />
+    <meta property="og:image" content="https://try.schole.ai/ai-maturity-test/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Scholé AI Maturity Assessment" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/test-ai-maturity/assets/index-aDMxG1va.js"></script>
+    <link rel="stylesheet" crossorigin href="/test-ai-maturity/assets/index-B-I_RAyh.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Reddit Pixel a2_iqd9peelj1q2. Base code reports the page view; the
+         conversions (Lead, AssessmentCompleted) are reported from src/ads.ts
+         at the moments they actually happen. -->
+    <script>
+      !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+      rdt('init','a2_iqd9peelj1q2');
+      rdt('track','PageVisit');
+    </script>
+
+    <!-- Google tag (gtag.js) — Google Ads AW-18397806598. Async; the config
+         call reports the page view once the library arrives. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18397806598"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18397806598');
+    </script>
+
+    <script type="text/javascript">
+      _linkedin_partner_id = "9885916";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      // Second ad account (added 2026-08-29): the tag reports to every id in this list.
+      window._linkedin_data_partner_ids.push("9921588");
+    </script>
+    <script type="text/javascript">
+      (function(l) {
+      if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+      window.lintrk.q=[]}
+      var s = document.getElementsByTagName("script")[0];
+      var b = document.createElement("script");
+      b.type = "text/javascript";b.async = true;
+      b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+      s.parentNode.insertBefore(b, s);})(window.lintrk);
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9885916&fmt=gif" />
+      <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9921588&fmt=gif" />
+    </noscript>
+  </body>
+</html>

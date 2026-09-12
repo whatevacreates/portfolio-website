@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en" data-ink="dark">
+<head>
+    <script src="./offline.js"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scholé | The AI-native LMS</title>
+<meta name="description" content="Corporate learning that your team will actually want to do, retain, and use." />
+<link rel="icon" href="assets/img/favicon-white.png" />
+<link rel="stylesheet" href="assets/brand.css?v=20260828.1" />
+<link rel="stylesheet" href="deck.css?v=20260828.1" />
+<script>
+  /* Claimed before first paint so the cover never flashes its finished state.
+     intro.js removes both classes, even if GSAP fails. */
+  document.documentElement.classList.add('intro', 'locked');
+  setTimeout(function () { document.documentElement.classList.remove('intro', 'locked'); }, 6000);
+</script>
+</head>
+<body>
+
+<!-- crossfading background stack -->
+<!-- one ground for the whole deck: no crossfade, so no seam anywhere -->
+<div class="bg" aria-hidden="true">
+  <i class="bg-mist on" data-bg="mist"></i>
+</div>
+
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="dots" aria-label="Sections">
+  <a href="#s1" aria-label="Cover"></a>
+  <a href="#s2" aria-label="The problem"></a>
+  <a href="#s3" aria-label="Scholé results"></a>
+  <a href="#s3b" aria-label="Modalities"></a>
+  <a href="#s4" aria-label="Learning science"></a>
+  <a href="#s5" aria-label="The platform"></a>
+  <a href="#s6" aria-label="Enterprise"></a>
+  <a href="#s7" aria-label="Outcomes"></a>
+  <a href="#s8" aria-label="The close"></a>
+</nav>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-spark" viewBox="0 0 24 24">
+    <path d="M12 1.6c.7 5 4.8 9.1 9.8 9.8v1.2c-5 .7-9.1 4.8-9.8 9.8h-1.2c-.7-5-4.8-9.1-9.8-9.8v-1.2c5-.7 9.1-4.8 9.8-9.8z"/>
+  </symbol>
+  <!-- the star from the logo itself, the topmost of its three shapes -->
+  <symbol id="i-star" viewBox="76 0 108 116">
+    <path d="M178.68,51.35s-.04,0-.06,0c-15.01,0-27.74-20.58-28.28-45.3.01-.59.02-1.18.02-1.78,0-2.16-1.61-3.93-3.74-4.23-2.15-.3-4.19,1.07-4.79,3.15-.11.39-.17.8-.17,1.21,0,.55,0,1.1.01,1.64-.58,24.67-13.3,45.18-28.28,45.18-.13,0-.25.05-.38.06h-12.29c-2.4,0-4.34,1.94-4.34,4.34s1.94,4.34,4.34,4.34h13.79c14.85,1,27.19,22.07,27.19,47.01,0,2.4,1.94,4.34,4.34,4.34s4.34-1.94,4.34-4.34c0-25.45,12.96-46.95,28.3-46.95,2.4,0,4.34-1.94,4.34-4.34s-1.94-4.34-4.34-4.34Z"/>
+  </symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <rect x="4.3" y="10.4" width="15.4" height="10.3" rx="2.7"/>
+    <path d="M8.1 10.4V7.6a3.9 3.9 0 0 1 7.8 0v2.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-blocks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <rect x="3.2" y="3.2" width="7.4" height="7.4" rx="2"/>
+    <rect x="13.4" y="3.2" width="7.4" height="7.4" rx="2"/>
+    <rect x="3.2" y="13.4" width="7.4" height="7.4" rx="2"/>
+    <path d="M17.1 13.9v6.6M13.8 17.2h6.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+    <path d="M3.6 20.4h16.8"/><path d="M7 20.4v-6.2M12 20.4V6.1M17 20.4v-9.3"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round">
+    <path d="M12 2.6l7.4 3v6.2c0 4.6-3.1 8.3-7.4 9.6-4.3-1.3-7.4-5-7.4-9.6V5.6z"/>
+    <path d="M8.7 12.1l2.4 2.4 4.2-4.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h13M12 5.5l6.5 6.5-6.5 6.5"/>
+  </symbol>
+  <symbol id="i-squiggle" viewBox="0 0 260 34" fill="none" stroke="currentColor"
+          stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 22C34 7 64 7 94 22s60 14 90 0 44-15 72-1" />
+  </symbol>
+  <!-- the wobble that makes a stroke read as crayon rather than as a vector -->
+  <filter id="crayon" x="-12%" y="-40%" width="124%" height="180%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035 0.09" numOctaves="3" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4.6"
+                       xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</defs></svg>
+
+
+<!-- ===================== 1 · cover ===================== -->
+<section class="sec cover" id="s1" data-sec data-bg="mist" data-ink="dark" data-step="120">
+  <div class="cover-meta">
+    <span>San Francisco</span>
+    <span>Lausanne, Switzerland</span>
+  </div>
+
+  <div class="wrap cover-mid">
+    <div class="crash">
+      <div class="crash-old" aria-hidden="true"><span>L</span><span>M</span><span>S</span></div>
+      <span class="display crash-ghost" aria-hidden="true">The AI-native LMS</span>
+      <span class="display crash-ghost" aria-hidden="true">The AI-native LMS</span>
+      <h1 class="display crash-new">The AI-native LMS</h1>
+    </div>
+    <p class="lede cover-sub" data-words>Role-specific training that your team will want to use.</p>
+  </div>
+
+  <div class="cover-by">
+    <span>Vinitra Swamy</span>
+    <span>Paola Mejia</span>
+  </div>
+
+  <img class="cover-logo" src="assets/img/logo-lockup-original.svg" alt="Scholé AI" />
+
+  <div class="cue" aria-hidden="true">
+    <svg class="cue-mouse" viewBox="0 0 34 80" fill="none" stroke="currentColor"
+         stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <rect class="cue-body" x="1.2" y="1.2" width="31.6" height="47.6" rx="15.8" />
+      <rect class="cue-wheel" x="13.8" y="10.5" width="6.4" height="14" rx="3.2" />
+      <path class="cue-chev" d="M3.5 55.5 17 68 30.5 55.5" />
+      <path class="cue-chev" d="M3.5 64.5 17 77 30.5 64.5" />
+    </svg>
+  </div>
+</section>
+
+
+<!-- ===================== 2 · the problem ===================== -->
+<section class="sec problem" id="s2" data-sec data-bg="mist" data-ink="dark" data-step="120">
+  <div class="wrap problem-grid">
+    <figure class="thinker" data-reveal="scale" data-parallax="26">
+      <img src="assets/img/thinker-clean-v4.webp" width="4000" height="4816" alt="Auguste Rodin, The Thinker" />
+    </figure>
+
+    <div class="problem-stats">
+      <p class="stat-tag" data-reveal>Corporate training today:</p>
+      <div data-reveal>
+        <p class="num stat-big"><span data-count="30" data-from="99" data-suf="%" data-dur="1200">99%</span></p>
+        <p class="lede">of people pay attention to corporate training.</p>
+      </div>
+      <div data-reveal>
+        <p class="num stat-big"><span data-count="10" data-pre="&lt;" data-suf="%" data-dur="1100">&lt;0%</span></p>
+        <p class="lede">finish a typical MOOC course.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 3 · built to teach ===================== -->
+<section class="sec teach" id="s3" data-sec data-bg="mist" data-ink="dark" data-step="140">
+  <!-- The stats stand on white. The edge dissolves the page into it at the top
+       and, mirrored, back out of it at the foot — full bleed, so the frame is
+       the width of the screen and not of the column. -->
+  <img class="stat-edge stat-edge-top" src="assets/img/stat-edge.svg" alt="" aria-hidden="true" />
+  <img class="stat-edge stat-edge-foot" src="assets/img/stat-edge.svg" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <h2 class="display teach-title" data-reveal>Learning on Scholé<br />is different.</h2>
+    <div class="teach-stats-grid">
+      <div class="problem-stats teach-stats">
+        <p class="stat-tag stat-tag-schole" data-reveal>Training on Scholé:</p>
+        <div data-reveal>
+          <p class="num stat-big"><span data-count="98" data-suf="%" data-dur="1200">0%</span></p>
+          <p class="lede">of Scholé learners actively engage with their training.</p>
+        </div>
+        <div data-reveal>
+          <p class="num stat-big"><span data-count="79" data-suf="%" data-dur="1200">0%</span></p>
+          <p class="lede">of people finish Scholé lessons.</p>
+        </div>
+      </div>
+
+      <!-- Pharos, rolled out of the ceiling: the handle draws down first, he
+           arrives on the end of it, then throws his ray onto the stats. The
+           beam is the one from his character sheet. Driven by pharos.js off
+           the scroll. -->
+      <figure class="pharos" aria-hidden="true">
+        <span class="pharos-cord"></span>
+        <svg class="pharos-ray" viewBox="0 0 600 240" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="pharos-ray-grad" x1="600" y1="120" x2="0" y2="120" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#fff" stop-opacity="0" />
+              <stop offset=".65" stop-color="#bffaff" stop-opacity=".6" />
+              <stop offset=".98" stop-color="#d1d1d1" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#pharos-ray-grad)" opacity=".7" d="M600 97 L0 0 L0 240 L600 143 Z" />
+        </svg>
+        <span class="pharos-head">
+          <!-- The muted head, vectors from deck-work/pharros long.svg cropped
+               to the lamp (its viewBox is the head's measured bbox there, plus
+               air). The moon pupil is the file's own, wrapped so the glance
+               can turn it inside the eye. -->
+          <svg viewBox="-40 5876 623 442" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="pharos-eye-clip"><circle cx="343.94" cy="6096.97" r="117.79" /></clipPath>
+            </defs>
+            <rect fill="#75bac3" x="201.64" y="5876" width="85.66" height="64.45"/>
+            <path fill="#75bac3" transform="translate(-879.71 103.55) rotate(-8.32)" d="M255.95,5919.16h31.49c148.64,0,269.32,120.68,269.32,269.32h0c0,47.63-38.67,86.3-86.3,86.3H72.92c-47.63,0-86.3-38.67-86.3-86.3h0c0-148.64,120.68-269.32,269.32-269.32Z"/>
+            <path fill="#9ae0eb" transform="translate(-879.71 103.55) rotate(-8.32)" d="M234.68,5957.42h74.03c116.66,0,211.37,94.71,211.37,211.37h0c0,37.38-30.35,67.73-67.73,67.73H91.04c-37.38,0-67.73-30.35-67.73-67.73h0c0-116.66,94.71-211.37,211.37-211.37Z"/>
+            <!-- the eye sits on his left cheek — he stands at the right edge
+                 and looks back across the page at the stats -->
+            <g transform="translate(-145 0)">
+            <g class="pharos-lid">
+              <circle fill="#fff" cx="343.94" cy="6096.97" r="117.79"/>
+              <g clip-path="url(#pharos-eye-clip)">
+                <g class="pharos-pupil">
+                  <path fill="#636363" d="M416.22,6062.71c-23.62,0-42.78-19.15-42.78-42.78,0-.02,0-.04,0-.06,0-3.07-2.87-5.41-5.79-4.44-22.83,7.55-39.37,28.93-39.66,54.22-.35,30.64,24.08,56.8,54.69,58.41,33.35,1.75,60.94-24.77,60.94-57.73,0-3.18-.27-6.3-.78-9.34-.51-3.05-3.79-4.79-6.52-3.33-5.99,3.22-12.83,5.06-20.11,5.06Z"/>
+                </g>
+              </g>
+            </g>
+            </g>
+            <circle fill="#bffaff" cx="430.8" cy="6231.58" r="12.26"/>
+            <circle fill="#bffaff" cx="470.21" cy="6225.81" r="12.26"/>
+          </svg>
+        </span>
+      </figure>
+    </div>
+
+    <div class="teach-head">
+      <div class="ole-walk" aria-hidden="true">
+        <span class="ole-shadow"></span>
+        <svg class="ole-rig" id="t-ole-svg" viewBox="-10 -18 356 752"
+         xmlns="http://www.w3.org/2000/svg" overflow="visible">
+      <defs>
+        <clipPath id="t-clip-eye-l">
+          <path d="M61.16,475.56h101.73v69.47c0,17.81-14.46,32.26-32.26,32.26h-37.21c-17.81,0-32.26-14.46-32.26-32.26v-69.47h0Z"/>
+        </clipPath>
+        <clipPath id="t-clip-eye-r">
+          <path d="M189.22,475.56h101.73v69.47c0,17.81-14.46,32.26-32.26,32.26h-37.21c-17.81,0-32.26-14.46-32.26-32.26v-69.47h0Z"/>
+        </clipPath>
+        <path id="t-pupil-shape-l" fill="#7a613d" d="M128.63,536.17c-9.46-4.51-16.13-13.77-16.58-24.25,0-.06,0-.12,0-.19-.08-2.18-1.78-3.95-3.97-3.95h-12.35c-10.32,0-18.69,8.37-18.69,18.69v19.43c0,10.32,8.37,18.69,18.69,18.69h32.6c10.32,0,18.69-8.37,18.69-18.69v-3.21c0-2.35-2.02-4.16-4.35-3.94-4.39.41-9.08-.23-14.03-2.59h0Z"/>
+        <path id="t-pupil-shape-r" fill="#7a613d" d="M256.62,536.17c-9.46-4.51-16.13-13.77-16.58-24.25,0-.06,0-.12,0-.19-.08-2.18-1.78-3.95-3.97-3.95h-12.35c-10.32,0-18.69,8.37-18.69,18.69v19.43c0,10.32,8.37,18.69,18.69,18.69h32.6c10.32,0,18.69-8.37,18.69-18.69v-3.21c0-2.35-2.02-4.16-4.35-3.94-4.39.41-9.08-.23-14.03-2.59h0Z"/>
+      </defs>
+
+      <path class="o-bulb" d="M334.9,150.88C325.14,55.07,236.63-13.68,140.13,2.31,55.11,16.4-6.14,94.78.49,180.71c3.75,48.67,27.79,90.66,63.01,118.63,22.89,18.17,37.03,45.16,39.99,74.23l.29,2.85,168.94-17.21-.29-2.82c-3.04-29.87,6.71-59.29,25.67-82.57,27.08-33.28,41.49-76.86,36.8-122.92h0Z"/>
+      <ellipse id="t-bulb-shine-soft" fill="white" fill-opacity="0.30" cx="82" cy="60" rx="52" ry="33" transform="rotate(-25 82 60)"/>
+
+      <rect fill="#d39448" x="106.65" y="367.63" width="169.81" height="64.74" transform="translate(-39.57 21.49) rotate(-5.82)"/>
+      <rect fill="#d39448" x="107.49" y="643.83" width="127.37" height="49.44" transform="translate(-90.49 29.96) rotate(-7.92)"/>
+      <g id="t-foot-left">
+        <rect fill="#d39448" x="131.48" y="699.11" width="23.96" height="23.96" transform="translate(-574.16 817.13) rotate(-87)"/>
+      </g>
+      <g id="t-foot-right">
+        <rect fill="#d39448" x="198.25" y="691.46" width="23.96" height="23.96" transform="translate(-298.57 174.15) rotate(-27.23)"/>
+      </g>
+
+      <path fill="#d39448" d="M52.59,438.99h245.42c15.55,0,28.17,12.62,28.17,28.17v168.37H24.42v-168.37c0-15.55,12.62-28.17,28.17-28.17h0Z"/>
+      <path fill="#f4b373" d="M66.69,455.64h217.21c13.48,0,24.43,10.62,24.43,23.7v138.95H42.26v-138.95c0-13.08,10.95-23.7,24.43-23.7h0Z"/>
+
+      <path fill="#fff" d="M61.16,475.56h101.73v69.47c0,17.81-14.46,32.26-32.26,32.26h-37.21c-17.81,0-32.26-14.46-32.26-32.26v-69.47h0Z"/>
+      <path fill="#fff" d="M189.22,475.56h101.73v69.47c0,17.81-14.46,32.26-32.26,32.26h-37.21c-17.81,0-32.26-14.46-32.26-32.26v-69.47h0Z"/>
+
+      <g clip-path="url(#t-clip-eye-l)">
+        <use class="o-pupil" id="t-use-pupil-left" href="#t-pupil-shape-l" x="0" y="0"/>
+      </g>
+      <g clip-path="url(#t-clip-eye-r)">
+        <use class="o-pupil" id="t-use-pupil-right" href="#t-pupil-shape-r" x="0" y="0"/>
+      </g>
+
+      <path class="o-brow-l" id="t-brow-left" d="M103.4,462.78c.03,5.86-3.91,10.95-9.55,12.51-4.48,1.24-8.7,3.33-12.5,6.22-4.33,3.29-7.85,7.48-10.35,12.23-2.71,5.15-8.45,7.93-14.13,6.66l-.28-.06c-8.12-1.82-12.37-10.83-8.55-18.22,4.24-8.2,10.29-15.43,17.73-21.1,6.47-4.92,13.67-8.48,21.32-10.58,8.18-2.24,16.27,3.85,16.31,12.33h0Z"/>
+      <path class="o-brow-r" id="t-brow-right" d="M290.07,471.02c-4.47,3.78-10.91,4.02-15.72.69-3.82-2.65-8.14-4.55-12.79-5.61-5.3-1.22-10.78-1.23-16.02-.1-5.69,1.22-11.51-1.4-14.17-6.58l-.13-.26c-3.8-7.4.38-16.44,8.5-18.24,9.02-2,18.44-1.99,27.56.09,7.92,1.81,15.27,5.06,21.78,9.59,6.96,4.84,7.47,14.96.99,20.43h0Z"/>
+    </svg>
+      </div>
+      <h2 class="h1 plated">
+      <span class="plate">Why are Scholé's stats so different?</span>
+    </h2>
+
+    <ul class="claims">
+      <li data-reveal>
+        <svg class="spark claim-star" aria-hidden="true"><use href="#i-star" /></svg>
+        <div>
+          <p class="claim-head">96% of learning on Scholé is active, not passive.</p>
+          <p class="claim-sub">Content gets skimmed. Practice gets done. Ours can't be skimmed.
+            every task takes about 27 seconds and requires an answer.</p>
+        </div>
+      </li>
+      <li data-reveal>
+        <svg class="spark claim-star" aria-hidden="true"><use href="#i-star" /></svg>
+        <div>
+          <p class="claim-head">~50% first-try accuracy keeps learners near their Zone of Proximal Development.</p>
+          <p class="claim-sub">Challenging enough to stretch each learner, with enough support to keep progress moving.</p>
+        </div>
+      </li>
+      <li data-reveal>
+        <svg class="spark claim-star" aria-hidden="true"><use href="#i-star" /></svg>
+        <div>
+          <p class="claim-head">One in five tasks is completed on a weekend.</p>
+          <p class="claim-sub">Nobody does compliance training on a Saturday. Unless they actually
+            enjoy it.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ===================== 3b · the modalities ===================== -->
+<!-- The proof behind the white section's claims, on the centre axis: the
+     headline carries the count, the lesson film plays straight under it
+     (Scene B of the Harvard Way film — markup built by assets/exercises.js,
+     lesson.js is the film's camera; a hairline frame, no fill), and the
+     format cards follow. -->
+<section class="sec mods-sec" id="s3b" data-sec data-bg="mist" data-ink="dark" data-step="120">
+  <div class="wrap">
+    <h2 class="h1 mods-head" data-reveal>With 20+ modalities,<br />learning on Scholé never gets boring.</h2>
+    <div class="mods">
+        <figure class="mod" data-reveal>
+          <img src="assets/img/modalities/interactive-exercises.jpg" alt="A drag-and-drop checkpoint exercise" />
+          <figcaption>Interactive exercises.</figcaption>
+        </figure>
+        <figure class="mod" data-reveal>
+          <img src="assets/img/modalities/voice-scenarios.jpg" alt="A live voice role-play with a customer" />
+          <figcaption>Voice scenarios.</figcaption>
+        </figure>
+        <figure class="mod" data-reveal>
+          <img src="assets/img/modalities/podcast-mode.jpg" alt="A lesson playing as a podcast" />
+          <figcaption>Podcast mode.</figcaption>
+        </figure>
+        <figure class="mod" data-reveal>
+          <img src="assets/img/modalities/analogies.jpg" alt="An analogy with fill-in-the-blanks" />
+          <figcaption>Analogies and fill-in-the-blanks.</figcaption>
+        </figure>
+        <figure class="mod" data-reveal>
+          <img src="assets/img/modalities/quizzes.jpg" alt="A quiz answered, with instant feedback" />
+          <figcaption>Quizzes with instant feedback.</figcaption>
+        </figure>
+        <figure class="mod" data-reveal>
+          <img src="assets/img/modalities/generated-video.jpg" alt="A generated explainer video in a lesson" />
+          <figcaption>Generated video.</figcaption>
+        </figure>
+      </div>
+  </div>
+</section>
+
+
+<!-- ===================== 4 · learning science ===================== -->
+<section class="sec science" id="s4" data-sec data-bg="mist" data-ink="dark" data-step="120">
+  <div class="wrap science-grid">
+    <div>
+      <h2 class="h1" data-reveal>Training is built to be completed and retained, not just scanned.</h2>
+      <p class="lede science-body" data-reveal>
+        Scholé is designed by learning engineers, so the knowledge sticks. The method comes
+        straight out of learning science: your people pay attention, get challenged, retain
+        what they learn and use it in the actual work.
+      </p>
+    </div>
+    <figure class="science-mark">
+      <div class="xp-stage">
+        <div class="xp-orb-wrap" aria-hidden="true">
+          <div class="xp-orb">
+            <div class="xp-liquid">
+              <svg class="xp-wave xp-wave-back" viewBox="0 0 720 64" preserveAspectRatio="none">
+                <path d="M0 30C60 2 120 58 180 30S300 2 360 30 480 58 540 30 660 2 720 30V64H0Z" />
+              </svg>
+              <svg class="xp-wave xp-wave-front" viewBox="0 0 720 64" preserveAspectRatio="none">
+                <path d="M0 34C60 62 120 6 180 34S300 62 360 34 480 6 540 34 660 62 720 34V64H0Z" />
+              </svg>
+            </div>
+            <div class="xp-orb-stars">
+              <svg class="xp-orb-star s1" viewBox="76 0 108 116"><use href="#i-star" /></svg>
+              <svg class="xp-orb-star s2" viewBox="76 0 108 116"><use href="#i-star" /></svg>
+              <svg class="xp-orb-star s3" viewBox="76 0 108 116"><use href="#i-star" /></svg>
+              <svg class="xp-orb-star s4" viewBox="76 0 108 116"><use href="#i-star" /></svg>
+              <svg class="xp-orb-star s5" viewBox="76 0 108 116"><use href="#i-star" /></svg>
+              <svg class="xp-orb-star s6" viewBox="76 0 108 116"><use href="#i-star" /></svg>
+            </div>
+            <div class="xp-orb-count"><span class="xp-orb-number">0</span><small>XP</small></div>
+          </div>
+        </div>
+        <p class="xp-note">XP fills with every completed task.</p>
+      </div>
+    </figure>
+  </div>
+
+  <!-- the lesson film, the method shown running: Scene B of the Harvard Way
+       film (markup built by assets/exercises.js; lesson.js is the camera),
+       in a border-only frame under its own naming line -->
+  <div class="wrap">
+    <p class="lesson-intro" data-reveal>First use case? Get your teams to understand AI with Scholé.</p>
+    <figure class="lesson-embed" data-reveal="scale">
+      <div class="lesson-stage" aria-hidden="true">
+        <div class="lesson-world"></div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+
+<!-- ===================== 5 · the platform ===================== -->
+<section class="sec platform" id="s5" data-sec data-bg="mist" data-ink="dark" data-step="110">
+  <div class="wrap">
+    <h2 class="h1 platform-head" data-reveal>
+      Everything an LMS does,<br />plus a platform that <span class="ul">teaches<svg class="squiggle" aria-hidden="true"><use href="#i-squiggle" /></svg></span>.
+    </h2>
+
+    <ol class="points">
+      <li class="point" data-row>
+        <figure class="point-art" data-reveal="scale" style="--d:340ms"><div class="hostgrid"></div></figure>
+        <div class="point-copy">
+          <p class="point-text" data-words style="--d:0ms">Host any content: your courses, Scholé's catalog, or both.</p>
+        </div>
+      </li>
+      <li class="point" data-row>
+        <figure class="point-art" data-reveal="scale" style="--d:340ms"><div class="branches"></div></figure>
+        <div class="point-copy">
+          <p class="point-text" data-words style="--d:0ms">Adaptive delivery that meets each learner where they are.</p>
+        </div>
+      </li>
+      <li class="point" data-row>
+        <figure class="point-art olechat-fig" data-reveal="scale" style="--d:340ms"><div class="olechat"></div></figure>
+        <div class="point-copy">
+          <p class="point-text" data-words style="--d:0ms">Olé, the AI coach, available inside every course.</p>
+        </div>
+      </li>
+      <li class="point" data-row>
+        <figure class="point-art" data-reveal="scale" style="--d:340ms"><img src="assets/img/marks/05c-not-seat-time.png" alt="Seat time struck through, skills proven instead" /></figure>
+        <div class="point-copy">
+          <p class="point-text" data-words style="--d:0ms">Skills and hours saved, tracked, not just seat time.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ===================== 6 · enterprise ===================== -->
+<section class="sec ent" id="s6" data-sec data-bg="mist" data-ink="dark" data-step="110">
+  <div class="wrap">
+    <h2 class="h1 ent-head" data-reveal>
+      Enterprise ready,<br />without the enterprise <span class="ul">project<svg class="squiggle" aria-hidden="true"><use href="#i-squiggle" /></svg></span>.
+    </h2>
+
+    <ol class="points ent-points">
+      <li class="point" data-row>
+        <figure class="point-art" data-reveal="scale">
+          <div class="ent-visual ent-sso" aria-hidden="true">
+            <div class="ent-sso-pill">
+              <svg class="ent-lock" aria-hidden="true"><use href="#i-lock" /></svg>
+              <strong>SAML 2.0</strong>
+              <svg class="ent-tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m6.2 12.4 3.7 3.7 7.9-8.2" /></svg>
+            </div>
+          </div>
+        </figure>
+        <div class="point-copy">
+          <p class="point-text" data-words>SSO with SAML and SCIM provisioning. Your directory stays the source of truth.</p>
+        </div>
+      </li>
+      <li class="point" data-row>
+        <figure class="point-art" data-reveal="scale">
+          <div class="ent-visual ent-standards" aria-hidden="true">
+            <span>SCORM</span><span>xAPI</span><span>API</span>
+          </div>
+        </figure>
+        <div class="point-copy">
+          <p class="point-text" data-words>SCORM, xAPI and an API, so it drops into your existing stack.</p>
+        </div>
+      </li>
+      <li class="point" data-row>
+        <figure class="point-art" data-reveal="scale">
+          <div class="ent-visual ent-growth" aria-hidden="true">
+            <div class="ent-bars">
+              <i style="--bar-h:32%;--bar-i:0"></i><i style="--bar-h:45%;--bar-i:1"></i>
+              <i style="--bar-h:59%;--bar-i:2"></i><i style="--bar-h:74%;--bar-i:3"></i>
+              <i style="--bar-h:92%;--bar-i:4"></i>
+            </div>
+          </div>
+        </figure>
+        <div class="point-copy">
+          <p class="point-text" data-words>Dashboards for learners, managers and L&amp;D leaders.</p>
+        </div>
+      </li>
+      <li class="point" data-row>
+        <figure class="point-art" data-reveal="scale">
+          <div class="ent-visual ent-checks" aria-hidden="true">
+            <span><svg viewBox="0 0 24 24"><path d="m5.7 12.4 4 4 8.6-8.8" /></svg>Security review</span>
+            <span><svg viewBox="0 0 24 24"><path d="m5.7 12.4 4 4 8.6-8.8" /></svg>Signed DPA</span>
+            <span><svg viewBox="0 0 24 24"><path d="m5.7 12.4 4 4 8.6-8.8" /></svg>Documented data flow</span>
+          </div>
+        </figure>
+        <div class="point-copy">
+          <p class="point-text" data-words>Security review support, a signed DPA, a documented data flow.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ===================== 7 · outcomes ===================== -->
+<section class="sec payoff" id="s7" data-sec data-bg="mist" data-ink="dark" data-step="150">
+  <div class="wrap payoff-wrap">
+    <h2 class="h1" data-reveal>One platform.<br />From content to competence.</h2>
+    <p class="lede" data-reveal>
+      Scholé closes the gap between hosting training and proving it worked. Built on EPFL
+      research, measured on outcomes, and ready for the controls enterprise buyers ask for.
+    </p>
+    <a class="cta book-cta" href="https://schole.ai" data-reveal>
+      Book a meeting with us
+      <span class="cta-dot"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+    </a>
+
+    <div class="proof">
+      <p class="proof-cap" data-reveal>Loved by learners at</p>
+      <div class="proof-logos" data-reveal>
+        <div class="proof-track">
+          <div class="proof-set">
+            <img src="assets/img/logos/apple.webp" alt="Apple" />
+        <img src="assets/img/logos/microsoft.webp" alt="Microsoft" />
+        <img src="assets/img/logos/oracle.webp" alt="Oracle" />
+        <img src="assets/img/logos/walmart.webp" alt="Walmart" />
+        <img src="assets/img/logos/visa.webp" alt="Visa" />
+        <img src="assets/img/logos/bank-of-america.webp" alt="Bank of America" />
+        <img src="assets/img/logos/cvs.webp" alt="CVS" />
+        <img src="assets/img/logos/nasa.webp" alt="NASA" />
+        <img src="assets/img/logos/nvidia.webp" alt="NVIDIA" />
+          </div>
+          <div class="proof-set" aria-hidden="true">
+            <img src="assets/img/logos/apple.webp" alt="Apple" />
+        <img src="assets/img/logos/microsoft.webp" alt="Microsoft" />
+        <img src="assets/img/logos/oracle.webp" alt="Oracle" />
+        <img src="assets/img/logos/walmart.webp" alt="Walmart" />
+        <img src="assets/img/logos/visa.webp" alt="Visa" />
+        <img src="assets/img/logos/bank-of-america.webp" alt="Bank of America" />
+        <img src="assets/img/logos/cvs.webp" alt="CVS" />
+        <img src="assets/img/logos/nasa.webp" alt="NASA" />
+        <img src="assets/img/logos/nvidia.webp" alt="NVIDIA" />
+          </div>
+        </div>
+      </div>
+      <p class="proof-note" data-reveal>We're co-teaching Harvard's AI Intensives, built with researchers from Berkeley and EPFL.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="star-bridge" aria-hidden="true">
+  <div class="star-field"></div>
+</div>
+
+<!-- ===================== 8 · the close ===================== -->
+<footer class="foot" id="s8" data-sec data-bg="mist" data-ink="light">
+  <div class="foot-inner">
+    <h2 class="h1" data-reveal="blur">Find your path <em class="mark">forward</em>.</h2>
+    <p class="lede foot-line" data-words>A more engaging way to upskill your team.</p>
+    <p class="lede foot-line" data-words>Built on learning science research.</p>
+  </div>
+
+  <div class="foot-mark" aria-label="Scholé AI" role="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1096.45 214.02" role="img" aria-label="Scholé"><path d="M227.32,206.26l-7.76-16.79c-5.67-12.38-7.55-14.48-7.55-17.84,0-2.31,1.89-3.99,3.78-3.99,2.52,0,5.67,3.36,7.14,4.83,16.57,17.84,35.25,30.43,59.8,30.43s36.72-11.33,36.72-28.96c0-20.77-17.63-27.28-45.32-35.67-27.49-8.18-56.23-16.16-56.23-44.69,0-18.67,16.58-34.2,40.92-34.2,17.21,0,26.44,5.25,31.06,5.25,5.04,0,4.41-5.88,9.02-5.88,2.94,0,5.24,3.78,9.02,10.07l5.87,9.86c6.72,11.33,7.97,14.9,7.97,17,0,1.68-1.47,3.36-3.36,3.36-2.31,0-4.62-2.31-7.13-4.83-16.16-16.58-32.1-24.34-51.41-24.34-15.74,0-26.44,8.39-26.44,21.4,0,17,17,22.24,45.53,31.06,28.12,8.6,56.45,18.05,56.45,49.94,0,25.39-20.77,41.13-50.99,41.13-21.4,0-34.83-6.71-39.66-6.71s-5.87,7.34-10.28,7.34c-2.94,0-4.83-2.73-7.13-7.76Z"/><path d="M348.81,160.52c0-33.15,22.45-56.23,50.99-56.23,19.93,0,36.93,11.96,36.93,19.72,0,3.78-1.68,9.86-7.13,17.84-1.68,2.31-2.94,3.78-5.04,3.78-2.31,0-3.57-1.89-4.2-5.88-2.94-15.95-8.6-25.81-24.13-25.81-18.05,0-31.47,16.79-31.47,41.97s16.79,46.16,38.82,46.16c10.49,0,20.14-4.41,27.28-14.06,1.68-2.31,3.15-3.36,4.83-3.36,2.1,0,3.78,1.47,3.78,4.41,0,1.68-.84,3.57-1.89,5.46-6.5,10.91-22.87,19.51-39.66,19.51-26.02,0-49.1-18.67-49.1-53.51Z"/><path d="M566.18,207.52c0,2.52-2.31,3.57-5.04,3.57-5.67,0-9.86-.63-17.42-.63-7.97,0-11.33.63-17.21.63-3.15,0-5.25-1.47-5.25-3.99,0-7.34,14.69-1.68,14.69-15.32,0-1.26-.21-3.36-.42-5.04l-5.46-38.19c-1.47-9.65-5.04-29.59-23.08-29.59-13.64,0-28.33,11.12-28.33,32.73v37.14c0,17.42,13.85,10.91,13.85,18.47,0,1.68-1.26,3.78-3.78,3.78-4.41,0-10.91-.63-17.42-.63s-12.38.63-16.79.63c-2.94,0-4.2-2.1-4.2-3.78,0-7.55,13.64-1.05,13.64-18.47v-108.06c0-12.8-15.32-5.25-15.32-13.01,0-2.94,3.15-5.25,12.8-10.07,9.65-4.83,11.75-5.46,14.06-5.46s3.15,2.1,3.15,4.2v69.45c6.92-10.91,17.42-20.14,33.15-20.14,26.44,0,31.05,26.44,33.15,41.76l5.46,39.24c2.73,20.14,15.74,12.59,15.74,20.77Z"/><path d="M572.5,159.68c0-31.89,23.5-55.39,54.77-55.39s52.88,22.03,52.88,54.56-23.5,55.19-54.77,55.19-52.88-22.03-52.88-54.35ZM664.41,165.97c0-28.12-17.21-51.83-41.13-51.83-21.4,0-35.04,17.21-35.04,38.4,0,27.91,17.21,51.62,41.13,51.62,21.4,0,35.04-17.21,35.04-38.19Z"/><path d="M692.55,207.31c0-7.55,13.64-1.05,13.64-18.47v-108.06c0-12.8-15.32-5.25-15.32-13.01,0-2.94,3.15-5.25,12.8-10.07,9.65-4.83,11.75-5.46,13.43-5.46,2.73,0,3.78,2.31,3.78,6.51v130.09c0,17.42,13.85,10.91,13.85,18.47,0,1.68-1.26,3.78-3.78,3.78-4.41,0-10.91-.63-17.42-.63s-12.38.63-16.79.63c-2.94,0-4.2-2.1-4.2-3.78Z"/><path d="M843.42,189.68c0,1.26-.63,2.94-2.1,5.04-7.97,11.12-25.81,19.3-41.76,19.3-27.28,0-51.41-19.09-51.41-54.56,0-32.31,23.08-55.19,49.73-55.19,24.13,0,41.13,19.1,41.13,39.66,0,3.78-1.05,5.25-3.99,6.08l-68.61,20.35c5.46,18.67,19.72,31.68,37.56,31.68,13.01,0,24.13-6.09,30.64-13.85,1.47-1.89,3.15-2.94,4.83-2.94,1.89,0,3.98,1.68,3.98,4.41ZM763.89,152.96c0,2.73.21,5.46.42,7.97l52.88-16.16c3.78-1.05,4.62-2.1,4.62-5.67,0-10.49-10.28-24.13-26.23-24.13-17.83,0-31.68,15.32-31.68,37.98ZM788.86,88.96c0-1.26.42-2.73,1.68-5.04,6.5-11.54,11.33-19.51,16.57-27.28,2.1-2.94,3.57-3.78,7.76-3.78,5.67,0,7.97.42,7.97,3.36,0,1.89-1.89,4.83-5.87,9.65-2.73,3.36-13.43,16.16-17.42,21.19-3.36,3.99-5.04,4.41-7.13,4.41-1.89,0-3.57-.84-3.57-2.52Z"/><path d="M1042.96,207.73c0,2.1-1.68,3.36-3.99,3.36-2.73,0-8.6-.63-15.32-.63s-15.95.63-20.98.63c-3.57,0-5.46-1.26-5.46-3.99,0-6.08,13.64-4.62,13.64-11.12,0-1.89-.42-3.36-1.26-5.67l-12.8-31.68c-1.05-2.52-2.1-3.15-4.83-3.15h-53.93c-2.73,0-3.78.63-4.83,3.15l-12.59,31.47c-.84,2.1-1.47,3.57-1.47,5.25,0,6.92,13.85,6.08,13.85,11.75,0,2.73-1.89,3.99-5.46,3.99-5.04,0-10.28-.63-17-.63s-10.91.63-13.64.63c-2.94,0-4.62-1.47-4.62-3.57,0-7.13,10.28-2.94,15.74-16.37l35.67-88.55c4.2-10.49,8.18-20.98,11.12-29.17,3.98-11.33,3.78-12.38,12.8-12.38s8.39,1.05,12.38,12.38c2.94,8.18,7.13,18.67,11.33,29.17l35.46,87.71c5.67,14.06,16.16,10.28,16.16,17.42ZM990.71,143.52l-25.81-64-25.6,63.79c-.84,1.89.63,2.52,1.68,2.52h47.21c2.1,0,3.15-.84,2.52-2.31Z"/><path d="M1051.55,207.52c0-7.97,14.27-2.52,14.27-16.37v-109.53c0-13.85-14.27-8.39-14.27-16.37,0-1.89,1.26-3.57,4.41-3.57,4.61,0,11.12.63,17.83.63s13.64-.63,18.26-.63c3.15,0,4.41,1.68,4.41,3.57,0,7.97-14.27,2.52-14.27,16.37v109.53c0,13.85,14.27,8.39,14.27,16.37,0,1.89-1.26,3.57-4.41,3.57-4.62,0-11.54-.63-18.26-.63s-13.22.63-17.83.63c-3.15,0-4.41-1.68-4.41-3.57Z"/><path d="M178.68,51.35s-.04,0-.06,0c-15.01,0-27.74-20.58-28.28-45.3.01-.59.02-1.18.02-1.78,0-2.16-1.61-3.93-3.74-4.23-2.15-.3-4.19,1.07-4.79,3.15-.11.39-.17.8-.17,1.21,0,.55,0,1.1.01,1.64-.58,24.67-13.3,45.18-28.28,45.18-.13,0-.25.05-.38.06h-12.29c-2.4,0-4.34,1.94-4.34,4.34s1.94,4.34,4.34,4.34h13.79c14.85,1,27.19,22.07,27.19,47.01,0,2.4,1.94,4.34,4.34,4.34s4.34-1.94,4.34-4.34c0-25.45,12.96-46.95,28.3-46.95,2.4,0,4.34-1.94,4.34-4.34s-1.94-4.34-4.34-4.34Z"/><circle cx="17.97" cy="192.98" r="17.97"/><path d="M113.46,144.16l-5.41-4.22c-3.74-2.92-7.12-6.29-10.04-10.04l-4.22-5.41c-2.06-2.64-6.05-2.64-8.11,0l-4.22,5.41c-2.92,3.74-6.29,7.12-10.04,10.04l-5.41,4.22c-2.64,2.06-2.64,6.05,0,8.11l5.41,4.22c3.74,2.92,7.12,6.29,10.04,10.04l4.22,5.41c2.06,2.64,6.05,2.64,8.11,0l4.22-5.41c2.92-3.74,6.29-7.12,10.04-10.04l5.41-4.22c2.64-2.06,2.64-6.05,0-8.11Z"/></svg></div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="teach.js?v=20260820.3" defer></script>
+<script src="hostgrid.js?v=20260826.3" defer></script>
+<script src="branches.js?v=20260826.3" defer></script>
+<script src="olechat.js?v=20260826.3" defer></script>
+<script src="xp.js?v=20260820.6" defer></script>
+<script src="assets/exercises.js" defer></script>
+<script src="lesson.js?v=20260821.2" defer></script>
+<script src="pharos.js?v=20260828.1" defer></script>
+<script src="stars.js?v=20260820.2" defer></script>
+<script src="assets/scroll.js?v=20260828.1"></script>
+<script src="intro.js"></script>
+</body>
+</html>

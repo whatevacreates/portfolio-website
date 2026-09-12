@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Caveat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap');
 
-/* Display face. New Spirit via Adobe Fonts kit esu5lsn (linked in index.html),
-   with Fraunces as the metric-adjacent fallback while the kit loads. */
-:root { --display:'new-spirit', 'Fraunces', 'Manrope', serif; --hand:'adobe-handwriting-ernie', cursive; }
+/* Two faces only: New Spirit (serif display, Adobe Fonts kit in index.html,
+   Fraunces as the metric-adjacent fallback while the kit loads) and DM Sans
+   (all sans text) — plus the Adobe handwriting accent on polaroid captions. */
+:root { --display:'new-spirit', 'Fraunces', serif; --hand:'adobe-handwriting-ernie', cursive; }
 
 /* Boho palette: warm sand paper, espresso ink, clay + terracotta warmth, turquoise accent */
 :root { --paper:#f5edde; --ink:#33291f; --muted:#8a7a64; --line:#d9cbb2; --terra:#c1663d; --turq:#2aab9f; font-family:'DM Sans',sans-serif; color:#0f172a; font-synthesis:none; }
@@ -37,12 +38,12 @@ img { display:block; width:100%; }
 .site-header { height:88px; padding:26px 3vw; display:flex; align-items:center; justify-content:space-between; background:#fff; color:#0f172a; position:relative; z-index:20; }
 .brand { text-align:left; display:flex; align-items:baseline; gap:8px; padding:0; }
 .brand strong { font:400 17px/1 var(--display); letter-spacing:0; color:#0f172a; }
-.brand span { color:#64748b; font:400 17px/1 var(--display); }
+.brand span { color:#64748b; font:400 15px/1 'DM Sans',sans-serif; }
 nav { display:flex; gap:32px; }
 nav button { padding:8px 0; color:#64748b; position:relative; font:400 17px/1 var(--display); }
-/* the highlight is a wave, not a line */
+/* the highlight is a wave, not a line — in the gradient's turquoise */
 nav button:after { content:''; position:absolute; height:6px; left:0; right:100%; bottom:-2px;
-  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='6' viewBox='0 0 14 6'><path d='M0 3 Q3.5 0 7 3 T14 3' fill='none' stroke='%230f172a' stroke-width='1.5' stroke-linecap='round'/></svg>") repeat-x left center;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='6' viewBox='0 0 14 6'><path d='M0 3 Q3.5 0 7 3 T14 3' fill='none' stroke='%23a7e4e7' stroke-width='1.5' stroke-linecap='round'/></svg>") repeat-x left center;
   background-size:14px 6px; transition:.3s; }
 nav button:hover, nav button.active { color:#0f172a; }
 nav button.active:after, nav button:hover:after { right:0; }
@@ -52,15 +53,6 @@ nav button.active:after, nav button:hover:after { right:0; }
   border:1px solid #cbd5e1; border-radius:999px; padding:7px 13px; transition:color .3s, border-color .3s; }
 .lang-toggle:hover { color:#0f172a; border-color:#0f172a; }
 .lang-toggle:after { display:none; }
-.intro { padding:11vh 3vw 7vh; min-height:calc(100vh - 106px); display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; }
-.intro-kicker,.page-title>p,.about-hero>div>p,.case-title>p:first-child { text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#64748b; }
-.intro h1 { font:400 clamp(64px,10.5vw,174px)/.83 'Manrope'; letter-spacing:-.075em; margin:4vh 0; }
-.intro h1 span { display:block; }
-.intro h1 span:nth-child(2) { margin-left:10vw; }
-.intro-foot { display:flex; align-items:end; justify-content:space-between; }
-.intro-foot p { max-width:490px; font-size:16px; line-height:1.55; margin:0; }
-.scroll-cue { font-size:12px; text-transform:uppercase; letter-spacing:.1em; display:flex; gap:20px; align-items:center; }
-.scroll-cue i { font-style:normal; width:38px; height:38px; border:1px solid var(--line); border-radius:50%; display:grid; place-items:center; }
 /* the reel: nothing but gifs down the middle, then one quiet parting line */
 .reel { padding:4vh 3vw 13vh; background:#fff; display:flex; flex-direction:column; align-items:center; gap:10vh; }
 .reel-item { display:block; padding:0; width:min(78vw,460px); text-align:center; }
@@ -69,25 +61,27 @@ nav button.active:after, nav button:hover:after { right:0; }
 .reel-tile { display:grid; place-items:center; aspect-ratio:1; width:100%;
   position:relative; z-index:0; overflow:hidden;
   font:400 clamp(34px,4vw,52px)/1 var(--display); color:#fff; }
-/* twinkling sparkles around the Scholé logo — the hand-drawn star from the
-   logo animation itself, each on its own offbeat rhythm */
+/* twinkling sparkles above the Scholé wordmark — the hand-drawn star from
+   the logo animation, at its drawn size (8% of the image, like in the logo),
+   each fading gently on its own offbeat rhythm. The drawn artwork starts
+   ~28% down the image, so the sparkle band above 16% never touches it */
 .sparkle-wrap { position:relative; display:inline-block; }
-.sparkle { position:absolute; opacity:0;
-  animation:sparkle-blink 2.6s ease-in-out infinite; }
-.sparkle-0 { width:22px; top:4%; right:8%; animation-delay:.2s; }
-.sparkle-1 { width:13px; top:22%; right:-2%; animation-delay:1.4s; }
-.sparkle-2 { width:16px; bottom:30%; left:-3%; animation-delay:.9s; }
-.sparkle-3 { width:11px; top:-2%; left:16%; animation-delay:2s; }
-.sparkle-4 { width:14px; bottom:6%; right:20%; animation-delay:3.1s; }
+.sparkle { position:absolute; width:8%; opacity:0;
+  animation:sparkle-blink 3.4s ease-in-out infinite; }
+.sparkle-0 { top:6%; left:24%; animation-delay:.2s; }
+.sparkle-1 { top:14%; left:39%; animation-delay:1.6s; }
+.sparkle-2 { top:3%; left:55%; animation-delay:.9s; }
+.sparkle-3 { top:12%; right:22%; animation-delay:2.4s; }
+.sparkle-4 { top:2%; right:8%; animation-delay:3.1s; }
 @keyframes sparkle-blink {
-  0%, 100% { opacity:0; transform:scale(.2) rotate(-14deg); }
-  40% { opacity:1; transform:scale(1) rotate(6deg); }
-  60% { opacity:.85; transform:scale(.92) rotate(10deg); }
-  80% { opacity:0; transform:scale(.3) rotate(18deg); }
+  0%, 100% { opacity:0; transform:scale(.7); }
+  50% { opacity:1; transform:scale(1); }
 }
 /* recruiter keywords, straight on the card */
 .reel-label { display:block; margin-top:10px; font:400 15px/1.5 'DM Sans',sans-serif; color:#64748b; }
-.reel-wit { font:400 17px/1.6 var(--display); color:#0f172a; text-align:center; margin:3vh 0 0; }
+/* the claim rides the hologram on a sharp-cornered white plate */
+.footer-claim { font:400 17px/1.6 var(--display); text-transform:none; letter-spacing:0;
+  background:#fff; color:#0f172a; padding:10px 18px; border-radius:0; }
 
 .work-heading { margin:0 3vw; padding:28px 0; display:flex; justify-content:space-between; border-top:1px solid var(--ink); text-transform:uppercase; letter-spacing:.1em; font-size:11px; }
 .work-heading p { margin:0; }
@@ -102,14 +96,22 @@ nav button.active:after, nav button:hover:after { right:0; }
 .project-card:hover .project-image img { transform:scale(1.035); }
 .project-card:hover .view-project { opacity:1; transform:translateY(0); }
 .project-meta { padding:18px 20px 26px; display:flex; justify-content:space-between; gap:20px; align-items:baseline; }
-.project-meta h2 { margin:0; font:500 clamp(18px,2vw,28px)/1.1 'Manrope'; letter-spacing:-.04em; }
+.project-meta h2 { margin:0; font:500 clamp(18px,2vw,28px)/1.1 'DM Sans',sans-serif; letter-spacing:-.04em; }
 .project-meta p { margin:0; color:var(--muted); font-size:11px; text-align:right; text-transform:uppercase; letter-spacing:.06em; }
 .case { padding:6vh 3vw 10vh; }
 .case-back { display:flex; align-items:center; gap:12px; text-transform:uppercase; font-size:11px; letter-spacing:.1em; padding:0; }
 .case-back svg { width:17px; }
 .case-title { display:grid; grid-template-columns:1fr 3fr; margin:9vh 0 10vh; align-items:start; }
 .case-title h1 { grid-column:2; font:400 clamp(50px,8vw,128px)/1 var(--display); letter-spacing:0; margin:0; max-width:1100px; }
+/* the Scholé AI wordmark stands in for the case title text — sized so its
+   letters sit at roughly the same cap height the type version had */
+.case-logo img { display:block; width:min(100%,clamp(300px,44vw,720px)); height:auto; }
 .case-description { grid-column:2; max-width:740px; line-height:1.6; font-size:16px; margin:5vh 0 0; color:#475569; }
+/* Product Hunt award — purple italic note (same voice as .clip-note) + badge,
+   centred below the offline section as the lead-in to the launch story */
+.case-award { width:min(100%,1400px); margin:8vh auto 0; display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; }
+.case-award em { font:italic 400 clamp(17px,1.5vw,21px)/1.3 var(--display); color:#a98fe3; }
+.case-award img { display:block; width:230px; height:auto; }
 .case-gallery { display:grid; gap:4vw; }
 /* story-driven case pages: the original page's narrative, block by block */
 .case-story { display:grid; gap:4vw; }
@@ -126,7 +128,7 @@ nav button.active:after, nav button:hover:after { right:0; }
 .next-button:hover svg { transform:translateY(4px); }
 .next-button svg { width:17px; stroke-width:1.3; }
 .editorial-page,.about-page { padding:0 3vw 10vh; }
-.page-title { min-height:58vh; padding-top:11vh; border-bottom:1px solid #0f172a; }
+.page-title { min-height:58vh; padding-top:11vh; }
 .page-title h1 { font:400 clamp(72px,13vw,200px)/.95 var(--display); letter-spacing:0; margin:9vh 0 3vh; }
 .page-title span { color:#64748b; display:block; max-width:380px; line-height:1.5; }
 .photo-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:3vw 2vw; padding-top:5vw; align-items:start; }
@@ -134,25 +136,31 @@ nav button.active:after, nav button:hover:after { right:0; }
 .photo-1,.photo-5 { grid-column:span 8; }
 .photo-3 { grid-column:2 / span 5; }
 .photo img { max-height:88vh; object-fit:cover; }
-.about-hero { min-height:74vh; display:grid; grid-template-columns:1.25fr .75fr; align-items:center; gap:6vw; padding:8vh 0; border-bottom:1px solid #0f172a; }
+.about-hero { min-height:74vh; display:grid; grid-template-columns:1.25fr .75fr; align-items:center; gap:6vw; padding:8vh 0; }
 .about-hero h1 { font:400 clamp(50px,6.5vw,108px)/1 var(--display); letter-spacing:0; margin:5vh 0 0; }
 .about-hero img { aspect-ratio:4/5; object-fit:cover; }
-.about-copy { display:grid; grid-template-columns:1.2fr 1fr; gap:10vw; padding:11vh 0; border-bottom:1px solid #e2e8f0; }
+.about-copy { display:grid; grid-template-columns:1.2fr 1fr; gap:10vw; padding:11vh 0; }
 .about-copy p { line-height:1.65; }
 .about-copy .lead, .about-hero .lead { font:400 clamp(28px,3.6vw,52px)/1.2 var(--display); letter-spacing:0; margin:0; text-transform:none; color:#0f172a; }
 .about-copy div { max-width:560px; }
 .contact { padding:12vh 0 4vh; }
-.contact>p { color:#64748b; }
-.contact>a { font:400 clamp(38px,6vw,96px)/1.05 var(--display); letter-spacing:0; text-decoration:none; display:flex; justify-content:space-between; align-items:center; padding:3vh 0; border-bottom:1px solid #0f172a; }
-.contact>a svg { width:clamp(35px,5vw,80px); height:auto; }
+/* the CTA wears the live hologram inside its letters: the canvas (static mesh
+   as the no-WebGL fallback) fills the link, and the white ink layer screens
+   over it — white hides the foil, the black glyphs let it shine through */
+.contact>a { font:400 clamp(38px,6vw,96px)/1.05 var(--display); letter-spacing:0; text-decoration:none;
+  display:block; padding:0; position:relative; z-index:0; isolation:isolate; overflow:hidden; background:var(--mesh); }
+.contact-ink { display:flex; justify-content:space-between; align-items:center; gap:4vw; padding:3vh 0;
+  background:#fff; color:#000; mix-blend-mode:screen; }
+.contact>a svg { width:clamp(35px,5vw,80px); height:auto; flex:none; }
 .contact>div { display:flex; gap:30px; padding-top:25px; }
 .contact>div a { color:#64748b; }
 /* the footer is the hero panel's hologram again — live canvas behind,
    static mesh as the no-WebGL fallback — with slate-900 type on top */
 footer { min-height:180px; background:var(--mesh); position:relative; z-index:0; overflow:hidden;
-  padding:48px 3vw; display:flex; justify-content:space-between; align-items:end; font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+  padding:48px 3vw; display:flex; justify-content:space-between; align-items:center; font-size:11px; }
 footer span, footer a { color:#0f172a; }
-footer a { text-decoration:none; }
+footer a { text-decoration:none; display:inline-flex; align-items:center; gap:5px; }
+footer a svg { width:15px; height:auto; stroke-width:1.6; }
 
 @media (max-width:760px) {
   .site-header { height:78px; padding:20px; }
@@ -163,25 +171,28 @@ footer a { text-decoration:none; }
   nav.open { display:flex; }
   nav button { text-align:left; font:400 44px/1.2 var(--display); letter-spacing:0; }
   nav button:after { display:none; }
-  .intro { padding:9vh 20px 5vh; min-height:calc(100svh - 86px); }
-  .intro h1 { font-size:clamp(54px,18vw,84px); line-height:.88; margin:5vh 0; }
-  .intro h1 span:nth-child(2) { margin-left:0; }
-  .intro-foot { align-items:start; gap:30px; }.intro-foot p { font-size:13px; max-width:260px; }.scroll-cue { font-size:9px; gap:8px; }
   .work-heading { margin:0 20px; }.project-grid { grid-template-columns:1fr; }
   .project-image { aspect-ratio:1; }.project-meta { padding:15px 20px 22px; flex-direction:column; gap:7px; }.project-meta p { text-align:left; }.view-project { display:none; }
-  .case { padding:5vh 20px 9vh; }.case-title { display:block; margin:8vh 0; }.case-title h1 { margin-top:5vh; font-size:17vw; }.case-description { font-size:14px; margin-top:4vh; }.case-gallery { gap:24px; }
+  .case { padding:5vh 20px 9vh; }.case-title { display:block; margin:8vh 0; }.case-title h1 { margin-top:5vh; font-size:17vw; }.case-logo img { width:100%; }.case-description { font-size:14px; margin-top:4vh; }.case-gallery { gap:24px; }
   .editorial-page,.about-page { padding:0 20px 8vh; }.page-title { min-height:48vh; padding-top:9vh; }.page-title h1 { font-size:20vw; margin-top:8vh; }
   .photo-grid { grid-template-columns:1fr 1fr; gap:14px; padding-top:20px; }.photo,.photo-1,.photo-3,.photo-5 { grid-column:auto; }.photo:nth-child(5n+2) { grid-column:span 2; }
   .about-hero { display:flex; flex-direction:column; align-items:stretch; padding:8vh 0; }.about-hero h1 { font-size:15vw; }.about-hero img { width:82%; align-self:flex-end; }
   .about-copy { grid-template-columns:1fr; gap:6vh; padding:8vh 0; }.about-copy .lead { font-size:10vw; }.contact>a { font-size:12vw; }.contact>div { flex-direction:column; gap:8px; }
-  footer { padding:38px 20px; flex-direction:column; align-items:flex-start; justify-content:end; gap:10px; }
+  /* mobile footer: claim stripe on top, then name left / mail link right */
+  footer { padding:38px 20px; flex-wrap:wrap; align-items:center; row-gap:16px; }
+  .footer-claim { order:-1; flex-basis:100%; }
 }
 
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; scroll-behavior:auto!important; transition-duration:.01ms!important; } }
 
 /* Case study films */
+/* Self-hosted square clip at the top of a case — plays muted, loops */
+.case-clip { margin:0 auto 4vw; width:min(100%,360px); }
+/* small purple note above the clip — New Spirit regular italic */
+.clip-note { display:block; font:italic 400 clamp(17px,1.5vw,21px)/1.3 var(--display); color:#a98fe3; text-align:center; margin-bottom:12px; }
+.case-clip video { display:block; width:100%; background:#0f172a; }
 .case-videos { width:min(100%,1400px); margin:0 auto 4vw; }
-.case-videos-heading { font:400 11px/1 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.12em; color:#64748b; margin:0 0 20px; padding-bottom:14px; border-bottom:1px solid #e2e8f0; }
+.case-videos-heading { font:400 11px/1 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.12em; color:#64748b; margin:0 0 20px; }
 .video-grid { display:grid; gap:4vw; }
 .video-grid-multi { grid-template-columns:repeat(2,1fr); gap:24px; }
 .case-video { margin:0; min-width:0; }
@@ -197,6 +208,56 @@ footer a { text-decoration:none; }
 @media (max-width:820px) { .video-grid-multi { grid-template-columns:1fr; } .video-play { width:56px; height:56px; } }
 @media (prefers-reduced-motion:reduce) { .video-facade img, .video-play { transition:none; } }
 
+/* Offline · Learning Technologies: the three photos — tee on the guy's back,
+   the team at the stand, the empty stand — pinned as polaroids in a loose
+   tilted row, each with a handwritten note in the site's hand */
+.case-offline { width:min(100%,1400px); margin:0 auto 4vw; }
+.case-polaroids { display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
+  gap:clamp(18px,3vw,48px); padding:3vh 0 2vh; }
+.polaroid { position:relative; isolation:isolate; margin:0;
+  display:grid; grid-template-rows:auto minmax(0,1fr);
+  width:min(340px,78vw); aspect-ratio:88 / 107; padding:clamp(12px,1.2vw,16px) clamp(12px,1.2vw,16px) 0;
+  background:linear-gradient(135deg,#fffefb 0%,#f5f3ed 100%);
+  border:1px solid rgba(86,77,62,.09); border-radius:1px;
+  box-shadow:0 1px 2px rgba(37,31,24,.18), 0 7px 12px -6px rgba(37,31,24,.25),
+    0 24px 35px -16px rgba(37,31,24,.32), inset 0 -2px 1px rgba(86,77,62,.05); }
+.polaroid::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  opacity:.16; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23paper)' d='M0 0h180v180H0z'/%3E%3C/svg%3E"); }
+.polaroid > img, .polaroid > .tee-mockup { position:relative; z-index:1;
+  box-shadow:0 0 0 1px rgba(37,31,24,.12), 0 1px 1px rgba(255,255,255,.8); }
+.polaroid img { width:100%; aspect-ratio:1; object-fit:cover; }
+/* Keep the original artwork aligned to the shirt when moving the model. */
+.tee-mockup { position:relative; aspect-ratio:1; overflow:hidden;
+  background:radial-gradient(ellipse at 0 100%,#d4b2f2,transparent 65%),
+    radial-gradient(ellipse at 100% 0,#e8c1e5,transparent 65%),
+    linear-gradient(140deg,#cdeef2,#e6e6fc); }
+.tee-mockup-person { position:absolute; inset:0; transform-origin:50% 0;
+  transform:translateX(20px) scale(1.2); }
+.polaroid .tee-mockup-model { display:block; width:100%; height:100%; }
+.polaroid .tee-mockup-print { position:absolute; top:3.8%; left:26%; width:60%;
+  height:auto; aspect-ratio:auto; object-fit:contain; transform-origin:top left;
+  transform:matrix(1,.035,-.055,1,0,0); opacity:.94; }
+.polaroid figcaption { position:relative; z-index:1; min-height:0;
+  display:flex; align-items:center; justify-content:center;
+  font:400 clamp(18px,1.5vw,25px)/1.18 var(--hand); color:#475569;
+  text-align:center; padding:8px 3px 12px; }
+.polaroid:nth-child(1) { transform:rotate(-2.4deg); }
+.polaroid:nth-child(2) { transform:rotate(1.8deg); }
+.polaroid:nth-child(3) { transform:rotate(-1.3deg) translateY(-10px); }
+/* the section line sits under the polaroids, in plain sentence style */
+.co-heading { margin:26px 0 0; font:400 15px/1.4 'DM Sans',sans-serif; color:#0f172a; text-align:center; }
+.co-caption { margin:6px 0 0; font-size:13px; color:#64748b; text-align:center; }
+
+/* the about page's life outside work: the same pinned polaroids as the
+   Scholé case, just smaller so fourteen of them read as a scattered wall;
+   each photo carries its own hand-pinned tilt inline, and the breaks keep
+   the wall in three rows on wide screens */
+.about-polaroids { gap:clamp(16px,2.2vw,34px); padding:2vh 0; }
+.about-polaroids .polaroid { width:min(215px,42vw); }
+.about-polaroids .polaroid figcaption { font-size:clamp(13px,1.1vw,17px); padding:6px 2px 9px; }
+.polaroid-break { flex-basis:100%; height:0; }
+
 /* Small assets three-up, never upscaled past their intrinsic size */
 .case-row { display:grid; gap:24px; align-items:start; width:min(100%,1400px); margin:0 auto; justify-content:center; }
 .case-row .case-image { width:100%; margin:0; background:none; }
@@ -211,13 +272,13 @@ footer a { text-decoration:none; }
    fallback covers browsers without it): with the URL bar showing, 100vh
    overflows the screen, the claim sits low and the scroll cue hides below
    the fold — svh centers it identically to desktop, and being static (unlike
-   dvh) it never resizes mid-scroll when the bar collapses */
-.op { height:200vh; height:200svh; position:relative; }
-.op-stage { position:sticky; top:0; height:100vh; height:100svh; display:grid; align-content:center;
-  padding:0 3vw; }
-.op-stage > * { grid-area:1/1; }
+   dvh) it never resizes mid-scroll when the bar collapses.
+   one screen, no pin: claim and greeting share it, then the reel begins */
+.op { height:100vh; height:100svh; position:relative; }
+.op-stage { position:relative; height:100%; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding:0 3vw; }
 
-.op-frame { display:block; width:fit-content; margin:-9vh auto 0; align-self:center; }
+.op-frame { display:block; width:fit-content; margin:-9vh 0 0; }
 .op-claim { margin:0; text-align:left; }
 
 .op-poster { display:block; }
@@ -253,8 +314,10 @@ footer a { text-decoration:none; }
    the sticky stage starts one header-height below the viewport top, so the
    cue is lifted by that height to sit inside the first screen */
 .op-mouse { position:absolute; left:50%; bottom:calc(88px + 24px); transform:translateX(-50%); width:32px; }
+/* chevron and greeting wear the gradient's turquoise (the shader's "ice",
+   vec3(.655,.894,.906) → #a7e4e7) so the send-off echoes the foil */
 .op-mouse svg { display:block; width:100%; height:auto; overflow:visible; fill:none;
-  stroke:#0f172a; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+  stroke:#a7e4e7; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
 .op-chev { animation:op-chev 1.9s ease-in-out infinite; }
 .op-chev2 { animation-delay:.16s; }
 @keyframes op-chev {
@@ -263,37 +326,37 @@ footer a { text-decoration:none; }
   82%,100% { opacity:.3; transform:translateY(0) }
 }
 
-/* the send-off: the down arrows, and right after them one quiet line —
-   same size as the name in the header, everything regular */
-.op-hello { display:flex; justify-content:center; opacity:0; visibility:hidden; }
-.op-hello-copy { text-align:center; }
-.op-hello-chev { display:block; width:32px; margin:0 auto; overflow:visible; fill:none;
-  stroke:#0f172a; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
-.op-hello-lead { font:400 17px/1.5 var(--display); color:#0f172a; margin:38px 0 0; }
+/* the send-off: one quiet line sitting just above the scroll chevron,
+   revealed by the intro timeline as the letters settle — hidden until then */
+.op-hello { position:absolute; left:0; right:0; bottom:calc(88px + 24px + 44px);
+  text-align:center; opacity:0; visibility:hidden; }
+.op-hello-lead { font:400 17px/1.5 'DM Sans',sans-serif; color:#a7e4e7; margin:0; }
 .op-cue { display:inline-flex; gap:14px; align-items:center; font-size:11px;
   text-transform:uppercase; letter-spacing:.14em; color:var(--muted); }
 .op-cue i { font-style:normal; width:34px; height:34px; border:1px solid var(--line);
   border-radius:50%; display:grid; place-items:center; }
-/* mobile keeps the full 200-viewport hero — same scroll choreography as
-   desktop; only the cue is sized down and lifted for the shorter header */
-@media (max-width:620px) { .op-mouse { bottom:calc(78px + 18px); width:28px; } }
+/* mobile keeps the same one-screen hero — only the cue is sized down and
+   lifted for the shorter header */
+@media (max-width:620px) {
+  .op-mouse { bottom:calc(78px + 18px); width:28px; }
+  .op-hello { bottom:calc(78px + 18px + 38px); padding:0 6vw; }
+}
 
 /* ── Blog ───────────────────────────────────────────────────────────── */
 .blog-row { padding-top:9vh; }
 .blog-row .post-list { padding-top:0; }
-.blog-reel { max-width:220px; padding:5vh 0; }
-/* the reel, cropped to its card on the purple gradient — the rounded
-   rectangle here matches the card's own corner radius, clipping the last
-   slivers of gradient at the corner tips */
-.blog-reel video { display:block; width:100%; border-radius:40px; background:#0f172a; }
-.blog-reel p { margin:14px 2px 0; font-size:13px; color:#64748b; }
-@media (max-width:760px) { .blog-row { grid-template-columns:1fr; gap:7vh; } .blog-reel { max-width:320px; } }
+/* the reel, inside the article body — cropped to its card on the purple
+   gradient; the rounded rectangle matches the card's own corner radius,
+   clipping the last slivers of gradient at the corner tips */
+.post-reel { margin:6vh auto; max-width:260px; }
+.post-reel video { display:block; width:100%; border-radius:40px; background:#0f172a; }
 .post-list { padding-top:5vw; display:grid; }
-.post-card { padding:5vh 76px 5vh 0; text-align:left; display:grid; gap:12px; border-bottom:1px solid #e2e8f0; position:relative; }
-/* the chevron: just the arrowhead, no shaft — drifts right on hover */
-.post-card-chevron { position:absolute; right:12px; top:50%; transform:translateY(-50%); width:34px; height:34px; color:#94a3b8; stroke-width:1.6; transition:transform .3s, color .3s; }
-.post-card:hover .post-card-chevron { transform:translateY(-50%) translateX(6px); color:#0f172a; }
-.post-card-date { text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#64748b; }
+.post-card { padding:5vh 0; text-align:left; display:grid; gap:12px; }
+/* the holographic arrow rides the end of the title (the nbsp before it keeps
+   it glued to the last word) and drifts up-right on hover, along its own
+   direction; sized in em so it scales with the display type */
+.post-card-chevron { width:1ex; height:1ex; vertical-align:baseline; margin-left:.08em; transition:transform .3s; }
+.post-card:hover .post-card-chevron { transform:translate(.1em,-.1em); }
 .post-card-title { font:400 clamp(34px,4.5vw,64px)/1.05 var(--display); color:#0f172a; transition:color .3s; }
 .post-card:hover .post-card-title { color:#64748b; }
 .post-card-sub { font-size:15px; color:#64748b; }
@@ -305,6 +368,24 @@ footer a { text-decoration:none; }
 .post-body p { font-size:17px; line-height:1.7; color:#334155; margin:0 0 1.4em; }
 .post-source { display:flex; align-items:center; gap:8px; width:fit-content; margin:7vh auto 0;
   font:400 17px/1.4 var(--display); color:#0f172a; text-decoration:none; border-bottom:1px solid #0f172a; padding-bottom:3px; }
-.post-source svg { width:16px; }
+.post-source svg { width:1ex; height:1ex; }
 .post-source:hover { color:#64748b; border-color:#64748b; }
 @media (max-width:760px) { .post-card-title { font-size:9vw; } .post-body p { font-size:15px; } }
+
+/* case embeds: a static copy of a live page (test, deck, landing) inside a
+   browser-like frame. A poster shows first; the iframe loads on click so a
+   case with several embeds stays light. */
+.case-embed { width:min(100%,1400px); margin:0 auto; }
+.case-embed-frame { background:#0f172a; border-radius:16px; padding:0 8px 8px; box-shadow:0 30px 80px -30px rgba(15,23,42,.45); }
+.case-embed-bar { display:flex; align-items:center; gap:7px; padding:12px 8px 10px; }
+.case-embed-bar i { width:10px; height:10px; border-radius:50%; background:#334155; }
+.case-embed-bar span { margin-left:10px; flex:1; font:400 11px/1 'DM Sans',sans-serif; letter-spacing:.04em; color:#94a3b8; background:#1e293b; border-radius:6px; padding:6px 10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.case-embed iframe, .case-embed-poster { display:block; width:100%; height:calc(var(--embed-h,760) * 1px); max-height:88vh; border:0; border-radius:8px; background:#fff; }
+.case-embed-poster { position:relative; padding:0; overflow:hidden; cursor:pointer; }
+.case-embed-poster img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform .6s ease; }
+.case-embed-poster:hover img { transform:scale(1.015); }
+.case-embed-poster span { position:absolute; left:50%; bottom:28px; transform:translateX(-50%); font:400 12px/1 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.1em; color:#fff; background:#0f172a; padding:14px 22px; border-radius:999px; white-space:nowrap; }
+.case-embed figcaption { display:flex; justify-content:space-between; gap:16px; margin-top:12px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
+.case-embed figcaption a { display:inline-flex; align-items:center; gap:4px; color:#0f172a; text-decoration:none; white-space:nowrap; }
+.case-embed figcaption a svg { width:13px; }
+@media (max-width:820px) { .case-embed iframe, .case-embed-poster { height:70vh; } }

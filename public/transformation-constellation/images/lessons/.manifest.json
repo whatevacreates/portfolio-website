@@ -1,0 +1,443 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2026-06-01T12:59:03.230Z",
+  "targetSize": 256,
+  "quality": "65-80",
+  "images": {
+    "AIEnabledDesignWithClaudeDesign.png": {
+      "hash": "60ddfdf9bfc732035869579835850ecb",
+      "size": 20924,
+      "processedAt": "2026-06-01T12:58:58.453Z"
+    },
+    "AIEnabledDesignWithFigmaMake.png": {
+      "hash": "b0964539cdb5d4db563d8533a39fe1a1",
+      "size": 27980,
+      "processedAt": "2026-06-01T12:58:58.507Z"
+    },
+    "APIsAndMore.png": {
+      "hash": "a491bc6108d561e83ac09d9e4c7f336f",
+      "size": 20259,
+      "processedAt": "2026-06-01T12:58:58.557Z"
+    },
+    "AdvancedRepresentativeSampling.png": {
+      "hash": "57e5cb4acca4f436b8409252f739b538",
+      "size": 23614,
+      "processedAt": "2026-06-01T12:58:58.606Z"
+    },
+    "AdvancedSpreadsheets.png": {
+      "hash": "5d02a307fa64e7d9fc4b40f7ed2359df",
+      "size": 29882,
+      "processedAt": "2026-06-01T12:58:58.657Z"
+    },
+    "AgenticAIPrototypingWithOpenAIAgentKit.png": {
+      "hash": "5fe8d6a07130464bbb8b11a03fa65bc9",
+      "size": 22647,
+      "processedAt": "2026-06-01T12:58:58.719Z"
+    },
+    "Agents.png": {
+      "hash": "d5724571b7419df5ec623e1ea5c180c5",
+      "size": 23186,
+      "processedAt": "2026-06-01T12:58:58.767Z"
+    },
+    "AgentsWithGoogleWorkspaceStudio.png": {
+      "hash": "f39048cf94e280fdd5a6057bd07c9b13",
+      "size": 23901,
+      "processedAt": "2026-06-01T12:58:58.829Z"
+    },
+    "AgentsWithMicrosoftCopilotStudio.png": {
+      "hash": "cff9f08e5dad5582f50fff5638165f15",
+      "size": 22943,
+      "processedAt": "2026-06-01T12:58:58.886Z"
+    },
+    "AgentsWithZapier.png": {
+      "hash": "36c865bb22cab5fca4ed2c8a4dd48498",
+      "size": 22565,
+      "processedAt": "2026-06-01T12:58:58.945Z"
+    },
+    "AgentsWithn8n.png": {
+      "hash": "33f6dd675395f95c0564848f947eb2ee",
+      "size": 24393,
+      "processedAt": "2026-06-01T12:58:59.003Z"
+    },
+    "AllAboutText.png": {
+      "hash": "f683d4577ae7c6486de7db1d1c478dfa",
+      "size": 28333,
+      "processedAt": "2026-06-01T12:58:59.091Z"
+    },
+    "BiasEvaluationAndMitigation.png": {
+      "hash": "8758b25ddfcfe613edb6c309086930f8",
+      "size": 20168,
+      "processedAt": "2026-06-01T12:58:59.158Z"
+    },
+    "BootstrapSampling.png": {
+      "hash": "caf632ef136dec2d6adad97812d411f5",
+      "size": 22952,
+      "processedAt": "2026-06-01T12:58:59.245Z"
+    },
+    "BuildingMultiAgentSystems.png": {
+      "hash": "baf9601fbe640f931100225c72bc74aa",
+      "size": 25784,
+      "processedAt": "2026-06-01T12:58:59.352Z"
+    },
+    "CharacterConsistentAIVideo.png": {
+      "hash": "0fa7f45b712b76c3df4828f7623ff204",
+      "size": 23410,
+      "processedAt": "2026-06-01T12:58:59.469Z"
+    },
+    "CheeseAreaCleaningPlan.png": {
+      "hash": "ae417c0bb47642bcd831fff229a159e2",
+      "size": 26105,
+      "processedAt": "2026-06-01T12:58:59.521Z"
+    },
+    "CheeseinServiceRules.png": {
+      "hash": "fd8b31a022ec29570f47a1b9f5875e62",
+      "size": 27075,
+      "processedAt": "2026-06-01T12:58:59.571Z"
+    },
+    "Classification.png": {
+      "hash": "289ea63d9fd81953489051e3a2b17980",
+      "size": 22804,
+      "processedAt": "2026-06-01T12:58:59.638Z"
+    },
+    "ClaudeCodeAndTheFutureOfCoding.png": {
+      "hash": "359c9f8508e6b59950bea4443e6096ee",
+      "size": 25165,
+      "processedAt": "2026-06-01T12:58:59.690Z"
+    },
+    "ClaudeCowork.png": {
+      "hash": "63a52684274bd39309d05071263b0cbc",
+      "size": 18362,
+      "processedAt": "2026-06-01T12:58:59.744Z"
+    },
+    "Clustering.png": {
+      "hash": "e21998f5b432f8ccefacbe5af71fa224",
+      "size": 22774,
+      "processedAt": "2026-06-01T12:58:59.795Z"
+    },
+    "ContextEngineering.png": {
+      "hash": "241f66694f52f2b37be8c44e8f51b3f0",
+      "size": 22666,
+      "processedAt": "2026-06-01T12:58:59.844Z"
+    },
+    "CreatingWebpagesWithoutCode.png": {
+      "hash": "849e423ccacd0f1719cc4f430f7e87fc",
+      "size": 21440,
+      "processedAt": "2026-06-01T12:58:59.893Z"
+    },
+    "DataPrivacy.png": {
+      "hash": "f4d2f1424aae6b81d74703f606f980bd",
+      "size": 19975,
+      "processedAt": "2026-06-01T12:58:59.946Z"
+    },
+    "DataScienceLifecycle.png": {
+      "hash": "2c96c90b8166f11630c7aa605517f40e",
+      "size": 22241,
+      "processedAt": "2026-06-01T12:59:00.006Z"
+    },
+    "DataVisualization.png": {
+      "hash": "912ddaf9144b7d5d0ef607774b34816f",
+      "size": 17241,
+      "processedAt": "2026-06-01T12:59:00.073Z"
+    },
+    "DemeterandOrganicBasics.png": {
+      "hash": "b9ba706c6c465be3b6d911dd666cd35f",
+      "size": 20192,
+      "processedAt": "2026-06-01T12:59:00.120Z"
+    },
+    "DimensionalityReductionWithPCA.png": {
+      "hash": "5c0ecabfb6f9029e4ea66d800c9cb3c3",
+      "size": 16675,
+      "processedAt": "2026-06-01T12:59:00.174Z"
+    },
+    "EnsembleMethods.png": {
+      "hash": "a2172d5847ae4f09627e6d4fd460c15e",
+      "size": 19492,
+      "processedAt": "2026-06-01T12:59:00.223Z"
+    },
+    "EthicalAI.png": {
+      "hash": "22d1a756d0476bbfc008fc4578bed183",
+      "size": 29450,
+      "processedAt": "2026-06-01T12:59:00.276Z"
+    },
+    "ExperimentDesign.png": {
+      "hash": "7a3baf9d05fec7c7fadeb01f446b6801",
+      "size": 20317,
+      "processedAt": "2026-06-01T12:59:00.326Z"
+    },
+    "ExplainableMachineLearning.png": {
+      "hash": "30fd884eb0d4824274f0a8144467f0c7",
+      "size": 20301,
+      "processedAt": "2026-06-01T12:59:00.378Z"
+    },
+    "ExploratoryDataAnalysis.png": {
+      "hash": "02ac72bc74895d94899bdbf82ced6c87",
+      "size": 17787,
+      "processedAt": "2026-06-01T12:59:00.435Z"
+    },
+    "ExploringAIToolsNapkinSORAWhisper.png": {
+      "hash": "aabe3eda3989cf14e36777b26d6d98df",
+      "size": 22831,
+      "processedAt": "2026-06-01T12:59:00.493Z"
+    },
+    "GeneratingAIPresentations.png": {
+      "hash": "9ad636d890458e64bece5e16d987ec61",
+      "size": 19568,
+      "processedAt": "2026-06-01T12:59:00.551Z"
+    },
+    "GeneratingVideosSynthesiaCharacterAI.png": {
+      "hash": "704d01f9995d95840ec6f2fd77973461",
+      "size": 28595,
+      "processedAt": "2026-06-01T12:59:00.608Z"
+    },
+    "GeneratingVisualsDALLEMidJourney.png": {
+      "hash": "958583a53890018ce3074a2a19ee743d",
+      "size": 19448,
+      "processedAt": "2026-06-01T12:59:00.659Z"
+    },
+    "Hallucinations.png": {
+      "hash": "a8d9cd6aff59789fe62f5352810c6a7d",
+      "size": 18984,
+      "processedAt": "2026-06-01T12:59:00.704Z"
+    },
+    "HowMuchDataIsEnoughCentralLimitTheorem.png": {
+      "hash": "bb43b5e7b3fa5a7cdd886c8bd75b4504",
+      "size": 22850,
+      "processedAt": "2026-06-01T12:59:00.752Z"
+    },
+    "HumanInTheLoopModelEvaluation.png": {
+      "hash": "4b962b4828b3eba08ba40aa654191590",
+      "size": 21105,
+      "processedAt": "2026-06-01T12:59:00.802Z"
+    },
+    "ImageModelingCNNsVisionLanguageModels.png": {
+      "hash": "c71e85bd73d11e5cbdf1e2542b1aa017",
+      "size": 19195,
+      "processedAt": "2026-06-01T12:59:00.850Z"
+    },
+    "InteractiveCodingEnvironments.png": {
+      "hash": "8189f2db32b33e9ec7be31973f385df0",
+      "size": 20969,
+      "processedAt": "2026-06-01T12:59:00.902Z"
+    },
+    "IntroToAIAndGenAI.png": {
+      "hash": "6e3a2bfabfbb219a9ff2259a6067db63",
+      "size": 18487,
+      "processedAt": "2026-06-01T12:59:00.962Z"
+    },
+    "IntroToResponsibleAI.png": {
+      "hash": "3059b07ad41ac879c5e227c70a5a4040",
+      "size": 22530,
+      "processedAt": "2026-06-01T12:59:01.019Z"
+    },
+    "LLMArchitectureIntuition.png": {
+      "hash": "3371659cf626f22da273ead2e4955378",
+      "size": 26355,
+      "processedAt": "2026-06-01T12:59:01.070Z"
+    },
+    "LanguageModeling.png": {
+      "hash": "961e36a370f8e2cbc3cae99ada0045bb",
+      "size": 20586,
+      "processedAt": "2026-06-01T12:59:01.115Z"
+    },
+    "Lesson1RetrievalAugmentedGeneration(RAG).png": {
+      "hash": "e5414e9ab1da2499799f4d9f467717cd",
+      "size": 31090,
+      "processedAt": "2026-06-01T12:59:01.175Z"
+    },
+    "Lesson2ContextEngineering.png": {
+      "hash": "fe7c8822f7c532cca2fac3a8c50b2897",
+      "size": 23597,
+      "processedAt": "2026-06-01T12:59:01.225Z"
+    },
+    "Lesson3ResponsibleAIHumanintheLoop.png": {
+      "hash": "625d3f141f59835bb87793d43877b85a",
+      "size": 26824,
+      "processedAt": "2026-06-01T12:59:01.275Z"
+    },
+    "Lesson4WorkflowAutomation.png": {
+      "hash": "f54de8aa3fb7485a5d044b30ff2a38b2",
+      "size": 29011,
+      "processedAt": "2026-06-01T12:59:01.328Z"
+    },
+    "MobileAppsWithReplit.png": {
+      "hash": "c7ba9db6c4ef7e7a10bc379d798146ba",
+      "size": 21241,
+      "processedAt": "2026-06-01T12:59:01.383Z"
+    },
+    "ModelContextProtocolMCP.png": {
+      "hash": "14c6f161511868185660739a4e99f5eb",
+      "size": 18257,
+      "processedAt": "2026-06-01T12:59:01.430Z"
+    },
+    "ModelEvaluation.png": {
+      "hash": "550bf6bb32aea79ec2daa5ecc725cb70",
+      "size": 16666,
+      "processedAt": "2026-06-01T12:59:01.487Z"
+    },
+    "ModelLibraries.png": {
+      "hash": "223f12aefa0fa30913c8cac044c86102",
+      "size": 20530,
+      "processedAt": "2026-06-01T12:59:01.537Z"
+    },
+    "MultimodalAIUseCaseNotebookLM.png": {
+      "hash": "14ad294c884f35f374836326c8d73638",
+      "size": 23599,
+      "processedAt": "2026-06-01T12:59:01.585Z"
+    },
+    "NetworkAnalysis.png": {
+      "hash": "cf746c75a3b0d008c793035926115f20",
+      "size": 22920,
+      "processedAt": "2026-06-01T12:59:01.635Z"
+    },
+    "NeuralNetworks.png": {
+      "hash": "e17b38ab8ead053ad98f8f681d7a6d44",
+      "size": 22416,
+      "processedAt": "2026-06-01T12:59:01.687Z"
+    },
+    "NoCodeAIPrototypesBubbleGlideWebflowAndLovable.png": {
+      "hash": "dac6ab41b9f858fa8c7296fe3c2ac9aa",
+      "size": 18179,
+      "processedAt": "2026-06-01T12:59:01.732Z"
+    },
+    "NocodeAIPrototypesBubbleGlideandLovable.png": {
+      "hash": "ab57704e01cd9a68f216e31111c9a581",
+      "size": 20388,
+      "processedAt": "2026-06-01T12:59:01.784Z"
+    },
+    "OpenClawAndAgenticAISecurity.png": {
+      "hash": "b276b462f5739cddbe2cc3e7a510c0ba",
+      "size": 22834,
+      "processedAt": "2026-06-01T12:59:01.851Z"
+    },
+    "PersonalizingYourLLM.png": {
+      "hash": "398697be86a0c918b398a9089f8f1abf",
+      "size": 22436,
+      "processedAt": "2026-06-01T12:59:01.906Z"
+    },
+    "Pre-packagedCheeseStandards.png": {
+      "hash": "7f8b4f41a6974df7706a0622152ed855",
+      "size": 17382,
+      "processedAt": "2026-06-01T12:59:01.951Z"
+    },
+    "PreWorkAgents(Foundational).png": {
+      "hash": "f837a676e67db6fa0ecec14bfdd6358b",
+      "size": 23990,
+      "processedAt": "2026-06-01T12:59:01.998Z"
+    },
+    "PreparingYourDataForML.png": {
+      "hash": "cdfd3193445aaaa46a16b05b472fc543",
+      "size": 19592,
+      "processedAt": "2026-06-01T12:59:02.055Z"
+    },
+    "Programming101.png": {
+      "hash": "7d69756aee6f7ade4ffa84b4baad2f05",
+      "size": 23724,
+      "processedAt": "2026-06-01T12:59:02.113Z"
+    },
+    "PromptEngineering.png": {
+      "hash": "f02671b4596e11c4431f8470da64fc71",
+      "size": 21740,
+      "processedAt": "2026-06-01T12:59:02.164Z"
+    },
+    "QueryingDataSQLAndLLMs.png": {
+      "hash": "c0908fa45acd033a40e48166147b935f",
+      "size": 21172,
+      "processedAt": "2026-06-01T12:59:02.209Z"
+    },
+    "RecommenderSystems.png": {
+      "hash": "79a83044929831846a928e3c3f269f9d",
+      "size": 23812,
+      "processedAt": "2026-06-01T12:59:02.255Z"
+    },
+    "Regression.png": {
+      "hash": "22e3bae8198fff3c818e781e1ae33a98",
+      "size": 20206,
+      "processedAt": "2026-06-01T12:59:02.305Z"
+    },
+    "RetrievalAugmentedGenerationRAG.png": {
+      "hash": "a314801a5b11a464ba4ac4694f00a6c5",
+      "size": 20251,
+      "processedAt": "2026-06-01T12:59:02.356Z"
+    },
+    "StatisticalAnalysis.png": {
+      "hash": "f0b97ce89834dffc1b97dfa0768d9bca",
+      "size": 21766,
+      "processedAt": "2026-06-01T12:59:02.410Z"
+    },
+    "StockAwareness.png": {
+      "hash": "a781ffce72b1558805e4190b6edf55a4",
+      "size": 25627,
+      "processedAt": "2026-06-01T12:59:02.471Z"
+    },
+    "SyntheticDataAugmentation.png": {
+      "hash": "888e8839b3484746e734b884b5e8d518",
+      "size": 20209,
+      "processedAt": "2026-06-01T12:59:02.519Z"
+    },
+    "TheWorldOfMachineLearning.png": {
+      "hash": "1c706876378235b7cd0b0dc5719f14f6",
+      "size": 21572,
+      "processedAt": "2026-06-01T12:59:02.566Z"
+    },
+    "TimeSeriesModeling.png": {
+      "hash": "2d02668ea868f93411eba064f290a741",
+      "size": 24246,
+      "processedAt": "2026-06-01T12:59:02.614Z"
+    },
+    "TrainTestValDataSplit.png": {
+      "hash": "0567f6aa6c544489275af1fc0dc4e6c6",
+      "size": 19068,
+      "processedAt": "2026-06-01T12:59:02.669Z"
+    },
+    "VibeCoding.png": {
+      "hash": "bffdab4f61bd4cbdd46b09462f268c55",
+      "size": 27710,
+      "processedAt": "2026-06-01T12:59:02.724Z"
+    },
+    "WorkflowAutomationAppScript.png": {
+      "hash": "1dd0885878b341ae5ec726697b7d14bc",
+      "size": 26769,
+      "processedAt": "2026-06-01T12:59:02.773Z"
+    },
+    "WorkflowAutomationZapierMakeComN8N.png": {
+      "hash": "a200545a56e88db6d2fecb98f02abdc5",
+      "size": 28004,
+      "processedAt": "2026-06-01T12:59:02.825Z"
+    },
+    "default.png": {
+      "hash": "625d3f141f59835bb87793d43877b85a",
+      "size": 26824,
+      "processedAt": "2026-06-01T12:59:02.876Z"
+    },
+    "defaults/default-1.png": {
+      "hash": "625d3f141f59835bb87793d43877b85a",
+      "size": 26824,
+      "processedAt": "2026-06-01T12:59:02.929Z"
+    },
+    "defaults/default-2.png": {
+      "hash": "b3bcc3b6b6694af464a5980c43dc2b9c",
+      "size": 23017,
+      "processedAt": "2026-06-01T12:59:02.988Z"
+    },
+    "defaults/default-3.png": {
+      "hash": "9fefa99b655db5a3eaba91924317807d",
+      "size": 24777,
+      "processedAt": "2026-06-01T12:59:03.043Z"
+    },
+    "defaults/default-4.png": {
+      "hash": "c4ebe61b710dd8ef180c8d36000c751f",
+      "size": 20725,
+      "processedAt": "2026-06-01T12:59:03.100Z"
+    },
+    "defaults/default-5.png": {
+      "hash": "5a94486e9ce8215fb0377fea818eebab",
+      "size": 25468,
+      "processedAt": "2026-06-01T12:59:03.156Z"
+    },
+    "defaults/default-6.png": {
+      "hash": "1328dc2df87dd9b9327acf954c09e7e6",
+      "size": 20667,
+      "processedAt": "2026-06-01T12:59:03.230Z"
+    }
+  }
+}

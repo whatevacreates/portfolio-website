@@ -1,6 +1,25 @@
 import React from 'react';
-import { ArrowLeft, ArrowUpRight, ChevronRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useT } from './i18n.jsx';
+
+// the contact CTA's holographic foil, frozen into a gradient stroke so the
+// blog's clicks can wear it at icon size — teal gathers at the arrow's tip,
+// pink and lavender trail behind, matching the mesh palette
+export function HoloArrow({ className }) {
+  const id = React.useId();
+  return <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id={id} x1="5" y1="19" x2="19" y2="5" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stopColor="#c9a5ec" />
+        <stop offset=".35" stopColor="#dfa9e9" />
+        <stop offset=".58" stopColor="#eec0ec" />
+        <stop offset=".8" stopColor="#bcd9ea" />
+        <stop offset="1" stopColor="#a7e4e7" />
+      </linearGradient>
+    </defs>
+    <path d="M7 17 17 7M7 7h10v10" stroke={`url(#${id})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>;
+}
 
 // text-only posts: articles Eva published elsewhere, republished here
 // without their artwork, each linking back to the original.
@@ -9,7 +28,6 @@ export const posts = [
     slug: 'escaping-the-average',
     title: 'Escaping the Average',
     subtitle: 'A Creative’s AI Perspective',
-    date: 'Aug 27, 2026',
     source: 'https://schole.ai/engineering-blog/escaping-the-average',
     sourceName: 'Scholé AI engineering blog',
     body: [
@@ -26,6 +44,7 @@ export const posts = [
       'Novel things are attended to. Novel things are remembered. The predictable does not fire this circuit in the same way. So when your output is the most likely one, it is, quite literally, the one the brain is least primed to notice and least likely to keep.',
       'And this is no longer only a theory. Researchers at UCL and Exeter ran a controlled study with 300 writers and found that “access to generative AI made individual stories more novel and better written, while making the stories collectively more similar to one another.”',
       'Creativity went up for the person and down for the pool. In other words, the tool lifts the floor and lowers the ceiling at the same time.',
+      { video: '/media/insta-reel-homogenity.mp4', poster: '/media/insta-reel-homogenity-poster.jpg' },
       'Creativity is a skill. And like every skill, it needs to be trained.',
       'A study from MIT Media Lab pointed to the cost of skipping creativity training. Participants who wrote essays with an LLM showed the weakest brain connectivity of any group, remembered little of what they had just written, and felt little ownership over it. When they later wrote without the tool, the weaker engagement stayed with them. The researchers called it “cognitive debt.” Sadly, your creativity level does not come back the moment you stop enhancing it with the machine. In the same way, your garden will not grow flowers back the minute you stop harvesting them. Growing requires friction and struggle.',
       'Are you ready to struggle again, in the noble pursuit of escaping the average?',
@@ -35,9 +54,6 @@ export const posts = [
     slug: 'essay-on-branding',
     title: 'Do I Have to Make Friends with Brands on Social Media to Buy Their Products?',
     subtitle: 'An essay on branding',
-    date: 'May 24, 2014',
-    source: 'https://www.slideshare.net/slideshow/br-35079115/35079115',
-    sourceName: 'SlideShare',
     body: [
       { img: '/media/blog-branding-1.webp', caption: 'Coca-Cola sells not only fizzy drinks. It sells a philosophy of happiness and lifestyle.' },
       'Everyone knows what branding is. Or at least has a vague concept of what it means. Various trademarks twirling in front of your eyes. Different shapes, different colours. However, the idea remains the same: to glue a more or less successful icon onto stationery, often with a catchy slogan or a brand name.',
@@ -66,20 +82,11 @@ export function Blog({ openPost }) {
   return <main className="editorial-page">
     <div className="blog-row">
       <div className="post-list">
-        {posts.map((post) => <React.Fragment key={post.slug}>
-          <button className="post-card" onClick={() => openPost(post.slug)}>
-            <span className="post-card-date">{post.date}</span>
-            <span className="post-card-title">{post.title}</span>
+        {posts.map((post) =>
+          <button className="post-card" key={post.slug} onClick={() => openPost(post.slug)}>
+            <span className="post-card-title">{post.title}&nbsp;<HoloArrow className="post-card-chevron" /></span>
             <span className="post-card-sub">{post.subtitle}</span>
-            <ChevronRight className="post-card-chevron" aria-hidden="true" />
-          </button>
-          {post.slug === 'escaping-the-average' && <aside className="blog-reel">
-            <video
-              src={`${import.meta.env.BASE_URL}media/insta-reel-homogenity.mp4`}
-              poster={`${import.meta.env.BASE_URL}media/insta-reel-homogenity-poster.jpg`}
-              controls playsInline preload="metadata" />
-          </aside>}
-        </React.Fragment>)}
+          </button>)}
       </div>
     </div>
   </main>;
@@ -90,19 +97,25 @@ export function BlogPost({ post, close }) {
   return <main className="case post">
     <button className="case-back" onClick={close}><ArrowLeft /> {tr('All posts', 'Alle Artikel')}</button>
     <section className="case-title post-title">
-      <p>{post.date} · {post.subtitle}</p>
       <h1>{post.title}</h1>
     </section>
     <div className="post-body">
       {post.body.map((item, i) => typeof item === 'string'
         ? <p key={i}>{item}</p>
+        : item.video
+        ? <figure className="post-reel" key={i}>
+            <video
+              src={import.meta.env.BASE_URL + item.video.replace(/^\//, '')}
+              poster={import.meta.env.BASE_URL + item.poster.replace(/^\//, '')}
+              controls playsInline preload="metadata" />
+          </figure>
         : <figure className="post-figure" key={i}>
             <img src={import.meta.env.BASE_URL + item.img.replace(/^\//, '')} alt={item.caption} loading="lazy" />
             <figcaption>{item.caption}</figcaption>
           </figure>)}
     </div>
-    <a className="post-source" href={post.source} target="_blank" rel="noreferrer">
-      {tr(`Originally published on the ${post.sourceName}`, `Ursprünglich erschienen: ${post.sourceName}`)} <ArrowUpRight />
-    </a>
+    {post.source && <a className="post-source" href={post.source} target="_blank" rel="noreferrer">
+      {tr(`Originally published on the ${post.sourceName}`, `Ursprünglich erschienen: ${post.sourceName}`)} <HoloArrow />
+    </a>}
   </main>;
 }

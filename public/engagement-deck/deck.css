@@ -1,0 +1,823 @@
+/* ============================================================
+   Deck 01 - The AI-native LMS
+   Section-level layout only; tokens and the engine live in
+   assets/brand.css
+   ============================================================ */
+
+/* ---------- 1 · cover ---------- */
+/* the only section that overflows: the old word is thrown out of frame */
+/* The four corners are pinned to the frame rather than sat inside the section's
+   gutter, so the page reads as a poster: place and date across the top, the
+   authors bottom-left, the lockup bottom-right, the collision alone in the
+   middle. */
+.cover { justify-content:center; overflow-x:clip; position:relative;
+         --inset:clamp(20px,2.4vw,44px); }
+.cover-meta {
+  position:absolute; top:var(--inset); left:var(--inset); right:var(--inset);
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:clamp(13px,1.1vw,17px); color:var(--dark);
+}
+.cover-mid { text-align:center; }
+.cover-sub { margin:clamp(16px,2.2vh,30px) auto 0; max-width:48ch; }
+
+/* the collision stage - both words share one centred box */
+.crash { position:relative; display:grid; place-items:center; }
+.crash-old {
+  position:absolute; inset:0; z-index:1;
+  font-family:var(--ns); font-weight:400; color:var(--darkest);
+  font-size:clamp(140px,30vw,420px); line-height:.8; letter-spacing:-.045em;
+  display:flex; align-items:center; justify-content:center;
+  white-space:nowrap; pointer-events:none; will-change:transform;
+}
+.crash-old span { display:inline-block; }
+.crash-new, .crash-ghost { grid-area:1 / 1; white-space:nowrap; will-change:transform; }
+.crash-new { position:relative; z-index:3; }
+/* trailing copies of the incoming title - the smear, done with layers
+   rather than a filter, which stays cheap on any machine */
+.crash-ghost { z-index:2; opacity:0; pointer-events:none; color:var(--grad-a); }
+.cover-by {
+  position:absolute; bottom:var(--inset); left:var(--inset);
+  display:flex; flex-direction:column; font-family:var(--ns);
+  font-size:clamp(17px,1.7vw,26px); line-height:1.28; color:var(--darkest);
+}
+.cover-logo {
+  position:absolute; bottom:var(--inset); right:var(--inset);
+  width:clamp(112px,11vw,178px); height:auto; opacity:.92;
+}
+
+/* ---------- 2 · the problem ---------- */
+.problem { justify-content:center; }
+.problem-grid {
+  display:grid; gap:clamp(30px,5vw,80px); align-items:center;
+  grid-template-columns:minmax(0,.78fr) minmax(0,1fr);
+}
+/* The sculpture and its shadow are deliberately separate. The WebP is a soft,
+   transparent cutout; these two ground-plane shadows keep the bronze planted
+   without putting a soft matte around the stone base. */
+.thinker {
+  position:relative; isolation:isolate;
+  width:min(100%,440px); margin-inline:auto;
+}
+/* A low-opacity silhouette shadow softens the cutout into the page. The two
+   ground-plane shadows below remain responsible for its physical weight. */
+.thinker img {
+  position:relative; z-index:2; display:block; width:100%; height:auto;
+  filter:drop-shadow(0 13px 20px rgba(42,35,62,.15))
+         drop-shadow(0 4px 9px rgba(28,24,42,.09));
+}
+/* Broad cast shadow: its darkest end stays against the base and the long tail
+   loses both density and definition as it travels out from the sculpture. */
+.thinker::before {
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  left:-12%; bottom:-2.2%; width:116%; height:12.5%;
+  border-radius:50%;
+  background:radial-gradient(
+    ellipse at 68% 62%,
+    rgba(30,26,43,.46) 0%,
+    rgba(30,26,43,.32) 24%,
+    rgba(30,26,43,.16) 50%,
+    rgba(30,26,43,.06) 68%,
+    rgba(30,26,43,0) 88%
+  );
+  filter:blur(12px);
+  transform:rotate(2deg) skewX(-8deg);
+  transform-origin:68% 62%;
+}
+/* Tight contact shadow: smaller blur, higher density, directly under the stone.
+   This is what gives the sharply cut base physical weight. */
+.thinker::after {
+  content:""; position:absolute; z-index:1; pointer-events:none;
+  left:24%; right:auto; bottom:-1.8%; width:80%; height:4.6%;
+  border-radius:50%;
+  background:radial-gradient(
+    ellipse at 60% 24%,
+    rgba(18,16,27,.78) 0%,
+    rgba(18,16,27,.58) 30%,
+    rgba(18,16,27,.28) 58%,
+    rgba(18,16,27,0) 86%
+  );
+  filter:blur(2.5px);
+  transform:rotate(-1deg);
+}
+.problem-stats { display:flex; flex-direction:column; gap:clamp(22px,3.4vh,38px); }
+.problem-stats .draw { width:100%; }
+/* The two stacks read as a benchmark, so each carries its flag: eyebrow type
+   in white on a solid plate — slate 900 for the industry, the brand's deep
+   purple (schole_backend colors.css, --color-purple-deep) for Scholé. */
+.stat-tag {
+  align-self:flex-start; margin:0; padding:.9em 1.5em;
+  background:var(--darkest); color:#fff; border-radius:8px;
+  font-size:clamp(11px,.9vw,13px); font-weight:600;
+  letter-spacing:.22em; text-transform:uppercase;
+}
+.stat-tag-schole { background:#5f5a85; }
+/* the numerals share the display size, so a title and the stats on one screen
+   are one headline size, not two */
+.stat-big { margin:0 0 .18em; font-size:clamp(44px,7.6vw,104px); color:var(--darkest); }
+.problem-stats .lede { max-width:38ch; }
+
+/* ---------- 3 · built to teach ---------- */
+/* ---------- 3 · the stats, on white ---------- */
+/* The stats stand on white, and the page dissolves into that white through the
+   edge asset rather than meeting it on a line. The asset is white ink on
+   nothing: its rows start open at the top and close as they descend, so laid
+   over the page it reads as the mist breaking up into white.
+   The white rectangle then starts at the top of the asset's lowest row, where
+   the rows have already closed to full coverage — measured, that is the last
+   11% of the asset's height, and cutting there means the rectangle begins on
+   white the asset has already laid down. Below that line the asset is behind
+   the rectangle (z-index -1 against 0), painting white onto white. */
+:root {
+  /* the asset is 7028.94 over 857.84, so at full bleed it stands this tall */
+  --stat-edge: calc(100vw * 857.84 / 7028.94);
+  /* and this much of its foot is already solid */
+  --stat-solid: calc(var(--stat-edge) * .11);
+}
+/* z-index 0, under the sections either side of it (.sec is z-index 1), so the
+   edge that reaches up past this section's top lands behind the Rodin standing
+   in the one above rather than across him. Nothing here paints over the page's
+   own gradient — the edge sits directly on it.
+   No isolation, and no background on the section: a background would paint
+   below the negative-z children and put the pattern behind the page. */
+.teach {
+  position:relative; z-index:0; background:none;
+  padding-block:calc(clamp(30px,4vh,56px) + var(--stat-edge) - var(--stat-solid));
+}
+/* The top transition sits 60px into the section, so the Rodin above keeps
+   that much mist under his base before the dissolve starts. The white and the
+   edge move TOGETHER: the rectangle must begin where the asset's rows have
+   already closed, or its top edge shows through the last open pores. */
+.teach { --stat-drop:60px; }
+/* the white itself, the full width of the section */
+.teach::before {
+  content:''; position:absolute; inset:var(--stat-drop) 0 0; background:#fff; z-index:0;
+}
+.teach > .wrap { position:relative; z-index:1; }
+.stat-edge {
+  position:absolute; left:0; width:100%; height:auto; z-index:-100;
+  pointer-events:none; user-select:none;
+}
+.stat-edge-top  { top:var(--stat-drop); transform:translateY(calc(-100% + var(--stat-solid))); }
+.stat-edge-foot { bottom:0; transform:translateY(calc(100% - var(--stat-solid))) scaleY(-1); }
+
+/* The white opens on the claim, set exactly like the cover's "The AI-native
+   LMS" (.display); the stats below are the proof. */
+.teach-title { margin:0 0 clamp(44px,7vh,84px); color:#5f5a85; }
+.teach-stats-grid {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(240px,.74fr);
+  gap:clamp(36px,6vw,88px); align-items:center;
+  margin:0 0 clamp(150px,20vh,220px);
+}
+.teach-stats {
+  width:100%; margin:0;
+  align-items:flex-start; color:#5f5a85; text-align:left;
+}
+.teach-stats .stat-big, .teach-stats .lede { color:#5f5a85; }
+.teach-stats .lede { max-width:38ch; }
+/* Pharos, rolling out — a short settle now, not a descent. He rests near the
+   top of the stats column, a tenth of the screen from the right edge, and the
+   whole roll is --roll of travel: the stub of cord condenses out of the air
+   above him, he lands with one small swing, and throws his ray DOWN across
+   the stats to his left. --p is the scroll, 0 to 1, set by pharos.js; --r
+   trails it and throws the ray once the landing has settled.
+   The head is the muted lamp from deck-work/pharros long.svg, inline so the
+   pupil can turn, with a stub of the file's own pole at its top — the cord
+   below is the pole continued, same colour, same 85.7 units at the same x.
+   The ray is the projector beam from the character sheet: nothing at the
+   lens, the light turquoise at two thirds, gone at the tip. */
+.pharos {
+  --p:0; --r:0;
+  --head:78px;                                 /* a fifth of what he was */
+  --head-h:calc(var(--head) * 442 / 623);
+  --roll:130px;                                /* the whole travel */
+  --drop:12px;                                 /* rests level with the tag */
+  position:relative; margin:0;
+  justify-self:end; align-self:stretch;
+  width:var(--head);
+  /* a tenth of the screen from the right edge at any width: inside the wrap
+     on laptops, pulled past its edge once the wrap's margin outgrows 10vw */
+  margin-right:calc(10vw - max(var(--gutter), (100vw - 1180px) / 2));
+}
+.pharos-cord {
+  position:absolute; left:45.7%; top:calc(var(--drop) - var(--roll)); z-index:0;
+  width:calc(85.7 / 623 * 100%); margin-left:calc(85.7 / 623 * -50%);
+  height:calc(var(--p) * var(--roll) + var(--head-h) * .12);
+  background:#75bac3;
+  /* the short cord condenses out of the air above him — no band to hang from */
+  -webkit-mask-image:linear-gradient(180deg, transparent, #000 52px);
+  mask-image:linear-gradient(180deg, transparent, #000 52px);
+}
+/* The beam pivots on the lens (38.4% across the head, the eye's seat on his
+   left cheek) and is thrown by scaleX, so scrubbing back pulls it in again.
+   It rides the head's drop, and tips down so the light lands ON the stats
+   below him to the left rather than washing past them. */
+.pharos-ray {
+  position:absolute; right:61.6%; z-index:0; pointer-events:none;
+  top:calc(var(--drop) - (1 - var(--p)) * var(--roll) + var(--head-h) * .50);
+  width:clamp(420px,58vw,900px); height:clamp(250px,34vw,540px);
+  transform-origin:100% 50%;
+  transform:translateY(-50%) rotate(-22deg) scaleX(var(--r));
+  opacity:var(--r);
+}
+.pharos-head {
+  position:absolute; left:0; z-index:1; width:100%;
+  /* hung off the end of the handle, and given a little swing as it lands */
+  top:calc(var(--drop) - (1 - var(--p)) * var(--roll));
+  transform-origin:50% -40%;
+  transform:rotate(calc((1 - var(--p)) * -7deg));
+  filter:drop-shadow(0 6px 10px rgba(46,79,96,.18));
+}
+/* The idle swing lives on the svg so it can compose with the landing rotate
+   on the span: a lamp on a cord never hangs perfectly still. It pivots where
+   the pole strikes the lamp. */
+.pharos-head svg {
+  display:block; width:100%; height:auto;
+  transform-origin:45.7% -8%;
+  animation:pharos-swing 5.6s ease-in-out infinite;
+}
+@keyframes pharos-swing {
+  0%, 100% { transform:rotate(-1.4deg); }
+  50%      { transform:rotate(1.7deg); }
+}
+/* The blink: the whole eye — white and moon together — squashes shut on the
+   lamp and opens again, twice a cycle so it reads as alive, not metronomic. */
+.pharos-lid { transform-box:fill-box; transform-origin:center; animation:pharos-blink 5.2s infinite; }
+@keyframes pharos-blink {
+  0%, 40%, 46%, 88%, 94%, 100% { transform:scaleY(1); }
+  43%, 91%                     { transform:scaleY(.06); }
+}
+/* The glance: the pupil turns down onto the lit stats as the ray is thrown,
+   and turns back as it retracts. px on an SVG child are viewBox units, so
+   this rides the head at any size — the eye is r 117.79 in those units. */
+.pharos-pupil { transform:translate(calc(var(--r) * -88px), calc(var(--r) * 52px)); }
+@media (prefers-reduced-motion:reduce) {
+  .pharos { --p:1 !important; --r:1 !important; }
+  .pharos-head { transform:none; }
+  .pharos-head svg, .pharos-lid { animation:none; }
+}
+
+/* Olé walks the top edge of the first plate. His travel is scrubbed by the
+   page, while the two feet use the alternating gait from the older walker in
+   content_studio/GENERATIONS/EMAILS/podcast-header-walker-2026-08-04-v1. */
+.ole-walk {
+  position:absolute; top:0; left:0; z-index:4; pointer-events:none;
+  width:clamp(30px,3vw,46px); visibility:hidden;
+}
+.ole-walk .ole-rig { width:100%; height:auto; display:block; transform-origin:50% 100%;
+                     will-change:transform; }
+.ole-walk .ole-rig, .ole-walk .ole-shadow { transform-box:fill-box; }
+.ole-shadow {
+  position:absolute; left:50%; bottom:-5px; width:78%; aspect-ratio:5/1;
+  transform:translateX(-50%); transform-origin:50% 50%; border-radius:999px;
+  background:radial-gradient(closest-side, rgba(90,80,140,.42), transparent 78%);
+}
+/* Olé stands on the top edge of the headline and reads it: bottom:100% puts his
+   feet exactly on the line box the plates start from. Drawn rather than played
+   out of schole.riv - those artboards are the celebration loops, and the runtime
+   is a 2.3MB wasm for a character made of six rectangles. */
+.teach-head { position:relative; }
+.ole-rig .o-bulb  { fill:#ffe05f; }
+.ole-rig .o-white { fill:#fff; }
+.ole-rig .o-pupil {
+  fill:#7a613d; transform-box:fill-box; transform-origin:center;
+  transform:translateY(11px);
+  animation:ole-read-eyes 5.4s cubic-bezier(.38,0,.24,1) infinite;
+}
+.ole-rig .o-brow-l, .ole-rig .o-brow-r {
+  fill:#aa7a2f; transform-box:fill-box; transform-origin:center;
+}
+.ole-rig .o-brow-l { animation:ole-read-brow-l 5.4s cubic-bezier(.38,0,.24,1) infinite; }
+.ole-rig .o-brow-r { animation:ole-read-brow-r 5.4s cubic-bezier(.38,0,.24,1) infinite; }
+
+/* Olé scans the first line, drops his gaze to the second, and returns to the
+   beginning. The brows follow with a small inquisitive lift at each line turn. */
+@keyframes ole-read-eyes {
+  0%, 8%    { transform:translate(-18px,10px); }
+  38%, 45%  { transform:translate(20px,10px); }
+  48%, 55%  { transform:translate(-18px,17px); }
+  85%, 92%  { transform:translate(20px,17px); }
+  96%, 100% { transform:translate(-18px,10px); }
+}
+@keyframes ole-read-brow-l {
+  0%, 8%    { transform:translate(-5px,2px) rotate(-4deg); }
+  38%, 45%  { transform:translate(5px,0) rotate(2deg); }
+  48%, 55%  { transform:translate(-5px,5px) rotate(-7deg); }
+  85%, 92%  { transform:translate(5px,3px) rotate(1deg); }
+  96%, 100% { transform:translate(-5px,2px) rotate(-4deg); }
+}
+@keyframes ole-read-brow-r {
+  0%, 8%    { transform:translate(-5px,0) rotate(-2deg); }
+  38%, 45%  { transform:translate(5px,3px) rotate(5deg); }
+  48%, 55%  { transform:translate(-5px,3px) rotate(-5deg); }
+  85%, 92%  { transform:translate(5px,6px) rotate(7deg); }
+  96%, 100% { transform:translate(-5px,0) rotate(-2deg); }
+}
+
+.plated { font-size:clamp(16px,3.55vw,52px); line-height:1.46; }
+/* The span keeps its .plate class for teach.js — Olé measures it and walks its
+   top edge, and the drop-in still lands it — but it no longer paints: the
+   headline sits straight on the section's white. */
+.plated .plate { white-space:nowrap; background:none; padding:0; border-radius:0; box-shadow:none; }
+/* dropped in by teach.js, not wiped by the engine. The headline wears the
+   stats' own chip — the same pill as .stat-tag-schole, so the white section
+   is structured by two matching tags — and Olé walks this one's top edge. */
+.teach .plate {
+  clip-path:none !important; display:inline-block;
+  padding:.9em 1.5em; background:#5f5a85; color:#fff; border-radius:8px;
+  font-family:var(--sans); font-size:clamp(11px,.9vw,13px); font-weight:600;
+  letter-spacing:.22em; text-transform:uppercase;
+}
+/* Gestalt: the gap between a claim and its own explanation is much smaller than
+   the gap between one claim and the next, so each pair groups itself and no
+   rules are needed to separate them. */
+.claims {
+  list-style:none; margin:clamp(34px,5.5vh,60px) 0 0; padding:0;
+  display:flex; flex-direction:column; gap:clamp(32px,4.6vh,52px);
+}
+.claims li {
+  display:grid; grid-template-columns:auto minmax(0,1fr); gap:clamp(14px,1.6vw,26px);
+  align-items:start;
+}
+.claims .claim-star { width:clamp(15px,1.35vw,21px); height:auto; aspect-ratio:108/116;
+                      margin-top:.34em; color:#5f5a85; }
+.claim-head {
+  margin:0; font-family:var(--ns); font-weight:400; letter-spacing:-.01em;
+  font-size:clamp(18px,1.6vw,27px); line-height:1.2; color:#5f5a85;
+  white-space:nowrap;                       /* each claim holds one line */
+}
+.claim-sub {
+  margin:.34em 0 0; max-width:74ch; color:var(--medium); text-wrap:pretty;
+  font-size:var(--fs-small); line-height:1.55;
+}
+
+/* ---------- 3b · the modalities ---------- */
+/* The proof behind the white section's claims, on the centre axis: the
+   headline carries the count, the format cards follow on the open page. */
+.mods-head { margin:0 0 clamp(30px,4.5vh,56px); text-align:center; }
+.mods { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,1.8vw,24px); }
+.mod { margin:0; }
+.mod img {
+  width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top;
+  border-radius:14px; border:1px solid rgba(130,135,199,.16);
+  background:#fff; box-shadow:0 12px 34px rgba(65,58,96,.10);
+}
+.mod figcaption { margin-top:10px; font:600 var(--fs-small)/1.3 var(--sans); color:var(--darkest); text-align:center; }
+
+/* ---------- 4 · learning science ---------- */
+.science-grid {
+  display:grid; gap:clamp(28px,4vw,64px); align-items:center;
+  grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);
+}
+.science-body { max-width:56ch; margin-top:clamp(22px,3.4vh,34px); }
+.science-mark { margin:0; display:flex; justify-content:center; }
+.xp-stage { position:relative; width:100%; max-width:430px; --xp-progress:0; }
+.xp-orb-wrap { position:relative; width:100%; aspect-ratio:1; }
+/* The product artboard is deliberately flat: one warm disc, two solid waves
+   and the Scholé sparkles. These layers mirror ExperienceBarConcise in
+   schole.riv while the page scroll supplies the fill value. */
+.xp-orb {
+  position:absolute; inset:13%; border-radius:50%; overflow:hidden; isolation:isolate;
+  background:#fff1dc;
+}
+.xp-liquid {
+  position:absolute; z-index:1; left:-6%; bottom:-2%; width:112%; height:108%;
+  background:#f6c514;
+  transform:translate3d(0,112%,0); will-change:transform;
+}
+.xp-wave {
+  position:absolute; left:-50%; top:-42px; width:200%; height:68px; overflow:visible;
+  will-change:transform;
+}
+.xp-wave-back { fill:#eaa700; animation:xp-wave-back 5.1s ease-in-out infinite alternate; }
+.xp-wave-front { top:-30px; fill:#f6c514; animation:xp-wave-front 3.9s ease-in-out infinite alternate-reverse; }
+.xp-orb-count {
+  position:absolute; z-index:3; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; color:var(--darkest); text-align:center;
+  transform:translateY(-1%);
+}
+.xp-orb-number {
+  font-family:var(--ns); font-size:clamp(54px,6.2vw,82px); line-height:.84;
+  font-variant-numeric:tabular-nums; letter-spacing:-.045em;
+}
+.xp-orb-number::before { content:"+"; font-size:.58em; vertical-align:.22em; margin-right:.03em; }
+.xp-orb-count small {
+  margin-top:.62em; font:700 clamp(11px,1vw,15px)/1 var(--sans);
+  letter-spacing:.2em; text-indent:.2em; color:#9a6900;
+}
+.xp-orb-stars { position:absolute; z-index:2; inset:0; pointer-events:none; }
+.xp-orb-star {
+  position:absolute; height:auto; fill:var(--star-fill,#f3b400); overflow:visible;
+  transform-origin:center; opacity:clamp(0,calc((var(--xp-progress) - var(--star-at)) * 8),1);
+  animation:xp-star-float var(--star-speed,4.4s) ease-in-out infinite alternate;
+}
+.xp-orb-star.s1 { width:15%; left:18%; top:58%; --star-at:.02; --star-speed:4.8s; animation-delay:-1.1s; }
+.xp-orb-star.s2 { width:8%; right:13%; top:70%; --star-at:.12; --star-fill:#fff0a4; --star-speed:3.7s; animation-delay:-2.4s; }
+.xp-orb-star.s3 { width:4%; left:44%; top:76%; --star-at:.22; --star-fill:#f0a800; --star-speed:4.1s; animation-delay:-.6s; }
+.xp-orb-star.s4 { width:7%; left:13%; top:77%; --star-at:.34; --star-fill:#ffdc55; --star-speed:5.2s; animation-delay:-3.2s; }
+.xp-orb-star.s5 { width:3.5%; right:34%; top:49%; --star-at:.48; --star-fill:#efab00; --star-speed:3.4s; animation-delay:-1.8s; }
+.xp-orb-star.s6 { width:5%; left:25%; top:61%; --star-at:.62; --star-fill:#fff0a4; --star-speed:4.5s; animation-delay:-2.7s; }
+.xp-note { margin:clamp(4px,1vh,10px) 0 0; text-align:center; font-size:var(--fs-small); color:var(--medium); }
+@keyframes xp-wave-back {
+  from { transform:translate3d(-4%,1px,0) scaleY(.92); }
+  to { transform:translate3d(4%,6px,0) scaleY(1.08); }
+}
+@keyframes xp-wave-front {
+  from { transform:translate3d(4%,3px,0) scaleY(1.06); }
+  to { transform:translate3d(-4%,-4px,0) scaleY(.91); }
+}
+@keyframes xp-star-float {
+  from { transform:translate3d(-3px,8px,0) scale(.72) rotate(-7deg); }
+  to { transform:translate3d(4px,-13px,0) scale(1.08) rotate(5deg); }
+}
+
+/* ---------- 5 · the platform ---------- */
+/* The rows animate on their own arrival. Hiding is enabled only after the row
+   observer is running: if an older cached scroll.js or a script failure leaves
+   the observer unavailable, the section-level reveal still shows every point
+   instead of leaving the desktop layout blank. */
+html.row-reveals .platform.in .point:not(.in) [data-reveal],
+html.row-reveals .ent.in .point:not(.in) [data-reveal] {
+  opacity:0; transform:translate3d(0,26px,0);
+}
+html.row-reveals .platform.in .point:not(.in) [data-reveal="left"],
+html.row-reveals .ent.in .point:not(.in) [data-reveal="left"] {
+  transform:translate3d(-34px,0,0);
+}
+html.row-reveals .platform.in .point:not(.in) [data-reveal="scale"],
+html.row-reveals .ent.in .point:not(.in) [data-reveal="scale"] {
+  transform:scale(.94);
+}
+html.row-reveals .platform.in .point:not(.in) .w > i,
+html.row-reveals .ent.in .point:not(.in) .w > i {
+  transform:translateY(108%);
+}
+.point.in [data-reveal]           { opacity:1; transform:none; }
+.point.in .w > i                  { transform:none; }
+.platform { justify-content:flex-start; }
+/* Not sticky: with no backdrop the rows scrolled straight through it, and the
+   ground here is a fixed gradient that a pinned element cannot match. The four
+   points read as belonging to the headline by being indented under it and
+   numbered in one run instead. */
+.platform-head { margin:0 0 clamp(34px,5.5vh,64px); }
+.points {
+  list-style:none; margin:0; padding:0 0 0 clamp(0px,3.4vw,58px);
+  display:flex; flex-direction:column;
+  --row-gap:clamp(48px,8vh,96px); gap:var(--row-gap);
+}
+.point {
+  display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:clamp(24px,3.2vw,52px); align-items:center;
+  position:relative;
+}
+/* each figure leans toward its own copy, whichever side it stands on */
+.point:nth-child(odd) .point-art { justify-content:flex-end; }
+/* a rule in the middle of each gap, drawn as its row arrives — the same
+   self-drawing line as .draw, sitting between the segments of both lists */
+.point:not(:last-child)::after {
+  content:''; position:absolute; left:0; right:0;
+  bottom:calc(var(--row-gap) / -2); height:1px; background:var(--rule);
+  transform:scaleX(0); transform-origin:0 50%;
+  transition:transform 1.1s var(--ease) .2s;
+}
+.point.in:not(:last-child)::after { transform:scaleX(1); }
+@media (prefers-reduced-motion:reduce) {
+  .point:not(:last-child)::after { transform:scaleX(1); transition:none; }
+}
+.point:nth-child(even) .point-art  { order:2; justify-content:flex-start; }
+.point:nth-child(even) .point-copy { order:1; }
+.point-art { margin:0; display:flex; align-items:center;
+             height:clamp(120px,16vh,190px); }
+.point-art img { max-width:100%; max-height:100%; width:auto; height:auto; }
+/* hostgrid.js fills this with the six-cards-into-one-box SVG; the svg keeps
+   its own aspect and centres in whatever box the figure gives it */
+.hostgrid { width:100%; height:100%; }
+.hostgrid svg { display:block; width:100%; height:100%; }
+/* branches.js fills this with the one-course-three-routes mark, drawn live */
+.branches { width:100%; height:100%; }
+.branches svg { display:block; width:100%; height:100%; }
+.point-copy { display:grid; gap:clamp(10px,1.4vh,16px); }
+.point-text {
+  margin:0; font-family:var(--ns); font-weight:400; letter-spacing:-.01em;
+  font-size:clamp(21px,2.15vw,34px); line-height:1.2; color:var(--darkest);
+  max-width:22ch;
+}
+.ul { position:relative; white-space:nowrap; }
+/* the stroke sits below the baseline and was being cut by the heading box */
+.platform-head, .ent-head { overflow:visible; padding-bottom:.42em; }
+.squiggle {
+  position:absolute; left:-1.5%; bottom:-.34em; width:103%; height:auto;
+  aspect-ratio:260 / 34; color:#847BBD; opacity:.95; overflow:visible;
+  filter:url(#crayon);                     /* the wobble */
+  stroke-dasharray:300; stroke-dashoffset:300;
+  /* a hand starts quickly and eases off at the end of the stroke */
+  transition:stroke-dashoffset 1.15s cubic-bezier(.16,.72,.3,1) .35s;
+}
+.in .squiggle { stroke-dashoffset:0; }
+
+
+.ent-head { margin-bottom:clamp(40px,6vh,72px); }
+/* One row per proof, like the platform's points: the visual is the animation,
+   the sentence is the whole copy. Rows share .points' dividers and arrive one
+   at a time; each visual's choreography is keyed to its row (.point.in), so
+   it plays as its own row lands rather than all four at once. */
+.ent-points .ent-visual { width:100%; }
+.ent-points .point-text { max-width:30ch; }
+
+
+
+
+/* ---------- 6 · enterprise ---------- */
+.ent-visual {
+  height:clamp(116px,10vw,142px); border:1px solid rgba(130,135,199,.16);
+  border-radius:24px; background:rgba(255,255,255,.62); overflow:hidden;
+  box-shadow:0 12px 34px rgba(65,58,96,.10); color:#766fb8;
+}
+.ent-sso { display:grid; place-items:center; }
+.ent-sso-pill {
+  min-width:72%; display:flex; align-items:center; justify-content:center; gap:10px;
+  padding:13px 17px; border-radius:14px; background:#fff;
+  box-shadow:0 9px 24px rgba(76,68,113,.15);
+  opacity:0; transform:translateY(18px) scale(.92);
+  transition:opacity .55s var(--ease) .2s, transform .65s var(--ease) .2s;
+}
+.ent-sso-pill strong { color:var(--darkest); font:600 var(--fs-small)/1 var(--sans); }
+.ent-lock, .ent-tick { width:22px; height:22px; flex:none; }
+.ent-tick { margin-left:auto; fill:none; stroke:#32aa6b; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+.ent-tick path { stroke-dasharray:18; stroke-dashoffset:18; transition:stroke-dashoffset .55s var(--ease) .75s; }
+.point.in .ent-sso-pill { opacity:1; transform:none; }
+.point.in .ent-tick path { stroke-dashoffset:0; }
+
+.ent-standards { display:flex; align-items:center; justify-content:center; gap:clamp(7px,.8vw,12px); padding:16px; }
+.ent-standards span {
+  min-width:0; flex:1; max-width:76px; padding:12px 4px; border-radius:12px; background:#fff;
+  box-shadow:0 7px 20px rgba(76,68,113,.12); color:var(--darkest); text-align:center;
+  font:600 var(--fs-small)/1 var(--sans); opacity:0; transform:translateY(20px) scale(.88) rotate(-4deg);
+  transition:opacity .48s var(--ease), transform .58s var(--ease);
+}
+.ent-standards span:nth-child(1) { transition-delay:.2s; }
+.ent-standards span:nth-child(2) { transition-delay:.34s; }
+.ent-standards span:nth-child(3) { transition-delay:.48s; }
+.point.in .ent-standards span { opacity:1; transform:none; }
+
+.ent-growth { display:flex; align-items:flex-end; justify-content:center; padding:19px 24px; }
+.ent-bars { width:78%; height:100%; display:flex; align-items:flex-end; gap:8%; }
+.ent-bars i {
+  flex:1; height:var(--bar-h); border-radius:7px 7px 3px 3px;
+  background:linear-gradient(180deg,#9986cb,#747bc5); transform:scaleY(0);
+  transform-origin:50% 100%; transition:transform .72s cubic-bezier(.2,.78,.22,1);
+  transition-delay:calc(.16s + var(--bar-i) * 95ms);
+}
+.point.in .ent-bars i { transform:scaleY(1); }
+
+.ent-checks { display:flex; flex-direction:column; justify-content:center; gap:8px; padding:16px 18px; }
+.ent-checks span {
+  display:flex; align-items:center; gap:8px; color:var(--darkest);
+  font:500 var(--fs-small)/1.15 var(--sans); opacity:0; transform:translateX(-12px);
+  transition:opacity .45s var(--ease), transform .55s var(--ease);
+}
+.ent-checks span:nth-child(1) { transition-delay:.2s; }
+.ent-checks span:nth-child(2) { transition-delay:.36s; }
+.ent-checks span:nth-child(3) { transition-delay:.52s; }
+.ent-checks svg { width:22px; height:22px; flex:none; fill:none; stroke:#32aa6b; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+.ent-checks path { stroke-dasharray:19; stroke-dashoffset:19; transition:stroke-dashoffset .52s var(--ease); transition-delay:inherit; }
+.point.in .ent-checks span { opacity:1; transform:none; }
+.point.in .ent-checks path { stroke-dashoffset:0; }
+
+/* ---------- 7 · outcomes ---------- */
+/* The closing claim over the proof: the logo loop, then who built it. The
+   modalities now make their case up in 2b, right after the problem. */
+.proof { margin-top:clamp(40px,6vh,72px); text-align:center; }
+.proof-cap { margin:0 0 14px; font-size:var(--fs-small); color:var(--ink-soft); }
+/* The logos ride a quiet loop: two identical sets, the track slides one set's
+   width and starts over, and a mask dissolves the strip at both edges so it
+   surfaces out of nothing and returns to it. */
+.proof-logos {
+  overflow:hidden;
+  mask-image:linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+}
+.proof-track { display:flex; width:max-content; animation:proof-scroll 30s linear infinite; }
+.proof-set {
+  display:flex; align-items:center;
+  gap:clamp(30px,3.6vw,56px); padding-right:clamp(30px,3.6vw,56px);
+}
+.proof-set img { height:clamp(14px,1.4vw,20px); width:auto; opacity:.85; }
+@keyframes proof-scroll { to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion:reduce) { .proof-track { animation:none; } }
+.proof-note { margin:clamp(18px,2.6vh,28px) auto 0; font-size:var(--fs-small); color:var(--ink-soft); max-width:58ch; }
+
+/* The payoff is the last thing said before the pattern starts, so it sits at
+   the foot of its section rather than in the middle of it — 285px of empty
+   ground between the line and the first stars was the section's own centring,
+   not spacing anyone chose. */
+.payoff { justify-content:flex-end; padding-bottom:clamp(36px,5vh,64px); }
+/* The whole section on the centre axis: headline, lede and proof as one
+   column. No width cap of its own — "From content to competence." measures
+   1029px at the type's 74px cap, and boxing it at 900 broke the headline onto
+   three lines; the .wrap's 1180 lets each sentence hold its line. */
+.payoff-wrap { margin-inline:auto; text-align:center; }
+.payoff-wrap .lede { margin:clamp(16px,2.2vh,30px) auto 0; max-width:52ch; }
+
+/* The close grows out of the actual top Scholé logo star. Density and scale
+   increase toward the brand field in the halftone transition. */
+/* The passage into the close. There is no plate and no fade under it: the
+   lattice thickens until the stars overlap outright, and the ground of the
+   close is the last few rows of them run together. Whatever the band ends on
+   is what the footer starts on, so there is no edge to see. */
+.star-bridge {
+  position:relative; z-index:1; height:clamp(155px,19.5vw,285px); overflow:hidden;
+  margin-bottom:-1px; pointer-events:none;
+}
+.star-field { position:absolute; inset:0; }
+.star-dot {
+  position:absolute; height:auto; overflow:visible; color:var(--star-color,#8179bc);
+  fill:currentColor; transform:translate(-50%,-50%);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px) {
+  .science-grid { grid-template-columns:1fr; }
+  .science-mark { max-width:340px; }
+}
+@media (max-width:680px) {
+  html, body { overflow-x:clip; }
+  body { font-size:16px; }
+  .crash-old { font-size:clamp(76px,27vw,150px); }
+  /* the title is allowed to wrap down here - it does not fit on one line */
+  .crash-new, .crash-ghost { white-space:normal; }
+  .dots { display:none; }
+  .ent-visual { height:116px; }
+  .ent-sso-pill { min-width:88%; gap:6px; padding:12px 10px; }
+  /* one small size down here too, shared by all three cards */
+  .ent-sso-pill strong, .ent-standards span, .ent-checks span { font-size:10px; }
+  .ent-lock, .ent-tick { width:18px; height:18px; }
+  .ent-standards { gap:4px; padding:8px 7px; }
+  .ent-standards span { padding:10px 2px; }
+  .ent-checks { gap:6px; padding:11px 9px; }
+  .ent-checks span { gap:5px; }
+  .ent-checks svg { width:17px; height:17px; }
+  .plated { line-height:1.5; }
+  .mods { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  /* The white opens on the claim, set exactly like the cover's "The AI-native
+   LMS" (.display); the stats below are the proof. */
+.teach-title { margin:0 0 clamp(44px,7vh,84px); color:#5f5a85; }
+.teach-stats-grid { grid-template-columns:1fr; gap:38px; margin-bottom:140px; }
+  /* stacked, the stats sit above him: he keeps his tenth-of-the-screen seat
+     at the right, rolls the same short roll, and throws the ray up across
+     the numbers — the diagonal simply runs the other way. */
+  .pharos { --head:54px; --roll:90px; --drop:56px; height:150px; align-self:auto; }
+  .pharos-ray { width:min(80vw,330px); height:min(46vw,190px);
+                transform:translateY(-50%) rotate(34deg) scaleX(var(--r)); }
+  .pharos-pupil { transform:translate(calc(var(--r) * -70px), calc(var(--r) * -52px)); }
+  .problem-grid { grid-template-columns:1fr; }
+  .thinker { width:min(100%,250px); }
+  .claims li { gap:12px; }
+  .claims .spark { width:20px; height:20px; }
+  /* Headlines sit on the centre axis down here, and nothing holds a line:
+     the nowrap claim heads were running off the right edge of the screen. */
+  .teach-title, .science-grid .h1, .platform-head, .ent-head,
+  .plated, .lesson-intro { text-align:center; }
+  .claim-head { white-space:normal; }
+  .plated .plate { white-space:normal; }
+}
+
+/* ---------- 8 · the close ---------- */
+/* set at the same size as the line under it - New Spirit is the only thing
+   separating them now */
+.foot .h1 {
+  margin:0; max-width:34ch;
+  font-size:clamp(18px,1.6vw,27px); line-height:1.25; letter-spacing:0;
+}
+/* One sentence on one line: it measures 951px at the type's 27px cap, so the
+   inner column widens past its 820 and no ch cap breaks the line. Tighter
+   leading holds it close under the headline. */
+.foot-inner { max-width:1000px; }
+.foot-line { margin:0; line-height:1.25; }
+/* The close is white on the close's own ground: the headline, the two lines
+   under it, and the wordmark. Nothing else is coloured up here. The mark that
+   used to sit above the headline is gone, and the turquoise is left to do one
+   job, on the button. */
+.foot .h1, .foot .h1 em { color:#fff; }
+
+/* The button moved up into the payoff, so the close is just the two lines and
+   the wordmark — a shorter box, and less clearance kept for the mark. */
+.foot { min-height:36svh; padding-bottom:clamp(110px,15vw,200px); }
+
+/* the pill, with the arrow in its own disc as on the site — it sits in the
+   payoff now, under the lede, centred by the section's own axis */
+.book-cta {
+  margin-top:clamp(26px,3.6vh,44px); padding:9px 9px 9px 30px; gap:18px;
+  background:#fff; color:#3d6db9; font-size:clamp(15px,1.15vw,18px);
+  border:2px solid var(--turquoise);
+  box-shadow:0 10px 30px rgba(90,80,140,.18);
+}
+.cta-dot {
+  width:clamp(34px,2.9vw,44px); aspect-ratio:1; border-radius:999px; flex:none;
+  background:var(--turquoise); color:#3d6db9; display:grid; place-items:center;
+}
+.cta-dot svg { width:52%; height:auto; fill:none; stroke:currentColor;
+               stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+
+@media (max-width:680px) {
+  .foot { padding-bottom:clamp(120px,40vw,220px); }
+  .foot-mark { right:-6%; width:112%; }
+}
+
+
+/* ---------- the lesson film, played inside 4 · learning science ---------- */
+/* the line that names the film: Inter at the lede size, the section's purple */
+.lesson-intro {
+  margin:clamp(40px,6vh,72px) 0 clamp(18px,2.6vh,30px); text-align:center;
+  font-size:clamp(18px,1.6vw,27px); line-height:1.3; color:#5f5a85;
+}
+/* The Harvard Way film's middle scene as a video embed with the white plate
+   stripped away: the film's 16:9 frame, scaled into the column, playing
+   itself while it is on screen. A hairline border frames it — border only,
+   no fill: the activities carry their own type and colour and sit straight
+   on the page. The height term keeps the whole frame inside a short screen,
+   so it only ever gets smaller, never cropped. */
+.lesson-embed {
+  margin:0 auto;
+  width:min(100%, 980px, calc((100svh - 240px) * 16 / 9));
+}
+.lesson-stage {
+  position:relative; aspect-ratio:16/9; overflow:hidden;
+  border:3px solid rgba(130,135,199,.3); border-radius:24px;
+}
+.lesson-world {
+  position:absolute; top:0; left:0;
+  transform-origin:0 0; will-change:transform;
+}
+.lesson-act { position:absolute; left:0; top:0; }
+
+/* ---------- Ask Olé panel (point 03), olechat.js ---------- */
+/* olechat.js fills this with the app's Ask Olé panel. The figure takes its
+   height from the panel, not the art clamp — a chat shrunk to 190px cannot be
+   read, and this one is meant to be. Every colour below is the product's own
+   (frontend colors.css): gray-lightest borders, gray-subtle surfaces,
+   primary-solid periwinkle, the amber warning pair on everything Olé. */
+.olechat-fig { height:auto; }
+.olechat { width:100%; position:relative; }
+.oc-scale { width:400px; transform-origin:top right; position:absolute; top:0; right:0; }
+.oc-panel {
+  width:400px; background:#fff; border:1px solid #f1f5f9; border-radius:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.12), 0 4px 16px rgba(0,0,0,.06);
+  font-family:var(--sans); letter-spacing:0; text-align:left;
+}
+.oc-head { display:flex; align-items:center; justify-content:space-between; padding:14px 16px 0; }
+.oc-title { font-size:17px; font-weight:500; line-height:22px; color:#0f172a; }
+.oc-x { width:18px; height:18px; }
+.oc-hr { height:1px; margin:10px 16px 0; background:#f1f5f9; }
+.oc-body { display:grid; gap:10px; padding:12px 16px 0; }
+.oc-intro { display:flex; align-items:center; gap:6px; }
+.oc-name { font-size:14px; font-weight:500; color:#0f172a; }
+.oc-badge {
+  margin-left:4px; padding:3px 8px; border-radius:8px;
+  background:#fffbeb; color:#f59e0b; font-size:12px; font-weight:500;
+}
+.oc-ole {
+  flex:none; border-radius:999px; background:#fffbeb;
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.oc-ole svg { width:66%; height:88%; display:block; }
+@media (prefers-reduced-motion: no-preference) {
+  .oc-blink { animation:oc-blink 3.4s infinite; transform-origin:176px 526px; }
+}
+@keyframes oc-blink { 0%,92%,100% { transform:scaleY(1); } 95% { transform:scaleY(.08); } }
+.oc-row { display:flex; justify-content:flex-end; }
+.oc-user {
+  max-width:85%; padding:7px 12px; border-radius:16px;
+  background:#8287c7; color:#fff; font-size:13px; line-height:1.45;
+}
+/* the thinking bubble borrows the hint card's slot — it is gone by the time
+   the card lands, so the panel never changes height mid-exchange */
+.oc-stage { display:grid; }
+.oc-stage > * { grid-area:1 / 1; }
+.oc-think {
+  justify-self:start; align-self:start; display:flex; align-items:center; gap:6px;
+  padding:7px 12px; border-radius:16px; background:#f8fafc;
+  color:#64748b; font-size:13px; line-height:1.45;
+  opacity:0; visibility:hidden; /* transient — only the timeline shows it */
+}
+.oc-spin { width:13px; height:13px; animation:oc-spin 1s linear infinite; }
+@keyframes oc-spin { to { transform:rotate(360deg); } }
+.oc-hint { padding:12px; border-radius:16px; background:#fffbeb; }
+.oc-hint-head { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
+.oc-hint-head span { font-size:11px; font-weight:600; color:#f59e0b; }
+.oc-hint p { margin:0; font-size:12.5px; line-height:1.5; color:#334155; }
+.oc-input { display:flex; align-items:center; gap:8px; padding:12px 16px 14px; }
+.oc-field {
+  flex:1; display:flex; align-items:center; height:34px; padding:0 12px;
+  border:1px solid #f1f5f9; border-radius:16px; background:#f8fafc;
+  font-size:13px; position:relative;
+}
+.oc-ph { color:#94a3b8; position:absolute; }
+.oc-typed { color:#334155; white-space:pre; }
+.oc-caret { width:1.5px; height:14px; background:#334155; opacity:0; animation:oc-caret 1.1s steps(1) infinite; }
+@keyframes oc-caret { 50% { opacity:0; } }
+.oc-send {
+  flex:none; width:28px; height:28px; border-radius:12px; background:#8287c7;
+  display:flex; align-items:center; justify-content:center;
+}
+.oc-send svg { width:13px; height:13px; }
+

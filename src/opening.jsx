@@ -188,6 +188,7 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
         cheap.style.display = 'none';
         xLetters.forEach((el) => { el.style.display = 'inline-block'; });
         xLetters[0].parentElement.style.display = 'inline-block';
+        gsap.set(hello, { autoAlpha: 1 });
         fit();
         return;
       }
@@ -211,6 +212,12 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
       // 3 · the typing: expensive arrives letter by letter, quick — the line
       //     zooming out smoothly to keep both edges as it reveals itself
       xLetters.forEach((el, i) => tl.add(reveal(el, i === xLetters.length - 1), `type+=${i * .12}`));
+      // 4 · the send-off, on the same screen: while the letters are still
+      //     being reshuffled the greeting starts fading in above the chevron,
+      //     slow enough to finish arriving around the time they settle
+      tl.fromTo(hello, { autoAlpha: 0, y: 18 },
+        { autoAlpha: 1, y: 0, duration: 1.6, ease: 'power2.out' },
+        'shuffle+=.3');
 
       // scrolling back up into the hero replays the whole claim: put every
       // letter back where it was born, refit, and run the build again
@@ -231,25 +238,18 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
         xLetters.forEach((el) => { el.textContent = el.dataset.ch; el.style.width = ''; el.style.display = ''; });
         xLetters[0].parentElement.style.display = '';
         // refit only the type: the panel keeps its size, and a full fit()'s
-        // ScrollTrigger.refresh() inside this scroll callback would corrupt
-        // the greeting's scrub trigger
+        // ScrollTrigger.refresh() inside a scroll callback is asking for
+        // trouble — the restarted timeline resets the greeting itself
         line.style.fontSize = `${fitTarget()}px`;
         tl.restart(true);
       };
       // fires the moment the visitor scrolls back up across the hero's first
-      // 10vh (5% of the 200vh section) — any dip toward the greeting and back
-      // relaunches the claim; shallow enough to catch a scroll that only
-      // reached "put your seatbelts on", deep enough to ignore pixel jitters
+      // few vh — any dip toward the reel and back relaunches the claim;
+      // shallow enough to catch a short scroll, deep enough to ignore jitters
       ScrollTrigger.create({ trigger: q('.op')[0], start: '5% top', onLeaveBack: replay });
 
-      // scroll: the settled claim hands over to Eva's greeting, scrubbed —
-      // the visitor performs the transition, nothing vanishes on its own
-      gsap.timeline({
-        scrollTrigger: { trigger: q('.op')[0], start: 'top top', end: '+=90%', scrub: .9 },
-      })
-        .to(q('.op-mouse'), { autoAlpha: 0, duration: .12 }, 0)
-        .to(q('.op-frame'), { autoAlpha: 0, y: -70, duration: .35, ease: 'power1.in' }, .05)
-        .fromTo(hello, { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: .4, ease: 'power1.out' }, .32);
+      // no pinned scroll stage any more: the hero is one screen, the chevron
+      // simply scrolls away with it, and the next thing you meet is the reel
     }, root);
 
     return () => { unfit(); ctx.revert(); };
@@ -282,13 +282,7 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
       </div>
 
       <div className="op-hello">
-        <div className="op-hello-copy">
-          <svg className="op-hello-chev" viewBox="0 0 34 24" aria-hidden="true">
-            <polyline className="op-chev op-chev1" points="9,3 17,11 25,3" />
-            <polyline className="op-chev op-chev2" points="9,12 17,20 25,12" />
-          </svg>
-          <p className="op-hello-lead">{greeting}</p>
-        </div>
+        <p className="op-hello-lead">{greeting}</p>
       </div>
     </div>
   </section>;
