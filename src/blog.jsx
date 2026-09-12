@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowDown, ArrowLeft } from 'lucide-react';
 import { useT } from './i18n.jsx';
 
 // the contact CTA's holographic foil, frozen into a gradient stroke so the
@@ -7,7 +7,9 @@ import { useT } from './i18n.jsx';
 // pink and lavender trail behind, matching the mesh palette
 export function HoloArrow({ className }) {
   const id = React.useId();
-  return <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  // the viewBox hugs the drawn strokes (plus cap overhang), so sizing the
+  // svg at 1ex makes the visible arrow exactly x-height
+  return <svg className={className} viewBox="5.5 5.5 13 13" fill="none" aria-hidden="true">
     <defs>
       <linearGradient id={id} x1="5" y1="19" x2="19" y2="5" gradientUnits="userSpaceOnUse">
         <stop offset="0" stopColor="#c9a5ec" />
@@ -117,5 +119,6 @@ export function BlogPost({ post, close }) {
     {post.source && <a className="post-source" href={post.source} target="_blank" rel="noreferrer">
       {tr(`Originally published on the ${post.sourceName}`, `Ursprünglich erschienen: ${post.sourceName}`)} <HoloArrow />
     </a>}
+    <button className="next-button" onClick={close}>{tr('All posts', 'Alle Artikel')}<ArrowDown /></button>
   </main>;
 }
