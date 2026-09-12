@@ -1,6 +1,17 @@
 {
  "projects": [
   {
+   "slug": "schole-ai",
+   "title": "Scholé AI",
+   "client": "Scholé AI",
+   "category": "Marketing leadership",
+   "description": "At Scholé AI I bring brand strategy, creative leadership and technical understanding together in a broad marketing role. I led the rebranding, developed positioning and integrated campaigns, and planned advertising budgets — connecting landing pages, email automation and marketing funnels with sales decks and pitch narratives, so each stage of the customer journey has a clear purpose. I led two product launches, including Scholé's debut on Product Hunt, which earned #1 Product of the Day on 2 May 2026 — ranking ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus.",
+   "images": [],
+   "videos": [],
+   "cardTitle": "Scholé AI",
+   "label": "Marketing Leadership · Product Marketing · GTM · AI"
+  },
+  {
    "slug": "team-nl",
    "title": "This is how we do it!",
    "client": "TeamNL",
@@ -140,6 +151,308 @@
     {
      "img": "/media/team-nl-21-screen-shot-2019-04-03-at-21-22-47.webp"
     }
+   ],
+   "cardTitle": "TeamNL — Zo Doen We Dat!",
+   "label": "Brand Strategy · Integrated Campaign · Creative Direction"
+  },
+  {
+   "slug": "new-page",
+   "title": "Skip your laundry",
+   "client": "dobbi by Persil",
+   "category": "Integrated campaign",
+   "description": "Skip your laundry as fast as you can skip this ad! CLIENT: dobbi (by Persil) PROBLEM: The challenge was to introduce a brand-new service in a 6-second YouTube pre-roll ad — and then encourage the viewer to skip the ad, so it stays free. IDEA: Use the link between skipping the laundry and skipping the pre-roll to our advantage. MY ROLE: concept + art direction + design — across both the launch campaign and the app",
+   "images": [
+    "/media/new-page-01-dobbi-icon-v2.webp",
+    "/media/new-page-02-dobbi-header.webp",
+    "/media/new-page-03-skippable-pre-roll.webp",
+    "/media/new-page-04-storyboard.webp",
+    "/media/new-page-05-campaign-assets.webp",
+    "/media/new-page-06-a.webp",
+    "/media/new-page-07-utrecht-rail-station.webp",
+    "/media/new-page-08-skip-deze-advertentie.webp",
+    "/media/new-page-09-113284-dobbi-youtube-banner-v5-f2.webp",
+    "/media/new-page-10-banners.webp",
+    "/media/new-page-11-banner-to-upload.webp",
+    "/media/new-page-12-dobbi-website.webp",
+    "/media/new-page-13-screenshot-2024-10-05-at-17-44-49.webp",
+    "/media/new-page-14-hoe-het-werkt-3.webp",
+    "/media/new-page-15-screenshot-2024-10-05-at-17-44-19.webp",
+    "/media/new-page-16-screenshot-2024-10-05-at-17-46-03.webp"
+   ],
+   "videos": [
+    {
+     "id": "7txu1nvs4lA",
+     "title": "Dobbi — Skip Your Laundry",
+     "poster": "/media/posters/7txu1nvs4lA.jpg"
+    }
+   ],
+   "cardTitle": "Dobbi by Persil — Skip Your Laundry",
+   "label": "Service Launch · Integrated Marketing · Digital Product",
+   "story": [
+    {
+     "img": "/media/new-page-02-dobbi-header.webp"
+    },
+    {
+     "img": "/media/new-page-03-skippable-pre-roll.webp"
+    },
+    {
+     "video": {
+      "id": "7txu1nvs4lA",
+      "title": "Dobbi — Skip Your Laundry",
+      "poster": "/media/posters/7txu1nvs4lA.jpg"
+     }
+    },
+    {
+     "quote": "You can skip your laundry (and dry cleaning) as fast as you can skip this ad — with dobbi! So skip, skip, skip it! Still here? Alright, let's skip your laundry and dry cleaning. We'll pick it up. We'll do our magic. We'll bring it back — when it suits you. So start skipping! Download dobbi!"
+    },
+    {
+     "text": "The first storyboard I drew:"
+    },
+    {
+     "img": "/media/new-page-04-storyboard.webp"
+    },
+    {
+     "text": "We created distinctive, original brand assets to make sure dobbi looked innovative and new."
+    },
+    {
+     "img": "/media/new-page-05-campaign-assets.webp"
+    },
+    {
+     "text": "Here is what the outdoor and print looked like."
+    },
+    {
+     "img": "/media/new-page-06-a.webp"
+    },
+    {
+     "img": "/media/new-page-07-utrecht-rail-station.webp"
+    },
+    {
+     "img": "/media/new-page-08-skip-deze-advertentie.webp"
+    },
+    {
+     "text": "The digital banners drove quite some traffic to the website."
+    },
+    {
+     "img": "/media/new-page-09-113284-dobbi-youtube-banner-v5-f2.webp"
+    },
+    {
+     "img": "/media/new-page-10-banners.webp"
+    },
+    {
+     "text": "For social media we made looping gifs, paired with clear descriptions — all within Facebook's 20% text rule."
+    },
+    {
+     "img": "/media/new-page-11-banner-to-upload.webp"
+    },
+    {
+     "text": "And that's the website."
+    },
+    {
+     "img": "/media/new-page-12-dobbi-website.webp"
+    },
+    {
+     "img": "/media/new-page-13-screenshot-2024-10-05-at-17-44-49.webp"
+    },
+    {
+     "text": "To show how simple dobbi is, we created the icons."
+    },
+    {
+     "text": "ORDER → PICK-UP → WE DO MAGIC → DELIVER"
+    },
+    {
+     "img": "/media/new-page-14-hoe-het-werkt-3.webp"
+    },
+    {
+     "img": "/media/new-page-15-screenshot-2024-10-05-at-17-44-19.webp"
+    },
+    {
+     "img": "/media/new-page-16-screenshot-2024-10-05-at-17-46-03.webp"
+    },
+    {
+     "text": "I worked on both the launch campaign and the app itself — and the service took off: at the 2019 Dutch Interactive Awards, dobbi was named a top-5 Disrupter in the Netherlands."
+    }
+   ]
+  },
+  {
+   "slug": "adidas-email",
+   "title": "Hottest drops! New Arrivals",
+   "client": "adidas",
+   "category": "CRM & direct mail",
+   "description": "Hottest drops! New Arrivals CLIENT: adidas Global PROBLEM: How to announce the arrival of new shoes in the emails IDEA: New shoes from adidas are so good, that they end the conversation. Let's drop them like a mic drop MY ROLE: concept + art direction + design RESULT: A highly successful CRM campaign, celebrated together with the adidas team — 16 versions built around 16 different shoes, translated into 17 languages and rolled out across 17 Western European markets.",
+   "images": [
+    "/media/adidas-email-01-adidas-crm2.webp",
+    "/media/adidas-email-03-reka.webp",
+    "/media/adidas-email-04-eqt-female.webp",
+    "/media/adidas-email-05-reka-buty-szare.webp",
+    "/media/adidas-email-06-eqt-male.webp",
+    "/media/adidas-email-07-hand-red-shoe.webp",
+    "/media/adidas-email-08-gazelle-female.webp",
+    "/media/adidas-email-09-kolejny-but-reka.webp",
+    "/media/adidas-email-10-nmd-male.webp",
+    "/media/adidas-email-11-niebieski.webp",
+    "/media/adidas-email-12-gazelle-male-v2.webp",
+    "/media/adidas-email-02-email-mockup-v2.webp",
+    "/media/adidas-email-13-114045-co-direct-mail-reactivation-297x210-1.webp",
+    "/media/adidas-email-14-stickers.webp",
+    "/media/adidas-email-15-slide-in.webp",
+    "/media/adidas-email-16-adidas-reactivation-dm-ideas-v3-1-8.webp",
+    "/media/adidas-email-17-mirror.webp",
+    "/media/adidas-email-18-nmd-safe2-2.webp",
+    "/media/adidas-email-19-caly-email.webp",
+    "/media/adidas-email-20-fresh-as-male-v-mockup.webp",
+    "/media/adidas-email-21-fresh-as-female-v-mockup.webp"
+   ],
+   "cardTitle": "adidas — Hottest Drops / CRM",
+   "label": "CRM · Lifecycle Marketing · Customer Engagement"
+  },
+  {
+   "slug": "slime",
+   "title": "Slime",
+   "client": "Wall’s",
+   "category": "Launch campaign",
+   "description": "Slime is a new product from Brazil that is getting traction from more markets. Slime is a trend that is still relevant for kids/teens and our products tap into those clear passion points by delivering on fruity but exciting ice cream. •Objective: Drive awareness for this new product by fully highlighting the excitement that Slime brings. In some markets where we have multiple flavors, the packaging is the same and it is a surprise for consumers which flavor they will get. Slime is not just slime. It’s a cultural phenomenon. Ever since Nickelodeon first slimed a celebrity, the legend of the slime has grown. And now, everyone can now enjoy 3 great Nickelodeon Slime ice creams. They can experience the feeling of Slime taking over, surprising them, delighting them, invigorating their tastebuds.",
+   "images": [
+    "/media/slime-01-slime-icon2.webp",
+    "/media/slime-02-kv-1.webp",
+    "/media/slime-03-kv-2.webp",
+    "/media/slime-04-kv-3.webp",
+    "/media/slime-05-social-stories-2.webp",
+    "/media/slime-06-social-stories-3.webp",
+    "/media/slime-07-social-stories-1.webp",
+    "/media/slime-08-social-stories-4.webp",
+    "/media/slime-09-slime-banners.webp",
+    "/media/slime-10-bridge.webp"
+   ],
+   "cardTitle": "Wall’s — Slime",
+   "label": "Product Launch · Global Campaign · Creative Strategy"
+  },
+  {
+   "slug": "royal-canin-social-campaign-2",
+   "title": "Healthy habits",
+   "client": "Royal Canin",
+   "category": "Social campaign",
+   "description": "A healthy weight starts with healthy habits. CLIENT: Royal Canin PROBLEM: Over 50% of pets are overweight and their owners do not consider it a problem. IDEA: Idea is to build awareness about pets obesity by talking about solutions. We created a weight management campaign in which we talk about healthy habits. MY ROLE: concept + art direction + design",
+   "images": [
+    "/media/royal-canin-social-campaign-2-01-rc-ikonka.webp",
+    "/media/royal-canin-social-campaign-2-02-20190402-posters-2.webp",
+    "/media/royal-canin-social-campaign-2-03-social-media-v2.webp",
+    "/media/royal-canin-social-campaign-2-04-healthyactivity-cat-britishshorthair-6s-9x16-v01.webp",
+    "/media/royal-canin-social-campaign-2-05-healthyactivity-cat-britishshorthair-6s-9x16-v01-x.webp",
+    "/media/royal-canin-social-campaign-2-06-carausels.webp",
+    "/media/royal-canin-social-campaign-2-07-landing-page-dog.webp",
+    "/media/royal-canin-social-campaign-2-08-overweight-leaflet-dog-outside.webp",
+    "/media/royal-canin-social-campaign-2-09-overweight-leaflet-dog-inside.webp",
+    "/media/royal-canin-social-campaign-2-10-overweight-leaflet-cat-outside.webp",
+    "/media/royal-canin-social-campaign-2-11-overweight-leaflet-cat-inside.webp"
+   ],
+   "videos": [
+    {
+     "id": "sMEADTnUi80",
+     "title": "Royal Canin — Life Expectancy",
+     "poster": "/media/posters/sMEADTnUi80.jpg"
+    }
+   ],
+   "cardTitle": "Royal Canin — Healthy Habits",
+   "label": "Behavioural Insight · Brand Strategy · Social Campaign"
+  },
+  {
+   "slug": "reebok",
+   "title": "Go Elemental!",
+   "client": "Reebok",
+   "category": "Mobile campaign",
+   "description": "GO ELEMENTAL! CLIENT: Reebok Global PROBLEM: How to convince amatour sporters that Rbk is a brand for hard core, fearless sport enthusiasts? IDEA: Whenever an extreme weather is approaching, Rbk encourages sport enthusiasts to go out and train. In the rain and against the wind. Or in the tremendous heat. MY ROLE: concept + art direction + design",
+   "images": [
+    "/media/reebok-01-go-elemental-xx.webp",
+    "/media/reebok-02-header-rbk.webp",
+    "/media/reebok-03-iphony-mockup.webp",
+    "/media/reebok-04-iphony-mockup-2.webp",
+    "/media/reebok-05-iphony-mockup-3.webp",
+    "/media/reebok-06-iphone-8-mockup-downloadable.webp",
+    "/media/reebok-07-shutterstock-528826444.webp",
+    "/media/reebok-08-online-ads.webp",
+    "/media/reebok-09-screen-shot-2018-07-24-at-16-37-48.webp"
+   ],
+   "cardTitle": "Reebok — Go Elemental",
+   "label": "Digital Campaign · Mobile Experience · Creative Concept"
+  },
+  {
+   "slug": "mcwalk",
+   "title": "McWalk",
+   "client": "McDonald’s Netherlands",
+   "category": "Brand activation",
+   "description": "The McWalk: Enhancing Brand Visibility through Direct Engagement CLIENT: McDonald Nederlands | MY ROLE: concept + art direction",
+   "images": [
+    "/media/mcwalk-01-mcwalk.webp",
+    "/media/mcwalk-02-mc-header.webp",
+    "/media/mcwalk-03-mcwalk-road.webp",
+    "/media/mcwalk-04-medal-mcwalk-badge.webp"
+   ],
+   "cardTitle": "McDonald’s — McWalk",
+   "label": "Brand Activation · Experience Marketing · Creative Direction"
+  },
+  {
+   "slug": "adidas-ub",
+   "title": "UltraBOOST All Terrain",
+   "client": "adidas Running",
+   "category": "Product advertising",
+   "description": "adidas running | UltraBOOST All Terrain CLIENT: adidas Running Global PROBLEM: How to showcase all the features of the new all terrain adidas running shoe in the 30 seconds product video? IDEA: A running video in which every step is landed in different weather conditions, on a different surface. We called it giant loops MY ROLE: concept + art direction + design",
+   "images": [
+    "/media/adidas-ub-01-adidas-product-video-icons.webp",
+    "/media/adidas-ub-02-screen-shot-2018-08-05-at-22-14-22.webp",
+    "/media/adidas-ub-03-kartki.webp",
+    "/media/adidas-ub-04-vertical-format-with-a-line.webp",
+    "/media/adidas-ub-05-96635.webp",
+    "/media/adidas-ub-06-96636-1.webp",
+    "/media/adidas-ub-07-kv2.webp",
+    "/media/adidas-ub-08-kv1.webp",
+    "/media/adidas-ub-09-photoshoot.webp"
+   ],
+   "videos": [
+    {
+     "id": "Daa-EdL9VP0",
+     "title": "adidas UltraBOOST All Terrain",
+     "poster": "/media/posters/Daa-EdL9VP0.jpg"
+    }
+   ],
+   "cardTitle": "adidas UltraBOOST All Terrain",
+   "label": "Product Storytelling · Launch Campaign · Art Direction"
+  },
+  {
+   "slug": "tbwa-recruitment-campaign",
+   "title": "The Yellow Phone",
+   "client": "TBWA",
+   "category": "Recruitment campaign",
+   "description": "The Yellow Phone CLIENT: TBWA NY PROBLEM: How to attract the world's best creative talents to TBWA? IDEA: To convince young talents that in TBWA they would climb on the shoulders of giants we came up with the Yellow Phone. It is a special phone which connects young talents directly with the top management MY ROLE: concept + writing",
+   "images": [
+    "/media/tbwa-recruitment-campaign-01-the-yellow-phone.webp",
+    "/media/tbwa-recruitment-campaign-02-header2.webp",
+    "/media/tbwa-recruitment-campaign-03-the-yellow-phone.webp"
+   ],
+   "cardTitle": "TBWA — Yellow Phone",
+   "label": "Creative Strategy · Recruitment Marketing · Copywriting"
+  },
+  {
+   "slug": "branding",
+   "title": "Selected branding",
+   "client": "Various clients",
+   "category": "Identity design",
+   "description": "Branding for a Funky Musician - Mic Sampler Logo grapes - for a friend - a Jewellery Designer",
+   "images": [
+    "/media/branding-01-logo-design-icons.webp",
+    "/media/branding-02-d0b7c115963779-562ac20900a55.webp",
+    "/media/branding-03-szkic-mic-sampler.webp",
+    "/media/branding-04-mic-sampler.webp",
+    "/media/branding-05-baloon.webp",
+    "/media/branding-06-gps-melex.webp",
+    "/media/branding-07-magdalena-copy.webp",
+    "/media/branding-08-heartbeats-animation.webp",
+    "/media/branding-09-logo.webp",
+    "/media/branding-10-inco2.webp",
+    "/media/branding-11-team-nl-header.webp",
+    "/media/branding-12-design-pendant.webp",
+    "/media/branding-13-grapes.webp",
+    "/media/branding-14-tmt.webp",
+    "/media/branding-15-tmtwww.webp"
    ]
   },
   {
@@ -174,55 +487,6 @@
    "videos": []
   },
   {
-   "slug": "adidas-email",
-   "title": "Hottest drops! New Arrivals",
-   "client": "adidas",
-   "category": "CRM & direct mail",
-   "description": "Hottest drops! New Arrivals CLIENT: adidas Global PROBLEM: How to announce the arrival of new shoes in the emails IDEA: New shoes from adidas are so good, that they end the conversation. Let's drop them like a mic drop MY ROLE: concept + art direction + design",
-   "images": [
-    "/media/adidas-email-01-adidas-crm2.webp",
-    "/media/adidas-email-02-email-mockup-v2.webp",
-    "/media/adidas-email-03-reka.webp",
-    "/media/adidas-email-04-eqt-female.webp",
-    "/media/adidas-email-05-reka-buty-szare.webp",
-    "/media/adidas-email-06-eqt-male.webp",
-    "/media/adidas-email-07-hand-red-shoe.webp",
-    "/media/adidas-email-08-gazelle-female.webp",
-    "/media/adidas-email-09-kolejny-but-reka.webp",
-    "/media/adidas-email-10-nmd-male.webp",
-    "/media/adidas-email-11-niebieski.webp",
-    "/media/adidas-email-12-gazelle-male-v2.webp",
-    "/media/adidas-email-13-114045-co-direct-mail-reactivation-297x210-1.webp",
-    "/media/adidas-email-14-stickers.webp",
-    "/media/adidas-email-15-slide-in.webp",
-    "/media/adidas-email-16-adidas-reactivation-dm-ideas-v3-1-8.webp",
-    "/media/adidas-email-17-mirror.webp",
-    "/media/adidas-email-18-nmd-safe2-2.webp",
-    "/media/adidas-email-19-caly-email.webp",
-    "/media/adidas-email-20-fresh-as-male-v-mockup.webp",
-    "/media/adidas-email-21-fresh-as-female-v-mockup.webp"
-   ]
-  },
-  {
-   "slug": "slime",
-   "title": "Slime",
-   "client": "Wall’s",
-   "category": "Launch campaign",
-   "description": "Slime is a new product from Brazil that is getting traction from more markets. Slime is a trend that is still relevant for kids/teens and our products tap into those clear passion points by delivering on fruity but exciting ice cream. •Objective: Drive awareness for this new product by fully highlighting the excitement that Slime brings. In some markets where we have multiple flavors, the packaging is the same and it is a surprise for consumers which flavor they will get. Slime is not just slime. It’s a cultural phenomenon. Ever since Nickelodeon first slimed a celebrity, the legend of the slime has grown. And now, everyone can now enjoy 3 great Nickelodeon Slime ice creams. They can experience the feeling of Slime taking over, surprising them, delighting them, invigorating their tastebuds.",
-   "images": [
-    "/media/slime-01-slime-icon2.webp",
-    "/media/slime-02-kv-1.webp",
-    "/media/slime-03-kv-2.webp",
-    "/media/slime-04-kv-3.webp",
-    "/media/slime-05-social-stories-2.webp",
-    "/media/slime-06-social-stories-3.webp",
-    "/media/slime-07-social-stories-1.webp",
-    "/media/slime-08-social-stories-4.webp",
-    "/media/slime-09-slime-banners.webp",
-    "/media/slime-10-bridge.webp"
-   ]
-  },
-  {
    "slug": "100-days-of-summer-by-walls",
    "title": "100 days of Summer",
    "client": "Wall’s",
@@ -244,63 +508,6 @@
      "id": "F9ju5Toi5oU",
      "title": "100 Days of Summer — Covid-19 edit",
      "poster": "/media/posters/F9ju5Toi5oU.jpg"
-    }
-   ]
-  },
-  {
-   "slug": "new-page",
-   "title": "Skip your laundry",
-   "client": "dobbi by Persil",
-   "category": "Integrated campaign",
-   "description": "Skip your laundry as fast as you can skip this ad! CLIENT: dobbi (by Persil) PROBLEM: Challenge for us was to introduce a new brand in a 6s YouTube pre-roll ad, and then to encourage the viewer to skip the ad, so it stays free. IDEA: Idea is to use the link between skipping the laundry and skipping the pre-roll in our advantage MY ROLE: concept + art direction + design",
-   "images": [
-    "/media/new-page-01-dobbi-icon-v2.webp",
-    "/media/new-page-02-dobbi-header.webp",
-    "/media/new-page-03-skippable-pre-roll.webp",
-    "/media/new-page-04-storyboard.webp",
-    "/media/new-page-05-campaign-assets.webp",
-    "/media/new-page-06-a.webp",
-    "/media/new-page-07-utrecht-rail-station.webp",
-    "/media/new-page-08-skip-deze-advertentie.webp",
-    "/media/new-page-09-113284-dobbi-youtube-banner-v5-f2.webp",
-    "/media/new-page-10-banners.webp",
-    "/media/new-page-11-banner-to-upload.webp",
-    "/media/new-page-12-dobbi-website.webp",
-    "/media/new-page-13-screenshot-2024-10-05-at-17-44-49.webp",
-    "/media/new-page-14-hoe-het-werkt-3.webp",
-    "/media/new-page-15-screenshot-2024-10-05-at-17-44-19.webp",
-    "/media/new-page-16-screenshot-2024-10-05-at-17-46-03.webp"
-   ],
-   "videos": [
-    {
-     "id": "7txu1nvs4lA",
-     "title": "Dobbi — Skip Your Laundry",
-     "poster": "/media/posters/7txu1nvs4lA.jpg"
-    }
-   ]
-  },
-  {
-   "slug": "adidas-ub",
-   "title": "UltraBOOST All Terrain",
-   "client": "adidas Running",
-   "category": "Product advertising",
-   "description": "adidas running | UltraBOOST All Terrain CLIENT: adidas Running Global PROBLEM: How to showcase all the features of the new all terrain adidas running shoe in the 30 seconds product video? IDEA: A running video in which every step is landed in different weather conditions, on a different surface. We called it giant loops MY ROLE: concept + art direction + design",
-   "images": [
-    "/media/adidas-ub-01-adidas-product-video-icons.webp",
-    "/media/adidas-ub-02-screen-shot-2018-08-05-at-22-14-22.webp",
-    "/media/adidas-ub-03-kartki.webp",
-    "/media/adidas-ub-04-vertical-format-with-a-line.webp",
-    "/media/adidas-ub-05-96635.webp",
-    "/media/adidas-ub-06-96636-1.webp",
-    "/media/adidas-ub-07-kv2.webp",
-    "/media/adidas-ub-08-kv1.webp",
-    "/media/adidas-ub-09-photoshoot.webp"
-   ],
-   "videos": [
-    {
-     "id": "Daa-EdL9VP0",
-     "title": "adidas UltraBOOST All Terrain",
-     "poster": "/media/posters/Daa-EdL9VP0.jpg"
     }
    ]
   },
@@ -331,36 +538,6 @@
    ]
   },
   {
-   "slug": "reebok",
-   "title": "Go Elemental!",
-   "client": "Reebok",
-   "category": "Mobile campaign",
-   "description": "GO ELEMENTAL! CLIENT: Reebok Global PROBLEM: How to convince amatour sporters that Rbk is a brand for hard core, fearless sport enthusiasts? IDEA: Whenever an extreme weather is approaching, Rbk encourages sport enthusiasts to go out and train. In the rain and against the wind. Or in the tremendous heat. MY ROLE: concept + art direction + design",
-   "images": [
-    "/media/reebok-01-go-elemental-xx.webp",
-    "/media/reebok-02-header-rbk.webp",
-    "/media/reebok-03-iphony-mockup.webp",
-    "/media/reebok-04-iphony-mockup-2.webp",
-    "/media/reebok-05-iphony-mockup-3.webp",
-    "/media/reebok-06-iphone-8-mockup-downloadable.webp",
-    "/media/reebok-07-shutterstock-528826444.webp",
-    "/media/reebok-08-online-ads.webp",
-    "/media/reebok-09-screen-shot-2018-07-24-at-16-37-48.webp"
-   ]
-  },
-  {
-   "slug": "tbwa-recruitment-campaign",
-   "title": "The Yellow Phone",
-   "client": "TBWA",
-   "category": "Recruitment campaign",
-   "description": "The Yellow Phone CLIENT: TBWA NY PROBLEM: How to attract the world's best creative talents to TBWA? IDEA: To convince young talents that in TBWA they would climb on the shoulders of giants we came up with the Yellow Phone. It is a special phone which connects young talents directly with the top management MY ROLE: concept + writing",
-   "images": [
-    "/media/tbwa-recruitment-campaign-01-the-yellow-phone.webp",
-    "/media/tbwa-recruitment-campaign-02-header2.webp",
-    "/media/tbwa-recruitment-campaign-03-the-yellow-phone.webp"
-   ]
-  },
-  {
    "slug": "www-design",
    "title": "Selected web design",
    "client": "Various clients",
@@ -377,19 +554,6 @@
    ]
   },
   {
-   "slug": "mcwalk",
-   "title": "McWalk",
-   "client": "McDonald’s Netherlands",
-   "category": "Brand activation",
-   "description": "The McWalk: Enhancing Brand Visibility through Direct Engagement CLIENT: McDonald Nederlands | MY ROLE: concept + art direction",
-   "images": [
-    "/media/mcwalk-01-mcwalk.webp",
-    "/media/mcwalk-02-mc-header.webp",
-    "/media/mcwalk-03-mcwalk-road.webp",
-    "/media/mcwalk-04-medal-mcwalk-badge.webp"
-   ]
-  },
-  {
    "slug": "ploom-jti",
    "title": "What if tobacco was discovered today?",
    "client": "JTI",
@@ -402,57 +566,6 @@
     "/media/ploom-jti-04-in-store-2.webp",
     "/media/ploom-jti-05-coasters.webp",
     "/media/ploom-jti-06-tobacco-in-pots.webp"
-   ]
-  },
-  {
-   "slug": "royal-canin-social-campaign-2",
-   "title": "Healthy habits",
-   "client": "Royal Canin",
-   "category": "Social campaign",
-   "description": "A healthy weight starts with healthy habits. CLIENT: Royal Canin PROBLEM: Over 50% of pets are overweight and their owners do not consider it a problem. IDEA: Idea is to build awareness about pets obesity by talking about solutions. We created a weight management campaign in which we talk about healthy habits. MY ROLE: concept + art direction + design",
-   "images": [
-    "/media/royal-canin-social-campaign-2-01-rc-ikonka.webp",
-    "/media/royal-canin-social-campaign-2-02-20190402-posters-2.webp",
-    "/media/royal-canin-social-campaign-2-03-social-media-v2.webp",
-    "/media/royal-canin-social-campaign-2-04-healthyactivity-cat-britishshorthair-6s-9x16-v01.webp",
-    "/media/royal-canin-social-campaign-2-05-healthyactivity-cat-britishshorthair-6s-9x16-v01-x.webp",
-    "/media/royal-canin-social-campaign-2-06-carausels.webp",
-    "/media/royal-canin-social-campaign-2-07-landing-page-dog.webp",
-    "/media/royal-canin-social-campaign-2-08-overweight-leaflet-dog-outside.webp",
-    "/media/royal-canin-social-campaign-2-09-overweight-leaflet-dog-inside.webp",
-    "/media/royal-canin-social-campaign-2-10-overweight-leaflet-cat-outside.webp",
-    "/media/royal-canin-social-campaign-2-11-overweight-leaflet-cat-inside.webp"
-   ],
-   "videos": [
-    {
-     "id": "sMEADTnUi80",
-     "title": "Royal Canin — Life Expectancy",
-     "poster": "/media/posters/sMEADTnUi80.jpg"
-    }
-   ]
-  },
-  {
-   "slug": "branding",
-   "title": "Selected branding",
-   "client": "Various clients",
-   "category": "Identity design",
-   "description": "Branding for a Funky Musician - Mic Sampler Logo grapes - for a friend - a Jewellery Designer",
-   "images": [
-    "/media/branding-01-logo-design-icons.webp",
-    "/media/branding-02-d0b7c115963779-562ac20900a55.webp",
-    "/media/branding-03-szkic-mic-sampler.webp",
-    "/media/branding-04-mic-sampler.webp",
-    "/media/branding-05-baloon.webp",
-    "/media/branding-06-gps-melex.webp",
-    "/media/branding-07-magdalena-copy.webp",
-    "/media/branding-08-heartbeats-animation.webp",
-    "/media/branding-09-logo.webp",
-    "/media/branding-10-inco2.webp",
-    "/media/branding-11-team-nl-header.webp",
-    "/media/branding-12-design-pendant.webp",
-    "/media/branding-13-grapes.webp",
-    "/media/branding-14-tmt.webp",
-    "/media/branding-15-tmtwww.webp"
    ]
   },
   {

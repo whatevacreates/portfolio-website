@@ -37,13 +37,20 @@ function Header({ page, navigate }) {
   </header>;
 }
 
-// only the gifs — no headings, no cards, no counters. each one quietly
-// opens its project.
+// the career story, not the chronology: leadership and strategy first,
+// then the depth of creative execution. Each card = gif + recruiter-keyword
+// label; names and labels live in the project data.
 const reels = [
-  ['/media/team-nl-01-zo-doen-we-dat3.webp', 'team-nl'],
-  ['/media/reebok-01-go-elemental-xx.webp', 'reebok'],
-  ['/media/mcwalk-01-mcwalk.webp', 'mcwalk'],
-  ['/media/adidas-ub-01-adidas-product-video-icons.webp', 'adidas-ub'],
+  ['schole-ai', null], // no reel asset yet — typographic tile
+  ['team-nl', '/media/team-nl-01-zo-doen-we-dat3.webp'],
+  ['new-page', '/media/new-page-01-dobbi-icon-v2.webp'],
+  ['adidas-email', '/media/adidas-email-01-adidas-crm2.webp'],
+  ['slime', '/media/slime-01-slime-icon2.webp'],
+  ['royal-canin-social-campaign-2', '/media/royal-canin-social-campaign-2-01-rc-ikonka.webp'],
+  ['reebok', '/media/reebok-01-go-elemental-xx.webp'],
+  ['mcwalk', '/media/mcwalk-01-mcwalk.webp'],
+  ['adidas-ub', '/media/adidas-ub-01-adidas-product-video-icons.webp'],
+  ['tbwa-recruitment-campaign', '/media/tbwa-recruitment-campaign-01-the-yellow-phone.webp'],
 ];
 
 function Work({ openProject }) {
@@ -61,9 +68,15 @@ function Work({ openProject }) {
   return <main ref={root}>
     <Opening />
     <section className="reel">
-      {reels.map(([src, slug], i) => <button className="reel-item" key={src} onClick={() => openProject(slug)} aria-label="View project">
-        <img src={asset(src)} alt="" loading={i < 2 ? 'eager' : 'lazy'} />
-      </button>)}
+      {reels.map(([slug, src], i) => {
+        const project = data.projects.find((p) => p.slug === slug);
+        return <button className="reel-item" key={slug} onClick={() => openProject(slug)} aria-label={`View project: ${project.cardTitle}`}>
+          {src
+            ? <img src={asset(src)} alt="" loading={i < 3 ? 'eager' : 'lazy'} />
+            : <span className="reel-tile">{project.title}</span>}
+          <em className="reel-label">{project.label}</em>
+        </button>;
+      })}
       <p className="reel-wit">Ideas are cheap. This site cost exactly one.</p>
     </section>
   </main>;
@@ -90,7 +103,10 @@ function layoutGallery(images) {
   };
   for (const image of images) {
     const meta = data.meta?.[image];
-    if (meta && (meta.animated || meta.w < SMALL_WIDTH)) run.push(image);
+    // ultra-tall pieces (scrolling email mockups and the like) never share a
+    // row: they stand alone, centred, under whatever came before them
+    if (meta && meta.h > meta.w * 2) { flush(); blocks.push({ solo: image }); }
+    else if (meta && (meta.animated || meta.w < SMALL_WIDTH)) run.push(image);
     else { flush(); blocks.push({ full: image }); }
   }
   flush();
@@ -215,10 +231,11 @@ function About() {
     <section className="about-copy">
       <p className="lead">I always thought my calling was to be a writer. But I couldn’t let go of images. So I learned to combine the two, telling stories through words, visuals and the relationship between them.</p>
       <div>
-        <p>That took me to leading international advertising agencies, including TBWA, DDB and OLIVER, where I developed campaign concepts, helped win accounts and directed multidisciplinary teams across markets. I worked with brands including adidas, McDonald’s, KitKat, Mercedes-Benz, TeamNL, Lipton, Magnum, Cornetto, Reebok and Wall’s.</p>
+        <p>That took me to leading international advertising agencies — the door opened when I won a one-day creative competition, coming up with a concept for Heineken in a single day and beating 400 Dutch creatives. At TBWA, DDB and OLIVER (Unilever’s in-house marketing agency), I developed campaign concepts, helped win accounts and directed multidisciplinary teams across markets. I worked with brands including adidas, McDonald’s, KitKat, Mercedes-Benz, TeamNL, Lipton, Magnum, Cornetto, Reebok and Wall’s.</p>
         <p>Over a decade, I learned how to turn audience insight into a clear strategic direction, bring people behind an idea and carry it through production. My work involved aligning clients, strategists, designers, writers, filmmakers and developers, including directing teams across India, Kuala Lumpur and South Africa.</p>
-        <p>Along the way, the work earned recognition. TeamNL’s “Zo Doen We Dat!” campaign received praise from Effie Netherlands for its art direction and strong visual brand expression. My campaign for Wall’s “Ice Cream Slime” earned a Unilever Global Silver award. I also supervised work on Dobbi’s app and contributed to its integrated launch; the business was named the world’s most innovative dry cleaner by CINET in 2018.</p>
+        <p>Along the way, the work earned recognition. TeamNL’s “Zo Doen We Dat!” campaign received praise from Effie Netherlands for its art direction and strong visual brand expression. My campaign for Wall’s “Ice Cream Slime” earned a Unilever Global Silver award. For Dobbi I worked on both the app and the launch campaign; the service went on to be named a top-5 Disrupter in the Netherlands at the 2019 Dutch Interactive Awards.</p>
         <p>My creative background also includes a Print shortlist in Poland’s Young Creatives competition for Cannes Young Lions, a shared Siemens Future Living distinction for an architectural design concept, first place with my team in a short-film competition in London, and second place in a Focus magazine advertising competition.</p>
+        <p>I hold two master’s degrees: in Visual Communication from Poland’s prestigious Academy of Fine Arts and Design in Wrocław, and in Graphic Moving Image — focused on advertising and branding — from University of the Arts London (London College of Communication).</p>
       </div>
     </section>
     <section className="about-copy">
@@ -228,7 +245,7 @@ function About() {
         <p>I also built a marketing platform that connects our big ideas, goals, campaigns and ideal customer profiles with performance metrics and audience insights. It gives the team a shared view of what we’re trying to achieve, what’s working and what we’re learning, helping us make better decisions about where to focus next.</p>
         <p>At Scholé AI, I bring these disciplines together in a broad marketing role. I’ve led rebranding, developed positioning and integrated campaigns, and planned advertising budgets. My work connects landing pages, email automation and marketing funnels with sales decks and pitch narratives, giving each stage of the customer journey a clear purpose.</p>
         <p>I led two product launches, including Scholé’s debut on Product Hunt, which earned <strong>#1 Product of the Day</strong>, ranking ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus on 2 May 2026.</p>
-        <p>Working directly with founders, product and engineering, I also help improve onboarding and the platform experience, using feedback and performance data to guide decisions. I’ve contributed to hiring two team members, directed creative execution, designed event booths and represented the company at industry events.</p>
+        <p>Working directly with founders, product and engineering, I also help improve onboarding and the platform experience, using feedback and performance data to guide decisions. I’ve directed creative execution, designed event booths and represented the company at industry events.</p>
         <p>I bring the experience to set direction and the practical understanding to deliver it. I connect positioning, people, budgets and execution, taking responsibility for the decisions that shape the work and using results to decide what comes next.</p>
         <p><strong>Based in Switzerland. Open to marketing lead and senior marketing opportunities.</strong></p>
       </div>
