@@ -51,7 +51,7 @@ function Header({ page, navigate, lang, setLang }) {
 // label; names and labels live in the project data. An optional third value
 // scales the gif below the card width.
 const reels = [
-  ['schole-ai', '/media/schole-ai-01-schole-logo.webp', .8],
+  ['schole-ai', '/media/schole-ai-01-schole-logo.webp'],
   ['team-nl', '/media/team-nl-01-zo-doen-we-dat3.webp'],
   ['new-page', '/media/new-page-01-dobbi-icon-v2.webp'],
   ['mcwalk', '/media/mcwalk-01-mcwalk.webp'],
@@ -76,11 +76,6 @@ const labelsDe = {
   'adidas-ub': 'Produkt-Storytelling · Launch-Kampagne · Art Direction',
 };
 
-// the hand-drawn four-point sparkle, cropped straight out of the logo
-// animation's final frame — a few of them twinkle around the logo tile on
-// their own offbeat rhythms
-const Sparkle = ({ n }) => <img className={`sparkle sparkle-${n}`} src={asset('/media/schole-sparkle.png')} alt="" aria-hidden="true" />;
-
 function Work({ openProject }) {
   const root = useRef();
   const tr = useT();
@@ -102,9 +97,7 @@ function Work({ openProject }) {
         const img = src && <img src={asset(src)} alt="" loading={i < 3 ? 'eager' : 'lazy'} style={size ? { width: `${size * 100}%` } : undefined} />;
         return <button className="reel-item" key={slug} onClick={() => openProject(slug)} aria-label={`View project: ${project.cardTitle}`}>
           {src
-            ? (slug === 'schole-ai'
-              ? <span className="sparkle-wrap">{img}{[0, 1, 2, 3, 4].map((n) => <Sparkle key={n} n={n} />)}</span>
-              : img)
+            ? img
             : <span className="reel-tile"><HoloMesh />{project.title}</span>}
           <em className="reel-label">{tr(project.label, labelsDe[slug])}</em>
         </button>;

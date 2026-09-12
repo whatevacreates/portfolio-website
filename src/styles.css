@@ -66,22 +66,6 @@ nav button.active:after, nav button:hover:after { right:0; }
 .reel-tile { display:grid; place-items:center; aspect-ratio:1; width:100%;
   position:relative; z-index:0; overflow:hidden;
   font:400 clamp(34px,4vw,52px)/1 var(--display); color:#fff; }
-/* twinkling sparkles above the Scholé wordmark — the hand-drawn star from
-   the logo animation, at its drawn size (8% of the image, like in the logo),
-   each fading gently on its own offbeat rhythm. The drawn artwork starts
-   ~28% down the image, so the sparkle band above 16% never touches it */
-.sparkle-wrap { position:relative; display:inline-block; }
-.sparkle { position:absolute; width:8%; opacity:0;
-  animation:sparkle-blink 3.4s ease-in-out infinite; }
-.sparkle-0 { top:6%; left:24%; animation-delay:.2s; }
-.sparkle-1 { top:14%; left:39%; animation-delay:1.6s; }
-.sparkle-2 { top:3%; left:55%; animation-delay:.9s; }
-.sparkle-3 { top:12%; right:22%; animation-delay:2.4s; }
-.sparkle-4 { top:2%; right:8%; animation-delay:3.1s; }
-@keyframes sparkle-blink {
-  0%, 100% { opacity:0; transform:scale(.7); }
-  50% { opacity:1; transform:scale(1); }
-}
 /* recruiter keywords, straight on the card */
 .reel-label { display:block; margin-top:10px; font:400 15px/1.5 'DM Sans',sans-serif; color:#64748b; }
 /* the claim rides the hologram on a sharp-cornered white plate */
