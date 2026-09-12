@@ -30,6 +30,11 @@
    never beige; the page itself paints white on top */
 html { scroll-behavior:smooth; background:var(--mesh) fixed; }
 body { margin:0; min-width:320px; background:#fff; }
+/* short pages (the blog list) still pin the footer to the window's bottom
+   edge, exactly like the long pages — the page column always fills the
+   viewport and the main area soaks up the slack */
+#root { min-height:100vh; min-height:100svh; display:flex; flex-direction:column; }
+#root > main { flex:1; }
 button,a { color:inherit; font:inherit; }
 button { border:0; background:none; cursor:pointer; }
 img { display:block; width:100%; }
