@@ -7,9 +7,27 @@
 /* Boho palette: warm sand paper, espresso ink, clay + terracotta warmth, turquoise accent */
 :root { --paper:#f5edde; --ink:#33291f; --muted:#8a7a64; --line:#d9cbb2; --terra:#c1663d; --turq:#2aab9f; font-family:'DM Sans',sans-serif; color:#0f172a; font-synthesis:none; }
 * { box-sizing:border-box; }
-/* the canvas behind everything is the brand gradient — overscroll shows it,
+/* the brand mesh: a hand-stepped deep-violet base (12 stops so high-res
+   screens don't band) with cyan / purple / magenta blobs floating over it.
+   the blobs + base stack is one custom property so every surface — canvas,
+   hero panel, reel tile, footer type — draws the exact same hologram */
+:root {
+  --mesh-base:linear-gradient(52deg,#cfc6fb 0%,#d6c3f7 9%,#e0c0f0 18%,#eabdea 27%,#f1c0e9 36%,#eecdf1 45%,#ddd6f9 55%,#cfe3f8 64%,#c9eef5 73%,#cdf3f2 82%,#dcf1f6 91%,#e8ecfb 100%);
+  --mesh:
+    radial-gradient(38% 45% at 22% 24%, rgba(201,245,243,.9) 0%, rgba(201,245,243,0) 70%),
+    radial-gradient(45% 40% at 80% 18%, rgba(242,167,227,.7) 0%, rgba(242,167,227,0) 70%),
+    radial-gradient(40% 45% at 72% 82%, rgba(255,255,255,.8) 0%, rgba(255,255,255,0) 70%),
+    radial-gradient(45% 50% at 24% 78%, rgba(186,175,248,.8) 0%, rgba(186,175,248,0) 70%),
+    radial-gradient(30% 35% at 55% 48%, rgba(242,167,227,.55) 0%, rgba(242,167,227,0) 70%),
+    var(--mesh-base);
+}
+/* the live layer: a WebGL canvas (holomesh.jsx) filling its panel behind the
+   content; the element's own --mesh background is the no-WebGL fallback */
+.holo-mesh { position:absolute; inset:0; width:100%; height:100%; z-index:-1; }
+.reel-tile, .op-rect { background:var(--mesh); }
+/* the canvas behind everything is the brand mesh — overscroll shows it,
    never beige; the page itself paints white on top */
-html { scroll-behavior:smooth; background:linear-gradient(52deg, #b3b6eb 0%, #e98a98 100%); }
+html { scroll-behavior:smooth; background:var(--mesh) fixed; }
 body { margin:0; min-width:320px; background:#fff; }
 button,a { color:inherit; font:inherit; }
 button { border:0; background:none; cursor:pointer; }
@@ -29,6 +47,11 @@ nav button:after { content:''; position:absolute; height:6px; left:0; right:100%
 nav button:hover, nav button.active { color:#0f172a; }
 nav button.active:after, nav button:hover:after { right:0; }
 .menu-button { display:none; padding:4px; }
+/* the language switch: a small pill at the end of the nav */
+.lang-toggle { font:400 13px/1 'DM Sans',sans-serif; letter-spacing:.08em; color:#64748b;
+  border:1px solid #cbd5e1; border-radius:999px; padding:7px 13px; transition:color .3s, border-color .3s; }
+.lang-toggle:hover { color:#0f172a; border-color:#0f172a; }
+.lang-toggle:after { display:none; }
 .intro { padding:11vh 3vw 7vh; min-height:calc(100vh - 106px); display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; }
 .intro-kicker,.page-title>p,.about-hero>div>p,.case-title>p:first-child { text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#64748b; }
 .intro h1 { font:400 clamp(64px,10.5vw,174px)/.83 'Manrope'; letter-spacing:-.075em; margin:4vh 0; }
@@ -42,12 +65,28 @@ nav button.active:after, nav button:hover:after { right:0; }
 .reel { padding:4vh 3vw 13vh; background:#fff; display:flex; flex-direction:column; align-items:center; gap:10vh; }
 .reel-item { display:block; padding:0; width:min(78vw,460px); text-align:center; }
 .reel-item img { width:auto; max-width:100%; max-height:78vh; margin:0 auto; }
-/* the assetless case gets a typographic tile in the brand gradient */
+/* the assetless case gets a typographic tile in the live brand mesh */
 .reel-tile { display:grid; place-items:center; aspect-ratio:1; width:100%;
-  background:linear-gradient(52deg, #b3b6eb 0%, #e98a98 100%);
-  font:400 clamp(34px,4vw,52px)/1 var(--display); color:#0f172a; }
+  position:relative; z-index:0; overflow:hidden;
+  font:400 clamp(34px,4vw,52px)/1 var(--display); color:#fff; }
+/* twinkling sparkles around the Scholé logo — the hand-drawn star from the
+   logo animation itself, each on its own offbeat rhythm */
+.sparkle-wrap { position:relative; display:inline-block; }
+.sparkle { position:absolute; opacity:0;
+  animation:sparkle-blink 2.6s ease-in-out infinite; }
+.sparkle-0 { width:22px; top:4%; right:8%; animation-delay:.2s; }
+.sparkle-1 { width:13px; top:22%; right:-2%; animation-delay:1.4s; }
+.sparkle-2 { width:16px; bottom:30%; left:-3%; animation-delay:.9s; }
+.sparkle-3 { width:11px; top:-2%; left:16%; animation-delay:2s; }
+.sparkle-4 { width:14px; bottom:6%; right:20%; animation-delay:3.1s; }
+@keyframes sparkle-blink {
+  0%, 100% { opacity:0; transform:scale(.2) rotate(-14deg); }
+  40% { opacity:1; transform:scale(1) rotate(6deg); }
+  60% { opacity:.85; transform:scale(.92) rotate(10deg); }
+  80% { opacity:0; transform:scale(.3) rotate(18deg); }
+}
 /* recruiter keywords, straight on the card */
-.reel-label { display:block; margin-top:8px; font:400 15px/1.5 'DM Sans',sans-serif; color:#64748b; }
+.reel-label { display:block; margin-top:10px; font:400 15px/1.5 'DM Sans',sans-serif; color:#64748b; }
 .reel-wit { font:400 17px/1.6 var(--display); color:#0f172a; text-align:center; margin:3vh 0 0; }
 
 .work-heading { margin:0 3vw; padding:28px 0; display:flex; justify-content:space-between; border-top:1px solid var(--ink); text-transform:uppercase; letter-spacing:.1em; font-size:11px; }
@@ -108,9 +147,11 @@ nav button.active:after, nav button:hover:after { right:0; }
 .contact>a svg { width:clamp(35px,5vw,80px); height:auto; }
 .contact>div { display:flex; gap:30px; padding-top:25px; }
 .contact>div a { color:#64748b; }
-footer { min-height:180px; background:#0f172a; padding:48px 3vw; display:flex; justify-content:space-between; align-items:end; font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
-footer span, footer a { background:linear-gradient(52deg, #b3b6eb 0%, #e98a98 100%);
-  -webkit-background-clip:text; background-clip:text; color:transparent; }
+/* the footer is the hero panel's hologram again — live canvas behind,
+   static mesh as the no-WebGL fallback — with slate-900 type on top */
+footer { min-height:180px; background:var(--mesh); position:relative; z-index:0; overflow:hidden;
+  padding:48px 3vw; display:flex; justify-content:space-between; align-items:end; font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+footer span, footer a { color:#0f172a; }
 footer a { text-decoration:none; }
 
 @media (max-width:760px) {
@@ -166,8 +207,13 @@ footer a { text-decoration:none; }
 .case-image-solo img { width:100%; height:auto; max-height:none; object-fit:contain; }
 
 /* ── Section 01 — the claim ─────────────────────────────────────────── */
-.op { height:200vh; position:relative; }
-.op-stage { position:sticky; top:0; height:100vh; display:grid; align-content:center;
+/* svh keeps the stage sized to what's actually visible on phones (the vh
+   fallback covers browsers without it): with the URL bar showing, 100vh
+   overflows the screen, the claim sits low and the scroll cue hides below
+   the fold — svh centers it identically to desktop, and being static (unlike
+   dvh) it never resizes mid-scroll when the bar collapses */
+.op { height:200vh; height:200svh; position:relative; }
+.op-stage { position:sticky; top:0; height:100vh; height:100svh; display:grid; align-content:center;
   padding:0 3vw; }
 .op-stage > * { grid-area:1/1; }
 
@@ -178,17 +224,16 @@ footer a { text-decoration:none; }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
   clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 
-/* the storyboard panel: a fixed gradient rectangle the claim lives in,
-   on a white stage — periwinkle → dusty rose, straight from the reference.
+/* the storyboard panel: a fixed rectangle the claim lives in, on a white
+   stage — carrying the live holographic foil, type in ink on the pastel.
    transition:none beats the global reduced-motion .01ms transition, which
    would otherwise make the fit pass measure stale layout */
 .op { background:#fff; }
 .op-stage { color:#0f172a; }
 .op-rect, .op-rect span { transition:none!important; }
-.op-rect { position:relative; display:flex; flex-direction:column; justify-content:center; margin:0 auto;
+.op-rect { position:relative; z-index:0; display:flex; flex-direction:column; justify-content:center; margin:0 auto;
   padding:0; overflow:hidden;
-  background:linear-gradient(52deg, #b3b6eb 0%, #e98a98 100%);
-  font-family:var(--display); font-weight:400; color:#0f172a; }
+  font-family:var(--display); font-weight:400; color:#fff; }
 /* tracking tight enough that the letters touch — declared per element and in
    em on purpose: inherited letter-spacing is a computed px value, so on the
    panel it would hand the 100px meter and the fitted type the same absolute
@@ -229,5 +274,37 @@ footer a { text-decoration:none; }
   text-transform:uppercase; letter-spacing:.14em; color:var(--muted); }
 .op-cue i { font-style:normal; width:34px; height:34px; border:1px solid var(--line);
   border-radius:50%; display:grid; place-items:center; }
-@media (max-width:620px) { .op { height:170vh; }
-  .op-mouse { bottom:calc(78px + 18px); width:28px; } }
+/* mobile keeps the full 200-viewport hero — same scroll choreography as
+   desktop; only the cue is sized down and lifted for the shorter header */
+@media (max-width:620px) { .op-mouse { bottom:calc(78px + 18px); width:28px; } }
+
+/* ── Blog ───────────────────────────────────────────────────────────── */
+.blog-row { padding-top:9vh; }
+.blog-row .post-list { padding-top:0; }
+.blog-reel { max-width:220px; padding:5vh 0; }
+/* the reel, cropped to its card on the purple gradient — the rounded
+   rectangle here matches the card's own corner radius, clipping the last
+   slivers of gradient at the corner tips */
+.blog-reel video { display:block; width:100%; border-radius:40px; background:#0f172a; }
+.blog-reel p { margin:14px 2px 0; font-size:13px; color:#64748b; }
+@media (max-width:760px) { .blog-row { grid-template-columns:1fr; gap:7vh; } .blog-reel { max-width:320px; } }
+.post-list { padding-top:5vw; display:grid; }
+.post-card { padding:5vh 76px 5vh 0; text-align:left; display:grid; gap:12px; border-bottom:1px solid #e2e8f0; position:relative; }
+/* the chevron: just the arrowhead, no shaft — drifts right on hover */
+.post-card-chevron { position:absolute; right:12px; top:50%; transform:translateY(-50%); width:34px; height:34px; color:#94a3b8; stroke-width:1.6; transition:transform .3s, color .3s; }
+.post-card:hover .post-card-chevron { transform:translateY(-50%) translateX(6px); color:#0f172a; }
+.post-card-date { text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#64748b; }
+.post-card-title { font:400 clamp(34px,4.5vw,64px)/1.05 var(--display); color:#0f172a; transition:color .3s; }
+.post-card:hover .post-card-title { color:#64748b; }
+.post-card-sub { font-size:15px; color:#64748b; }
+.post-title { margin-bottom:7vh; }
+.post-body { max-width:740px; margin:0 auto; }
+.post-figure { margin:5vh 0; }
+.post-figure img { border-radius:14px; }
+.post-figure figcaption { margin-top:10px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
+.post-body p { font-size:17px; line-height:1.7; color:#334155; margin:0 0 1.4em; }
+.post-source { display:flex; align-items:center; gap:8px; width:fit-content; margin:7vh auto 0;
+  font:400 17px/1.4 var(--display); color:#0f172a; text-decoration:none; border-bottom:1px solid #0f172a; padding-bottom:3px; }
+.post-source svg { width:16px; }
+.post-source:hover { color:#64748b; border-color:#64748b; }
+@media (max-width:760px) { .post-card-title { font-size:9vw; } .post-body p { font-size:15px; } }

@@ -4,6 +4,9 @@ import { ArrowDown, ArrowLeft, ArrowUpRight, Menu, Play, X } from 'lucide-react'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Opening from './opening.jsx';
+import HoloMesh from './holomesh.jsx';
+import { Blog, BlogPost, posts } from './blog.jsx';
+import { LangContext, useT, getLang, saveLang } from './i18n.jsx';
 import data from './portfolio-data.json';
 import './styles.css';
 
@@ -15,13 +18,15 @@ gsap.registerPlugin(ScrollTrigger);
 const asset = (p) => import.meta.env.BASE_URL + p.replace(/^\//, '');
 
 const nav = [
-  ['work', 'Work'],
-  ['photography', 'Photography'],
-  ['about', 'About']
+  ['work', 'Work', 'Arbeit'],
+  ['photography', 'Photography', 'Fotografie'],
+  ['blog', 'Blog', 'Blog'],
+  ['about', 'About', 'Über mich']
 ];
 
-function Header({ page, navigate }) {
+function Header({ page, navigate, lang, setLang }) {
   const [open, setOpen] = useState(false);
+  const tr = useT();
   const go = (next) => { setOpen(false); navigate(next); };
   return <header className="site-header">
     <button className="brand" onClick={() => go('work')} aria-label="Go home">
@@ -32,29 +37,53 @@ function Header({ page, navigate }) {
       {open ? <X /> : <Menu />}
     </button>
     <nav className={open ? 'open' : ''} aria-label="Primary navigation">
-      {nav.map(([key, label]) => <button key={key} className={page === key ? 'active' : ''} onClick={() => go(key)}>{label}</button>)}
+      {nav.map(([key, en, de]) => <button key={key} className={page === key ? 'active' : ''} onClick={() => go(key)}>{tr(en, de)}</button>)}
+      <button className="lang-toggle" onClick={() => { setOpen(false); setLang(lang === 'de' ? 'en' : 'de'); }}
+        aria-label={lang === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}>
+        {lang === 'de' ? 'EN' : 'DE'}
+      </button>
     </nav>
   </header>;
 }
 
 // the career story, not the chronology: leadership and strategy first,
 // then the depth of creative execution. Each card = gif + recruiter-keyword
-// label; names and labels live in the project data.
+// label; names and labels live in the project data. An optional third value
+// scales the gif below the card width.
 const reels = [
-  ['schole-ai', null], // no reel asset yet — typographic tile
+  ['schole-ai', '/media/schole-ai-01-schole-logo.webp', .8],
   ['team-nl', '/media/team-nl-01-zo-doen-we-dat3.webp'],
   ['new-page', '/media/new-page-01-dobbi-icon-v2.webp'],
-  ['adidas-email', '/media/adidas-email-01-adidas-crm2.webp'],
-  ['slime', '/media/slime-01-slime-icon2.webp'],
-  ['royal-canin-social-campaign-2', '/media/royal-canin-social-campaign-2-01-rc-ikonka.webp'],
-  ['reebok', '/media/reebok-01-go-elemental-xx.webp'],
   ['mcwalk', '/media/mcwalk-01-mcwalk.webp'],
   ['adidas-ub', '/media/adidas-ub-01-adidas-product-video-icons.webp'],
-  ['tbwa-recruitment-campaign', '/media/tbwa-recruitment-campaign-01-the-yellow-phone.webp'],
+  ['slime', '/media/slime-01-slime-icon2.webp'],
+  ['adidas-email', '/media/adidas-email-01-adidas-crm2.webp'],
+  ['reebok', '/media/reebok-01-go-elemental-xx.webp'],
+  ['royal-canin-social-campaign-2', '/media/royal-canin-social-campaign-2-01-rc-ikonka.webp'],
 ];
+
+// the reel labels, in German — content-level German (case stories, blog
+// articles) stays English; the chrome and labels switch
+const labelsDe = {
+  'schole-ai': 'Marketing-Leadership · Produktmarketing · GTM · KI',
+  'team-nl': 'Markenstrategie · Integrierte Kampagne · Kreative Leitung',
+  'new-page': 'Service-Launch · Integriertes Marketing · Digitales Produkt',
+  'adidas-email': 'CRM · Lifecycle-Marketing · Kundenbindung',
+  slime: 'Produkt-Launch · Globale Kampagne · Kreativstrategie',
+  'royal-canin-social-campaign-2': 'Behavioural Insight · Markenstrategie · Social-Kampagne',
+  reebok: 'Digitale Kampagne · Mobile Experience · Kreativkonzept',
+  mcwalk: 'Markenaktivierung · Experience-Marketing · Kreative Leitung',
+  'adidas-ub': 'Produkt-Storytelling · Launch-Kampagne · Art Direction',
+};
+
+// the hand-drawn four-point sparkle, cropped straight out of the logo
+// animation's final frame — a few of them twinkle around the logo tile on
+// their own offbeat rhythms
+const Sparkle = ({ n }) => <img className={`sparkle sparkle-${n}`} src={asset('/media/schole-sparkle.png')} alt="" aria-hidden="true" />;
 
 function Work({ openProject }) {
   const root = useRef();
+  const tr = useT();
   useLayoutEffect(() => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
@@ -66,18 +95,21 @@ function Work({ openProject }) {
     return () => ctx.revert();
   }, []);
   return <main ref={root}>
-    <Opening />
+    <Opening greeting={tr('Put your seatbelts on. We are off for an adventure.', 'Anschnallen, bitte. Wir starten ins Abenteuer.')} />
     <section className="reel">
-      {reels.map(([slug, src], i) => {
+      {reels.map(([slug, src, size], i) => {
         const project = data.projects.find((p) => p.slug === slug);
+        const img = src && <img src={asset(src)} alt="" loading={i < 3 ? 'eager' : 'lazy'} style={size ? { width: `${size * 100}%` } : undefined} />;
         return <button className="reel-item" key={slug} onClick={() => openProject(slug)} aria-label={`View project: ${project.cardTitle}`}>
           {src
-            ? <img src={asset(src)} alt="" loading={i < 3 ? 'eager' : 'lazy'} />
-            : <span className="reel-tile">{project.title}</span>}
-          <em className="reel-label">{project.label}</em>
+            ? (slug === 'schole-ai'
+              ? <span className="sparkle-wrap">{img}{[0, 1, 2, 3, 4].map((n) => <Sparkle key={n} n={n} />)}</span>
+              : img)
+            : <span className="reel-tile"><HoloMesh />{project.title}</span>}
+          <em className="reel-label">{tr(project.label, labelsDe[slug])}</em>
         </button>;
       })}
-      <p className="reel-wit">Ideas are cheap. This site cost exactly one.</p>
+      <p className="reel-wit">{tr('Ideas are cheap. This site cost exactly one.', 'Ideen sind billig. Diese Website hat genau eine gekostet.')}</p>
     </section>
   </main>;
 }
@@ -132,7 +164,7 @@ function VideoEmbed({ video, eager }) {
 // story-driven case pages: text, quotes and films interleaved with the
 // imagery, in the order the original whatevacreates.com page tells it.
 // consecutive images run through the same size-aware gallery layout.
-function renderStory(story, title) {
+function renderStory(story, title, tr) {
   const out = [];
   let run = [];
   let counter = 0;
@@ -158,9 +190,9 @@ function renderStory(story, title) {
   story.forEach((item, i) => {
     if (item.img) { run.push(item.img); return; }
     flush();
-    if (item.text) out.push(<p className="case-text" key={i}>{item.text}</p>);
+    if (item.text) out.push(<p className="case-text" key={i}>{tr(item.text, item.textDe)}</p>);
     else if (item.quote) out.push(<blockquote className="case-quote" key={i}>{item.quote}</blockquote>);
-    else if (item.heading) out.push(<h2 className="case-h2" key={i}>{item.heading}</h2>);
+    else if (item.heading) out.push(<h2 className="case-h2" key={i}>{tr(item.heading, item.headingDe)}</h2>);
     else if (item.video) out.push(<div className="case-videos" key={i}><div className="video-grid"><VideoEmbed video={item.video} eager /></div></div>);
   });
   flush();
@@ -178,16 +210,17 @@ function Project({ project, close }) {
     }, root);
     return () => ctx.revert();
   }, [project.slug]);
+  const tr = useT();
   return <main className="case" ref={root}>
-    <button className="case-back" onClick={close}><ArrowLeft /> All work</button>
+    <button className="case-back" onClick={close}><ArrowLeft /> {tr('All work', 'Alle Projekte')}</button>
     <section className="case-title">
-      <p>{project.client} · {project.category}</p>
+      <p>{project.client} · {tr(project.category, project.categoryDe)}</p>
       <h1>{project.title}</h1>
-      <p className="case-description">{project.description}</p>
+      <p className="case-description">{tr(project.description, project.descriptionDe)}</p>
     </section>
-    {project.story ? <div className="case-story">{renderStory(project.story, project.title)}</div> : <>
+    {project.story ? <div className="case-story">{renderStory(project.story, project.title, tr)}</div> : <>
     {project.videos?.length > 0 && <section className="case-videos">
-      <h2 className="case-videos-heading">{project.videos.length > 1 ? `Films · ${project.videos.length}` : 'Film'}</h2>
+      <h2 className="case-videos-heading">{project.videos.length > 1 ? tr(`Films · ${project.videos.length}`, `Filme · ${project.videos.length}`) : 'Film'}</h2>
       <div className={`video-grid${project.videos.length > 1 ? ' video-grid-multi' : ''}`}>
         {project.videos.map((video, i) => <VideoEmbed key={video.id} video={video} eager={i < 2} />)}
       </div>
@@ -208,7 +241,7 @@ function Project({ project, close }) {
       </figure>;
     })}</div>
     </>}
-    <button className="next-button" onClick={close}>All work<ArrowDown /></button>
+    <button className="next-button" onClick={close}>{tr('All work', 'Alle Projekte')}<ArrowDown /></button>
   </main>;
 }
 
@@ -219,53 +252,94 @@ function Photography() {
     const ctx = gsap.context(() => gsap.utils.toArray('.photo').forEach((photo, i) => gsap.from(photo, { opacity: 0, y: 45, duration: .7, delay: (i % 3) * .06, scrollTrigger: { trigger: photo, start: 'top 90%', once: true } })), root);
     return () => ctx.revert();
   }, []);
+  const tr = useT();
   return <main className="editorial-page" ref={root}>
-    <section className="page-title"><p>Personal archive · Observations</p><h1>Photography</h1><span>A selection of places, people and quiet in-between moments.</span></section>
+    <section className="page-title"><p>{tr('Personal archive · Observations', 'Persönliches Archiv · Beobachtungen')}</p><h1>{tr('Photography', 'Fotografie')}</h1><span>{tr('A selection of places, people and quiet in-between moments.', 'Eine Auswahl von Orten, Menschen und stillen Momenten dazwischen.')}</span></section>
     <div className="photo-grid">{data.photography.map((photo, i) => <figure key={photo} className={`photo photo-${i % 7}`}><img src={asset(photo)} alt={`Eva Przybyla photography ${i + 1}`} loading={i < 6 ? 'eager' : 'lazy'} /></figure>)}</div>
   </main>;
 }
 
 function About() {
+  const tr = useT();
   return <main className="about-page">
-    <section className="about-hero"><div><p className="lead">I combine brand strategy, creative leadership and technical understanding to turn audience insight into distinctive brands, campaigns and product launches.</p></div><img src={asset(data.aboutImage)} alt="Eva Przybyla" /></section>
+    <section className="about-hero"><div><p className="lead">{tr(
+      'I combine brand strategy, creative leadership and technical understanding to turn audience insight into distinctive brands, campaigns and product launches.',
+      'Ich verbinde Markenstrategie, kreative Führung und technisches Verständnis, um aus Audience-Insights unverwechselbare Marken, Kampagnen und Produkt-Launches zu machen.')}</p></div><img src={asset(data.aboutImage)} alt="Eva Przybyla" /></section>
     <section className="about-copy">
-      <p className="lead">I always thought my calling was to be a writer. But I couldn’t let go of images. So I learned to combine the two, telling stories through words, visuals and the relationship between them.</p>
+      <p className="lead">{tr(
+        'I always thought my calling was to be a writer. But I couldn’t let go of images. So I learned to combine the two, telling stories through words, visuals and the relationship between them.',
+        'Ich dachte immer, meine Berufung sei das Schreiben. Aber ich konnte die Bilder nicht loslassen. Also habe ich gelernt, beides zu verbinden — Geschichten zu erzählen durch Worte, Bilder und die Beziehung zwischen ihnen.')}</p>
       <div>
-        <p>That took me to leading international advertising agencies — the door opened when I won a one-day creative competition, coming up with a concept for Heineken in a single day and beating 400 Dutch creatives. At TBWA, DDB and OLIVER (Unilever’s in-house marketing agency), I developed campaign concepts, helped win accounts and directed multidisciplinary teams across markets. I worked with brands including adidas, McDonald’s, KitKat, Mercedes-Benz, TeamNL, Lipton, Magnum, Cornetto, Reebok and Wall’s.</p>
-        <p>Over a decade, I learned how to turn audience insight into a clear strategic direction, bring people behind an idea and carry it through production. My work involved aligning clients, strategists, designers, writers, filmmakers and developers, including directing teams across India, Kuala Lumpur and South Africa.</p>
-        <p>Along the way, the work earned recognition. TeamNL’s “Zo Doen We Dat!” campaign received praise from Effie Netherlands for its art direction and strong visual brand expression. My campaign for Wall’s “Ice Cream Slime” earned a Unilever Global Silver award. For Dobbi I worked on both the app and the launch campaign; the service went on to be named a top-5 Disrupter in the Netherlands at the 2019 Dutch Interactive Awards.</p>
-        <p>My creative background also includes a Print shortlist in Poland’s Young Creatives competition for Cannes Young Lions, a shared Siemens Future Living distinction for an architectural design concept, first place with my team in a short-film competition in London, and second place in a Focus magazine advertising competition.</p>
-        <p>I hold two master’s degrees: in Visual Communication from Poland’s prestigious Academy of Fine Arts and Design in Wrocław, and in Graphic Moving Image — focused on advertising and branding — from University of the Arts London (London College of Communication).</p>
+        <p>{tr(
+          'That took me to leading international advertising agencies — the door opened when I won a one-day creative competition, coming up with a concept for Heineken in a single day and beating 400 Dutch creatives. At TBWA, DDB and OLIVER (Unilever’s in-house marketing agency), I developed campaign concepts, helped win accounts and directed multidisciplinary teams across markets. I worked with brands including adidas, McDonald’s, KitKat, Mercedes-Benz, TeamNL, Lipton, Magnum, Cornetto, Reebok and Wall’s.',
+          'Das führte mich zu führenden internationalen Werbeagenturen — die Tür öffnete sich, als ich einen eintägigen Kreativwettbewerb gewann: ein Konzept für Heineken an einem einzigen Tag, gegen 400 niederländische Kreative. Bei TBWA, DDB und OLIVER (Unilevers Inhouse-Marketingagentur) entwickelte ich Kampagnenkonzepte, half, Etats zu gewinnen, und leitete multidisziplinäre Teams über Märkte hinweg. Ich arbeitete mit Marken wie adidas, McDonald’s, KitKat, Mercedes-Benz, TeamNL, Lipton, Magnum, Cornetto, Reebok und Wall’s.')}</p>
+        <p>{tr(
+          'Over a decade, I learned how to turn audience insight into a clear strategic direction, bring people behind an idea and carry it through production. My work involved aligning clients, strategists, designers, writers, filmmakers and developers, including directing teams across India, Kuala Lumpur and South Africa.',
+          'In über einem Jahrzehnt habe ich gelernt, Audience-Insights in eine klare strategische Richtung zu übersetzen, Menschen hinter einer Idee zu versammeln und sie durch die Produktion zu tragen. Dazu gehörte, Kunden, Strategen, Designer, Texter, Filmemacher und Entwickler aufeinander abzustimmen — einschließlich der Leitung von Teams in Indien, Kuala Lumpur und Südafrika.')}</p>
+        <p>{tr(
+          'Along the way, the work earned recognition. TeamNL’s “Zo Doen We Dat!” campaign received praise from Effie Netherlands for its art direction and strong visual brand expression. My campaign for Wall’s “Ice Cream Slime” earned a Unilever Global Silver award. For Dobbi I worked on both the app and the launch campaign; the service went on to be named a top-5 Disrupter in the Netherlands at the 2019 Dutch Interactive Awards.',
+          'Unterwegs wurde die Arbeit ausgezeichnet. TeamNLs Kampagne „Zo Doen We Dat!“ erhielt Lob von Effie Netherlands für ihre Art Direction und starke visuelle Markensprache. Meine Kampagne für Wall’s „Ice Cream Slime“ gewann einen Unilever Global Silver Award. Für Dobbi arbeitete ich an der App und an der Launch-Kampagne; der Service wurde bei den Dutch Interactive Awards 2019 als Top-5-Disrupter der Niederlande ausgezeichnet.')}</p>
+        <p>{tr(
+          'My creative background also includes a Print shortlist in Poland’s Young Creatives competition for Cannes Young Lions, a shared Siemens Future Living distinction for an architectural design concept, first place with my team in a short-film competition in London, and second place in a Focus magazine advertising competition.',
+          'Zu meinem kreativen Hintergrund gehören außerdem eine Print-Shortlist bei Polens Young-Creatives-Wettbewerb für die Cannes Young Lions, eine geteilte Siemens-Future-Living-Auszeichnung für ein Architekturkonzept, der erste Platz mit meinem Team bei einem Kurzfilmwettbewerb in London und der zweite Platz bei einem Werbewettbewerb des Focus-Magazins.')}</p>
+        <p>{tr(
+          'I hold two master’s degrees: in Visual Communication from Poland’s prestigious Academy of Fine Arts and Design in Wrocław, and in Graphic Moving Image — focused on advertising and branding — from University of the Arts London (London College of Communication).',
+          'Ich habe zwei Masterabschlüsse: in Visueller Kommunikation von Polens renommierter Akademie der Bildenden Künste in Wrocław und in Graphic Moving Image — mit Fokus auf Werbung und Branding — von der University of the Arts London (London College of Communication).')}</p>
       </div>
     </section>
     <section className="about-copy">
-      <p className="lead">Curiosity about how products work took me to 42 Lausanne, where I completed the intensive software-engineering common core over two years. Programming sharpened my analytical thinking and gave me another way to bring ideas to life.</p>
+      <p className="lead">{tr(
+        'Curiosity about how products work took me to 42 Lausanne, where I completed the intensive software-engineering common core over two years. Programming sharpened my analytical thinking and gave me another way to bring ideas to life.',
+        'Die Neugier, wie Produkte funktionieren, führte mich ans 42 Lausanne, wo ich in zwei Jahren den intensiven Software-Engineering-Core abschloss. Programmieren hat mein analytisches Denken geschärft und mir einen weiteren Weg gegeben, Ideen zum Leben zu erwecken.')}</p>
       <div>
-        <p>Today, I can question technical assumptions, work closely with engineers and build tools myself. I developed a content studio that lets anyone on my team generate branded assets and content on demand, turning brand guidelines into something people can actually use.</p>
-        <p>I also built a marketing platform that connects our big ideas, goals, campaigns and ideal customer profiles with performance metrics and audience insights. It gives the team a shared view of what we’re trying to achieve, what’s working and what we’re learning, helping us make better decisions about where to focus next.</p>
-        <p>At Scholé AI, I bring these disciplines together in a broad marketing role. I’ve led rebranding, developed positioning and integrated campaigns, and planned advertising budgets. My work connects landing pages, email automation and marketing funnels with sales decks and pitch narratives, giving each stage of the customer journey a clear purpose.</p>
-        <p>I led two product launches, including Scholé’s debut on Product Hunt, which earned <strong>#1 Product of the Day</strong>, ranking ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus on 2 May 2026.</p>
-        <p>Working directly with founders, product and engineering, I also help improve onboarding and the platform experience, using feedback and performance data to guide decisions. I’ve directed creative execution, designed event booths and represented the company at industry events.</p>
-        <p>I bring the experience to set direction and the practical understanding to deliver it. I connect positioning, people, budgets and execution, taking responsibility for the decisions that shape the work and using results to decide what comes next.</p>
-        <p><strong>Based in Switzerland. Open to marketing lead and senior marketing opportunities.</strong></p>
+        <p>{tr(
+          'Today, I can question technical assumptions, work closely with engineers and build tools myself. I developed a content studio that lets anyone on my team generate branded assets and content on demand, turning brand guidelines into something people can actually use.',
+          'Heute kann ich technische Annahmen hinterfragen, eng mit Engineers zusammenarbeiten und selbst Tools bauen. Ich habe ein Content-Studio entwickelt, mit dem jede und jeder im Team markenkonforme Assets und Inhalte auf Abruf erstellen kann — Brand Guidelines werden so zu etwas, das Menschen wirklich nutzen.')}</p>
+        <p>{tr(
+          'I also built a marketing platform that connects our big ideas, goals, campaigns and ideal customer profiles with performance metrics and audience insights. It gives the team a shared view of what we’re trying to achieve, what’s working and what we’re learning, helping us make better decisions about where to focus next.',
+          'Außerdem habe ich eine Marketing-Plattform gebaut, die unsere großen Ideen, Ziele, Kampagnen und Ideal Customer Profiles mit Performance-Metriken und Audience-Insights verbindet. Sie gibt dem Team einen gemeinsamen Blick darauf, was wir erreichen wollen, was funktioniert und was wir lernen — und hilft uns, besser zu entscheiden, worauf wir uns als Nächstes konzentrieren.')}</p>
+        <p>{tr(
+          'At Scholé AI, I bring these disciplines together in a broad marketing role. I’ve led rebranding, developed positioning and integrated campaigns, and planned advertising budgets. My work connects landing pages, email automation and marketing funnels with sales decks and pitch narratives, giving each stage of the customer journey a clear purpose.',
+          'Bei Scholé AI bringe ich diese Disziplinen in einer breiten Marketingrolle zusammen. Ich habe das Rebranding geleitet, Positionierung und integrierte Kampagnen entwickelt und Werbebudgets geplant. Meine Arbeit verbindet Landingpages, E-Mail-Automatisierung und Marketing-Funnels mit Sales-Decks und Pitch-Narrativen — jede Stufe der Customer Journey bekommt einen klaren Zweck.')}</p>
+        <p>{tr(
+          <>I led two product launches, including Scholé’s debut on Product Hunt, which earned <strong>#1 Product of the Day</strong>, ranking ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus on 2 May 2026.</>,
+          <>Ich habe zwei Produkt-Launches geleitet, darunter Scholés Debüt auf Product Hunt — <strong>#1 Product of the Day</strong> am 2. Mai 2026, vor Microsoft Copilot Health, YouTube TV Custom Multiview und Cloud Computer von Manus.</>)}</p>
+        <p>{tr(
+          'Working directly with founders, product and engineering, I also help improve onboarding and the platform experience, using feedback and performance data to guide decisions. I’ve directed creative execution, designed event booths and represented the company at industry events.',
+          'In direkter Zusammenarbeit mit Foundern, Produkt und Engineering helfe ich außerdem, Onboarding und Plattform-Erlebnis zu verbessern — auf Basis von Feedback und Performance-Daten. Ich habe die kreative Umsetzung geleitet, Messestände gestaltet und das Unternehmen auf Branchen-Events vertreten.')}</p>
+        <p>{tr(
+          'I bring the experience to set direction and the practical understanding to deliver it. I connect positioning, people, budgets and execution, taking responsibility for the decisions that shape the work and using results to decide what comes next.',
+          'Ich bringe die Erfahrung mit, Richtung vorzugeben, und das praktische Verständnis, sie umzusetzen. Ich verbinde Positionierung, Menschen, Budgets und Umsetzung — übernehme Verantwortung für die Entscheidungen, die die Arbeit prägen, und nutze Ergebnisse, um zu entscheiden, was als Nächstes kommt.')}</p>
+        <p><strong>{tr(
+          'Based in Switzerland. Open to marketing lead and senior marketing opportunities.',
+          'Wohnhaft in der Schweiz.')}</strong></p>
       </div>
     </section>
-    <section className="contact"><p>Have a project, role or idea in mind?</p><a href="mailto:whatevacreates@gmail.com">Let’s make something great <ArrowUpRight /></a><div><a href="tel:+41782154258">+41 78 215 42 58</a><a href="mailto:whatevacreates@gmail.com">whatevacreates@gmail.com</a></div></section>
+    <section className="contact">{tr(<p>Have a project, role or idea in mind?</p>, '')}<a href="mailto:whatevacreates@gmail.com">{tr('Let’s make something great', 'Lass uns etwas Großartiges machen')} <ArrowUpRight /></a><div><a href="tel:+41782154258">+41 78 215 42 58</a><a href="mailto:whatevacreates@gmail.com">whatevacreates@gmail.com</a></div></section>
   </main>;
 }
 
-function Footer() { return <footer><span>© {new Date().getFullYear()} Eva Przybyla</span><span>Design · Direction · Development</span><a href="mailto:whatevacreates@gmail.com">Start a conversation ↗</a></footer>; }
+// the footer wears the same live hologram as the hero panel and reel tile,
+// with the site's slate ink on top
+function Footer() {
+  const tr = useT();
+  return <footer><HoloMesh /><span>© {new Date().getFullYear()} Eva Przybyla</span><span>Design · Direction · Development</span><a href="mailto:whatevacreates@gmail.com">{tr('Start a conversation', 'Schreib mir')} ↗</a></footer>;
+}
 
 function App() {
   const [route, setRoute] = useState(() => location.hash.slice(1) || 'work');
+  const [lang, setLangState] = useState(getLang);
+  const setLang = (next) => { setLangState(next); saveLang(next); document.documentElement.lang = next; };
   useEffect(() => {
+    document.documentElement.lang = lang;
     const update = () => setRoute(location.hash.slice(1) || 'work');
     addEventListener('hashchange', update); return () => removeEventListener('hashchange', update);
   }, []);
   const navigate = (page) => { location.hash = page; scrollTo(0, 0); };
   const project = route.startsWith('project/') ? data.projects.find((item) => item.slug === route.split('/')[1]) : null;
-  const page = project ? 'work' : route;
-  return <><Header page={page} navigate={navigate} />{project ? <Project project={project} close={() => navigate('work')} /> : route === 'photography' ? <Photography /> : route === 'about' ? <About /> : <Work openProject={(slug) => navigate(`project/${slug}`)} />}<Footer /></>;
+  const post = route.startsWith('blog/') ? posts.find((item) => item.slug === route.split('/')[1]) : null;
+  const page = project ? 'work' : post ? 'blog' : route;
+  return <LangContext.Provider value={lang}><Header page={page} navigate={navigate} lang={lang} setLang={setLang} />{project ? <Project project={project} close={() => navigate('work')} /> : post ? <BlogPost post={post} close={() => navigate('blog')} /> : route === 'photography' ? <Photography /> : route === 'blog' ? <Blog openPost={(slug) => navigate(`blog/${slug}`)} /> : route === 'about' ? <About /> : <Work openProject={(slug) => navigate(`project/${slug}`)} />}<Footer /></LangContext.Provider>;
 }
 
 createRoot(document.getElementById('root')).render(<App />);

@@ -6,10 +6,14 @@
    "client": "Scholé AI",
    "category": "Marketing leadership",
    "description": "At Scholé AI I bring brand strategy, creative leadership and technical understanding together in a broad marketing role. I led the rebranding, developed positioning and integrated campaigns, and planned advertising budgets — connecting landing pages, email automation and marketing funnels with sales decks and pitch narratives, so each stage of the customer journey has a clear purpose. I led two product launches, including Scholé's debut on Product Hunt, which earned #1 Product of the Day on 2 May 2026 — ranking ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus.",
-   "images": [],
+   "images": [
+    "/media/schole-ai-01-schole-logo.webp"
+   ],
    "videos": [],
    "cardTitle": "Scholé AI",
-   "label": "Marketing Leadership · Product Marketing · GTM · AI"
+   "label": "Marketing Leadership · Product Marketing · GTM · AI",
+   "descriptionDe": "Bei Scholé AI bringe ich Markenstrategie, kreative Führung und technisches Verständnis in einer breiten Marketingrolle zusammen. Ich habe das Rebranding geleitet, Positionierung und integrierte Kampagnen entwickelt und Werbebudgets geplant — und verbinde Landingpages, E-Mail-Automatisierung und Marketing-Funnels mit Sales-Decks und Pitch-Narrativen, sodass jede Stufe der Customer Journey einen klaren Zweck hat. Ich habe zwei Produkt-Launches geleitet, darunter Scholés Debüt auf Product Hunt, das am 2. Mai 2026 #1 Product of the Day wurde — vor Microsoft Copilot Health, YouTube TV Custom Multiview und Cloud Computer von Manus.",
+   "categoryDe": "Marketing-Leadership"
   },
   {
    "slug": "team-nl",
@@ -52,16 +56,19 @@
      "img": "/media/team-nl-02-team-nl-header-v2.webp"
     },
     {
-     "text": "We were faced with many parameters including budget and assets. But nothing could stop us. Because we couldn't shoot any new material, we came up with the solution to cut athletes out of the old, already shot footage. We created dynamic, powerful world, with camera panning from left to right. Athletes were to interact with key words, showing \"how do they do it\" by smashing zo doen we dat lockup mercilessly."
+     "text": "We were faced with many parameters including budget and assets. But nothing could stop us. Because we couldn't shoot any new material, we came up with the solution to cut athletes out of the old, already shot footage. We created dynamic, powerful world, with camera panning from left to right. Athletes were to interact with key words, showing \"how do they do it\" by smashing zo doen we dat lockup mercilessly.",
+     "textDe": "Wir standen vor vielen Einschränkungen, von Budget bis Material. Aber nichts konnte uns aufhalten. Da wir kein neues Material drehen konnten, kamen wir auf die Lösung, die Athleten aus bereits gedrehtem Footage auszuschneiden. Wir schufen eine dynamische, kraftvolle Welt mit einem Kameraschwenk von links nach rechts. Die Athleten interagierten mit Schlagworten und zeigten „wie sie es machen“, indem sie das Zo-doen-we-dat-Lockup gnadenlos zertrümmerten."
     },
     {
-     "text": "Client about the campaign:"
+     "text": "Client about the campaign:",
+     "textDe": "Der Kunde über die Kampagne:"
     },
     {
      "quote": "Thomas van Schaik, manager Marketing, Content en Sponsoring bij NOC*NSF: “Met deze campagne gaan we in 2018 de volle breedte van TeamNL laten zien; van atletiek tot zwemmen. Het hele jaar door meten Nederlandse sporters zich met de absolute wereldtop. We doen dat op onze eigen manier. Ambitieus, samen, eigenzinnig misschien. Maar we zijn trots op de onze sporters én alle oranje gekleurde supporters. Dat willen we met deze campagne graag uitdragen. Samen zijn we TeamNL, en zo doen we dat.”"
     },
     {
-     "text": "What my favourite snowboarder said about the commercial makes me happy:"
+     "text": "What my favourite snowboarder said about the commercial makes me happy:",
+     "textDe": "Was meine Lieblingssnowboarderin über den Spot sagte, macht mich glücklich:"
     },
     {
      "quote": "Cheryl Maas, Olympisch snowboardster: “De commercial is echt een coole en krachtige clip geworden. Gaaf dat ze ook beelden van mij erin verwerkt hebben. Samen met andere TeamNL-sporters kan ik zo laten zien waar TeamNL voor staat. Ik wil de hele wereld laten zien hoe prachtig mijn sport is. Ik geniet er zelf enorm van, ben blij met mijn sportleven. Door dat te delen hoop ik de rest van Nederland mee te laten genieten en te inspireren om ook elke dag het beste uit zichzelf te halen.”"
@@ -80,7 +87,8 @@
      "quote": "Wij winnen veel te vaak voor hoe klein we zijn. Wij zijn eigenzinnig, onverschrokken en vol vertrouwen. Wij zijn TeamNL en zo doen we dat!"
     },
     {
-     "text": "That's the very first rough concept of the storyboard I drew for the movie, and a few style frames prepared by me."
+     "text": "That's the very first rough concept of the storyboard I drew for the movie, and a few style frames prepared by me.",
+     "textDe": "Das ist das allererste grobe Storyboard-Konzept, das ich für den Film gezeichnet habe, dazu ein paar Style-Frames von mir."
     },
     {
      "img": "/media/team-nl-04-first-storyboard.webp"
@@ -89,7 +97,8 @@
      "img": "/media/team-nl-05-style-frame.webp"
     },
     {
-     "text": "After making the brand clip we translated the power of ZO DOEN WE DAT into the print."
+     "text": "After making the brand clip we translated the power of ZO DOEN WE DAT into the print.",
+     "textDe": "Nach dem Markenfilm übersetzten wir die Kraft von ZO DOEN WE DAT in den Print."
     },
     {
      "img": "/media/team-nl-06-sijnke-busstop.webp"
@@ -125,7 +134,8 @@
      "img": "/media/team-nl-16-wij-gaan-vlammen.webp"
     },
     {
-     "text": "Campaign was also present in digital & social media."
+     "text": "Campaign was also present in digital & social media.",
+     "textDe": "Die Kampagne war auch digital und in Social Media präsent."
     },
     {
      "img": "/media/team-nl-17-114033-banner-hockeyrun-728x90-v2.webp"
@@ -137,13 +147,16 @@
      "img": "/media/team-nl-19-114317-banner-teamnl-300x600-v3.webp"
     },
     {
-     "heading": "Medal alarm"
+     "heading": "Medal alarm",
+     "headingDe": "Medal Alarm"
     },
     {
-     "text": "How to make sure that the biggest TeamNL fans know first about their team winning olympic medals?"
+     "text": "How to make sure that the biggest TeamNL fans know first about their team winning olympic medals?",
+     "textDe": "Wie stellt man sicher, dass die größten TeamNL-Fans als Erste erfahren, wenn ihr Team olympische Medaillen gewinnt?"
     },
     {
-     "text": "We made medal alarm! Medal alarm was starting off on TeamNL app users' phones, and also on digital abris around dutch cities and in social media."
+     "text": "We made medal alarm! Medal alarm was starting off on TeamNL app users' phones, and also on digital abris around dutch cities and in social media.",
+     "textDe": "Wir haben den Medal Alarm gebaut! Er ging auf den Handys der TeamNL-App-Nutzer los — und auf digitalen Abris in niederländischen Städten und in Social Media."
     },
     {
      "img": "/media/team-nl-20-ezgif-4-b86755396a.webp"
@@ -153,7 +166,9 @@
     }
    ],
    "cardTitle": "TeamNL — Zo Doen We Dat!",
-   "label": "Brand Strategy · Integrated Campaign · Creative Direction"
+   "label": "Brand Strategy · Integrated Campaign · Creative Direction",
+   "descriptionDe": "This is how we do it! KUNDE: TeamNL PROBLEM: Viele Menschen in den Niederlanden wussten nicht, dass die niederländischen Olympioniken unter dem Dach von TeamNL vereint sind. Unsere Aufgabe war eine Markenkampagne, die das Image von TeamNL stärkt. Wir mussten die Marke aufbauen. IDEE: Das kraftvolle Statement ZO DOEN WE DAT / SO MACHEN WIR DAS zeigt, wie sie es machen. MEINE ROLLE: Konzept + Art Direction + Design",
+   "categoryDe": "Markenkampagne"
   },
   {
    "slug": "new-page",
@@ -206,19 +221,22 @@
      "quote": "You can skip your laundry (and dry cleaning) as fast as you can skip this ad — with dobbi! So skip, skip, skip it! Still here? Alright, let's skip your laundry and dry cleaning. We'll pick it up. We'll do our magic. We'll bring it back — when it suits you. So start skipping! Download dobbi!"
     },
     {
-     "text": "The first storyboard I drew:"
+     "text": "The first storyboard I drew:",
+     "textDe": "Das erste Storyboard, das ich gezeichnet habe:"
     },
     {
      "img": "/media/new-page-04-storyboard.webp"
     },
     {
-     "text": "We created distinctive, original brand assets to make sure dobbi looked innovative and new."
+     "text": "We created distinctive, original brand assets to make sure dobbi looked innovative and new.",
+     "textDe": "Wir schufen unverwechselbare, eigenständige Brand-Assets, damit dobbi innovativ und neu wirkt."
     },
     {
      "img": "/media/new-page-05-campaign-assets.webp"
     },
     {
-     "text": "Here is what the outdoor and print looked like."
+     "text": "Here is what the outdoor and print looked like.",
+     "textDe": "So sahen Außenwerbung und Print aus."
     },
     {
      "img": "/media/new-page-06-a.webp"
@@ -230,7 +248,8 @@
      "img": "/media/new-page-08-skip-deze-advertentie.webp"
     },
     {
-     "text": "The digital banners drove quite some traffic to the website."
+     "text": "The digital banners drove quite some traffic to the website.",
+     "textDe": "Die digitalen Banner brachten ordentlich Traffic auf die Website."
     },
     {
      "img": "/media/new-page-09-113284-dobbi-youtube-banner-v5-f2.webp"
@@ -239,13 +258,15 @@
      "img": "/media/new-page-10-banners.webp"
     },
     {
-     "text": "For social media we made looping gifs, paired with clear descriptions — all within Facebook's 20% text rule."
+     "text": "For social media we made looping gifs, paired with clear descriptions — all within Facebook's 20% text rule.",
+     "textDe": "Für Social Media bauten wir Loop-Gifs mit klaren Beschreibungen — alles innerhalb der 20-Prozent-Textregel von Facebook."
     },
     {
      "img": "/media/new-page-11-banner-to-upload.webp"
     },
     {
-     "text": "And that's the website."
+     "text": "And that's the website.",
+     "textDe": "Und das ist die Website."
     },
     {
      "img": "/media/new-page-12-dobbi-website.webp"
@@ -254,7 +275,8 @@
      "img": "/media/new-page-13-screenshot-2024-10-05-at-17-44-49.webp"
     },
     {
-     "text": "To show how simple dobbi is, we created the icons."
+     "text": "To show how simple dobbi is, we created the icons.",
+     "textDe": "Um zu zeigen, wie einfach dobbi ist, haben wir die Icons gestaltet."
     },
     {
      "text": "ORDER → PICK-UP → WE DO MAGIC → DELIVER"
@@ -269,9 +291,12 @@
      "img": "/media/new-page-16-screenshot-2024-10-05-at-17-46-03.webp"
     },
     {
-     "text": "I worked on both the launch campaign and the app itself — and the service took off: at the 2019 Dutch Interactive Awards, dobbi was named a top-5 Disrupter in the Netherlands."
+     "text": "I worked on both the launch campaign and the app itself — and the service took off: at the 2019 Dutch Interactive Awards, dobbi was named a top-5 Disrupter in the Netherlands.",
+     "textDe": "Ich habe an der Launch-Kampagne und an der App selbst gearbeitet — und der Service hob ab: Bei den Dutch Interactive Awards 2019 wurde dobbi als Top-5-Disrupter der Niederlande ausgezeichnet."
     }
-   ]
+   ],
+   "descriptionDe": "Skip deine Wäsche, so schnell du diese Werbung skippen kannst! KUNDE: dobbi (by Persil) PROBLEM: Die Herausforderung: einen brandneuen Service in einem 6-Sekunden-YouTube-Pre-Roll vorzustellen — und die Zuschauer dann zu ermutigen, die Werbung zu überspringen, damit sie kostenlos bleibt. IDEE: Die Verbindung zwischen dem Überspringen der Wäsche und dem Überspringen des Pre-Rolls zu unserem Vorteil nutzen. MEINE ROLLE: Konzept + Art Direction + Design — für Launch-Kampagne und App",
+   "categoryDe": "Integrierte Kampagne"
   },
   {
    "slug": "adidas-email",
@@ -303,7 +328,115 @@
     "/media/adidas-email-21-fresh-as-female-v-mockup.webp"
    ],
    "cardTitle": "adidas — Hottest Drops / CRM",
-   "label": "CRM · Lifecycle Marketing · Customer Engagement"
+   "label": "CRM · Lifecycle Marketing · Customer Engagement",
+   "story": [
+    {
+     "text": "In the email's header we see the shoe being dropped. The sneaker lands on the banner at the bottom. It looks like it was dropped from a great height!",
+     "textDe": "Im Header der E-Mail fällt der Schuh. Der Sneaker landet auf dem Banner ganz unten — als wäre er aus großer Höhe gedroppt!"
+    },
+    {
+     "img": "/media/adidas-email-02-email-mockup-v2.webp"
+    },
+    {
+     "text": "The email was very successful. We created 16 different versions with 16 different shoes. It was translated into 17 languages and sent out in 17 different countries across Western Europe.",
+     "textDe": "Die E-Mail war sehr erfolgreich. Wir bauten 16 Versionen mit 16 verschiedenen Schuhen. Sie wurde in 17 Sprachen übersetzt und in 17 Länder Westeuropas verschickt."
+    },
+    {
+     "img": "/media/adidas-email-03-reka.webp"
+    },
+    {
+     "img": "/media/adidas-email-04-eqt-female.webp"
+    },
+    {
+     "img": "/media/adidas-email-05-reka-buty-szare.webp"
+    },
+    {
+     "img": "/media/adidas-email-06-eqt-male.webp"
+    },
+    {
+     "img": "/media/adidas-email-07-hand-red-shoe.webp"
+    },
+    {
+     "img": "/media/adidas-email-08-gazelle-female.webp"
+    },
+    {
+     "img": "/media/adidas-email-09-kolejny-but-reka.webp"
+    },
+    {
+     "img": "/media/adidas-email-10-nmd-male.webp"
+    },
+    {
+     "img": "/media/adidas-email-11-niebieski.webp"
+    },
+    {
+     "img": "/media/adidas-email-12-gazelle-male-v2.webp"
+    },
+    {
+     "heading": "2. Stick to Yourself — Direct Mail",
+     "headingDe": "2. Stick to Yourself — Direct Mail"
+    },
+    {
+     "text": "CLIENT: adidas Global PROBLEM: How to make adidas online store customers return to the adidas online store? At adidas.com you can find over 400 unique pieces not available anywhere else. Adidas.com offers endless options for personalisation. IDEA: We came up with stickers thanks to which you STICK TO YOURSELF. Play with the stickers and stick them wherever you like. Or maybe get rebellious and stick them on a different brand? MY ROLE: concept + art direction",
+     "textDe": "KUNDE: adidas Global PROBLEM: Wie bringt man Kunden des adidas-Onlinestores zurück in den adidas-Onlinestore? Auf adidas.com gibt es über 400 einzigartige Stücke, die es nirgendwo sonst gibt, und endlose Möglichkeiten zur Personalisierung. IDEE: Sticker, mit denen du zu dir selbst stehst — STICK TO YOURSELF. Spiel mit den Stickern und kleb sie, wohin du willst. Oder werde rebellisch und kleb sie auf eine andere Marke? MEINE ROLLE: Konzept + Art Direction"
+    },
+    {
+     "img": "/media/adidas-email-13-114045-co-direct-mail-reactivation-297x210-1.webp"
+    },
+    {
+     "img": "/media/adidas-email-14-stickers.webp"
+    },
+    {
+     "heading": "3. Slide Out of the Ordinary — Direct Mail",
+     "headingDe": "3. Slide Out of the Ordinary — Direct Mail"
+    },
+    {
+     "text": "CLIENT: adidas Global PROBLEM: How to make adidas online store customers return to the adidas online store? At adidas.com you can find over 400 unique pieces not available anywhere else. Adidas.com offers endless options for personalisation. IDEA: To show that at adidas.com you can find many options for personalisation, we created a slidable envelope. The adidas logo is cut into the envelope; inside is a slidable cardboard built from many different textures and fabrics, all available only at adidas.com. MY ROLE: concept + art direction",
+     "textDe": "KUNDE: adidas Global PROBLEM: Wie bringt man Kunden des adidas-Onlinestores zurück in den adidas-Onlinestore? Auf adidas.com gibt es über 400 einzigartige Stücke und endlose Möglichkeiten zur Personalisierung. IDEE: Um zu zeigen, wie viele Personalisierungsoptionen adidas.com bietet, gestalteten wir einen Schiebe-Umschlag. Das adidas-Logo ist ausgestanzt; innen steckt ein verschiebbarer Karton aus vielen verschiedenen Texturen und Stoffen — alle nur auf adidas.com erhältlich. MEINE ROLLE: Konzept + Art Direction"
+    },
+    {
+     "img": "/media/adidas-email-15-slide-in.webp"
+    },
+    {
+     "img": "/media/adidas-email-16-adidas-reactivation-dm-ideas-v3-1-8.webp"
+    },
+    {
+     "heading": "4. Let Your Style Reflect You — Direct Mail",
+     "headingDe": "4. Let Your Style Reflect You — Direct Mail"
+    },
+    {
+     "text": "CLIENT: adidas Global PROBLEM: How to make adidas online store customers return to the adidas online store? At adidas.com you can find over 400 unique pieces not available anywhere else. Adidas.com offers endless options for personalisation. IDEA: The text LET YOUR STYLE REFLECT YOU is made from mirrors. MY ROLE: concept + art direction",
+     "textDe": "KUNDE: adidas Global PROBLEM: Wie bringt man Kunden des adidas-Onlinestores zurück in den adidas-Onlinestore? Auf adidas.com gibt es über 400 einzigartige Stücke und endlose Möglichkeiten zur Personalisierung. IDEE: Der Schriftzug LET YOUR STYLE REFLECT YOU ist aus Spiegeln gemacht. MEINE ROLLE: Konzept + Art Direction"
+    },
+    {
+     "img": "/media/adidas-email-17-mirror.webp"
+    },
+    {
+     "heading": "5. CRM — Discount Email",
+     "headingDe": "5. CRM — Rabatt-E-Mail"
+    },
+    {
+     "text": "CLIENT: adidas Global PROBLEM: How to give a 25% discount without lowering the value of the products? IDEA: We are not giving you the discount. You need to steal it from us. You need to claim it. You need to crack the safe. MY ROLE: concept + art direction",
+     "textDe": "KUNDE: adidas Global PROBLEM: Wie gewährt man 25 % Rabatt, ohne den Wert der Produkte zu mindern? IDEE: Wir schenken dir den Rabatt nicht. Du musst ihn uns stehlen. Du musst ihn dir holen. Du musst den Safe knacken. MEINE ROLLE: Konzept + Art Direction"
+    },
+    {
+     "img": "/media/adidas-email-18-nmd-safe2-2.webp"
+    },
+    {
+     "img": "/media/adidas-email-19-caly-email.webp"
+    },
+    {
+     "heading": "6. CRM — Fresh as… New Arrivals",
+     "headingDe": "6. CRM — Fresh as… New Arrivals"
+    },
+    {
+     "img": "/media/adidas-email-20-fresh-as-male-v-mockup.webp"
+    },
+    {
+     "img": "/media/adidas-email-21-fresh-as-female-v-mockup.webp"
+    }
+   ],
+   "descriptionDe": "Hottest drops! New Arrivals KUNDE: adidas Global PROBLEM: Wie kündigt man neue Schuhe in E-Mails an? IDEE: Neue Schuhe von adidas sind so gut, dass sie das Gespräch beenden. Also droppen wir sie — wie ein Mic Drop. MEINE ROLLE: Konzept + Art Direction + Design ERGEBNIS: Eine höchst erfolgreiche CRM-Kampagne, gemeinsam mit dem adidas-Team gefeiert — 16 Versionen rund um 16 verschiedene Schuhe, übersetzt in 17 Sprachen und ausgerollt in 17 westeuropäischen Märkten.",
+   "categoryDe": "CRM & Direct Mail"
   },
   {
    "slug": "slime",
@@ -324,7 +457,60 @@
     "/media/slime-10-bridge.webp"
    ],
    "cardTitle": "Wall’s — Slime",
-   "label": "Product Launch · Global Campaign · Creative Strategy"
+   "label": "Product Launch · Global Campaign · Creative Strategy",
+   "videos": [
+    {
+     "id": "R7fDH1UQgsM",
+     "title": "Wall's Slime — Campaign Film",
+     "poster": "/media/posters/R7fDH1UQgsM.jpg"
+    }
+   ],
+   "story": [
+    {
+     "text": "Slime is not just slime. It's a cultural phenomenon. Ever since Nickelodeon first slimed a celebrity, the legend of the slime has grown. And now everyone can enjoy three great Nickelodeon Slime ice creams. They can experience the feeling of Slime taking over, surprising them, delighting them, invigorating their tastebuds.",
+     "textDe": "Slime ist nicht einfach Schleim. Es ist ein Kulturphänomen. Seit Nickelodeon zum ersten Mal eine Berühmtheit geslimt hat, wächst die Legende. Und jetzt kann jeder drei großartige Nickelodeon-Slime-Eissorten genießen — und das Gefühl erleben, wenn Slime übernimmt: überraschend, entzückend, belebend."
+    },
+    {
+     "text": "This project earned me 2nd place in the internal Unilever Design Awards 2021.",
+     "textDe": "Dieses Projekt brachte mir den 2. Platz bei den internen Unilever Design Awards 2021."
+    },
+    {
+     "img": "/media/slime-02-kv-1.webp"
+    },
+    {
+     "img": "/media/slime-03-kv-2.webp"
+    },
+    {
+     "img": "/media/slime-04-kv-3.webp"
+    },
+    {
+     "img": "/media/slime-05-social-stories-2.webp"
+    },
+    {
+     "img": "/media/slime-06-social-stories-3.webp"
+    },
+    {
+     "img": "/media/slime-07-social-stories-1.webp"
+    },
+    {
+     "img": "/media/slime-08-social-stories-4.webp"
+    },
+    {
+     "img": "/media/slime-09-slime-banners.webp"
+    },
+    {
+     "video": {
+      "id": "R7fDH1UQgsM",
+      "title": "Wall's Slime — Campaign Film",
+      "poster": "/media/posters/R7fDH1UQgsM.jpg"
+     }
+    },
+    {
+     "img": "/media/slime-10-bridge.webp"
+    }
+   ],
+   "descriptionDe": "Slime ist ein neues Produkt aus Brasilien, das in immer mehr Märkten Fahrt aufnimmt. Slime ist ein Trend, der für Kids und Teens weiter relevant ist — unsere Produkte treffen genau diese Passion Points mit fruchtigem, aufregendem Eis. •Ziel: Awareness für das neue Produkt schaffen und die Aufregung, die Slime bringt, voll ausspielen. In manchen Märkten mit mehreren Sorten ist die Verpackung identisch — welche Sorte man bekommt, bleibt eine Überraschung. Slime ist nicht einfach Schleim. Es ist ein Kulturphänomen. Seit Nickelodeon zum ersten Mal eine Berühmtheit geslimt hat, wächst die Legende. Und jetzt kann jeder drei großartige Nickelodeon-Slime-Eissorten genießen — und das Gefühl erleben, wenn Slime übernimmt: überraschend, entzückend, belebend.",
+   "categoryDe": "Launch-Kampagne"
   },
   {
    "slug": "royal-canin-social-campaign-2",
@@ -353,14 +539,74 @@
     }
    ],
    "cardTitle": "Royal Canin — Healthy Habits",
-   "label": "Behavioural Insight · Brand Strategy · Social Campaign"
+   "label": "Behavioural Insight · Brand Strategy · Social Campaign",
+   "story": [
+    {
+     "img": "/media/royal-canin-social-campaign-2-02-20190402-posters-2.webp"
+    },
+    {
+     "text": "Facebook"
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-03-social-media-v2.webp"
+    },
+    {
+     "text": "Instagram — insta-stories",
+     "textDe": "Instagram — Insta-Stories"
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-04-healthyactivity-cat-britishshorthair-6s-9x16-v01.webp"
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-05-healthyactivity-cat-britishshorthair-6s-9x16-v01-x.webp"
+    },
+    {
+     "text": "Facebook — carousels",
+     "textDe": "Facebook — Karussells"
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-06-carausels.webp"
+    },
+    {
+     "text": "Landing page",
+     "textDe": "Landingpage"
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-07-landing-page-dog.webp"
+    },
+    {
+     "text": "Animation (digital + vet's office)",
+     "textDe": "Animation (digital + Tierarztpraxis)"
+    },
+    {
+     "video": {
+      "id": "sMEADTnUi80",
+      "title": "Royal Canin — Life Expectancy",
+      "poster": "/media/posters/sMEADTnUi80.jpg"
+     }
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-08-overweight-leaflet-dog-outside.webp"
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-09-overweight-leaflet-dog-inside.webp"
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-10-overweight-leaflet-cat-outside.webp"
+    },
+    {
+     "img": "/media/royal-canin-social-campaign-2-11-overweight-leaflet-cat-inside.webp"
+    }
+   ],
+   "descriptionDe": "Ein gesundes Gewicht beginnt mit gesunden Gewohnheiten. KUNDE: Royal Canin PROBLEM: Über 50 % der Haustiere sind übergewichtig — und ihre Halter sehen darin kein Problem. IDEE: Bewusstsein für Übergewicht bei Haustieren schaffen, indem wir über Lösungen sprechen. Wir entwickelten eine Weight-Management-Kampagne rund um gesunde Gewohnheiten. MEINE ROLLE: Konzept + Art Direction + Design",
+   "categoryDe": "Social-Media-Kampagne"
   },
   {
    "slug": "reebok",
    "title": "Go Elemental!",
    "client": "Reebok",
    "category": "Mobile campaign",
-   "description": "GO ELEMENTAL! CLIENT: Reebok Global PROBLEM: How to convince amatour sporters that Rbk is a brand for hard core, fearless sport enthusiasts? IDEA: Whenever an extreme weather is approaching, Rbk encourages sport enthusiasts to go out and train. In the rain and against the wind. Or in the tremendous heat. MY ROLE: concept + art direction + design",
+   "description": "GO ELEMENTAL! CLIENT: Reebok Global PROBLEM: How to convince amateur sporters that Rbk is a brand for hardcore, fearless sport enthusiasts? IDEA: Whenever extreme weather is approaching, Rbk encourages sport enthusiasts to go out and train. In the rain and against the wind. Or in the tremendous heat. MY ROLE: concept + art direction + design",
    "images": [
     "/media/reebok-01-go-elemental-xx.webp",
     "/media/reebok-02-header-rbk.webp",
@@ -373,14 +619,58 @@
     "/media/reebok-09-screen-shot-2018-07-24-at-16-37-48.webp"
    ],
    "cardTitle": "Reebok — Go Elemental",
-   "label": "Digital Campaign · Mobile Experience · Creative Concept"
+   "label": "Digital Campaign · Mobile Experience · Creative Concept",
+   "story": [
+    {
+     "img": "/media/reebok-02-header-rbk.webp"
+    },
+    {
+     "text": "To execute the idea we came up with a workout app. But… no, not a regular one! The Go Elemental workout app pushes you to go out and train in extreme weather conditions. Go elemental.",
+     "textDe": "Zur Umsetzung der Idee entwickelten wir eine Workout-App. Aber… nein, keine gewöhnliche! Die Go-Elemental-App treibt dich raus zum Training bei extremen Wetterbedingungen. Go elemental."
+    },
+    {
+     "img": "/media/reebok-03-iphony-mockup.webp"
+    },
+    {
+     "img": "/media/reebok-04-iphony-mockup-2.webp"
+    },
+    {
+     "img": "/media/reebok-05-iphony-mockup-3.webp"
+    },
+    {
+     "text": "The online banner campaign uses meteorological data.",
+     "textDe": "Die Online-Banner-Kampagne nutzt meteorologische Daten."
+    },
+    {
+     "img": "/media/reebok-06-iphone-8-mockup-downloadable.webp"
+    },
+    {
+     "img": "/media/reebok-07-shutterstock-528826444.webp"
+    },
+    {
+     "img": "/media/reebok-08-online-ads.webp"
+    },
+    {
+     "heading": "Activation",
+     "headingDe": "Aktivierung"
+    },
+    {
+     "text": "To activate the idea we came up with an indoor gym. The weather conditions inside the gym are extreme. For the toughest. Only for the Rbk enthusiasts.",
+     "textDe": "Zur Aktivierung der Idee entwarfen wir ein Indoor-Gym. Die Wetterbedingungen darin sind extrem. Für die Härtesten. Nur für die Rbk-Enthusiasten."
+    },
+    {
+     "img": "/media/reebok-09-screen-shot-2018-07-24-at-16-37-48.webp"
+    }
+   ],
+   "descriptionDe": "GO ELEMENTAL! KUNDE: Reebok Global PROBLEM: Wie überzeugt man Amateursportler, dass Rbk eine Marke für kompromisslose, furchtlose Sport-Enthusiasten ist? IDEE: Wann immer Extremwetter aufzieht, ermutigt Rbk Sportbegeisterte, rauszugehen und zu trainieren. Im Regen und gegen den Wind. Oder in brütender Hitze. MEINE ROLLE: Konzept + Art Direction + Design",
+   "categoryDe": "Mobile Kampagne"
   },
   {
    "slug": "mcwalk",
    "title": "McWalk",
    "client": "McDonald’s Netherlands",
    "category": "Brand activation",
-   "description": "The McWalk: Enhancing Brand Visibility through Direct Engagement CLIENT: McDonald Nederlands | MY ROLE: concept + art direction",
+   "description": "The McWalk: Enhancing Brand Visibility through Direct Engagement CLIENT: McDonald's Netherlands PROBLEM: McDonald's is constantly seeking new opportunities to enhance its brand image and increase visibility. The Nijmegen Four Days Marches (Vierdaagse), an annual four-day walking event held in the south of Holland, presented an ideal opportunity for McDonald's to engage with a vast audience in a meaningful way. IDEA: To celebrate the tradition of walking, we proposed an on-route activation transforming the classic McDrive into a \"McWalk.\" This concept aligned well with McDonald's aim to support sustainability, promote healthier lifestyles, and embrace global trends towards greener practices. MY ROLE: concept + art direction",
    "images": [
     "/media/mcwalk-01-mcwalk.webp",
     "/media/mcwalk-02-mc-header.webp",
@@ -388,7 +678,72 @@
     "/media/mcwalk-04-medal-mcwalk-badge.webp"
    ],
    "cardTitle": "McDonald’s — McWalk",
-   "label": "Brand Activation · Experience Marketing · Creative Direction"
+   "label": "Brand Activation · Experience Marketing · Creative Direction",
+   "story": [
+    {
+     "text": "The Nijmegen Four Days Walk is a four-day festival of hiking. Thousands of people walk up to 80 km during those four days. McDonald's invites hikers to walk an extra 150 m to score a free portion of McNuggets… and something extra!",
+     "textDe": "Der Nijmegener Viertagemarsch ist ein viertägiges Wanderfestival. Tausende Menschen laufen an diesen vier Tagen bis zu 80 km. McDonald's lädt die Wanderer ein, 150 m extra zu gehen — für eine Gratisportion McNuggets… und etwas obendrauf!"
+    },
+    {
+     "img": "/media/mcwalk-02-mc-header.webp"
+    },
+    {
+     "heading": "Key Features of the McWalk Activation",
+     "headingDe": "Die Kernelemente der McWalk-Aktivierung"
+    },
+    {
+     "text": "MCWALK ACTIVATION: Positioned at the McDonald's location in Malden, directly on the walk route, McDonald's temporarily transformed the drive-thru into a walk-thru, encouraging participants to take an extra 150-meter detour to experience the McWalk and receive a free portion of McNuggets as a reward. The road was already closed to cars during the march, creating a unique opportunity for this activation.",
+     "textDe": "MCWALK-AKTIVIERUNG: Am McDonald's-Standort Malden, direkt an der Route, verwandelte McDonald's den Drive-thru vorübergehend in einen Walk-thru und lud die Teilnehmer zu einem 150-Meter-Umweg ein — mit einer Gratisportion McNuggets als Belohnung. Die Straße war während des Marsches ohnehin für Autos gesperrt, was eine einmalige Gelegenheit für diese Aktivierung schuf."
+    },
+    {
+     "text": "INTERACTIVE ENGAGEMENT: Custom road signs were placed along the route, inviting hikers to take a small detour for a “delicious surprise.” The McWalk was more than just a pit stop — it provided an experience that turned a simple meal into a shared moment of joy, reinforcing McDonald's image as a brand synonymous with fun and community.",
+     "textDe": "INTERAKTIVE ANSPRACHE: Eigens gestaltete Straßenschilder entlang der Route luden zu einem kleinen Umweg für eine „köstliche Überraschung“ ein. Der McWalk war mehr als ein Boxenstopp — er machte aus einer einfachen Mahlzeit einen geteilten Moment der Freude und stärkte McDonald's Image als Marke für Spaß und Gemeinschaft."
+    },
+    {
+     "text": "MCWALK MEDAL PIN: Every participant who completed the McWalk received a unique McWalk Medal Pin along with their official Vierdaagse Medal. Visuals of the medal pin designed specifically for McWalk participants served as a key reminder of the experience, reinforcing positive memories with McDonald's branding.",
+     "textDe": "MCWALK-MEDAILLEN-PIN: Wer den McWalk absolvierte, erhielt zur offiziellen Vierdaagse-Medaille einen einzigartigen McWalk-Pin. Der eigens gestaltete Pin blieb als Erinnerung an das Erlebnis — und verband positive Erinnerungen mit der Marke."
+    },
+    {
+     "text": "LOCATION: The McWalk was ideally located at McDonald's in Malden, directly accessible along the walk route.",
+     "textDe": "STANDORT: Der McWalk lag ideal am McDonald's in Malden, direkt an der Wanderroute."
+    },
+    {
+     "text": "ROAD SIGN MOCKUPS: Visuals of the road signs inviting hikers for the +150 m McWalk detour showed how McDonald's actively welcomed participants into the experience.",
+     "textDe": "STRASSENSCHILD-MOCKUPS: Die Schilder, die zur +150-m-Schleife einluden, zeigten, wie McDonald's die Teilnehmer aktiv willkommen hieß."
+    },
+    {
+     "img": "/media/mcwalk-03-mcwalk-road.webp"
+    },
+    {
+     "heading": "Creative Rationale",
+     "headingDe": "Kreative Begründung"
+    },
+    {
+     "text": "BOOST BRAND SENTIMENT: Associating McDonald's with the experience of overcoming a challenge and celebrating the joy of completion was key to enhancing brand sentiment. The McWalk tapped into the sense of achievement that participants experienced and linked it directly to McDonald's.",
+     "textDe": "MARKENSENTIMENT STÄRKEN: McDonald's mit dem Gefühl zu verbinden, eine Herausforderung zu meistern und das Ankommen zu feiern, war der Schlüssel. Der McWalk knüpfte an den Stolz der Teilnehmer an und verband ihn direkt mit McDonald's."
+    },
+    {
+     "text": "SUSTAINABILITY & HEALTH ALIGNMENT: By encouraging walking and creating a unique activation tied to a physical activity event, the McWalk aligned with McDonald's goals of promoting greener initiatives and active lifestyles. This effort underlined the company's commitment to being part of positive community trends.",
+     "textDe": "NACHHALTIGKEIT & GESUNDHEIT: Mit einer Aktivierung rund um ein Bewegungs-Event unterstrich der McWalk McDonald's Ziele: grünere Initiativen und aktive Lebensstile — und das Engagement, Teil positiver gesellschaftlicher Trends zu sein."
+    },
+    {
+     "text": "COMMUNITY ENGAGEMENT: The walk is a beloved event, fostering community spirit and drawing in thousands of participants. By being an integral part of this festival of endurance, McDonald's presented itself as a supportive partner in local traditions and celebrations.",
+     "textDe": "GEMEINSCHAFT: Der Marsch ist ein geliebtes Ereignis, das Gemeinschaftsgeist stiftet und Tausende anzieht. Als fester Teil dieses Ausdauerfestivals zeigte sich McDonald's als unterstützender Partner lokaler Traditionen."
+    },
+    {
+     "img": "/media/mcwalk-04-medal-mcwalk-badge.webp"
+    },
+    {
+     "heading": "Learnings and Impact",
+     "headingDe": "Learnings und Wirkung"
+    },
+    {
+     "text": "Although the concept was not executed due to last-minute route changes, it was very well received by McDonald's executives. The McWalk successfully addressed the challenge of enhancing brand visibility in a culturally relevant way, creating strong opportunities for emotional engagement. Future potential lies in adapting this concept to other mass-participation events where McDonald's could become a memorable part of the participants' journey.",
+     "textDe": "Obwohl das Konzept wegen kurzfristiger Routenänderungen nicht umgesetzt wurde, kam es bei den McDonald's-Verantwortlichen sehr gut an. Der McWalk löste die Aufgabe, Markensichtbarkeit kulturell relevant zu steigern, und schuf starke Momente emotionaler Bindung. Zukunftspotenzial liegt darin, das Konzept auf andere Massen-Events zu übertragen, bei denen McDonald's ein unvergesslicher Teil der Reise werden kann."
+    }
+   ],
+   "descriptionDe": "Der McWalk: Markensichtbarkeit durch direkte Begegnung KUNDE: McDonald's Niederlande PROBLEM: McDonald's sucht ständig nach neuen Wegen, Markenimage und Sichtbarkeit zu stärken. Die Nijmegener Viertagemärsche (Vierdaagse), ein jährliches viertägiges Wander-Event im Süden Hollands, boten die ideale Gelegenheit, ein riesiges Publikum auf sinnvolle Weise zu erreichen. IDEE: Um die Tradition des Gehens zu feiern, schlugen wir eine Aktivierung direkt an der Route vor, die den klassischen McDrive in einen „McWalk“ verwandelt. Das Konzept passte zu McDonald's Zielen: Nachhaltigkeit, gesündere Lebensstile und grünere Praktiken. MEINE ROLLE: Konzept + Art Direction",
+   "categoryDe": "Markenaktivierung"
   },
   {
    "slug": "adidas-ub",
@@ -415,7 +770,54 @@
     }
    ],
    "cardTitle": "adidas UltraBOOST All Terrain",
-   "label": "Product Storytelling · Launch Campaign · Art Direction"
+   "label": "Product Storytelling · Launch Campaign · Art Direction",
+   "story": [
+    {
+     "img": "/media/adidas-ub-02-screen-shot-2018-08-05-at-22-14-22.webp"
+    },
+    {
+     "video": {
+      "id": "Daa-EdL9VP0",
+      "title": "adidas UltraBOOST All Terrain",
+      "poster": "/media/posters/Daa-EdL9VP0.jpg"
+     }
+    },
+    {
+     "text": "Work in progress: before the shoot we made an animatic to perfect the angles and takes. That saved lots of time later.",
+     "textDe": "Work in progress: Vor dem Dreh bauten wir ein Animatic, um Winkel und Takes zu perfektionieren. Das sparte später viel Zeit."
+    },
+    {
+     "img": "/media/adidas-ub-03-kartki.webp"
+    },
+    {
+     "img": "/media/adidas-ub-04-vertical-format-with-a-line.webp"
+    },
+    {
+     "heading": "Product campaign | UltraBOOST Parley 2018 | FROM THREAT INTO THREAD",
+     "headingDe": "Produktkampagne | UltraBOOST Parley 2018 | FROM THREAT INTO THREAD"
+    },
+    {
+     "text": "I worked on the art direction, location scouting, model casting, hair styling, choosing the photographers and the graphic design.",
+     "textDe": "Ich verantwortete Art Direction, Location-Scouting, Model-Casting, Hairstyling, die Auswahl der Fotografen und das Grafikdesign."
+    },
+    {
+     "img": "/media/adidas-ub-02-screen-shot-2018-08-05-at-22-14-22.webp"
+    },
+    {
+     "img": "/media/adidas-ub-06-96636-1.webp"
+    },
+    {
+     "img": "/media/adidas-ub-07-kv2.webp"
+    },
+    {
+     "img": "/media/adidas-ub-02-screen-shot-2018-08-05-at-22-14-22.webp"
+    },
+    {
+     "img": "/media/adidas-ub-09-photoshoot.webp"
+    }
+   ],
+   "descriptionDe": "adidas running | UltraBOOST All Terrain KUNDE: adidas Running Global PROBLEM: Wie zeigt man alle Features des neuen All-Terrain-Laufschuhs in einem 30-Sekunden-Produktvideo? IDEE: Ein Laufvideo, in dem jeder Schritt bei anderem Wetter und auf anderem Untergrund landet. Wir nannten es Giant Loops. MEINE ROLLE: Konzept + Art Direction + Design",
+   "categoryDe": "Produktwerbung"
   },
   {
    "slug": "tbwa-recruitment-campaign",
@@ -612,6 +1014,11 @@
  ],
  "aboutImage": "/media/about-01-eva-male.webp",
  "meta": {
+  "/media/schole-ai-01-schole-logo.webp": {
+   "w": 820,
+   "h": 681,
+   "animated": true
+  },
   "/media/team-nl-01-zo-doen-we-dat3.webp": {
    "w": 700,
    "h": 700,
