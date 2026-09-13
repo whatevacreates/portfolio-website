@@ -27,7 +27,7 @@ float fbm(vec2 p) {
 
 void main() {
   vec2 uv = gl_FragCoord.xy / u_res;
-  vec2 p = uv * vec2(u_res.x / u_res.y, 1.0) * 1.3;
+  vec2 p = uv * vec2(u_res.x / u_res.y, 1.0) * 1.625;
   float t = u_t * 0.05;
 
   // two rounds of warping make the liquid swirls

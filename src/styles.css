@@ -25,7 +25,7 @@
 /* the live layer: a WebGL canvas (holomesh.jsx) filling its panel behind the
    content; the element's own --mesh background is the no-WebGL fallback */
 .holo-mesh { position:absolute; inset:0; width:100%; height:100%; z-index:-1; }
-.reel-tile, .op-rect { background:var(--mesh); }
+.reel-tile { background:var(--mesh); }
 /* the canvas behind everything is the brand mesh — overscroll shows it,
    never beige; the page itself paints white on top */
 html { scroll-behavior:smooth; background:var(--mesh) fixed; }
@@ -41,7 +41,7 @@ img { display:block; width:100%; }
 /* simple header: slate 900 on white, no border — set in the site's own
    New Spirit, like everything else */
 .site-header { height:88px; padding:26px 3vw; display:flex; align-items:center; justify-content:space-between; background:#fff; color:#0f172a; position:relative; z-index:20; }
-.brand { text-align:left; display:flex; align-items:baseline; gap:8px; padding:0; }
+.brand { text-align:left; display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:0; }
 .brand strong { font:400 17px/1 var(--display); letter-spacing:0; color:#0f172a; }
 .brand span { color:#64748b; font:400 15px/1 'DM Sans',sans-serif; }
 nav { display:flex; gap:32px; }
@@ -262,8 +262,14 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
    overflows the screen, the claim sits low and the scroll cue hides below
    the fold — svh centers it identically to desktop, and being static (unlike
    dvh) it never resizes mid-scroll when the bar collapses.
-   one screen, no pin: claim and greeting share it, then the reel begins */
-.op { height:100vh; height:100svh; position:relative; }
+   one screen, no pin: the claim has it to itself, then the reel begins */
+/* z-index:0 makes the section a stacking context, so the live foil canvas
+   (z-index:-1) stays behind the stage. the foil doesn't reach the section's
+   bottom edge: it stops 10px under the chevron (which sits 88+24px up, so
+   the cut lands 102px above the edge) and the hero runs out on white — the
+   canvas carries its own --mesh background as the no-WebGL fallback */
+.op { height:100vh; height:100svh; position:relative; z-index:0; background:#fff; }
+.op > .holo-mesh { height:calc(100% - 102px); background:var(--mesh); }
 .op-stage { position:relative; height:100%; display:flex; flex-direction:column;
   align-items:center; justify-content:center; padding:0 3vw; }
 
@@ -274,16 +280,16 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
   clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 
-/* the storyboard panel: a fixed rectangle the claim lives in, on a white
-   stage — carrying the live holographic foil, type in ink on the pastel.
+/* the storyboard panel, flipped: the live holographic foil floods the whole
+   hero screen (the .op background is the no-WebGL fallback), and the claim
+   sits in a white rectangle punched out of it, type in slate ink.
    transition:none beats the global reduced-motion .01ms transition, which
    would otherwise make the fit pass measure stale layout */
-.op { background:#fff; }
 .op-stage { color:#0f172a; }
 .op-rect, .op-rect span { transition:none!important; }
 .op-rect { position:relative; z-index:0; display:flex; flex-direction:column; justify-content:center; margin:0 auto;
-  padding:0; overflow:hidden;
-  font-family:var(--display); font-weight:400; color:#fff; }
+  padding:0; overflow:hidden; background:#fff;
+  font-family:var(--display); font-weight:400; color:#0f172a; }
 /* tracking tight enough that the letters touch — declared per element and in
    em on purpose: inherited letter-spacing is a computed px value, so on the
    panel it would hand the 100px meter and the fitted type the same absolute
@@ -303,10 +309,9 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
    the sticky stage starts one header-height below the viewport top, so the
    cue is lifted by that height to sit inside the first screen */
 .op-mouse { position:absolute; left:50%; bottom:calc(88px + 24px); transform:translateX(-50%); width:32px; }
-/* chevron and greeting wear the gradient's turquoise (the shader's "ice",
-   vec3(.655,.894,.906) → #a7e4e7) so the send-off echoes the foil */
+/* white chevrons straight on the foil, echoing the white claim panel */
 .op-mouse svg { display:block; width:100%; height:auto; overflow:visible; fill:none;
-  stroke:#a7e4e7; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+  stroke:#fff; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
 .op-chev { animation:op-chev 1.9s ease-in-out infinite; }
 .op-chev2 { animation-delay:.16s; }
 @keyframes op-chev {
@@ -315,11 +320,6 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
   82%,100% { opacity:.3; transform:translateY(0) }
 }
 
-/* the send-off: one quiet line sitting just above the scroll chevron,
-   revealed by the intro timeline as the letters settle — hidden until then */
-.op-hello { position:absolute; left:0; right:0; bottom:calc(88px + 24px + 44px);
-  text-align:center; opacity:0; visibility:hidden; }
-.op-hello-lead { font:400 17px/1.5 'DM Sans',sans-serif; color:#a7e4e7; margin:0; }
 .op-cue { display:inline-flex; gap:14px; align-items:center; font-size:11px;
   text-transform:uppercase; letter-spacing:.14em; color:var(--muted); }
 .op-cue i { font-style:normal; width:34px; height:34px; border:1px solid var(--line);
@@ -328,7 +328,8 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
    lifted for the shorter header */
 @media (max-width:620px) {
   .op-mouse { bottom:calc(78px + 18px); width:28px; }
-  .op-hello { bottom:calc(78px + 18px + 38px); padding:0 6vw; }
+  /* same 10px undercut for the mobile chevron height (78+18px up) */
+  .op > .holo-mesh { height:calc(100% - 86px); }
 }
 
 /* ── Blog ───────────────────────────────────────────────────────────── */

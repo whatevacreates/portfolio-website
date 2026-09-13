@@ -31,7 +31,7 @@ function Header({ page, navigate, lang, setLang }) {
   return <header className="site-header">
     <button className="brand" onClick={() => go('work')} aria-label="Go home">
       <strong>Eva Przybyla</strong>
-      <span>· Marketing & Creative Lead</span>
+      <span>Marketing & Creative Lead</span>
     </button>
     <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">
       {open ? <X /> : <Menu />}
@@ -90,7 +90,7 @@ function Work({ openProject }) {
     return () => ctx.revert();
   }, []);
   return <main ref={root}>
-    <Opening greeting={tr('Put your seatbelts on. We are off for an adventure.', 'Anschnallen, bitte. Wir starten ins Abenteuer.')} />
+    <Opening />
     <section className="reel">
       {reels.map(([slug, src, size], i) => {
         const project = data.projects.find((p) => p.slug === slug);
@@ -356,35 +356,23 @@ function About() {
     </section>
     <div className="case-polaroids about-polaroids">
       {[
-        // pinned in four rows — 5 / 5 / 5 / 6
+        // pinned in three rows — 4 / 4 / 3
         [
           ['04', 'still slightly excited by mountains', 'Berge begeistern mich immer noch', 'rotate(-2.6deg) translateY(4px)'],
-          ['09', 'new pens', 'neue Stifte', 'rotate(1.4deg) translateY(-6px)'],
-          ['01', 'sliding into Feb', 'in den Februar gerutscht', 'rotate(3.1deg) translateY(8px)'],
           ['12', 'shot while shooting', 'fotografiert beim Fotografieren', 'rotate(-1.8deg) translateY(-3px)'],
-          ['06', 'Aiguille du Midi, good morning', 'Aiguille du Midi, guten Morgen', 'rotate(2.2deg) translateY(-9px)'],
-        ],
-        [
-          ['13', '30 years of training', '30 Jahre Training', 'rotate(-3.4deg) translateY(5px)'],
           ['08', 'morning meditation', 'Morgenmeditation', 'rotate(-0.9deg) translateY(12px)'],
           ['02', 'hey, what is out there?', 'hey, was ist da draußen?', 'rotate(2.7deg) translateY(-4px)'],
-          ['10', 'art school days', 'Kunsthochschul-Zeiten', 'rotate(1.1deg) translateY(6px)'],
-          ['05', 'morning routine', 'Morgenroutine', 'rotate(-2.9deg) translateY(-7px)'],
         ],
         [
           ['14', 'Chamonix mornings', 'Chamonix-Morgen', 'rotate(3.6deg) translateY(3px)'],
-          ['03', 'almost landed it', 'fast gestanden', 'rotate(-1.5deg) translateY(10px)'],
           ['15', 'landed it this time', 'diesmal gestanden', 'rotate(-2.3deg) translateY(7px)'],
-          ['11', 'still painting', 'immer noch am Malen', 'rotate(-3.1deg) translateY(-5px)'],
-          ['07', 'back in my mountain paradise', 'zurück in meinem Bergparadies', 'rotate(2deg) translateY(-11px)'],
-        ],
-        [
           ['17', 'board meeting', 'Board-Meeting', 'rotate(-2.1deg) translateY(6px)'],
           ['19', 'is it a bird', 'ist es ein Vogel', 'rotate(2.8deg) translateY(-8px)'],
+        ],
+        [
           ['16', 'hello', 'hallo', 'rotate(-1.2deg) translateY(9px)'],
           ['21', 'bowl for lunch', 'Bowl zum Lunch', 'rotate(3.2deg) translateY(-4px)'],
           ['18', 'whatever it takes', 'koste es, was es wolle', 'rotate(-3deg) translateY(5px)'],
-          ['20', 'downhill days', 'Downhill-Tage', 'rotate(1.6deg) translateY(-10px)'],
         ],
       ].map((row, ri) => <React.Fragment key={ri}>
         {ri > 0 && <span className="polaroid-break" aria-hidden="true" />}

@@ -34,7 +34,7 @@ const Word = ({ w, cls }) => <span className={`op-w${cls ? ` ${cls}` : ''}`} dat
 // The rectangle never moves: width from the viewport, height locked to
 // the opening line, the type breathing inside it.
 
-export default function Opening({ greeting = 'Put your seatbelts on. We are off for an adventure.' }) {
+export default function Opening() {
   const root = useRef();
 
   useLayoutEffect(() => {
@@ -46,7 +46,6 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
       const rect = q('.op-rect')[0];
       const line = q('.op-line')[0];
       const meter = q('.op-meter')[0];
-      const hello = q('.op-hello')[0];
       const cheap = line.querySelector('[data-w="cheap"]');
       const front = line.querySelector('.op-wc');
       const cheapLetters = [...cheap.querySelectorAll('.op-l')];
@@ -74,8 +73,8 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
         // full ink height (ascender to descender) plus room for the flight
         // ducks, so p, t and every letter height always stays inside.
         // phones get a portrait 3:4 panel instead of a text-high strip — the
-        // line sits centered in it (capped against the stage so the greeting
-        // and chevron keep their room below)
+        // line sits centered in it (capped against the stage so the chevron
+        // keeps its room below)
         const size1 = 100 * rect.clientWidth / meter.offsetWidth;
         rect.style.height = innerWidth < 620
           ? `${Math.max(size1 * 1.02, Math.min(rect.clientWidth * 4 / 3, stage.clientHeight * .58))}px`
@@ -193,7 +192,6 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
         cheap.style.display = 'none';
         xLetters.forEach((el) => { el.style.display = 'inline-block'; });
         xLetters[0].parentElement.style.display = 'inline-block';
-        gsap.set(hello, { autoAlpha: 1 });
         fit();
         return;
       }
@@ -217,12 +215,6 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
       // 3 · the typing: expensive arrives letter by letter, quick — the line
       //     zooming out smoothly to keep both edges as it reveals itself
       xLetters.forEach((el, i) => tl.add(reveal(el, i === xLetters.length - 1), `type+=${i * .12}`));
-      // 4 · the send-off, on the same screen: while the letters are still
-      //     being reshuffled the greeting starts fading in above the chevron,
-      //     slow enough to finish arriving around the time they settle
-      tl.fromTo(hello, { autoAlpha: 0, y: 18 },
-        { autoAlpha: 1, y: 0, duration: 1.6, ease: 'power2.out' },
-        'shuffle+=.3');
 
       // scrolling back up into the hero replays the whole claim: put every
       // letter back where it was born, refit, and run the build again
@@ -244,7 +236,7 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
         xLetters[0].parentElement.style.display = '';
         // refit only the type: the panel keeps its size, and a full fit()'s
         // ScrollTrigger.refresh() inside a scroll callback is asking for
-        // trouble — the restarted timeline resets the greeting itself
+        // trouble
         line.style.fontSize = `${fitTarget()}px`;
         tl.restart(true);
       };
@@ -261,12 +253,12 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
   }, []);
 
   return <section className="op" ref={root}>
+    <HoloMesh />
     <div className="op-stage">
       <div className="op-frame">
         <h1 className="op-claim">
           <span className="sr-only">Ideas are cheap. Cheap ideas are expensive.</span>
           <span className="op-rect" aria-hidden="true">
-            <HoloMesh />
             <span className="op-line">
               <span className="op-w op-wc" data-w="cheap-front" />
               <Word w="ideas" />
@@ -286,9 +278,6 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
         </svg>
       </div>
 
-      <div className="op-hello">
-        <p className="op-hello-lead">{greeting}</p>
-      </div>
     </div>
   </section>;
 }
