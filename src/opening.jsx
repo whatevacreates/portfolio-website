@@ -26,7 +26,7 @@ const Word = ({ w, cls }) => <span className={`op-w${cls ? ` ${cls}` : ''}`} dat
 //   1. "Ideas are cheap" — one big line filling the panel.
 //   2. the reshuffle: "cheap" travels to the front letter by letter,
 //      each letter peeling off and flying home (FLIP), capitals untouched.
-//   3. the typing: "expensive" is appended letter by letter, each new
+//   3. the typing: "costly" is appended letter by letter, each new
 //      letter flickering through the alphabet before it commits; with
 //      every landed letter the whole line re-fits the panel width, so
 //      the sentence zooms out to reveal it without ever leaving the edges.
@@ -158,7 +158,7 @@ export default function Opening() {
         // absorbs the slack instead, so the size only ever travels down
       };
 
-      // one letter of "expensive.": arrives undecided, flickers through the
+      // one letter of "costly": arrives undecided, flickers through the
       // alphabet, commits — and the whole line re-fits the panel width
       const reveal = (el, isLast) => () => {
         el.parentElement.style.display = 'inline-block'; // the word enters with its first letter
@@ -168,12 +168,13 @@ export default function Opening() {
           el.textContent = truth;
           el.style.width = '';
           gsap.fromTo(el, { opacity: .25 }, { opacity: 1, duration: .16, ease: 'power1.out' });
-          // the zoom-out riding along the typing: quick off the line, easing
-          // into place — the last letter lands the full claim with a soft
-          // settle just past its final size
+          // the zoom-out riding along the typing: each landed letter retargets
+          // the same motion, and the gentle ease with a duration longer than
+          // the typing cadence lets the steps blend into one continuous glide —
+          // the last letter lands the full claim with a soft settle
           gsap.to(line, isLast
-            ? { fontSize: fitTarget(), duration: .55, ease: 'back.out(1.4)' }
-            : { fontSize: fitTarget(), duration: .3, ease: 'expo.out' });
+            ? { fontSize: fitTarget(), duration: .45, ease: 'back.out(1.2)' }
+            : { fontSize: fitTarget(), duration: .35, ease: 'power2.out' });
         };
         if (/[a-z]/i.test(truth)) {
           el.style.width = '1ch';
@@ -186,7 +187,7 @@ export default function Opening() {
       };
 
       if (reduce) {
-        // finished state, no motion: "cheap ideas are expensive"
+        // finished state, no motion: "cheap ideas are costly"
         front.style.display = 'inline-block';
         cheapLetters.forEach((el) => front.appendChild(el));
         cheap.style.display = 'none';
@@ -212,9 +213,9 @@ export default function Opening() {
       // the last ripple (c, 8 stones) sets the finish line
       const at = (departures.length - 1) * LAUNCH + .06 + 8 * .12 + .55;
       tl.add('type', `shuffle+=${at + .1}`);
-      // 3 · the typing: expensive arrives letter by letter, quick — the line
+      // 3 · the typing: costly arrives letter by letter, quick — the line
       //     zooming out smoothly to keep both edges as it reveals itself
-      xLetters.forEach((el, i) => tl.add(reveal(el, i === xLetters.length - 1), `type+=${i * .12}`));
+      xLetters.forEach((el, i) => tl.add(reveal(el, i === xLetters.length - 1), `type+=${i * .09}`));
 
       // scrolling back up into the hero replays the whole claim: put every
       // letter back where it was born, refit, and run the build again
@@ -242,8 +243,12 @@ export default function Opening() {
       };
       // fires the moment the visitor scrolls back up across the hero's first
       // few vh — any dip toward the reel and back relaunches the claim;
-      // shallow enough to catch a short scroll, deep enough to ignore jitters
-      ScrollTrigger.create({ trigger: q('.op')[0], start: '5% top', onLeaveBack: replay });
+      // shallow enough to catch a short scroll, deep enough to ignore jitters.
+      // desktop only: on phones the URL bar and touch-flick jitter make the
+      // relaunch feel arbitrary — there the claim builds once and stays put,
+      // so the hero always looks the same when you scroll back to it
+      if (innerWidth >= 620)
+        ScrollTrigger.create({ trigger: q('.op')[0], start: '5% top', onLeaveBack: replay });
 
       // no pinned scroll stage any more: the hero is one screen, the chevron
       // simply scrolls away with it, and the next thing you meet is the reel
@@ -257,14 +262,14 @@ export default function Opening() {
     <div className="op-stage">
       <div className="op-frame">
         <h1 className="op-claim">
-          <span className="sr-only">Ideas are cheap. Cheap ideas are expensive.</span>
+          <span className="sr-only">Ideas are cheap. Cheap ideas are costly.</span>
           <span className="op-rect" aria-hidden="true">
             <span className="op-line">
               <span className="op-w op-wc" data-w="cheap-front" />
               <Word w="ideas" />
               <Word w="are" />
               <Word w="cheap" />
-              <Word w="expensive" cls="op-wx" />
+              <Word w="costly" cls="op-wx" />
             </span>
             <span className="op-meter" />
           </span>

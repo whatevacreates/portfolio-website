@@ -106,7 +106,7 @@ nav button.active:after, nav button:hover:after { right:0; }
 .case-story { display:grid; gap:4vw; }
 .case-story .case-videos { margin-bottom:0; }
 .case-text { width:min(100%,1400px); margin:0 auto; max-width:740px; font-size:16px; line-height:1.6; color:#475569; }
-.case-quote { width:min(100%,1400px); margin:0 auto; max-width:860px;
+.case-quote { width:min(100%,1400px); margin:0 auto; max-width:860px; white-space:pre-line;
   font:italic 400 clamp(19px,1.8vw,26px)/1.55 var(--display); color:#0f172a; }
 .case-h2 { width:min(100%,1400px); margin:6vh auto 0; font:400 clamp(34px,4vw,58px)/1.05 var(--display); letter-spacing:0; color:#0f172a; }
 .case-image { margin:0 auto; width:min(100%,1400px); background:#f1f5f9; }
@@ -296,7 +296,7 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
    tracking and the measurements would lie by the difference */
 .op-line, .op-meter { letter-spacing:-.05em; }
 /* one line, always: words are flex items, gaps come from the flex gap —
-   hidden words (the unborn front word, the unwritten "expensive") are not
+   hidden words (the unborn front word, the unwritten "costly") are not
    flex items at all, so they contribute neither width nor gap */
 .op-line { display:flex; gap:.26em; width:max-content; white-space:nowrap; line-height:.72; }
 .op-w { display:inline-block; white-space:nowrap; }
@@ -375,7 +375,25 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 .case-embed-poster img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform .6s ease; }
 .case-embed-poster:hover img { transform:scale(1.015); }
 .case-embed-poster span { position:absolute; left:50%; bottom:28px; transform:translateX(-50%); font:400 12px/1 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.1em; color:#fff; background:#0f172a; padding:14px 22px; border-radius:999px; white-space:nowrap; }
-.case-embed figcaption { display:flex; justify-content:space-between; gap:16px; margin-top:12px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
-.case-embed figcaption a { display:inline-flex; align-items:center; gap:4px; color:#0f172a; text-decoration:none; white-space:nowrap; }
-.case-embed figcaption a svg { width:13px; }
 @media (max-width:820px) { .case-embed iframe, .case-embed-poster { height:70vh; } }
+
+/* case stats: a row of big numbers with a one-line source under them */
+.case-stats { width:min(100%,1400px); margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px 32px; max-width:1100px; }
+.case-stat strong { display:block; font:400 clamp(44px,5vw,76px)/1 var(--display); letter-spacing:-.01em; color:#0f172a; }
+.case-stat span { display:block; margin-top:10px; font-size:13px; line-height:1.4; text-transform:uppercase; letter-spacing:.08em; color:#64748b; }
+.case-stats-source { grid-column:1/-1; font:italic 400 14px/1.4 var(--display); color:#a98fe3; }
+/* case films: local mp4 with native controls */
+.case-film { width:min(100%,1400px); margin:0 auto; }
+.case-film video { display:block; width:100%; background:#0f172a; border-radius:12px; }
+.case-film figcaption { margin-top:12px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
+
+/* chapter opener: the constellation, animated in shape by shape */
+.case-divider { width:min(100%,1400px); margin:14vh auto 0; padding-top:6vh; border-top:1px solid #e6e4ef; }
+.case-mark { display:block; width:auto; height:clamp(72px,8vw,110px); margin:0 auto; overflow:visible; }
+/* problem / insight / solution / results labels inside case text */
+.case-lead { display:block; font:500 11px/1 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.14em; color:#a98fe3; margin-bottom:8px; }
+
+.case-story .case-h2 { margin-top:14vh; padding-top:6vh; border-top:1px solid #e6e4ef; }
+.case-story .case-h2:first-child { margin-top:0; padding-top:0; border-top:0; }
+.case-story .case-h2-after-mark { margin-top:4vh; padding-top:0; border-top:0; text-align:center; }
+.case-chapter { display:block; font:500 11px/1 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.16em; color:#a98fe3; margin-bottom:16px; }

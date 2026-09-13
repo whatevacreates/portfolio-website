@@ -12,6 +12,23 @@ import './styles.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// visitor analytics (PostHog, EU): anonymous pageviews only — no session
+// recording, no identified profiles. Local dev stays out of the numbers.
+// Lazily imported into its own chunk so the hero never waits for it.
+// The app routes via location.hash, so each hash change is a pageview.
+if (!/^(localhost|127\.)/.test(location.hostname)) {
+  import('posthog-js').then(({ default: posthog }) => {
+    posthog.init('phc_dNFSfw3l9oqvM5S2vWX0hnEJTG5jID4hEH3pmY4n7A4', {
+      api_host: 'https://eu.i.posthog.com',
+      defaults: '2025-05-24',
+      capture_pageview: true, // captures the initial load; hash routing below
+      person_profiles: 'identified_only',
+      disable_session_recording: true,
+    });
+    addEventListener('hashchange', () => posthog.capture('$pageview'));
+  });
+}
+
 // media lives in public/media and is referenced as "/media/..." in the data.
 // BASE_URL-relative resolution keeps those URLs working when the site is
 // hosted under a subpath (e.g. GitHub Pages project sites).
@@ -170,17 +187,44 @@ function CaseEmbed({ item, tr }) {
             <span>{tr('Click to explore the page', 'Klicken, um die Seite zu erkunden')}</span>
           </button>}
     </div>
-    <figcaption>
-      <span>{tr(item.caption, item.captionDe)}</span>
-      {item.url && <a href={`https://${item.url}`} target="_blank" rel="noreferrer">{tr('Live page', 'Live-Seite')} <ArrowUpRight /></a>}
-    </figcaption>
   </figure>;
+}
+
+// the three-star constellation, drawn in the order the Content Studio logo
+// animation uses (circle, diamond, star: back.out, staggered) when it scrolls
+// into view. Used as a chapter opener ({ mark: true } in a story).
+function Constellation() {
+  const ref = useRef();
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const shapes = ref.current.querySelectorAll('.mark-shape');
+    // same entrance as the product's splash screen (schole_backend
+    // ConstellationLogo): circle, diamond, star, half a second apart,
+    // each bouncing in over .6s with a cubic-bezier(.34,1.56,.64,1) overshoot
+    gsap.set(shapes, { opacity: 0, scale: .5, y: 20, transformOrigin: '50% 50%' });
+    const tl = gsap.timeline({ scrollTrigger: { trigger: ref.current, start: 'top 85%', once: true } });
+    tl.to(shapes[0], { opacity: 1, scale: 1, y: 0, duration: .6, ease: 'back.out(1.7)' }, 0)
+      .to(shapes[1], { opacity: 1, scale: 1, y: 0, duration: .6, ease: 'back.out(1.7)' }, .5)
+      .to(shapes[2], { opacity: 1, scale: 1, y: 0, duration: .6, ease: 'back.out(1.7)' }, 1);
+    return () => { tl.scrollTrigger?.kill(); tl.kill(); };
+  }, []);
+  return <svg className="case-mark" ref={ref} viewBox="-6 -6 200 226" aria-hidden="true">
+    <defs>
+      <linearGradient id="mk-lg-1" x1="96.38" y1="55.66" x2="183.02" y2="55.66" gradientUnits="userSpaceOnUse"><stop offset=".18" stopColor="#959ef2" /><stop offset=".33" stopColor="#95a4f2" /><stop offset=".96" stopColor="#97bef2" /></linearGradient>
+      <linearGradient id="mk-lg-2" x1="0" y1="192.98" x2="35.94" y2="192.98" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#b8abf2" /><stop offset="1" stopColor="#b4a8f2" /></linearGradient>
+      <linearGradient id="mk-lg-3" x1="64.04" y1="148.21" x2="115.44" y2="148.21" gradientUnits="userSpaceOnUse"><stop offset=".28" stopColor="#a49ff2" /><stop offset="1" stopColor="#9fa8f2" /></linearGradient>
+    </defs>
+    <circle className="mark-shape" fill="url(#mk-lg-2)" cx="17.97" cy="192.98" r="17.97" />
+    <path className="mark-shape" fill="url(#mk-lg-3)" d="M113.46,144.16l-5.41-4.22c-3.74-2.92-7.12-6.29-10.04-10.04l-4.22-5.41c-2.06-2.64-6.05-2.64-8.11,0l-4.22,5.41c-2.92,3.74-6.29,7.12-10.04,10.04l-5.41,4.22c-2.64,2.06-2.64,6.05,0,8.11l5.41,4.22c3.74,2.92,7.12,6.29,10.04,10.04l4.22,5.41c2.06,2.64,6.05,2.64,8.11,0l4.22-5.41c2.92-3.74,6.29-7.12,10.04-10.04l5.41-4.22c2.64-2.06,2.64-6.05,0-8.11Z" />
+    <path className="mark-shape" fill="url(#mk-lg-1)" d="M178.68,51.35s-.04,0-.06,0c-15.01,0-27.74-20.58-28.28-45.3.01-.59.02-1.18.02-1.78,0-2.16-1.61-3.93-3.74-4.23-2.15-.3-4.19,1.07-4.79,3.15-.11.39-.17.8-.17,1.21,0,.55,0,1.1.01,1.64-.58,24.67-13.3,45.18-28.28,45.18-.13,0-.25.05-.38.06h-12.29c-2.4,0-4.34,1.94-4.34,4.34s1.94,4.34,4.34,4.34h13.79c14.85,1,27.19,22.07,27.19,47.01,0,2.4,1.94,4.34,4.34,4.34s4.34-1.94,4.34-4.34c0-25.45,12.96-46.95,28.3-46.95,2.4,0,4.34-1.94,4.34-4.34s-1.94-4.34-4.34-4.34Z" />
+  </svg>;
 }
 
 function renderStory(story, title, tr) {
   const out = [];
   let run = [];
   let counter = 0;
+  let chapter = 0;
   const flush = () => {
     if (!run.length) return;
     const imgs = run; run = [];
@@ -203,11 +247,31 @@ function renderStory(story, title, tr) {
   story.forEach((item, i) => {
     if (item.img) { run.push(item.img); return; }
     flush();
-    if (item.text) out.push(<p className="case-text" key={i}>{tr(item.text, item.textDe)}</p>);
+    if (item.text) out.push(<p className="case-text" key={i}>{item.lead && <strong className="case-lead">{tr(item.lead, item.leadDe)}</strong>}{tr(item.text, item.textDe)}</p>);
+    else if (item.mark) out.push(<div className="case-divider" key={i}><Constellation /></div>);
     else if (item.quote) out.push(<blockquote className="case-quote" key={i}>{item.quote}</blockquote>);
-    else if (item.heading) out.push(<h2 className="case-h2" key={i}>{tr(item.heading, item.headingDe)}</h2>);
+    else if (item.heading) {
+      // numbered chapters, each opening with a rule, so one campaign visibly
+      // ends before the next begins (the animated mark can carry the rule)
+      chapter += 1;
+      const afterMark = story[i - 1]?.mark;
+      out.push(<h2 className={afterMark ? 'case-h2 case-h2-after-mark' : 'case-h2'} key={i}>
+        <span className="case-chapter">{tr('Chapter', 'Kapitel')} {String(chapter).padStart(2, '0')}</span>
+        {tr(item.heading, item.headingDe)}
+      </h2>);
+    }
     else if (item.video) out.push(<div className="case-videos" key={i}><div className="video-grid"><VideoEmbed video={item.video} eager /></div></div>);
     else if (item.embed) out.push(<CaseEmbed item={item} tr={tr} key={i} />);
+    else if (item.stats) out.push(<div className="case-stats" key={i}>
+      {item.stats.map((st, k) => <div className="case-stat" key={k}><strong>{st.n}</strong><span>{tr(st.l, st.lDe)}</span></div>)}
+      {item.source && <em className="case-stats-source">{tr(item.source, item.sourceDe)}</em>}
+    </div>);
+    else if (item.film) out.push(<figure className="case-film" key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
+      {item.loop
+        ? <video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} autoPlay muted loop playsInline preload="auto" />
+        : <video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} controls playsInline preload="metadata" />}
+      {item.caption && <figcaption>{tr(item.caption, item.captionDe)}</figcaption>}
+    </figure>);
   });
   flush();
   return out;
