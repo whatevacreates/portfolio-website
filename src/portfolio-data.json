@@ -53,20 +53,29 @@
      "textDe": "Vor dem Logo kommt das Argument. Brand Strategy v2 (Juli 2026) ist das Dokument, nach dem das Unternehmen arbeitet. Purpose: Scholé existiert, damit Menschen fähiger werden, während AI ihre Arbeit verändert. Positionierung: where learning becomes progress, das Einzige, was die Kategorie nicht glaubwürdig sagen kann. Narrativ: the age of becoming. Wir führen mit Aspiration, nicht mit Angst."
     },
     {
-     "img": "/media/schole-ai-20-strategy-cover.webp"
+     "img": "/media/schole-ai-90-bs-cover.webp"
     },
     {
-     "img": "/media/schole-ai-21-strategy-on-a-page.webp"
+     "img": "/media/schole-ai-97-bs-positioning.webp"
+    },
+    {
+     "img": "/media/schole-ai-91-bs-purpose.webp"
+    },
+    {
+     "img": "/media/schole-ai-95-bs-narrative.webp"
     },
     {
      "text": "The insight underneath: people don't want more content, they want to become more capable. The anxiety of being left behind and the joy of moving forward are the same feeling, separated by three things: a path, a companion, and proof. Every asset has to show a path, give a companion and prove progress. Fail one, and it isn't off-strategy by a little. It's off-strategy.",
      "textDe": "Der Insight darunter: Menschen wollen nicht mehr Content, sie wollen fähiger werden. Die Angst, abgehängt zu werden, und die Freude am Vorankommen sind dasselbe Gefühl, getrennt nur durch drei Dinge: einen Weg, einen Begleiter und einen Beweis. Jedes Asset muss einen Weg zeigen, einen Begleiter geben und Fortschritt beweisen. Scheitert es an einer Frage, ist es nicht ein bisschen daneben. Es ist daneben."
     },
     {
-     "img": "/media/schole-ai-22-strategy-three-things.webp"
+     "img": "/media/schole-ai-92-bs-insight.webp"
     },
     {
-     "img": "/media/schole-ai-24-strategy-three-questions.webp"
+     "img": "/media/schole-ai-93-bs-tension.webp"
+    },
+    {
+     "img": "/media/schole-ai-94-bs-test.webp"
     },
     {
      "text": "The strategy also names the emotional arc every piece should move along: relief (that's it? I can do that), confidence (I can handle this), pride (look who I've become). In the product and the campaigns we call these the \"look what I can do\" moments at work. They are the reason the brand exists.",
@@ -79,6 +88,12 @@
     {
      "text": "I designed the Scholé logo. The idea is steady progression: learning as a continuous upward movement. The accent on the é stops being a typographic detail and becomes the smallest possible drawing of getting somewhere, a curve that starts flat and bends upward. Relief, confidence, pride, in one stroke. The wordmark stays serif, because learning deserves a voice with some weight.",
      "textDe": "Ich habe das Scholé-Logo entworfen. Die Idee ist stetige Progression: Lernen als kontinuierliche Aufwärtsbewegung. Der Akzent auf dem é hört auf, ein typografisches Detail zu sein, und wird zur kleinstmöglichen Zeichnung des Vorankommens, eine Kurve, die flach beginnt und nach oben biegt. Erleichterung, Zuversicht, Stolz, in einem Strich. Die Wortmarke bleibt Serif, weil Lernen eine Stimme mit Gewicht verdient."
+    },
+    {
+     "img": "/media/schole-ai-logo.svg"
+    },
+    {
+     "img": "/media/schole-ai-96-bs-three-shapes.webp"
     },
     {
      "img": "/media/schole-ai-26-logo-rationale.webp"
@@ -114,6 +129,22 @@
     },
     {
      "img": "/media/schole-ai-35-website-hero.webp"
+    },
+    {
+     "text": "The identity in the hand: business cards with a job. Every card carries a QR code to a gifted lesson. Progress starts small, begin with a Scholé AI lesson. The same idea became the lesson cards we hand out at events. Paper as the top of the funnel.",
+     "textDe": "Die Identität in der Hand: Visitenkarten mit einem Job. Jede Karte trägt einen QR-Code zu einer geschenkten Lektion. Progress starts small, fang mit einer Scholé-AI-Lektion an. Dieselbe Idee wurde zu den Lektionskarten, die wir auf Events verteilen. Papier als Anfang des Funnels."
+    },
+    {
+     "img": "/media/schole-ai-45-business-card-front.webp"
+    },
+    {
+     "img": "/media/schole-ai-46-business-card-back.webp"
+    },
+    {
+     "img": "/media/schole-ai-47-business-card-paola.webp"
+    },
+    {
+     "img": "/media/schole-ai-48-qr-lesson-card-back.webp"
     },
     {
      "heading": "Product Hunt launch · Reddit ads",
@@ -157,6 +188,26 @@
     },
     {
      "img": "/media/schole-ai-15-reddit-ads-results.webp"
+    },
+    {
+     "heading": "Scenarios launch · Learn by doing",
+     "headingDe": "Scenarios-Launch · Learn by doing"
+    },
+    {
+     "img": "/media/schole-ai-65-scenarios-ad.webp"
+    },
+    {
+     "text": "The second Product Hunt launch shipped Scenarios: practice real conversations with an AI character and get coached in the moment. Pitch to an investor, handle a difficult retail customer, explain agents to a teammate. The campaign line did the selling in one sentence: Don't rehearse your pitch on a real investor.",
+     "textDe": "Der zweite Product-Hunt-Launch brachte Scenarios: echte Gespräche mit einem AI-Charakter üben und im Moment gecoacht werden. Einem Investor pitchen, eine schwierige Kundin im Laden bedienen, einem Teamkollegen Agenten erklären. Die Kampagnenzeile verkaufte in einem Satz: Don't rehearse your pitch on a real investor."
+    },
+    {
+     "img": "/media/schole-ai-66-scenarios-site.webp"
+    },
+    {
+     "img": "/media/schole-ai-67-scenario-roleplay.webp"
+    },
+    {
+     "img": "/media/schole-ai-68-scenario-live.webp"
     },
     {
      "heading": "The AI Maturity Test · a funnel built on relief",
@@ -245,6 +296,32 @@
      "caption": "Step 4 · Transformation constellation. Pick a role, watch the plan build.",
      "captionDe": "Schritt 4 · Transformation Constellation. Rolle wählen, Plan entstehen sehen.",
      "height": 760
+    },
+    {
+     "heading": "HubSpot email · a series people open",
+     "headingDe": "HubSpot-E-Mail · eine Serie, die geöffnet wird"
+    },
+    {
+     "text": "Email is where the funnel keeps its promises. I designed the templates and the animated headers for the whole HubSpot programme: Tips from Scholé, the weekly series; A Taste of Scholé, the gifted lesson invite with a QR code; Grow with Scholé, the founders' thank-you to pilot users; Podcast Mode for the audio launch; and the re-engagement mail where Olé waited for you. Every header is a Content Studio timeline, so a new edition takes minutes, not a designer.",
+     "textDe": "E-Mail ist der Ort, an dem der Funnel seine Versprechen hält. Ich habe die Templates und die animierten Header für das gesamte HubSpot-Programm gestaltet: Tips from Scholé, die wöchentliche Serie; A Taste of Scholé, die Einladung zur geschenkten Lektion mit QR-Code; Grow with Scholé, das Dankeschön der Gründerinnen an Pilot-Nutzer; Podcast Mode für den Audio-Launch; und die Reaktivierungs-Mail, in der Olé auf dich gewartet hat. Jeder Header ist eine Content-Studio-Timeline, eine neue Ausgabe dauert Minuten, nicht eine Designerin."
+    },
+    {
+     "img": "/media/schole-ai-73-email-tips-header.webp"
+    },
+    {
+     "img": "/media/schole-ai-74-email-taste-header.webp"
+    },
+    {
+     "img": "/media/schole-ai-75-email-podcast-header.webp"
+    },
+    {
+     "img": "/media/schole-ai-76-email-thank-you.webp"
+    },
+    {
+     "img": "/media/schole-ai-77-email-footer.webp"
+    },
+    {
+     "img": "/media/schole-ai-78-email-design.webp"
     },
     {
      "heading": "Systems · World Domination and the Content Studio",
@@ -2478,6 +2555,42 @@
   "/media/schole-ai-89-growth-os-login.webp": {
    "w": 1568,
    "h": 691
+  },
+  "/media/schole-ai-90-bs-cover.webp": {
+   "w": 990,
+   "h": 557
+  },
+  "/media/schole-ai-91-bs-purpose.webp": {
+   "w": 990,
+   "h": 557
+  },
+  "/media/schole-ai-92-bs-insight.webp": {
+   "w": 990,
+   "h": 557
+  },
+  "/media/schole-ai-93-bs-tension.webp": {
+   "w": 990,
+   "h": 557
+  },
+  "/media/schole-ai-94-bs-test.webp": {
+   "w": 990,
+   "h": 557
+  },
+  "/media/schole-ai-95-bs-narrative.webp": {
+   "w": 990,
+   "h": 557
+  },
+  "/media/schole-ai-96-bs-three-shapes.webp": {
+   "w": 990,
+   "h": 557
+  },
+  "/media/schole-ai-97-bs-positioning.webp": {
+   "w": 990,
+   "h": 557
+  },
+  "/media/schole-ai-logo.svg": {
+   "w": 1096,
+   "h": 214
   }
  }
 }
