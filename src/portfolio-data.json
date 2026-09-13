@@ -308,9 +308,12 @@
      "textDe": "Niemand will vor der Person scheitern, auf die es ankommt. Üben ist nur attraktiv, wenn sich der echte Moment riskant anfühlt. Also hat die Kampagne den Einsatz in eine Zeile gepackt: Don't rehearse your pitch on a real investor. Dann eine Reihe von Momenten, die jeder kennt: kannst du diesen Verkauf retten, kommst du mit dieser schwierigen Kundin klar, kannst du einem Teamkollegen Agenten erklären."
     },
     {
+     "img": "/media/schole-ai-65-scenarios-ad.webp"
+    },
+    {
      "lead": "Solution",
      "leadDe": "Lösung",
-     "text": "The launch kit I designed and wrote: the launch film, the Product Hunt gallery, the LinkedIn carousel, the Instagram reel, the Reddit and LinkedIn ads and the landing section on schole.ai. One visual system, the same purple, the same characters, from the ad to the product.",
+     "text": "The launch kit I designed and wrote: the launch film, the Product Hunt gallery, the Instagram reel, the Reddit and LinkedIn ads and the landing section on schole.ai. One visual system, the same purple, the same characters, from the ad to the product.",
      "textDe": "Das Launch-Kit, das ich gestaltet und getextet habe: der Launch-Film, die Product-Hunt-Galerie, das LinkedIn-Carousel, der Instagram-Reel, die Reddit- und LinkedIn-Ads und die Landing-Sektion auf schole.ai. Ein visuelles System, dasselbe Lila, dieselben Charaktere, von der Anzeige bis ins Produkt."
     },
     {
@@ -343,18 +346,6 @@
     },
     {
      "img": "/media/schole-ai-109-ph-gallery-science.webp"
-    },
-    {
-     "lead": "LinkedIn",
-     "leadDe": "LinkedIn",
-     "text": "The carousel and the promoted posts: the same slides, rewritten for a feed where the first line has to earn the swipe.",
-     "textDe": "Das Carousel und die Promoted Posts: dieselben Slides, umgeschrieben für einen Feed, in dem die erste Zeile den Swipe verdienen muss."
-    },
-    {
-     "img": "/media/schole-ai-121-linkedin-phones-a.webp"
-    },
-    {
-     "img": "/media/schole-ai-122-linkedin-phones-b.webp"
     },
     {
      "lead": "Instagram",
@@ -2866,12 +2857,12 @@
    "h": 214
   },
   "/media/schole-ai-98-business-cards.webp": {
-   "w": 2000,
-   "h": 1250
+   "w": 2400,
+   "h": 1400
   },
   "/media/schole-ai-99-gift-lesson-cards.webp": {
-   "w": 2000,
-   "h": 1250
+   "w": 2400,
+   "h": 1400
   },
   "/media/schole-ai-100-ph-scenarios-testimonials.webp": {
    "w": 990,
@@ -2944,14 +2935,6 @@
   "/media/schole-ai-117-reddit-test-card.webp": {
    "w": 900,
    "h": 668
-  },
-  "/media/schole-ai-121-linkedin-phones-a.webp": {
-   "w": 2000,
-   "h": 1224
-  },
-  "/media/schole-ai-122-linkedin-phones-b.webp": {
-   "w": 2000,
-   "h": 1224
   },
   "/media/schole-ai-123-scenarios-site-browser.webp": {
    "w": 2000,
