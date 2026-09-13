@@ -72,9 +72,14 @@ export default function Opening({ greeting = 'Put your seatbelts on. We are off 
         rect.style.width = `${Math.min(stage.clientWidth * (innerWidth < 620 ? .92 : .72), 1060)}px`;
         // panel height belongs to the opening line and never changes
         // full ink height (ascender to descender) plus room for the flight
-        // ducks, so p, t and every letter height always stays inside
+        // ducks, so p, t and every letter height always stays inside.
+        // phones get a portrait 3:4 panel instead of a text-high strip — the
+        // line sits centered in it (capped against the stage so the greeting
+        // and chevron keep their room below)
         const size1 = 100 * rect.clientWidth / meter.offsetWidth;
-        rect.style.height = `${size1 * 1.02}px`;
+        rect.style.height = innerWidth < 620
+          ? `${Math.max(size1 * 1.02, Math.min(rect.clientWidth * 4 / 3, stage.clientHeight * .58))}px`
+          : `${size1 * 1.02}px`;
         line.style.fontSize = `${fitTarget()}px`;
         ScrollTrigger.refresh();
       };
