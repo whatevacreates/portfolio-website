@@ -82,7 +82,7 @@ const reels = [
 // the reel labels, in German — content-level German (case stories, blog
 // articles) stays English; the chrome and labels switch
 const labelsDe = {
-  'schole-ai': 'Marketing-Leadership · Produktmarketing · GTM · KI',
+  'schole-ai': 'Marketing-Leadership · Markenstrategie · Kreative Leitung · Growth · KI',
   'team-nl': 'Markenstrategie · Integrierte Kampagne · Kreative Leitung',
   'new-page': 'Service-Launch · Integriertes Marketing · Digitales Produkt',
   'adidas-email': 'CRM · Lifecycle-Marketing · Kundenbindung',
@@ -108,6 +108,9 @@ function Work({ openProject }) {
   }, []);
   return <main ref={root}>
     <Opening />
+    <section className="bridge"><p>{tr(
+      'Ten years in advertising taught me to find the idea. Two years of code taught me what happens after the idea leaves the deck. Now I do both at once: the argument behind a company, the brand, the launch, the funnel, and the thing people actually use.',
+      'Zehn Jahre Werbung haben mich gelehrt, die Idee zu finden. Zwei Jahre Code, was passiert, wenn die Idee das Deck verlässt. Heute mache ich beides zugleich: das Argument hinter einem Unternehmen, die Marke, den Launch, den Funnel und das Ding, das Menschen wirklich benutzen.')}</p></section>
     <section className="reel">
       {reels.map(([slug, src, size], i) => {
         const project = data.projects.find((p) => p.slug === slug);
@@ -220,11 +223,55 @@ function Constellation() {
   </svg>;
 }
 
+// a HubSpot email rendered live, so the animated header keeps moving: the
+// email is laid out at its real 600 px width and scaled down to the column
+// it sits in (ResizeObserver sets the scale and the reserved height)
+function EmailPreview({ mail }) {
+  const wrap = useRef();
+  const inner = useRef();
+  useEffect(() => {
+    const fit = () => {
+      if (!wrap.current || !inner.current) return;
+      const scale = Math.min(1, wrap.current.clientWidth / 600);
+      inner.current.style.transform = `scale(${scale})`;
+      wrap.current.style.height = `${inner.current.offsetHeight * scale}px`;
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(wrap.current);
+    inner.current.querySelectorAll('img').forEach((img) => img.addEventListener('load', fit));
+    return () => ro.disconnect();
+  }, []);
+  return <figure className="case-mail">
+    <div className="mail-meta">
+      <i className="mail-avatar" />
+      <div><strong>Scholé AI</strong><span>hello@schole.ai</span></div>
+      <em>{mail.subject}</em>
+    </div>
+    <div className="mail-fit" ref={wrap}>
+      <div className="mail" ref={inner}>
+        <img className="mail-header" src={asset(mail.header)} alt="" />
+        <div className="mail-body">
+          <h3>{mail.title}</h3>
+          {mail.body.map((para, i) => <p key={i}>{para}</p>)}
+          {mail.qr && <div className="mail-qr"><img src={asset(mail.qr)} alt="QR code" /><span>{mail.qrLabel}</span></div>}
+          <span className="mail-button">{mail.button}</span>
+          {mail.closing && <p className="mail-closing">{mail.closing}</p>}
+        </div>
+        <div className="mail-footer">
+          <p><span>Find your path <i>forward.</i></span>AI-guided learning, grounded in science.</p>
+          <img src={asset('/media/schole-ai-logo-white.svg')} alt="Scholé AI" />
+        </div>
+        <p className="mail-legal">Scholé AI · EPFL Innovation Park, Lausanne · team@schole.ai · Unsubscribe · Manage preferences</p>
+      </div>
+    </div>
+  </figure>;
+}
+
 function renderStory(story, title, tr) {
   const out = [];
   let run = [];
   let counter = 0;
-  let chapter = 0;
   const flush = () => {
     if (!run.length) return;
     const imgs = run; run = [];
@@ -245,28 +292,95 @@ function renderStory(story, title, tr) {
     })}</div>);
   };
   story.forEach((item, i) => {
-    if (item.img) { run.push(item.img); return; }
+    if (item.img && !item.width) { run.push(item.img); return; }
     flush();
-    if (item.text) out.push(<p className="case-text" key={i}>{item.lead && <strong className="case-lead">{tr(item.lead, item.leadDe)}</strong>}{tr(item.text, item.textDe)}</p>);
+    // a single image held to a given width (e.g. the text column), outside the gallery flow
+    if (item.img) out.push(<figure className={item.rounded ? 'case-image case-image-solo case-image-rounded' : 'case-image case-image-solo'} key={i}>
+      <img src={asset(item.img)} alt={`${title}, project image`} loading="lazy" style={{ maxWidth: `${item.width}px` }} />
+    </figure>);
+    else if (item.text) out.push(<p className={item.style === 'italic' ? 'case-text case-text-italic' : 'case-text'} key={i}>{item.lead && <strong className="case-lead">{tr(item.lead, item.leadDe)}</strong>}{tr(item.text, item.textDe)}</p>);
     else if (item.mark) out.push(<div className="case-divider" key={i}><Constellation /></div>);
-    else if (item.quote) out.push(<blockquote className="case-quote" key={i}>{item.quote}</blockquote>);
+    else if (item.quote) out.push(<blockquote className={item.tone === 'brand' ? 'case-quote case-quote-brand' : 'case-quote'} key={i}>{item.quote}</blockquote>);
+    // the Product Hunt badge, placed inside the story (next to the launch it belongs to)
+    else if (item.award) out.push(<div className="case-award case-award-inline" key={i}>
+      <em>{tr(item.award.text, item.award.textDe)}</em>
+      <img src={asset(item.award.badge)} alt="Product Hunt — #1 Product of the Day" />
+    </div>);
+    // a chapter whose title is artwork (the hand-lettered campaign headline)
+    else if (item.headingImg) out.push(<h2 className="case-h2 case-h2-img" key={i}>
+      <img src={asset(item.headingImg)} alt={tr(item.alt, item.altDe)} style={item.width ? { width: `min(100%, ${item.width}px)` } : undefined} />
+    </h2>);
     else if (item.heading) {
       // numbered chapters, each opening with a rule, so one campaign visibly
       // ends before the next begins (the animated mark can carry the rule)
-      chapter += 1;
       const afterMark = story[i - 1]?.mark;
-      out.push(<h2 className={afterMark ? 'case-h2 case-h2-after-mark' : 'case-h2'} key={i}>
-        <span className="case-chapter">{tr('Chapter', 'Kapitel')} {String(chapter).padStart(2, '0')}</span>
+      const brand = item.tone === 'brand';
+      out.push(<h2 className={`case-h2${afterMark ? ' case-h2-after-mark' : ''}${brand ? ' case-h2-brand' : ''}`} key={i}>
         {tr(item.heading, item.headingDe)}
+        {item.sub && <em className="case-h2-sub">{tr(item.sub, item.subDe)}</em>}
       </h2>);
     }
-    else if (item.video) out.push(<div className="case-videos" key={i}><div className="video-grid"><VideoEmbed video={item.video} eager /></div></div>);
+    else if (item.video && item.frame === 'phone') out.push(<figure className="case-phone" key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
+      <div className="case-phone-body"><div className="case-phone-screen"><VideoEmbed video={item.video} eager /></div></div>
+      {item.caption && <figcaption>{tr(item.caption, item.captionDe)}</figcaption>}
+    </figure>);
+    else if (item.video) out.push(<div className={`case-videos${item.rounded ? ' case-videos-rounded' : ''}`} key={i}><div className="video-grid"><VideoEmbed video={item.video} eager /></div></div>);
+    // launch-page boards: a two-up grid of landscape slides, a lone last one centred
+    else if (item.boards) out.push(<div className="case-boards" key={i}>
+      {item.boards.map((b, k) => <figure className="case-image case-board" key={b.img}>
+        <img src={asset(b.img)} alt={tr(b.alt, b.altDe)} loading="lazy" width={data.meta?.[b.img]?.w} height={data.meta?.[b.img]?.h} />
+      </figure>)}
+    </div>);
     else if (item.embed) out.push(<CaseEmbed item={item} tr={tr} key={i} />);
     else if (item.stats) out.push(<div className="case-stats" key={i}>
       {item.stats.map((st, k) => <div className="case-stat" key={k}><strong>{st.n}</strong><span>{tr(st.l, st.lDe)}</span></div>)}
       {item.source && <em className="case-stats-source">{tr(item.source, item.sourceDe)}</em>}
     </div>);
-    else if (item.film) out.push(<figure className="case-film" key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
+    else if (item.scope) out.push(<div className="case-scope" key={i}>
+      {item.scope.map((g, k) => <div className="case-scope-group" key={k}>
+        <strong>{tr(g.t, g.tDe)}</strong>
+        <ul>{g.items.map((it, j) => <li key={j}>{tr(it, g.itemsDe?.[j])}</li>)}</ul>
+      </div>)}
+    </div>);
+    else if (item.flow) out.push(<ol className="case-flow" key={i}>
+      {item.flow.map((st, k) => <li key={k}><strong>{tr(st.t, st.tDe)}</strong><span>{tr(st.s, st.sDe)}</span></li>)}
+    </ol>);
+    // an Instagram carousel the way the Royal Canin case shows its Facebook ones:
+    // the first card inside a phone with the post chrome, the rest trailing right
+    else if (item.carousel) out.push(<figure className="case-carousel" key={i}>
+      <div className="case-carousel-row">
+        <div className="case-ig-wrap"><div className="case-phone-body case-ig">
+          <div className="case-phone-screen">
+            <div className="ig-head"><i className="ig-avatar" /><b>{item.carousel.handle}</b><span>···</span></div>
+            <div className="ig-media"><video src={asset(item.carousel.cards[0].film)} poster={asset(item.carousel.cards[0].poster)} autoPlay muted loop playsInline preload="metadata" /></div>
+            <div className="ig-actions">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3 5.5 6.2 5.5c2 0 3.3 1.1 4 2.3h1.6c.7-1.2 2-2.3 4-2.3 3.2 0 5 3.1 3.7 6.3C19.5 16.4 12 21 12 21z" /></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 3C7 3 3 6.6 3 11c0 2.3 1.1 4.3 2.9 5.8L5 21l4.4-1.8c.8.2 1.7.3 2.6.3 5 0 9-3.6 9-8S17 3 12 3z" /></svg>
+              <svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7.5 2L13 21l8-18z" /></svg>
+              <span className="ig-dots">{item.carousel.cards.map((_, j) => <i key={j} className={j === 0 ? 'on' : ''} />)}</span>
+              <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z" /></svg>
+            </div>
+            <div className="ig-caption"><b>{item.carousel.handle}</b> {tr(item.carousel.caption, item.carousel.captionDe)}</div>
+          </div>
+        </div><span className="case-phone-stand" aria-hidden="true" /></div>
+        {item.carousel.cards.slice(1).map((c, j) => <div className="case-carousel-card" key={j}>
+          <video src={asset(c.film)} poster={asset(c.poster)} autoPlay muted loop playsInline preload="metadata" />
+        </div>)}
+      </div>
+    </figure>);
+    else if (item.emails) out.push(<div className="case-mails" key={i}>
+      {item.emails.map((mail, k) => <EmailPreview mail={mail} key={k} />)}
+    </div>);
+    else if (item.phones) out.push(<div className="case-phones" key={i}>
+      {item.phones.map((ph, k) => <figure className="case-phone-p" key={k}>
+        <div className="case-phone-body"><div className="case-phone-screen">
+          <video src={asset(ph.film)} poster={ph.poster ? asset(ph.poster) : undefined} autoPlay muted loop playsInline preload="metadata" />
+        </div></div>
+        <span className="case-phone-stand" aria-hidden="true" />
+        <figcaption><strong>{tr(ph.title, ph.titleDe)}</strong>{tr(ph.insight, ph.insightDe)}</figcaption>
+      </figure>)}
+    </div>);
+    else if (item.film) out.push(<figure className={item.rounded ? 'case-film case-film-rounded' : 'case-film'} key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
       {item.loop
         ? <video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} autoPlay muted loop playsInline preload="auto" />
         : <video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} controls playsInline preload="metadata" />}
@@ -289,19 +403,7 @@ function Project({ project, close }) {
     return () => ctx.revert();
   }, [project.slug]);
   const tr = useT();
-  return <main className="case" ref={root}>
-    <button className="case-back" onClick={close}><ArrowLeft /> {tr('All work', 'Alle Projekte')}</button>
-    <section className="case-title">
-      {project.titleImage
-        ? <h1 className="case-logo"><img src={asset(project.titleImage)} alt={project.title} /></h1>
-        : <h1>{project.title}</h1>}
-      <p className="case-description">{tr(project.description, project.descriptionDe)}</p>
-    </section>
-    {project.clip && <figure className="case-clip">
-      <em className="clip-note">{tr('before rebranding', 'vor dem Rebranding')}</em>
-      <video src={asset(project.clip.src)} poster={asset(project.clip.poster)} autoPlay muted loop playsInline preload="metadata" />
-    </figure>}
-    {project.polaroids && <section className="case-offline">
+  const polaroids = project.polaroids && <section className="case-offline">
       <div className="case-polaroids">
         {project.polaroids.map((p) => <figure className="polaroid" key={p.img}>
           {p.print ? <div className="tee-mockup" role="img" aria-label={tr(p.caption, p.captionDe)}>
@@ -316,7 +418,22 @@ function Project({ project, close }) {
       <h2 className="co-heading">{tr('Offline · Learning Technologies London', 'Offline · Learning Technologies London')}</h2>
       <p className="co-caption">{tr('Stand & tee — my concept and design, printed and produced with a London agency.',
         'Stand & Shirt — mein Konzept und Design, gedruckt und produziert mit einer Londoner Agentur.')}</p>
-    </section>}
+    </section>;
+  return <main className="case" ref={root}>
+    <button className="case-back" onClick={close}><ArrowLeft /> {tr('All work', 'Alle Projekte')}</button>
+    <section className="case-title">
+      {project.titleImage
+        ? <h1 className="case-logo"><img src={asset(project.titleImage)} alt={project.title} /></h1>
+        : <h1>{project.title}</h1>}
+      {project.tagline && <p className="case-tagline">{tr(project.tagline, project.taglineDe)}</p>}
+      <p className="case-description">{tr(project.description, project.descriptionDe)}</p>
+    </section>
+    {project.opener && <div className="case-opener">{renderStory([project.opener], project.title, tr)}</div>}
+    {project.clip && <figure className="case-clip">
+      <em className="clip-note">{tr('before rebranding', 'vor dem Rebranding')}</em>
+      <video src={asset(project.clip.src)} poster={asset(project.clip.poster)} autoPlay muted loop playsInline preload="metadata" />
+    </figure>}
+    {project.polaroids && !project.polaroidsAfter && polaroids}
     {project.award && <div className="case-award">
       <em>{tr(project.award.text, project.award.textDe)}</em>
       <img src={asset(project.award.badge)} alt="Product Hunt — #1 Product of the Day" />
@@ -344,6 +461,7 @@ function Project({ project, close }) {
       </figure>;
     })}</div>
     </>}
+    {project.polaroids && project.polaroidsAfter && polaroids}
     <button className="next-button" onClick={close}>{tr('All work', 'Alle Projekte')}<ArrowDown /></button>
   </main>;
 }
@@ -405,8 +523,8 @@ function About() {
           'At Scholé AI, I bring these disciplines together in a broad marketing role. I’ve led rebranding, developed positioning and integrated campaigns, and planned advertising budgets. My work connects landing pages, email automation and marketing funnels with sales decks and pitch narratives, giving each stage of the customer journey a clear purpose.',
           'Bei Scholé AI bringe ich diese Disziplinen in einer breiten Marketingrolle zusammen. Ich habe das Rebranding geleitet, Positionierung und integrierte Kampagnen entwickelt und Werbebudgets geplant. Meine Arbeit verbindet Landingpages, E-Mail-Automatisierung und Marketing-Funnels mit Sales-Decks und Pitch-Narrativen — jede Stufe der Customer Journey bekommt einen klaren Zweck.')}</p>
         <p>{tr(
-          <>I led two product launches, including Scholé’s debut on Product Hunt, which earned <strong>#1 Product of the Day</strong>, ranking ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus on 2 May 2026.</>,
-          <>Ich habe zwei Produkt-Launches geleitet, darunter Scholés Debüt auf Product Hunt — <strong>#1 Product of the Day</strong> am 2. Mai 2026, vor Microsoft Copilot Health, YouTube TV Custom Multiview und Cloud Computer von Manus.</>)}</p>
+          <>I led three product launches in five months; two took <strong>#1 Product of the Day</strong> on Product Hunt, including Scholé’s debut on 2 May 2026, ranking ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus.</>,
+          <>Ich habe in fünf Monaten drei Produkt-Launches geleitet; zwei davon wurden <strong>#1 Product of the Day</strong> auf Product Hunt, darunter Scholés Debüt am 2. Mai 2026, vor Microsoft Copilot Health, YouTube TV Custom Multiview und Cloud Computer von Manus.</>)}</p>
         <p>{tr(
           'Working directly with founders, product and engineering, I also help improve onboarding and the platform experience, using feedback and performance data to guide decisions. I’ve directed creative execution, designed event booths and represented the company at industry events.',
           'In direkter Zusammenarbeit mit Foundern, Produkt und Engineering helfe ich außerdem, Onboarding und Plattform-Erlebnis zu verbessern — auf Basis von Feedback und Performance-Daten. Ich habe die kreative Umsetzung geleitet, Messestände gestaltet und das Unternehmen auf Branchen-Events vertreten.')}</p>
