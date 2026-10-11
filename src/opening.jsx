@@ -262,14 +262,14 @@ export default function Opening() {
     <div className="op-stage">
       <div className="op-frame">
         <h1 className="op-claim">
-          <span className="sr-only">Ideas are cheap. Cheap ideas are costly.</span>
+          <span className="sr-only">Ideas are cheap. Cheap ideas are expensive.</span>
           <span className="op-rect" aria-hidden="true">
             <span className="op-line">
               <span className="op-w op-wc" data-w="cheap-front" />
               <Word w="ideas" />
               <Word w="are" />
               <Word w="cheap" />
-              <Word w="costly" cls="op-wx" />
+              <Word w="expensive" cls="op-wx" />
             </span>
             <span className="op-meter" />
           </span>

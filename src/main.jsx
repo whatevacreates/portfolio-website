@@ -108,9 +108,6 @@ function Work({ openProject }) {
   }, []);
   return <main ref={root}>
     <Opening />
-    <section className="bridge"><p>{tr(
-      'Ten years in advertising taught me to find the idea. Two years of code taught me what happens after the idea leaves the deck. Now I do both at once: the argument behind a company, the brand, the launch, the funnel, and the thing people actually use.',
-      'Zehn Jahre Werbung haben mich gelehrt, die Idee zu finden. Zwei Jahre Code, was passiert, wenn die Idee das Deck verlässt. Heute mache ich beides zugleich: das Argument hinter einem Unternehmen, die Marke, den Launch, den Funnel und das Ding, das Menschen wirklich benutzen.')}</p></section>
     <section className="reel">
       {reels.map(([slug, src, size], i) => {
         const project = data.projects.find((p) => p.slug === slug);
