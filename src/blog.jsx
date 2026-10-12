@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, ArrowLeft } from 'lucide-react';
 import { useT } from './i18n.jsx';
+import { track } from './analytics.js';
 
 // the contact CTA's holographic foil, frozen into a gradient stroke so the
 // blog's clicks can wear it at icon size — teal gathers at the arrow's tip,
@@ -116,7 +117,8 @@ export function BlogPost({ post, close }) {
             <figcaption>{item.caption}</figcaption>
           </figure>)}
     </div>
-    {post.source && <a className="post-source" href={post.source} target="_blank" rel="noreferrer">
+    {post.source && <a className="post-source" href={post.source} target="_blank" rel="noreferrer"
+      onClick={() => track('source_link_clicked', { post: post.slug, url: post.source })}>
       {tr(`Originally published on the ${post.sourceName}`, `Ursprünglich erschienen: ${post.sourceName}`)} <HoloArrow />
     </a>}
     <button className="next-button" onClick={close}>{tr('All posts', 'Alle Artikel')}<ArrowDown /></button>

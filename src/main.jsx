@@ -8,26 +8,10 @@ import HoloMesh from './holomesh.jsx';
 import { Blog, BlogPost, posts } from './blog.jsx';
 import { LangContext, useT, getLang, saveLang } from './i18n.jsx';
 import data from './portfolio-data.json';
+import { track } from './analytics.js';
 import './styles.css';
 
 gsap.registerPlugin(ScrollTrigger);
-
-// visitor analytics (PostHog, EU): anonymous pageviews only — no session
-// recording, no identified profiles. Local dev stays out of the numbers.
-// Lazily imported into its own chunk so the hero never waits for it.
-// The app routes via location.hash, so each hash change is a pageview.
-if (!/^(localhost|127\.)/.test(location.hostname)) {
-  import('posthog-js').then(({ default: posthog }) => {
-    posthog.init('phc_dNFSfw3l9oqvM5S2vWX0hnEJTG5jID4hEH3pmY4n7A4', {
-      api_host: 'https://eu.i.posthog.com',
-      defaults: '2025-05-24',
-      capture_pageview: true, // captures the initial load; hash routing below
-      person_profiles: 'identified_only',
-      disable_session_recording: true,
-    });
-    addEventListener('hashchange', () => posthog.capture('$pageview'));
-  });
-}
 
 // media lives in public/media and is referenced as "/media/..." in the data.
 // BASE_URL-relative resolution keeps those URLs working when the site is
@@ -55,7 +39,7 @@ function Header({ page, navigate, lang, setLang }) {
     </button>
     <nav className={open ? 'open' : ''} aria-label="Primary navigation">
       {nav.map(([key, en, de]) => <button key={key} className={page === key ? 'active' : ''} onClick={() => go(key)}>{tr(en, de)}</button>)}
-      <button className="lang-toggle" onClick={() => { setOpen(false); setLang(lang === 'de' ? 'en' : 'de'); }}
+      <button className="lang-toggle" onClick={() => { setOpen(false); track('language_switched', { to: lang === 'de' ? 'en' : 'de' }); setLang(lang === 'de' ? 'en' : 'de'); }}
         aria-label={lang === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}>
         {lang === 'de' ? 'EN' : 'DE'}
       </button>
@@ -112,7 +96,7 @@ function Work({ openProject }) {
       {reels.map(([slug, src, size], i) => {
         const project = data.projects.find((p) => p.slug === slug);
         const img = src && <img src={asset(src)} alt="" loading={i < 3 ? 'eager' : 'lazy'} style={size ? { width: `${size * 100}%` } : undefined} />;
-        return <button className="reel-item" key={slug} onClick={() => openProject(slug)} aria-label={`View project: ${project.cardTitle}`}>
+        return <button className="reel-item" key={slug} onClick={() => { track('project_opened', { project: slug, position: i + 1 }); openProject(slug); }} aria-label={`View project: ${project.cardTitle}`}>
           {src
             ? img
             : <span className="reel-tile"><HoloMesh />{project.title}</span>}
@@ -162,7 +146,7 @@ function VideoEmbed({ video, eager }) {
           src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1`}
           title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen loading="lazy" />
-      : <button className="video-facade" onClick={() => setPlaying(true)} aria-label={`Play video: ${video.title}`}>
+      : <button className="video-facade" onClick={() => { track('video_played', { video_id: video.id, title: video.title }); setPlaying(true); }} aria-label={`Play video: ${video.title}`}>
           <img src={asset(video.poster)} alt="" loading={eager ? 'eager' : 'lazy'} />
           <span className="video-play"><Play /></span>
         </button>}
@@ -182,7 +166,7 @@ function CaseEmbed({ item, tr }) {
       <div className="case-embed-bar"><i /><i /><i /><span>{item.url}</span></div>
       {open
         ? <iframe src={asset(item.embed)} title={tr(item.caption, item.captionDe)} loading="lazy" />
-        : <button className="case-embed-poster" onClick={() => setOpen(true)} aria-label={tr('Open the interactive page', 'Interaktive Seite öffnen')}>
+        : <button className="case-embed-poster" onClick={() => { track('embed_opened', { url: item.url }); setOpen(true); }} aria-label={tr('Open the interactive page', 'Interaktive Seite öffnen')}>
             <img src={asset(item.poster)} alt="" loading="lazy" />
             <span>{tr('Click to explore the page', 'Klicken, um die Seite zu erkunden')}</span>
           </button>}
@@ -561,7 +545,7 @@ function About() {
         </figure>)}
       </React.Fragment>)}
     </div>
-    <section className="contact"><a href="mailto:whatevacreates@gmail.com"><HoloMesh /><span className="contact-ink">{tr('Let’s make something that works.', 'Lass uns etwas machen, das funktioniert.')} <ArrowUpRight /></span></a><div><a href="tel:+41782154258">+41 78 215 42 58</a><a href="mailto:whatevacreates@gmail.com">whatevacreates@gmail.com</a></div></section>
+    <section className="contact"><a href="mailto:whatevacreates@gmail.com" onClick={() => track('contact_clicked', { method: 'email', from: 'about-banner' })}><HoloMesh /><span className="contact-ink">{tr('Let’s make something that works.', 'Lass uns etwas machen, das funktioniert.')} <ArrowUpRight /></span></a><div><a href="tel:+41782154258" onClick={() => track('contact_clicked', { method: 'phone', from: 'about' })}>+41 78 215 42 58</a><a href="mailto:whatevacreates@gmail.com" onClick={() => track('contact_clicked', { method: 'email', from: 'about' })}>whatevacreates@gmail.com</a></div></section>
   </main>;
 }
 
@@ -569,7 +553,7 @@ function About() {
 // with the site's slate ink on top
 function Footer() {
   const tr = useT();
-  return <footer><HoloMesh /><span>© {new Date().getFullYear()} Eva Przybyla</span><span className="footer-claim">Ideas that sell. Brand strategy. Creative direction. Growth marketing. Design.</span><a href="mailto:whatevacreates@gmail.com">{tr('Let’s talk', 'Lass uns reden')} <ArrowUpRight /></a></footer>;
+  return <footer><HoloMesh /><span>© {new Date().getFullYear()} Eva Przybyla</span><span className="footer-claim">Ideas that sell. Brand strategy. Creative direction. Growth marketing. Design.</span><a href="mailto:whatevacreates@gmail.com" onClick={() => track('contact_clicked', { method: 'email', from: 'footer' })}>{tr('Let’s talk', 'Lass uns reden')} <ArrowUpRight /></a></footer>;
 }
 
 function App() {
