@@ -407,7 +407,7 @@ function Project({ project, close }) {
         ? <h1 className="case-logo"><img src={asset(project.titleImage)} alt={project.title} /></h1>
         : <h1>{project.title}</h1>}
       {project.tagline && <p className="case-tagline">{tr(project.tagline, project.taglineDe)}</p>}
-      <p className="case-description">{tr(project.description, project.descriptionDe)}</p>
+      {[].concat(tr(project.description, project.descriptionDe)).map((para, i) => <p className="case-description" key={i}>{para}</p>)}
     </section>
     {project.opener && <div className="case-opener">{renderStory([project.opener], project.title, tr)}</div>}
     {project.clip && <figure className="case-clip">

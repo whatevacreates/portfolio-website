@@ -6,34 +6,23 @@
    "titleImage": "/media/schole-ai-logo.svg",
    "client": "Scholé AI",
    "category": "Marketing leadership",
-   "description": "I joined Scholé AI as one of the first employees. Exciting times: everything had to be imagined and built. I worked across UX and product, discovering, shaping and testing new features, brand strategy, visual identity, product experience, positioning and marketing. In almost a year at Scholé I led three product launches, two of them #1 Product of the Day on Product Hunt, ahead of Microsoft Copilot Health, YouTube TV Custom Multiview and Cloud Computer by Manus, the rebranding and the brand strategy behind it, go-to-market, campaigns and funnels. Building a brand and a product from zero to being used, loved and recognized is a wonderful experience, and I am thankful for the opportunity.",
+   "description": [
+    "I joined Scholé early to help turn a research-led AI learning product into a brand people could understand and a product they wanted to try.",
+    "Working directly with the founders and product team, I defined the brand strategy and visual identity, brought customer insights into product development, and led three launches, two reaching #1 Product of the Day on Product Hunt.",
+    "My role connected strategy with execution: setting the creative direction, making the work, and building the systems to carry it forward."
+   ],
    "images": [
     "/media/schole-ai-01-schole-logo.webp"
    ],
    "videos": [],
    "cardTitle": "Scholé AI",
    "label": "Marketing Leadership · Brand Strategy · Creative Direction · Growth · AI",
-   "descriptionDe": "Ich bin als eine der ersten Mitarbeiterinnen zu Scholé AI gekommen. Aufregende Zeiten: Alles musste erst erdacht und gebaut werden. Ich habe quer durch UX und Produkt gearbeitet, neue Features entdeckt, geformt und getestet, dazu Markenstrategie, visuelle Identität, Produkterlebnis, Positionierung und Marketing. In fast einem Jahr bei Scholé habe ich drei Produkt-Launches geführt, zwei davon #1 Product of the Day auf Product Hunt, vor Microsoft Copilot Health, YouTube TV Custom Multiview und Cloud Computer von Manus, dazu das Rebranding und die Markenstrategie dahinter, Go-to-Market, Kampagnen und Funnels. Eine Marke und ein Produkt von null auf genutzt, geliebt und wiedererkannt zu bringen, ist eine wunderbare Erfahrung, und ich bin dankbar für diese Gelegenheit.",
-   "categoryDe": "Marketing-Leadership",
-   "polaroids": [
-    {
-     "img": "/media/schole-ai-06-tee-model-blank.webp",
-     "print": "/media/schole-ai-03-tshirt-print.webp",
-     "caption": "the team tee",
-     "captionDe": "das Team-Shirt"
-    },
-    {
-     "img": "/media/schole-ai-04-booth-team.webp",
-     "caption": "worn by all of us",
-     "captionDe": "von uns allen getragen",
-     "focus": "50% 35%"
-    },
-    {
-     "img": "/media/schole-ai-05-stand.webp",
-     "caption": "the stand, before doors open",
-     "captionDe": "der Stand, vor Einlass"
-    }
+   "descriptionDe": [
+    "Ich kam früh zu Scholé, um aus einem forschungsgetriebenen KI-Lernprodukt eine Marke zu machen, die Menschen verstehen, und ein Produkt, das sie ausprobieren wollen.",
+    "In direkter Zusammenarbeit mit den Foundern und dem Produktteam habe ich die Markenstrategie und die visuelle Identität definiert, Kundeninsights in die Produktentwicklung gebracht und drei Launches geführt, zwei davon erreichten #1 Product of the Day auf Product Hunt.",
+    "Meine Rolle verband Strategie mit Umsetzung: die kreative Richtung setzen, die Arbeit selbst machen und die Systeme bauen, die sie weitertragen."
    ],
+   "categoryDe": "Marketing-Leadership",
    "story": [
     {
      "mark": true
@@ -152,70 +141,6 @@
      }
     },
     {
-     "lead": "The emails",
-     "leadDe": "Die E-Mails",
-     "text": "The HubSpot programme, one template: an animated header made in the Content Studio, a title in New Spirit, body copy that opens with the reader's situation, one button, and the footer every Scholé surface shares. Four of them below, live: Podcast Mode for the audio launch, the re-engagement mail where Olé waited for you, Grow with Scholé for the pilot cohorts, and A Taste of Scholé, the gifted lesson with a QR code.",
-     "textDe": "Das HubSpot-Programm, ein Template: ein animierter Header aus dem Content Studio, ein Titel in New Spirit, Fliesstext, der mit der Situation der Leserin beginnt, ein Button und der Footer, den jede Scholé-Fläche teilt. Vier davon unten, live: Podcast Mode für den Audio-Launch, die Reaktivierungsmail, in der Olé auf dich gewartet hat, Grow with Scholé für die Pilot-Kohorten und A Taste of Scholé, die verschenkte Lektion mit QR-Code."
-    },
-    {
-     "emails": [
-      {
-       "header": "/media/schole-ai-147-email-header-podcast.webp",
-       "headerH": 420,
-       "subject": "No time to read? Don't.",
-       "title": "No time to read? Don't.",
-       "body": [
-        "Hi {firstname},",
-        "You're curious. You love to learn. But some days, sitting down to read is just not going to happen.",
-        "So we took reading out of it. Any lesson can become a podcast: tap the audio icon and two AI hosts, Zeteo and Atlas, talk it through, built around your job, your tools, your goals. Finish listening and the section is complete.",
-        "Your commute just became a lesson. Your progress is saved. Don't let those days slow you down."
-       ],
-       "button": "Play a lesson",
-       "closing": "Headphones on. Olé keeps count."
-      },
-      {
-       "header": "/media/schole-ai-148-email-header-ole-waited.webp",
-       "headerH": 420,
-       "subject": "Olé waited for you.",
-       "title": "Olé waited for you.",
-       "body": [
-        "Hi {firstname},",
-        "Your lesson is exactly where you left it. Same page, same progress, same patient tutor.",
-        "Ten minutes is enough to finish the section, and the next one is already built around what you were doing at work last week. You just continue."
-       ],
-       "button": "Pick up where you left off",
-       "closing": "He is good at waiting. Come back anyway."
-      },
-      {
-       "header": "/media/schole-ai-149-email-header-grow.webp",
-       "headerH": 508,
-       "subject": "Thank you. Here is a month on us.",
-       "title": "You were here first.",
-       "body": [
-        "Hi {firstname},",
-        "You tried Scholé before it was finished, told us what was broken, and kept coming back. That is what a pilot is for, and we are grateful.",
-        "So: a free month of Scholé for you, and for anyone on your team who wants to learn alongside you. New since you started: any lesson as a podcast, scenarios to practice the conversations that matter, and Olé in your browser."
-       ],
-       "button": "Claim your free month",
-       "closing": "Thank you for growing with us."
-      },
-      {
-       "header": "/media/schole-ai-150-email-header-taste.webp",
-       "headerH": 508,
-       "subject": "A lesson made for your team.",
-       "title": "This lesson was made for your team.",
-       "body": [
-        "We put together a short Scholé lesson based on what we talked about. The topic: AI agents at work.",
-        "Scan the QR code or open the link below. No sign-up, just your email address. It takes about five minutes and it shows you exactly what a Scholé lesson feels like from the learner's side."
-       ],
-       "qr": "/media/schole-ai-151-qr-taste.png",
-       "qrLabel": "Or open it directly:",
-       "button": "Try the lesson",
-       "closing": "If you want to walk through it together, just reply to this email."
-      }
-     ]
-    },
-    {
      "lead": "The constellation campaign",
      "leadDe": "Die Konstellations-Kampagne",
      "text": "The mark became a product. transformation.schole.ai asks one question, your role, and draws your AI Fluency Plan as a constellation: every lesson a star, every step a diamond on the line between them, Olé reshaping the sky after each answer. One page per prospect company, generated in a minute, sent instead of a deck. Below, sixty seconds of the page doing its thing.",
@@ -270,47 +195,23 @@
      ]
     },
     {
-     "heading": "Product Hunt debut,\n#1 Product of the Day",
-     "headingDe": "Product-Hunt-Debüt,\n#1 Product of the Day"
+     "heading": "Three launches in five months,\ntwo at #1",
+     "headingDe": "Drei Launches in fünf Monaten,\nzwei auf #1"
     },
     {
-     "lead": "Problem",
-     "leadDe": "Problem",
-     "text": "May 2026. A research-grade product from EPFL and Berkeley, a website nobody had heard of, no brand yet, and one shot at a Product Hunt debut. The task: make strangers care in a day, and turn that day into signups.",
-     "textDe": "Mai 2026. Ein Produkt aus der Forschung an EPFL und Berkeley, eine Website, die niemand kannte, noch keine Marke, und ein Versuch für ein Product-Hunt-Debüt. Die Aufgabe: Fremde an einem Tag zum Interesse bringen und diesen Tag in Signups verwandeln."
-    },
-    {
-     "lead": "Insight",
-     "leadDe": "Insight",
-     "text": "Product Hunt voters are builders, and builders want to feel where they stand with AI, fast. So the launch spoke to the worry: up at night because of AI? Are your skills evolving as fast as your work is?",
-     "textDe": "Product-Hunt-Wähler sind Macher, und Macher wollen schnell spüren, wo sie mit AI stehen. Also sprach der Launch die Sorge an: nachts wach wegen AI? Entwickeln sich deine Skills so schnell wie deine Arbeit?"
-    },
-    {
-     "lead": "Solution",
-     "leadDe": "Lösung",
-     "text": "I ran the launch end to end: the launch page and gallery copy, the launch film, a 20-issue QA pass with the dev team the week before, and a paid Reddit layer that carried the same worries into the feed.",
-     "textDe": "Ich habe den Launch von Anfang bis Ende verantwortet: den Text der Launch-Seite und der Galerie, den Launch-Film, einen QA-Durchgang mit 20 Punkten mit dem Dev-Team in der Woche davor und eine bezahlte Reddit-Ebene, die dieselben Sorgen in den Feed trug."
+     "lead": "The debut, May 2026",
+     "leadDe": "Das Debüt, Mai 2026",
+     "text": "A research-grade product from EPFL and Berkeley, a website nobody had heard of, no brand yet, one shot. Product Hunt voters are builders, and builders want to know where they stand with AI, fast. So the launch spoke to the worry: up at night because of AI? Are your skills evolving as fast as your work is? I ran it end to end: launch page and gallery copy, the launch film, a 20-issue QA pass with the dev team the week before, and a paid Reddit layer that carried the same worries into the feed.",
+     "textDe": "Ein Produkt aus der Forschung an EPFL und Berkeley, eine Website, die niemand kannte, noch keine Marke, ein Versuch. Product-Hunt-Wähler sind Macher, und Macher wollen schnell wissen, wo sie mit AI stehen. Also sprach der Launch die Sorge an: nachts wach wegen AI? Entwickeln sich deine Skills so schnell wie deine Arbeit? Ich habe ihn von Anfang bis Ende verantwortet: Text der Launch-Seite und der Galerie, den Launch-Film, einen QA-Durchgang mit 20 Punkten mit dem Dev-Team in der Woche davor und eine bezahlte Reddit-Ebene, die dieselben Sorgen in den Feed trug."
     },
     {
      "lead": "Reddit",
      "leadDe": "Reddit",
-     "text": "For the debut I planned, wrote and ran the launch campaign on Reddit: native in-feed ads that read like posts. The teasers carried the worries we kept hearing from users straight into the feed (up at night because of AI? are your skills evolving as fast as your work is?) and sent people to the launch page. On launch day the creatives switched live to We're #1 on Product Hunt today.",
-     "textDe": "Für das Debüt habe ich die Launch-Kampagne auf Reddit geplant, getextet und gefahren: native In-Feed-Ads, die sich wie Posts lesen. Die Teaser trugen die Sorgen, die wir immer wieder von Nutzern hörten, direkt in den Feed (nachts wach wegen AI? entwickeln sich deine Skills so schnell wie deine Arbeit?) und führten auf die Launch-Seite. Am Launch-Tag wechselten die Creatives live auf We're #1 on Product Hunt today."
+     "text": "Native in-feed ads that read like posts, switching live on launch day to We're #1 on Product Hunt today. Nothing rode on a single guess: ten ad names, six headlines and eight media variants ran head-to-head and budget followed whatever won. The whole pilot ran on under $300.",
+     "textDe": "Native In-Feed-Ads, die sich wie Posts lesen, am Launch-Tag live umgestellt auf We're #1 on Product Hunt today. Nichts hing an einer einzelnen Vermutung: Zehn Ad-Namen, sechs Headlines und acht Media-Varianten liefen gegeneinander, und das Budget folgte dem, was gewann. Der gesamte Pilot lief mit unter 300 $."
     },
     {
      "img": "/media/schole-ai-115-reddit-phones-a.webp"
-    },
-    {
-     "img": "/media/schole-ai-116-reddit-phones-b.webp"
-    },
-    {
-     "lead": "Test",
-     "leadDe": "Test",
-     "text": "Nothing rode on a single guess: ten ad names, six headlines and eight media variants ran head-to-head in Reddit Ads, and budget followed whatever won. The whole pilot ran on under $300 of spend.",
-     "textDe": "Nichts hing an einer einzelnen Vermutung: Zehn Ad-Namen, sechs Headlines und acht Media-Varianten liefen in Reddit Ads gegeneinander, und das Budget folgte dem, was gewann. Der gesamte Pilot lief mit unter 300 $ Spend."
-    },
-    {
-     "img": "/media/schole-ai-117-reddit-test-card.webp"
     },
     {
      "lead": "Results",
@@ -325,138 +226,13 @@
      "width": 620
     },
     {
-     "heading": "Scenarios, learn by doing",
-     "headingDe": "Scenarios, learn by doing"
-    },
-    {
-     "stats": [
-      {
-       "n": "#5",
-       "l": "Product of the Day",
-       "lDe": "Product of the Day"
-      },
-      {
-       "n": "175",
-       "l": "upvotes",
-       "lDe": "Upvotes"
-      },
-      {
-       "n": "17 Aug",
-       "l": "2026 · second launch",
-       "lDe": "2026 · zweiter Launch"
-      }
-     ],
-     "source": "Source: Product Hunt, launch page, read 13 Sep 2026.",
-     "sourceDe": "Quelle: Product Hunt, Launch-Seite, gelesen am 13. Sep 2026."
-    },
-    {
-     "lead": "Problem",
-     "leadDe": "Problem",
-     "text": "August 2026. Scenarios, the feature where you practice a real conversation with an AI character and get coached in the moment, was ready. Second Product Hunt launch, three months after the first. Two jobs on one day: a top-five finish, and people inside the product trying a scenario before the week was out.",
-     "textDe": "August 2026. Scenarios, das Feature, mit dem du ein echtes Gespräch mit einem AI-Charakter übst und im Moment gecoacht wirst, war fertig. Zweiter Product-Hunt-Launch, drei Monate nach dem ersten. Zwei Aufgaben an einem Tag: ein Top-5-Platz und Menschen, die im Produkt noch in derselben Woche ein Szenario ausprobieren."
-    },
-    {
-     "lead": "Insight",
-     "leadDe": "Insight",
-     "text": "Nobody wants to fail in front of the person who matters. Practice is only attractive when the real moment feels risky. So the campaign put the stakes in one line: Don't rehearse your pitch on a real investor. Then a set of moments everyone recognises: can you save this sale, can you handle this difficult customer, can you explain agents to a teammate.",
-     "textDe": "Niemand will vor der Person scheitern, auf die es ankommt. Üben ist nur attraktiv, wenn sich der echte Moment riskant anfühlt. Also hat die Kampagne den Einsatz in eine Zeile gepackt: Don't rehearse your pitch on a real investor. Dann eine Reihe von Momenten, die jeder kennt: kannst du diesen Verkauf retten, kommst du mit dieser schwierigen Kundin klar, kannst du einem Teamkollegen Agenten erklären."
+     "lead": "Scenarios, August 2026",
+     "leadDe": "Scenarios, August 2026",
+     "text": "Second launch, three months later: Scenarios, where you practice a real conversation with an AI character and get coached in the moment. Nobody wants to fail in front of the person who matters, so the line was: Don't rehearse your pitch on a real investor. #5 Product of the Day, 175 upvotes. The number that mattered more: 83 learners ran a scenario in the first four weeks and 88% finished the one they started.",
+     "textDe": "Zweiter Launch, drei Monate später: Scenarios, wo du ein echtes Gespräch mit einem AI-Charakter übst und im Moment gecoacht wirst. Niemand will vor der Person scheitern, auf die es ankommt, also lautete die Zeile: Don't rehearse your pitch on a real investor. #5 Product of the Day, 175 Upvotes. Die Zahl, die mehr zählte: 83 Lernende starteten in den ersten vier Wochen ein Szenario und 88 % beendeten es."
     },
     {
      "img": "/media/schole-ai-65s-scenarios-ad.webp"
-    },
-    {
-     "lead": "Solution",
-     "leadDe": "Lösung",
-     "text": "The launch kit I designed and wrote: the launch film, the Product Hunt gallery, the Instagram reel, the Reddit and LinkedIn ads and the landing section on schole.ai. One visual system, the same purple, the same characters, from the ad to the product.",
-     "textDe": "Das Launch-Kit, das ich gestaltet und getextet habe: der Launch-Film, die Product-Hunt-Galerie, das LinkedIn-Carousel, der Instagram-Reel, die Reddit- und LinkedIn-Ads und die Landing-Sektion auf schole.ai. Ein visuelles System, dasselbe Lila, dieselben Charaktere, von der Anzeige bis ins Produkt."
-    },
-    {
-     "video": {
-      "id": "jtiJpxxpKBc",
-      "title": "Try role-play scenarios on Scholé · Product Hunt launch film",
-      "poster": "/media/schole-ai-104-ph-gallery-investor.webp"
-     }
-    },
-    {
-     "lead": "Product Hunt gallery",
-     "leadDe": "Product-Hunt-Galerie",
-     "text": "Six slides do the selling on the launch page: the three moments (investor, sale, teammate), the builder, the analytics and the science behind it.",
-     "textDe": "Sechs Slides verkaufen auf der Launch-Seite: die drei Momente (Investor, Verkauf, Teammitglied), der Builder, die Analytics und die Wissenschaft dahinter."
-    },
-    {
-     "img": "/media/schole-ai-104-ph-gallery-investor.webp"
-    },
-    {
-     "img": "/media/schole-ai-105-ph-gallery-sale.webp"
-    },
-    {
-     "img": "/media/schole-ai-106-ph-gallery-teammate.webp"
-    },
-    {
-     "img": "/media/schole-ai-107-ph-gallery-builder.webp"
-    },
-    {
-     "img": "/media/schole-ai-108-ph-gallery-analytics.webp"
-    },
-    {
-     "img": "/media/schole-ai-109-ph-gallery-science.webp"
-    },
-    {
-     "lead": "Instagram",
-     "leadDe": "Instagram",
-     "text": "A 55-second reel cut from the product itself: Nadia the investor, Marc the customer, Leo the teammate, and the concepts ticking green as the learner gets them right.",
-     "textDe": "Ein 55-Sekunden-Reel, geschnitten aus dem Produkt selbst: Nadia die Investorin, Marc der Kunde, Leo der Kollege, und die Konzepte, die grün werden, wenn die lernende Person sie trifft."
-    },
-    {
-     "film": "/media/schole-ai-120-scenarios-reel-s.mp4",
-     "poster": "/media/schole-ai-120-poster-reel-s.webp",
-     "loop": true,
-     "width": 560
-    },
-    {
-     "lead": "schole.ai",
-     "leadDe": "schole.ai",
-     "text": "The landing section, live on launch day: Learn by doing, three scenarios to try, the film one click away.",
-     "textDe": "Die Landing-Sektion, live am Launch-Tag: Learn by doing, drei Szenarien zum Ausprobieren, der Film einen Klick entfernt."
-    },
-    {
-     "img": "/media/schole-ai-123-scenarios-site-browser.webp"
-    },
-    {
-     "text": "#5 Product of the Day, 175 upvotes, 21 comments, three months after a #1. In the four weeks after launch, 83 learners ran a scenario in the product, 73 finished one, and the characters held 1,244 conversation turns. Roughly nine out of ten people who start a scenario finish it. That is the number that tells you the feature works, and the one I put in front of the founders.",
-     "textDe": "#5 Product of the Day, 175 Upvotes, 21 Kommentare, drei Monate nach einer #1. In den vier Wochen nach dem Launch haben 83 Lernende im Produkt ein Szenario gestartet, 73 haben eines beendet, und die Charaktere führten 1.244 Gesprächsrunden. Etwa neun von zehn, die ein Szenario beginnen, bringen es zu Ende. Das ist die Zahl, die zeigt, dass das Feature funktioniert, und die ich den Gründerinnen vorgelegt habe.",
-     "lead": "Results",
-     "leadDe": "Ergebnisse"
-    },
-    {
-     "stats": [
-      {
-       "n": "83",
-       "l": "learners ran a scenario",
-       "lDe": "Lernende starteten ein Szenario"
-      },
-      {
-       "n": "88%",
-       "l": "finished the one they started",
-       "lDe": "beendeten das begonnene Szenario"
-      },
-      {
-       "n": "1,244",
-       "l": "conversation turns with the characters",
-       "lDe": "Gesprächsrunden mit den Charakteren"
-      }
-     ],
-     "source": "Source: PostHog, 17 Aug to 12 Sep 2026.",
-     "sourceDe": "Quelle: PostHog, 17. Aug bis 12. Sep 2026."
-    },
-    {
-     "lead": "In the product",
-     "leadDe": "Im Produkt",
-     "text": "Where the campaign lands: the elevator pitch with Nadia, competences on the left, her investor brief on the right, and a push-to-talk bar instead of a text box.",
-     "textDe": "Wo die Kampagne landet: der Elevator Pitch mit Nadia, Kompetenzen links, ihr Investor-Brief rechts und eine Push-to-talk-Leiste statt eines Textfelds."
-    },
-    {
-     "img": "/media/schole-ai-124-scenario-live-browser.webp"
     },
     {
      "headingImg": "/media/schole-ai-161-hands-dirty-headline.webp",
@@ -623,130 +399,34 @@
      "img": "/media/schole-ai-129s-hands-dirty-celebration.webp"
     },
     {
-     "heading": "The funnel · The AI Maturity Test, built on relief",
-     "headingDe": "Der Funnel · Der AI Maturity Test, gebaut auf Erleichterung"
+     "heading": "The systems · World Domination and the Content Studio",
+     "headingDe": "Die Systeme · World Domination und das Content Studio"
     },
     {
-     "lead": "Problem",
-     "leadDe": "Problem",
-     "text": "Summer 2026. Demo requests and signup forms were the only doors into Scholé, and cold traffic bounced off both. The first Google launch on 20 August proved it: 74% of clicks came from junk display inventory, no UTMs, conversion asks too heavy, zero delivery in Switzerland. We needed a door people actually wanted to open.",
-     "textDe": "Sommer 2026. Demo-Anfragen und Signup-Formulare waren die einzigen Türen zu Scholé, und kalter Traffic prallte an beiden ab. Der erste Google-Launch am 20. August bewies es: 74 % der Klicks kamen aus Display-Restinventar, keine UTMs, zu schwere Conversion-Aufforderungen, null Auslieferung in der Schweiz. Wir brauchten eine Tür, die Menschen öffnen wollen."
+     "text": "Twelve people, one designer. The brand only survives if the team can ship without me in the room. So I wrote the design guidelines (tone of voice in four words: humorous, witty, intelligent, direct) and built the Content Studio, where every carousel, email header, ad and animation is one self-contained HTML file rendered frame by frame. Consistent by construction.",
+     "textDe": "Zwölf Leute, eine Designerin. Die Marke überlebt nur, wenn das Team ohne mich im Raum liefern kann. Also habe ich die Design Guidelines geschrieben (Tonalität in vier Wörtern: humorvoll, witzig, intelligent, direkt) und das Content Studio gebaut, in dem jedes Carousel, jeder E-Mail-Header, jede Anzeige und Animation eine eigenständige HTML-Datei ist, Bild für Bild gerendert. Konsistent per Konstruktion."
     },
     {
-     "lead": "Insight",
-     "leadDe": "Insight",
-     "text": "Field notes with the people who own \"AI maturity\" in a company said the same thing in different words. What scares them is one thing: where do I stand? Everyone sells courses and urgency. We sold the number.",
-     "textDe": "Gespräche mit den Menschen, die in einem Unternehmen für „AI-Reife“ zuständig sind, sagten in anderen Worten immer dasselbe. Was ihnen Angst macht, ist eine Frage: Wo stehe ich? Alle verkaufen Kurse und Dringlichkeit. Wir haben die Zahl verkauft."
+     "img": "/media/schole-ai-39-guidelines-tone.webp"
     },
     {
-     "lead": "Solution",
-     "leadDe": "Lösung",
-     "text": "A free 3-minute test as the top of the funnel: 16 questions, a profile across 8 dimensions, benchmarked against your role, email asked only at the results step. Name the anxiety, sell the relief: you'll finally know. Behind it, four pages that take a curious stranger to a booked call: the test, the Ahead of AI story, the engagement deck for companies with an LMS nobody opens, and the transformation constellation that draws a role's AI Fluency Plan.",
-     "textDe": "Ein kostenloser 3-Minuten-Test als Anfang des Funnels: 16 Fragen, ein Profil über 8 Dimensionen, verglichen mit der eigenen Rolle, die E-Mail erst beim Ergebnis. Die Angst benennen, die Erleichterung verkaufen: Du wirst es endlich wissen. Dahinter vier Seiten, die eine neugierige Fremde bis zum gebuchten Call führen: der Test, die Ahead-of-AI-Story, das Engagement-Deck für Unternehmen mit einem LMS, das niemand öffnet, und die Transformation Constellation, die den AI Fluency Plan einer Rolle zeichnet."
+     "img": "/media/schole-ai-40-guidelines-ads.webp"
     },
     {
-     "text": "Two message tracks, one visual system. For companies: 79% have never assessed their AI skills. Has yours? For professionals: 63% overstate their AI skills. What's your real score? Every stat sourced, every ad ending in the same question. Then the humorous line that passes all four tone tests: Behind on AI? Relax. So is everyone else.",
-     "textDe": "Zwei Botschaftsspuren, ein visuelles System. Für Unternehmen: 79 % haben ihre AI-Skills nie bewertet. Ihres? Für Professionals: 63 % überschätzen ihre AI-Skills. Was ist dein echter Score? Jede Zahl mit Quelle, jede Anzeige endet mit derselben Frage. Dann die humorvolle Zeile, die alle vier Tonalitätstests besteht: Behind on AI? Relax. So is everyone else."
+     "img": "/media/schole-ai-84-content-studio.webp"
     },
     {
-     "img": "/media/schole-ai-53-ad-79-never-assessed.webp"
+     "text": "Strategy decks get read once. So I built the Scholé World Domination Center, an internal web app for the whole marketing team. The opening tab explains the chain: one big idea, six ICPs, each with its own insight, pain points, the metric its buyer shows their boss, channels, and every asset hanging off it. Rule of one: each asset carries one ICP, one message, one metric. If you can't tag it, it doesn't ship. The umbrella idea went through three rounds with the founders until it survived a hallway: training people actually do.",
+     "textDe": "Strategiedecks werden einmal gelesen. Also habe ich das Scholé World Domination Center gebaut, eine interne Web-App für das ganze Marketingteam. Der erste Tab erklärt die Kette: eine große Idee, sechs ICPs, jedes mit eigenem Insight, Schmerzpunkten, der Kennzahl, die der Käufer seinem Chef zeigt, Kanälen und jedem Asset, das daran hängt. Regel der Eins: jedes Asset trägt ein ICP, eine Botschaft, eine Kennzahl. Was sich nicht taggen lässt, geht nicht raus. Die Dachidee ging drei Runden mit den Gründerinnen, bis sie einen Flurtest bestand: training people actually do."
     },
     {
-     "img": "/media/schole-ai-54-ad-63-overstate.webp"
+     "img": "/media/schole-ai-89s-growth-os-login.webp"
     },
     {
-     "img": "/media/schole-ai-55-ad-62-higher-pay.webp"
-    },
-    {
-     "img": "/media/schole-ai-58-ad-behind-on-ai-relax.webp"
-    },
-    {
-     "img": "/media/schole-ai-57-ad-are-you-in-ai-shape.webp"
-    },
-    {
-     "img": "/media/schole-ai-59-ad-what-is-your-ai-shape.webp"
-    },
-    {
-     "text": "Step one of the funnel, live below. Take the test. This copy scores in the browser and sends nothing anywhere, so it keeps working whatever happens to the servers.",
-     "textDe": "Schritt eins des Funnels, live hier unten. Mach den Test. Diese Kopie rechnet im Browser und schickt nichts irgendwohin, damit sie funktioniert, was auch immer mit den Servern passiert."
-    },
-    {
-     "embed": "/test-ai-maturity/index.html",
-     "poster": "/media/schole-ai-85-poster-maturity.webp",
-     "url": "try.schole.ai/test-ai-maturity/",
-     "caption": "Step 1 · The AI Maturity Test. 16 questions, 8 dimensions, benchmarked by role.",
-     "captionDe": "Schritt 1 · Der AI Maturity Test. 16 Fragen, 8 Dimensionen, nach Rolle verglichen.",
-     "height": 760
-    },
-    {
-     "text": "Step two: the page the test points to. A scroll-driven sales story for the person who just learned their score, opening on the one word in their head. It answers with the product: Olé, the personal tutor, the science behind adaptive learning, and the numbers a board wants.",
-     "textDe": "Schritt zwei: die Seite, auf die der Test zeigt. Eine scrollgetriebene Sales-Story für die Person, die gerade ihren Score erfahren hat, und sie beginnt mit dem einen Wort in ihrem Kopf. Die Antwort ist das Produkt: Olé, der persönliche Tutor, die Wissenschaft hinter adaptivem Lernen und die Zahlen, die ein Vorstand sehen will."
-    },
-    {
-     "embed": "/ahead-of-ai/index.html",
-     "poster": "/media/schole-ai-86-poster-ahead.webp",
-     "url": "try.schole.ai/ahead-of-ai/",
-     "caption": "Step 2 · Ahead of AI. Scroll to play; the deck animates as you go.",
-     "captionDe": "Schritt 2 · Ahead of AI. Scrollen zum Abspielen; das Deck animiert beim Scrollen.",
-     "height": 760
-    },
-    {
-     "text": "Step three: the engagement deck for buyers who already run an LMS and can't get anyone to open it. It sells the switch from a system people avoid to a tutor people come back to, with the product's own chat playing inside the page.",
-     "textDe": "Schritt drei: das Engagement-Deck für Käufer, die schon ein LMS haben und niemanden dazu bringen, es zu öffnen. Es verkauft den Wechsel von einem System, das Leute meiden, zu einem Tutor, zu dem Leute zurückkommen, mit dem echten Produkt-Chat, der in der Seite läuft."
-    },
-    {
-     "embed": "/engagement-deck/index.html",
-     "poster": "/media/schole-ai-87-poster-engagement.webp",
-     "url": "try.schole.ai/engagement-deck/",
-     "caption": "Step 3 · The engagement deck. Built for companies with an LMS nobody opens.",
-     "captionDe": "Schritt 3 · Das Engagement-Deck. Für Unternehmen mit einem LMS, das niemand öffnet.",
-     "height": 760
-    },
-    {
-     "text": "Step four: the transformation constellation. Type a role, and the page draws that person's AI Fluency Plan as a constellation of lessons, then invites the team lead to book the rollout call. The plan is the pitch. In this copy the sample plan is baked in and Olé's live editing is switched off.",
-     "textDe": "Schritt vier: die Transformation Constellation. Eine Rolle eintippen, und die Seite zeichnet den AI Fluency Plan dieser Person als Konstellation aus Lektionen, dann lädt sie die Teamleitung zum Rollout-Call ein. Der Plan ist der Pitch. In dieser Kopie ist der Beispielplan fest eingebaut und Olés Live-Bearbeitung abgeschaltet."
-    },
-    {
-     "embed": "/transformation-constellation/index.html",
-     "poster": "/media/schole-ai-88-poster-constellation.webp",
-     "url": "try.schole.ai/transformation-constellation/",
-     "caption": "Step 4 · Transformation constellation. Pick a role, watch the plan build.",
-     "captionDe": "Schritt 4 · Transformation Constellation. Rolle wählen, Plan entstehen sehen.",
-     "height": 760
-    },
-    {
-     "lead": "Results",
-     "leadDe": "Ergebnisse",
-     "text": "The rebuilt media plan runs Search only, LinkedIn Tuesday to Thursday, YouTube for warm audiences, under $1,000 a month, everything landing on the test. A CHF 500 LinkedIn pilot tests the 79% control against three challengers. The pilot is live as I write this; the numbers land in this case in October. What is already measurable: the funnel exists, every step is tracked with UTMs and events, and the four pages below work without a single API call, which is why you can still click through them here.",
-     "textDe": "Der neu gebaute Mediaplan läuft nur auf Search, LinkedIn Dienstag bis Donnerstag, YouTube für warme Zielgruppen, unter 1.000 $ im Monat, alles landet auf dem Test. Ein CHF-500-LinkedIn-Pilot testet die 79 %-Kontrolle gegen drei Herausforderer. Der Pilot läuft, während ich das schreibe; die Zahlen kommen im Oktober in diesen Case. Was schon messbar ist: der Funnel existiert, jeder Schritt ist mit UTMs und Events getrackt, und die vier Seiten unten funktionieren ohne einen einzigen API-Aufruf, weshalb du sie hier noch durchklicken kannst."
-    },
-    {
-     "heading": "The emails · a series people open",
-     "headingDe": "Die E-Mails · eine Serie, die geöffnet wird"
-    },
-    {
-     "lead": "Problem",
-     "leadDe": "Problem",
-     "text": "Pilot users signed up, did a lesson, and went quiet. The founders were writing thank-you notes by hand. There was no email programme, no templates, and no way for a twelve-person team to send something on brand without a designer.",
-     "textDe": "Pilot-Nutzer meldeten sich an, machten eine Lektion und wurden still. Die Gründerinnen schrieben Dankesnotizen von Hand. Es gab kein E-Mail-Programm, keine Templates und keinen Weg für ein Team von zwölf, etwas Markengerechtes ohne Designerin zu verschicken."
-    },
-    {
-     "lead": "Insight",
-     "leadDe": "Insight",
-     "text": "People open a gift and ignore a newsletter. Every email that worked at Scholé gave something first: a lesson made for your team, a thank-you with a free month, a new way to learn on your commute. One animated header, one thing to press.",
-     "textDe": "Menschen öffnen ein Geschenk und ignorieren einen Newsletter. Jede E-Mail, die bei Scholé funktioniert hat, gab zuerst etwas: eine Lektion für dein Team, ein Dankeschön mit einem Gratismonat, eine neue Art, auf dem Arbeitsweg zu lernen. Ein animierter Header, eine Sache zum Drücken."
-    },
-    {
-     "lead": "Solution",
-     "leadDe": "Lösung",
-     "text": "I designed the templates and the animated headers for the whole HubSpot programme: Tips from Scholé, the weekly series; A Taste of Scholé, the gifted lesson invite with a QR code; Grow with Scholé, the founders' thank-you to pilot users; Podcast Mode for the audio launch; and the re-engagement mail where Olé waited for you. Every header is a Content Studio timeline, so a new edition takes minutes.",
-     "textDe": "Ich habe die Templates und die animierten Header für das gesamte HubSpot-Programm gestaltet: Tips from Scholé, die wöchentliche Serie; A Taste of Scholé, die Einladung zur geschenkten Lektion mit QR-Code; Grow with Scholé, das Dankeschön der Gründerinnen an Pilot-Nutzer; Podcast Mode für den Audio-Launch; und die Reaktivierungs-Mail, in der Olé auf dich gewartet hat. Jeder Header ist eine Content-Studio-Timeline, eine neue Ausgabe dauert Minuten."
-    },
-    {
-     "text": "Opens counted without bots. The thank-you to the IATSE pilot cohort, Grow with Scholé, went to 103 people: 49% opened, 27% clicked, and 56% of the people who opened went on to click. It is still the most clicked email Scholé has sent. In the weekly tips series (five editions to about 1,900 members), the podcast edition, your lessons, now as podcasts, drew the most clicks of the set at 26% opens and 12% click-to-open. The lesson: an animated header and one clear thing to press beat a newsletter every time.",
-     "textDe": "Öffnungen ohne Bots gezählt. Das Dankeschön an die IATSE-Pilotgruppe, Grow with Scholé, ging an 103 Personen: 49 % öffneten, 27 % klickten, und 56 % derer, die öffneten, klickten weiter. Es ist bis heute die meistgeklickte E-Mail, die Scholé verschickt hat. In der wöchentlichen Tipp-Serie (fünf Ausgaben an rund 1.900 Mitglieder) holte die Podcast-Ausgabe, your lessons, now as podcasts, die meisten Klicks der Reihe: 26 % Öffnungen und 12 % Click-to-Open. Die Lektion: ein animierter Header und eine klare Sache zum Drücken schlagen jeden Newsletter.",
-     "lead": "Results",
-     "leadDe": "Ergebnisse"
+     "lead": "The emails",
+     "leadDe": "Die E-Mails",
+     "text": "The HubSpot programme runs on one template: an animated header made in the Content Studio, a title in New Spirit, body copy that opens with the reader's situation, one button, and the footer every Scholé surface shares. Five series, from the weekly Tips from Scholé to A Taste of Scholé, the gifted lesson with a QR code. People open a gift and ignore a newsletter: the thank-you to the IATSE pilot cohort is still the most clicked email Scholé has sent. Four of them below, live.",
+     "textDe": "Das HubSpot-Programm läuft auf einem Template: ein animierter Header aus dem Content Studio, ein Titel in New Spirit, Fliesstext, der mit der Situation der Leserin beginnt, ein Button und der Footer, den jede Scholé-Fläche teilt. Fünf Serien, von den wöchentlichen Tips from Scholé bis zu A Taste of Scholé, der verschenkten Lektion mit QR-Code. Ein Geschenk wird geöffnet, ein Newsletter ignoriert: Das Dankeschön an die IATSE-Pilot-Kohorte ist bis heute die meistgeklickte E-Mail von Scholé. Vier davon unten, live."
     },
     {
      "stats": [
@@ -775,37 +455,82 @@
      "sourceDe": "Quelle: HubSpot E-Mail-Analytics, Öffnungen ohne Bots, gelesen am 13. Sep 2026."
     },
     {
-     "img": "/media/schole-ai-73-email-tips-header.webp"
+     "emails": [
+      {
+       "header": "/media/schole-ai-147-email-header-podcast.webp",
+       "headerH": 420,
+       "subject": "No time to read? Don't.",
+       "title": "No time to read? Don't.",
+       "body": [
+        "Hi {firstname},",
+        "You're curious. You love to learn. But some days, sitting down to read is just not going to happen.",
+        "So we took reading out of it. Any lesson can become a podcast: tap the audio icon and two AI hosts, Zeteo and Atlas, talk it through, built around your job, your tools, your goals. Finish listening and the section is complete.",
+        "Your commute just became a lesson. Your progress is saved. Don't let those days slow you down."
+       ],
+       "button": "Play a lesson",
+       "closing": "Headphones on. Olé keeps count."
+      },
+      {
+       "header": "/media/schole-ai-148-email-header-ole-waited.webp",
+       "headerH": 420,
+       "subject": "Olé waited for you.",
+       "title": "Olé waited for you.",
+       "body": [
+        "Hi {firstname},",
+        "Your lesson is exactly where you left it. Same page, same progress, same patient tutor.",
+        "Ten minutes is enough to finish the section, and the next one is already built around what you were doing at work last week. You just continue."
+       ],
+       "button": "Pick up where you left off",
+       "closing": "He is good at waiting. Come back anyway."
+      },
+      {
+       "header": "/media/schole-ai-149-email-header-grow.webp",
+       "headerH": 508,
+       "subject": "Thank you. Here is a month on us.",
+       "title": "You were here first.",
+       "body": [
+        "Hi {firstname},",
+        "You tried Scholé before it was finished, told us what was broken, and kept coming back. That is what a pilot is for, and we are grateful.",
+        "So: a free month of Scholé for you, and for anyone on your team who wants to learn alongside you. New since you started: any lesson as a podcast, scenarios to practice the conversations that matter, and Olé in your browser."
+       ],
+       "button": "Claim your free month",
+       "closing": "Thank you for growing with us."
+      },
+      {
+       "header": "/media/schole-ai-150-email-header-taste.webp",
+       "headerH": 508,
+       "subject": "A lesson made for your team.",
+       "title": "This lesson was made for your team.",
+       "body": [
+        "We put together a short Scholé lesson based on what we talked about. The topic: AI agents at work.",
+        "Scan the QR code or open the link below. No sign-up, just your email address. It takes about five minutes and it shows you exactly what a Scholé lesson feels like from the learner's side."
+       ],
+       "qr": "/media/schole-ai-151-qr-taste.png",
+       "qrLabel": "Or open it directly:",
+       "button": "Try the lesson",
+       "closing": "If you want to walk through it together, just reply to this email."
+      }
+     ]
     },
     {
-     "img": "/media/schole-ai-74-email-taste-header.webp"
+     "lead": "The funnel",
+     "leadDe": "Der Funnel",
+     "text": "Cold traffic bounced off demo forms, so the top of the funnel became a free 3-minute AI Maturity Test: 16 questions, a profile across 8 dimensions, benchmarked by role, email asked only at the results step. Name the anxiety, sell the relief: you'll finally know. Two message tracks, one visual system, every stat sourced, and the line that passes every tone test: Behind on AI? Relax. So is everyone else. Behind it, three more pages take a stranger to a booked call, every step tagged, every page working without a single API call. Step one, live below.",
+     "textDe": "Kalter Traffic prallte an Demo-Formularen ab, also wurde ein kostenloser 3-Minuten-AI-Maturity-Test zum Anfang des Funnels: 16 Fragen, ein Profil über 8 Dimensionen, nach Rolle gebenchmarkt, E-Mail erst beim Ergebnis. Die Angst benennen, die Erleichterung verkaufen: Endlich weisst du es. Zwei Botschaftsstränge, ein visuelles System, jede Zahl belegt, und die Zeile, die jeden Tontest besteht: Behind on AI? Relax. So is everyone else. Dahinter führen drei weitere Seiten einen Fremden bis zum gebuchten Call, jeder Schritt getaggt, jede Seite ohne einen einzigen API-Call. Schritt eins, live unten."
     },
     {
-     "img": "/media/schole-ai-75-email-podcast-header.webp"
+     "img": "/media/schole-ai-53-ad-79-never-assessed.webp"
     },
     {
-     "img": "/media/schole-ai-76-email-thank-you.webp"
+     "img": "/media/schole-ai-58-ad-behind-on-ai-relax.webp"
     },
     {
-     "img": "/media/schole-ai-77-email-footer.webp"
-    },
-    {
-     "heading": "The systems · World Domination and the Content Studio",
-     "headingDe": "Die Systeme · World Domination und das Content Studio"
-    },
-    {
-     "text": "Twelve people, one designer. The brand only survives if the team can ship without me in the room. So I wrote the design guidelines (tone of voice in four words: humorous, witty, intelligent, direct) and built the Content Studio, where every carousel, email header, ad and animation is one self-contained HTML file rendered frame by frame. Consistent by construction.",
-     "textDe": "Zwölf Leute, eine Designerin. Die Marke überlebt nur, wenn das Team ohne mich im Raum liefern kann. Also habe ich die Design Guidelines geschrieben (Tonalität in vier Wörtern: humorvoll, witzig, intelligent, direkt) und das Content Studio gebaut, in dem jedes Carousel, jeder E-Mail-Header, jede Anzeige und Animation eine eigenständige HTML-Datei ist, Bild für Bild gerendert. Konsistent per Konstruktion."
-    },
-    {
-     "img": "/media/schole-ai-84-content-studio.webp"
-    },
-    {
-     "text": "Strategy decks get read once. So I built the Scholé World Domination Center, an internal web app for the whole marketing team. The opening tab explains the chain: one big idea, six ICPs, each with its own insight, pain points, the metric its buyer shows their boss, channels, and every asset hanging off it. Rule of one: each asset carries one ICP, one message, one metric. If you can't tag it, it doesn't ship. The umbrella idea went through three rounds with the founders until it survived a hallway: training people actually do.",
-     "textDe": "Strategiedecks werden einmal gelesen. Also habe ich das Scholé World Domination Center gebaut, eine interne Web-App für das ganze Marketingteam. Der erste Tab erklärt die Kette: eine große Idee, sechs ICPs, jedes mit eigenem Insight, Schmerzpunkten, der Kennzahl, die der Käufer seinem Chef zeigt, Kanälen und jedem Asset, das daran hängt. Regel der Eins: jedes Asset trägt ein ICP, eine Botschaft, eine Kennzahl. Was sich nicht taggen lässt, geht nicht raus. Die Dachidee ging drei Runden mit den Gründerinnen, bis sie einen Flurtest bestand: training people actually do."
-    },
-    {
-     "img": "/media/schole-ai-89s-growth-os-login.webp"
+     "embed": "/test-ai-maturity/index.html",
+     "poster": "/media/schole-ai-85-poster-maturity.webp",
+     "url": "try.schole.ai/test-ai-maturity/",
+     "caption": "Step 1 · The AI Maturity Test. 16 questions, 8 dimensions, benchmarked by role.",
+     "captionDe": "Schritt 1 · Der AI Maturity Test. 16 Fragen, 8 Dimensionen, nach Rolle verglichen.",
+     "height": 760
     },
     {
      "heading": "Where it stands",
@@ -816,16 +541,8 @@
      "textDe": "Zwei Mal #1 Product of the Day auf Product Hunt, bei drei Launches. Enterprise-Pilotprojekte bei Swisscom, Decathlon und Coop, und Lernende von Bank of America, NASA, Oracle, Microsoft und Apple. Die erste öffentliche Partnerschaft: OS Training in Houston hat im September 2026 seine eigene Plattform auf Scholé gestartet. Eine Marke, eine Strategie, ein Designsystem, eine Content-Maschine, ein Lead-Funnel und drei Launches in neun Monaten, in einem Team von zwölf. Und ein Marketing-Betriebssystem, damit die nächste Person am ersten Tag übernehmen kann."
     }
    ],
-   "polaroidsAfter": false,
-   "tagline": "Scholé is an AI-native learning company from Lausanne and San Francisco, built on EPFL and UC Berkeley research.",
-   "taglineDe": "Scholé ist ein AI-natives Lernunternehmen aus Lausanne und San Francisco, gebaut auf Forschung der EPFL und der UC Berkeley.",
-   "opener": {
-    "film": "/media/schole-ai-02-learning-technologies.mp4",
-    "poster": "/media/schole-ai-02-learning-technologies-poster.jpg",
-    "loop": true,
-    "width": 336,
-    "rounded": true
-   }
+   "tagline": "Shaping Scholé’s brand. Leading its launches. Building its marketing.",
+   "taglineDe": "Scholés Marke geformt. Die Launches geführt. Das Marketing aufgebaut."
   },
   {
    "slug": "team-nl",

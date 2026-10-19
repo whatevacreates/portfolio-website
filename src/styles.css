@@ -97,8 +97,9 @@ nav button.active:after, nav button:hover:after { right:0; }
 .case-logo img { display:block; width:min(100%,clamp(300px,44vw,720px)); height:auto; }
 .case-description { grid-column:2; max-width:740px; line-height:1.6; font-size:16px; margin:5vh 0 0; color:#475569; }
 /* one line under the logo saying what Scholé is, before the write-up */
-.case-tagline { grid-column:2; max-width:740px; margin:4vh 0 0; font:400 clamp(18px,1.6vw,23px)/1.4 var(--display); color:#0f172a; }
-.case-tagline + .case-description { margin-top:3vh; }
+.case-tagline { grid-column:2; max-width:900px; margin:5vh 0 0; font:400 clamp(26px,2.6vw,40px)/1.2 var(--display); color:#0f172a; text-wrap:balance; }
+.case-tagline + .case-description { margin-top:4vh; }
+.case-description + .case-description { margin-top:1.1em; }
 /* the opener film sits between the write-up and the first chapter */
 .case-opener { margin:-4vh 0 10vh; }
 .case-film.case-film-rounded video { border-radius:28px; }
