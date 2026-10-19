@@ -457,7 +457,7 @@ function Photography() {
   const tr = useT();
   return <main className="editorial-page" ref={root}>
     <section className="page-title"><h1>{tr('Photography', 'Fotografie')}</h1></section>
-    <div className="photo-grid">{data.photography.map((photo, i) => <figure key={photo} className={`photo photo-${i % 7}`}><img src={asset(photo)} alt={`Eva Przybyla photography ${i + 1}`} loading={i < 6 ? 'eager' : 'lazy'} /></figure>)}</div>
+    <div className="photo-grid">{data.photography.map((photo, i) => <figure key={photo} className={i % 5 === 0 ? 'photo photo-wide' : 'photo'}><img src={asset(photo)} alt={`Eva Przybyla photography ${i + 1}`} loading={i < 6 ? 'eager' : 'lazy'} onLoad={(e) => { const im = e.currentTarget; if (im.naturalWidth / im.naturalHeight < 1.2) im.parentElement.classList.add('photo-square'); }} /></figure>)}</div>
   </main>;
 }
 
