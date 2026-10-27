@@ -275,13 +275,20 @@ function renderStory(story, title, tr) {
   story.forEach((item, i) => {
     if (item.img && !item.width) { run.push(item.img); return; }
     flush();
+    // a fixed pair/trio of images on one row, held to a given width, outside the gallery flow
+    if (item.row) out.push(<div className={item.rounded ? 'case-row case-row-fixed case-row-rounded' : 'case-row case-row-fixed'} key={i}
+      style={{ gridTemplateColumns: `repeat(${item.row.length},1fr)`, maxWidth: item.width ? `${item.width}px` : undefined }}>
+      {item.row.map((image) => <figure className="case-image case-image-small" key={image}>
+        <img src={asset(image)} alt={`${title}, project image`} loading="lazy" />
+      </figure>)}
+    </div>);
     // a single image held to a given width (e.g. the text column), outside the gallery flow
-    if (item.img) out.push(<figure className={item.rounded ? 'case-image case-image-solo case-image-rounded' : 'case-image case-image-solo'} key={i}>
+    else if (item.img) out.push(<figure className={item.rounded ? 'case-image case-image-solo case-image-rounded' : 'case-image case-image-solo'} key={i}>
       <img src={asset(item.img)} alt={`${title}, project image`} loading="lazy" style={{ maxWidth: `${item.width}px` }} />
     </figure>);
-    else if (item.text) out.push(<p className={item.style === 'italic' ? 'case-text case-text-italic' : 'case-text'} key={i}>{item.lead && <strong className="case-lead">{tr(item.lead, item.leadDe)}</strong>}{tr(item.text, item.textDe)}</p>);
+    else if (item.text) out.push(<p className={item.style === 'italic' ? 'case-text case-text-italic' : 'case-text'} key={i}>{item.lead && <strong className={item.leadCenter ? 'case-lead case-lead-center' : 'case-lead'}>{tr(item.lead, item.leadDe)}</strong>}{tr(item.text, item.textDe)}</p>);
     else if (item.mark) out.push(<div className="case-divider" key={i}><Constellation /></div>);
-    else if (item.quote) out.push(<blockquote className={item.tone === 'brand' ? 'case-quote case-quote-brand' : 'case-quote'} key={i}>{item.quote}</blockquote>);
+    else if (item.quote) out.push(<blockquote className={`case-quote${item.tone === 'brand' ? ' case-quote-brand' : ''}${item.align === 'center' ? ' case-quote-center' : ''}`} key={i}>{item.quote}</blockquote>);
     // the Product Hunt badge, placed inside the story (next to the launch it belongs to)
     else if (item.award) out.push(<div className="case-award case-award-inline" key={i}>
       <em>{tr(item.award.text, item.award.textDe)}</em>
@@ -327,11 +334,12 @@ function renderStory(story, title, tr) {
       {item.flow.map((st, k) => <li key={k}><strong>{tr(st.t, st.tDe)}</strong><span>{tr(st.s, st.sDe)}</span></li>)}
     </ol>);
     // an Instagram carousel the way the Royal Canin case shows its Facebook ones:
-    // the first card inside a phone with the post chrome, the rest trailing right
+    // the first card inside a photographed iPhone (a cut-out frame laid over the
+    // post chrome, screen and island transparent), the rest trailing right
     else if (item.carousel) out.push(<figure className="case-carousel" key={i}>
       <div className="case-carousel-row">
-        <div className="case-ig-wrap"><div className="case-phone-body case-ig">
-          <div className="case-phone-screen">
+        <div className="case-ig-wrap"><div className="ig-phone">
+          <div className="ig-screen">
             <div className="ig-head"><i className="ig-avatar" /><b>{item.carousel.handle}</b><span>···</span></div>
             <div className="ig-media"><video src={asset(item.carousel.cards[0].film)} poster={asset(item.carousel.cards[0].poster)} autoPlay muted loop playsInline preload="metadata" /></div>
             <div className="ig-actions">
@@ -343,7 +351,8 @@ function renderStory(story, title, tr) {
             </div>
             <div className="ig-caption"><b>{item.carousel.handle}</b> {tr(item.carousel.caption, item.carousel.captionDe)}</div>
           </div>
-        </div><span className="case-phone-stand" aria-hidden="true" /></div>
+          <img className="ig-frame" src={asset('/media/schole-ai-146-iphone-frame.webp')} alt="" aria-hidden="true" draggable="false" />
+        </div></div>
         {item.carousel.cards.slice(1).map((c, j) => <div className="case-carousel-card" key={j}>
           <video src={asset(c.film)} poster={asset(c.poster)} autoPlay muted loop playsInline preload="metadata" />
         </div>)}
@@ -361,7 +370,7 @@ function renderStory(story, title, tr) {
         <figcaption><strong>{tr(ph.title, ph.titleDe)}</strong>{tr(ph.insight, ph.insightDe)}</figcaption>
       </figure>)}
     </div>);
-    else if (item.film) out.push(<figure className={item.rounded ? 'case-film case-film-rounded' : 'case-film'} key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
+    else if (item.film) out.push(<figure className={`case-film${item.rounded ? ' case-film-rounded' : ''}${item.serifCaption ? ' case-film-serif' : ''}`} key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
       {item.loop
         ? <video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} autoPlay muted loop playsInline preload="auto" />
         : <video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} controls playsInline preload="metadata" />}
@@ -406,7 +415,7 @@ function Project({ project, close }) {
       {project.titleImage
         ? <h1 className="case-logo"><img src={asset(project.titleImage)} alt={project.title} /></h1>
         : <h1>{project.title}</h1>}
-      {project.tagline && <p className="case-tagline">{tr(project.tagline, project.taglineDe)}</p>}
+      {project.tagline && <p className={`case-tagline${project.tagline.includes('\n') ? ' case-tagline--stacked' : ''}`}>{tr(project.tagline, project.taglineDe)}</p>}
       {[].concat(tr(project.description, project.descriptionDe)).map((para, i) => <p className="case-description" key={i}>{para}</p>)}
     </section>
     {project.opener && <div className="case-opener">{renderStory([project.opener], project.title, tr)}</div>}

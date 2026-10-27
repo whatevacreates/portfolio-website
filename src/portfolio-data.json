@@ -29,20 +29,18 @@
     },
     {
      "heading": "Rebranding",
-     "headingDe": "Rebranding",
-     "sub": "Scholé is where learning becomes progress",
-     "subDe": "Scholé is where learning becomes progress",
-     "tone": "brand"
+     "headingDe": "Rebranding"
     },
     {
-     "text": "January 2026. A research-grade product, a team of twelve, no marketing. My job: make it understandable, desirable and sellable, and build what it takes to get it to market. Strategy, brand, launches, paid, CRM, measurement. One marketer.",
-     "textDe": "Januar 2026. Ein Produkt aus der Forschung, ein Team von zwölf, kein Marketing. Mein Job: es verständlich, begehrenswert und verkäuflich machen und bauen, was es braucht, um es auf den Markt zu bringen. Strategie, Marke, Launches, Paid, CRM, Messung. Eine Marketerin."
+     "text": "Scholé had a foundation in research and a product concept, but no clear brand direction. Its identity centred on the technology, leaving the value for learners and organisations unclear.",
+     "textDe": "Scholé hatte ein Fundament aus Forschung und ein Produktkonzept, aber keine klare Markenrichtung. Die Identität drehte sich um die Technologie, der Wert für Lernende und Organisationen blieb unklar."
     },
     {
      "lead": "Where learning becomes progress",
      "leadDe": "Where learning becomes progress",
-     "text": "First the argument, then the logo. May 2026: I wrote the Scholé brand strategy, eleven chapters from market context to visual direction. The category sells efficiency, performance and ROI in the same words. I went underneath, to the human truth: people want to become more capable, and progress is what gives learning its meaning. It is also what HR has to prove to the board. From there the territory, the promise (your path, your companion, your proof of progress), the campaign lines, the visual direction. One line survived every chapter: Scholé is where learning becomes progress. The identity grew out of it.",
-     "textDe": "Zuerst das Argument, dann das Logo. Mai 2026: Ich habe die Scholé-Markenstrategie geschrieben, elf Kapitel vom Marktkontext bis zur visuellen Richtung. Die Kategorie verkauft Effizienz, Performance und ROI mit denselben Worten. Ich bin darunter gegangen, zur menschlichen Wahrheit: Menschen wollen fähiger werden, und Fortschritt ist, was dem Lernen seinen Sinn gibt. Es ist auch das, was HR dem Board beweisen muss. Von dort das Territorium, das Versprechen (dein Weg, dein Begleiter, dein Beweis für Fortschritt), die Kampagnenzeilen, die visuelle Richtung. Eine Zeile hat jedes Kapitel überlebt: Scholé is where learning becomes progress. Daraus ist die Identität gewachsen."
+     "leadCenter": true,
+     "text": "I began with the brand strategy, defining a shared ambition: progress. Learners want to become more capable; HR teams need to demonstrate that learning leads to practical improvement. This connected individual motivation with business value and gave Scholé a central idea to build around.",
+     "textDe": "Ich habe mit der Markenstrategie begonnen und eine gemeinsame Ambition definiert: Fortschritt. Lernende wollen fähiger werden; HR-Teams müssen zeigen, dass Lernen zu praktischer Verbesserung führt. Das verband individuelle Motivation mit geschäftlichem Wert und gab Scholé eine zentrale Idee, um die sich alles aufbauen ließ."
     },
     {
      "img": "/media/schole-ai-26s-logo-rationale.webp",
@@ -50,16 +48,18 @@
      "rounded": true
     },
     {
-     "text": "Scholé's progress logo comes from the idea of steady progression: learning as a continuous upward movement. The accent is not only a typographic detail; it becomes a symbol of motion, growth, and becoming. It suggests a spark of curiosity, the moment when learning begins, and the quiet force that keeps someone moving forward. Its upward curve reflects Scholé's belief that progress is not a single leap, but a repeated act of learning, practicing, and improving over time. In the context of the brand strategy, the mark connects to the deeper human need to grow, feel capable, and realize potential through constant learning.",
-     "textDe": "Das Progress-Logo von Scholé kommt aus der Idee der stetigen Progression: Lernen als kontinuierliche Aufwärtsbewegung. Der Akzent ist nicht nur ein typografisches Detail; er wird zum Symbol für Bewegung, Wachstum und Werden. Er deutet einen Funken Neugier an, den Moment, in dem Lernen beginnt, und die stille Kraft, die jemanden vorwärts trägt. Seine Aufwärtskurve spiegelt Scholés Überzeugung, dass Fortschritt kein einzelner Sprung ist, sondern ein wiederholter Akt des Lernens, Übens und Besserwerdens über die Zeit. Im Kontext der Markenstrategie verbindet sich die Marke mit dem tieferen menschlichen Bedürfnis, zu wachsen, sich fähig zu fühlen und durch ständiges Lernen Potenzial zu verwirklichen.",
-     "style": "italic"
+     "text": "The positioning, “Where learning becomes progress”, became the foundation for the brand promise, verbal identity and visual direction. Three pillars made it tangible: your path, your companion, your proof of progress.",
+     "textDe": "Die Positionierung „Where learning becomes progress“ wurde zum Fundament für Markenversprechen, verbale Identität und visuelle Richtung. Drei Säulen machten sie greifbar: dein Weg, dein Begleiter, dein Beweis für Fortschritt."
     },
     {
-     "img": "/media/schole-ai-28-logo-progress-sketch.webp"
+     "text": "From there, I explored how to express progress visually and developed an identity system across the website, campaigns and sales materials. Each execution approached the idea from a different angle, building a consistent association between Scholé and progress.",
+     "textDe": "Von dort aus habe ich erkundet, wie sich Fortschritt visuell ausdrücken lässt, und ein Identitätssystem für Website, Kampagnen und Vertriebsmaterialien entwickelt. Jede Umsetzung näherte sich der Idee aus einem anderen Winkel und baute eine konsistente Verbindung zwischen Scholé und Fortschritt auf."
     },
+     {"film": "/media/schole-ai-brand-film-30s.mp4", "poster": "/media/schole-ai-brand-film-30s-poster.jpg", "width": 980, "rounded": true, "serifCaption": true, "caption": "The need to ask. The courage to try. The hunger to know more. The refusal to stay still. The power to keep moving forward. Every question is a beginning. Every mistake can become a lesson. Every aha moment marks progress. Learning what felt impossible yesterday. Bit by bit, every day, we become a little more like ourselves. More confident. More capable. More ready for what’s next. Is this drive what makes us human? Scholé. Find your path forward.", "captionDe": "Das Bedürfnis zu fragen. Der Mut, es zu versuchen. Der Hunger, mehr zu wissen. Die Weigerung, stehen zu bleiben. Die Kraft, weiterzugehen. Jede Frage ist ein Anfang. Jeder Fehler kann zur Lektion werden. Jeder Aha-Moment ist ein Fortschritt. Lernen, was gestern noch unmöglich schien. Stück für Stück, jeden Tag, werden wir ein bisschen mehr wir selbst. Selbstbewusster. Fähiger. Bereiter für das, was kommt. Ist dieser Antrieb das, was uns menschlich macht? Scholé. Find your path forward."},
     {
-     "quote": "The need to ask.\nThe courage to try.\nThe hunger to know more.\nThe refusal to stay still.\nThe power to keep moving forward.\n\nEvery question is a beginning.\nEvery mistake can become a lesson.\nEvery aha moment marks progress.\nLearning what felt impossible yesterday.\n\nBit by bit, every day, we become a little more like ourselves.\nMore confident. More capable. More ready for what’s next.\n\nIs this drive what makes us human?\n\nScholé.\nFind your path forward.",
-     "tone": "brand"
+     "row": ["/media/schole-ai-28s-logo-progress-sketch.webp", "/media/schole-ai-28b-logo-explorations.webp"],
+     "width": 900,
+     "rounded": true
     },
     {
      "img": "/media/schole-ai-140-logo-construction.webp",
@@ -84,14 +84,12 @@
      "textDe": "Visitenkarten und die Geschenk-Lektionskarten: ein QR-Code auf der Rückseite öffnet eine Lektion, die für die Person gemacht ist, die sie bekommt. Die Tagline sitzt zentriert auf der Rückseite, das Lockup läuft über die untere Kante hinaus, wie auf jeder Scholé-Fläche."
     },
     {
-     "img": "/media/schole-ai-98-business-cards-s.webp"
+     "row": ["/media/schole-ai-98m-business-cards-marble.webp", "/media/schole-ai-99m-gift-lesson-cards-marble.webp"],
+     "rounded": true
     },
     {
-     "img": "/media/schole-ai-99-gift-lesson-cards-s.webp"
-    },
-    {
-     "lead": "On Instagram",
-     "leadDe": "Auf Instagram",
+     "lead": "On Instagram and email marketing: Grow with Scholé",
+     "leadDe": "Auf Instagram und im E-Mail-Marketing: Grow with Scholé",
      "text": "Grow with Scholé, the carousel series: one question people are already asking themselves, then the science, one slide at a time, in the brand gradient with Olé as the guide. This one asks whether AI is making you smarter or dumber and answers with what learners actually need: try first, just hard enough, the right feedback, measured and remembered. Every slide is a Content Studio timeline, so the same carousel also runs as the header of the Grow with Scholé email.",
      "textDe": "Grow with Scholé, die Carousel-Serie: eine Frage, die sich die Leute ohnehin schon stellen, dann die Wissenschaft, Slide für Slide, im Markenverlauf mit Olé als Guide. Dieses fragt, ob KI dich schlauer oder dümmer macht, und antwortet mit dem, was Lernende wirklich brauchen: zuerst selbst probieren, gerade schwer genug, das richtige Feedback, gemessen und gemerkt. Jedes Slide ist eine Content-Studio-Timeline, deshalb läuft dasselbe Carousel auch als Header der Grow-with-Scholé-E-Mail."
     },
@@ -383,13 +381,6 @@
      "textDe": "Paid auf Reddit, LinkedIn und Instagram, alles auf der Product-Hunt-Seite, weil die ersten beiden Launches gezeigt hatten, dass die Launch-Seite für eine Feature-Story besser konvertiert; die Homepage lief als A/B-Kontrolle. Organisch am selben Tag: ein Founder-Post, die Scholé-Seite, das Team. Eine E-Mail an die Pilot-Kohorten, mit KI gemacht, die das auch sagt und anbietet, es dir beizubringen. Alles getaggt, alles im World Domination Center unter einem ICP, einer Botschaft, einer Metrik."
     },
     {
-     "film": "/media/schole-ai-138-extension-in-action.mp4",
-     "poster": "/media/schole-ai-138-poster-extension.webp",
-     "loop": true,
-     "caption": "Learn Anywhere in action · ten seconds in Google Colab",
-     "captionDe": "Learn Anywhere in Aktion · zehn Sekunden in Google Colab"
-    },
-    {
      "lead": "Results",
      "leadDe": "Ergebnisse",
      "text": "#1 Product of the Day on 24 September 2026, 405 upvotes and 76 comments: the biggest of the three launches, on the smallest budget and the most tired team. Two of three launches at #1 in five months. The celebration post went out the next morning in the same hand-drawn world, because a win is also a piece of brand. The paid numbers land here in October; what we already know is which creative people vote for: the one that looks drawn by a person.",
@@ -541,8 +532,8 @@
      "textDe": "Zwei Mal #1 Product of the Day auf Product Hunt, bei drei Launches. Enterprise-Pilotprojekte bei Swisscom, Decathlon und Coop, und Lernende von Bank of America, NASA, Oracle, Microsoft und Apple. Die erste öffentliche Partnerschaft: OS Training in Houston hat im September 2026 seine eigene Plattform auf Scholé gestartet. Eine Marke, eine Strategie, ein Designsystem, eine Content-Maschine, ein Lead-Funnel und drei Launches in neun Monaten, in einem Team von zwölf. Und ein Marketing-Betriebssystem, damit die nächste Person am ersten Tag übernehmen kann."
     }
    ],
-   "tagline": "Shaping Scholé’s brand. Leading its launches. Building its marketing.",
-   "taglineDe": "Scholés Marke geformt. Die Launches geführt. Das Marketing aufgebaut."
+   "tagline": "Shaping Scholé’s brand.\nLeading its launches.\nBuilding its marketing.",
+   "taglineDe": "Scholés Marke geformt.\nDie Launches geführt.\nDas Marketing aufgebaut."
   },
   {
    "slug": "team-nl",
@@ -2480,6 +2471,14 @@
    "w": 990,
    "h": 557
   },
+  "/media/schole-ai-28s-logo-progress-sketch.webp": {
+   "w": 673,
+   "h": 516
+  },
+  "/media/schole-ai-28b-logo-explorations.webp": {
+   "w": 1764,
+   "h": 1352
+  },
   "/media/schole-ai-29-logo-category.webp": {
    "w": 990,
    "h": 557
@@ -2764,6 +2763,14 @@
   "/media/schole-ai-logo.svg": {
    "w": 1096,
    "h": 214
+  },
+  "/media/schole-ai-98m-business-cards-marble.webp": {
+   "w": 2000,
+   "h": 1500
+  },
+  "/media/schole-ai-99m-gift-lesson-cards-marble.webp": {
+   "w": 2000,
+   "h": 1500
   },
   "/media/schole-ai-98-business-cards.webp": {
    "w": 2400,
