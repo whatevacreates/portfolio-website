@@ -308,18 +308,23 @@ function renderStory(story, title, tr) {
     if (item.img && !item.width) { run.push(item.img); return; }
     flush();
     // a fixed pair/trio of images on one row, held to a given width, outside the gallery flow
-    if (item.row) out.push(<div className={`case-row ${item.natural ? 'case-row-natural' : 'case-row-fixed'}${item.rounded ? ' case-row-rounded' : ''}`} key={i}
-      style={{ gridTemplateColumns: `repeat(${item.row.length},1fr)`, maxWidth: item.width ? `${item.width}px` : undefined }}>
-      {item.row.map((image) => <figure className="case-image case-image-small" key={image}>
-        <img src={asset(image)} alt={`${title}, project image`} loading="lazy" />
-      </figure>)}
-    </div>);
+    if (item.row) out.push(<figure className="case-row-figure" key={i} style={{ maxWidth: item.width ? `${item.width}px` : undefined }}>
+      <div className={`case-row ${item.natural ? 'case-row-natural' : 'case-row-fixed'}${item.rounded ? ' case-row-rounded' : ''}`}
+        style={{ gridTemplateColumns: `repeat(${item.row.length},1fr)` }}>
+        {item.row.map((image) => <span className="case-image case-image-small" key={image}>
+          <img src={asset(image)} alt={`${title}, project image`} loading="lazy" width={data.meta?.[image]?.w} height={data.meta?.[image]?.h} />
+        </span>)}
+      </div>
+      {item.caption && <figcaption className="case-caption">{tr(item.caption, item.captionDe)}</figcaption>}
+    </figure>);
     // a single image held to a given width (e.g. the text column), outside the gallery flow
     else if (item.img) out.push(<figure className={item.rounded ? 'case-image case-image-solo case-image-rounded' : 'case-image case-image-solo'} key={i}>
-      <img src={asset(item.img)} alt={`${title}, project image`} loading="lazy" style={{ maxWidth: `${item.width}px` }} />
+      <img src={asset(item.img)} alt={`${title}, project image`} loading="lazy" style={{ maxWidth: `${item.width}px` }} width={data.meta?.[item.img]?.w} height={data.meta?.[item.img]?.h} />
+      {item.caption && <figcaption className="case-caption">{tr(item.caption, item.captionDe)}</figcaption>}
     </figure>);
-    else if (item.text) out.push(<p className={item.style === 'italic' ? 'case-text case-text-italic' : 'case-text'} key={i}>{item.lead && <strong className={item.leadCenter ? 'case-lead case-lead-center' : 'case-lead'}>{tr(item.lead, item.leadDe)}</strong>}{tr(item.text, item.textDe)}</p>);
+    // the mark goes before text: a closing { mark, text } block is a divider, not a paragraph
     else if (item.mark) out.push(<div className={item.text ? 'case-divider case-divider-close' : 'case-divider'} key={i}><Constellation />{item.text && <p className="case-mark-text">{tr(item.text, item.textDe)}</p>}</div>);
+    else if (item.text) out.push(<p className={item.style === 'italic' ? 'case-text case-text-italic' : 'case-text'} key={i}>{item.lead && <strong className={item.leadCenter ? 'case-lead case-lead-center' : 'case-lead'}>{tr(item.lead, item.leadDe)}</strong>}{tr(item.text, item.textDe)}{item.link && <> <a className="case-text-link" href={item.link.href} target="_blank" rel="noreferrer" onClick={() => track('case_link_clicked', { url: item.link.href })}>{tr(item.link.label, item.link.labelDe)} <ArrowUpRight /></a></>}</p>);
     else if (item.quote) out.push(<blockquote className={`case-quote${item.tone === 'brand' ? ' case-quote-brand' : ''}${item.align === 'center' ? ' case-quote-center' : ''}`} key={i}>{item.quote}</blockquote>);
     // the Product Hunt badge, placed inside the story (next to the launch it belongs to)
     else if (item.award) out.push(<div className="case-award case-award-inline" key={i}>
@@ -354,11 +359,14 @@ function renderStory(story, title, tr) {
     </figure>);
     else if (item.video) out.push(<div className={`case-videos${item.rounded ? ' case-videos-rounded' : ''}`} key={i}><div className="video-grid"><VideoEmbed video={item.video} eager /></div></div>);
     // launch-page boards: a two-up grid of landscape slides, a lone last one centred
-    else if (item.boards) out.push(<div className="case-boards" key={i}>
-      {item.boards.map((b, k) => <figure className="case-image case-board" key={b.img}>
-        <img src={asset(b.img)} alt={tr(b.alt, b.altDe)} loading="lazy" width={data.meta?.[b.img]?.w} height={data.meta?.[b.img]?.h} />
-      </figure>)}
-    </div>);
+    else if (item.boards) out.push(<figure className="case-boards-figure" key={i}>
+      <div className="case-boards">
+        {item.boards.map((b, k) => <span className="case-image case-board" key={b.img}>
+          <img src={asset(b.img)} alt={tr(b.alt, b.altDe)} loading="lazy" width={data.meta?.[b.img]?.w} height={data.meta?.[b.img]?.h} />
+        </span>)}
+      </div>
+      {item.caption && <figcaption className="case-caption">{tr(item.caption, item.captionDe)}</figcaption>}
+    </figure>);
     else if (item.embed && item.frame !== 'monitor') out.push(<CaseEmbed item={item} tr={tr} key={i} />);
     else if (item.stats) out.push(<div className="case-stats" key={i}>
       {item.stats.map((st, k) => <div className="case-stat" key={k}><strong>{st.n}</strong><span>{tr(st.l, st.lDe)}</span></div>)}
@@ -398,7 +406,7 @@ function renderStory(story, title, tr) {
         </div>)}
       </div>
     </figure>);
-    else if (item.emails) out.push(<div className="case-mails" key={i}>
+    else if (item.emails) out.push(<div className={`case-mails${item.emails.length <= 2 ? ' case-mails-two' : ''}`} key={i}>
       {item.emails.map((mail, k) => <EmailPreview mail={mail} key={k} />)}
     </div>);
     else if (item.phones) out.push(<div className={item.full ? 'case-phones case-phones-full' : 'case-phones'} key={i}>

@@ -72,12 +72,12 @@ export default function Opening() {
         // panel height belongs to the opening line and never changes
         // full ink height (ascender to descender) plus room for the flight
         // ducks, so p, t and every letter height always stays inside.
-        // phones get a portrait 3:4 panel instead of a text-high strip — the
-        // line sits centered in it (capped against the stage so the chevron
-        // keeps its room below)
+        // phones get a landscape 2:1 panel instead of a text-high strip — the
+        // line sits centered in it with a little air, not a tall white box
+        // (capped against the stage so the chevron keeps its room below)
         const size1 = 100 * rect.clientWidth / meter.offsetWidth;
         rect.style.height = innerWidth < 620
-          ? `${Math.max(size1 * 1.02, Math.min(rect.clientWidth * 4 / 3, stage.clientHeight * .58))}px`
+          ? `${Math.max(size1 * 1.02, Math.min(rect.clientWidth / 2, stage.clientHeight * .58))}px`
           : `${size1 * 1.02}px`;
         line.style.fontSize = `${fitTarget()}px`;
         ScrollTrigger.refresh();
