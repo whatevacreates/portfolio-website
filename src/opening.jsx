@@ -216,6 +216,8 @@ export default function Opening() {
       // 3 · the typing: costly arrives letter by letter, quick — the line
       //     zooming out smoothly to keep both edges as it reveals itself
       xLetters.forEach((el, i) => tl.add(reveal(el, i === xLetters.length - 1), `type+=${i * .09}`));
+      // 4 · the line under the panel, once the claim has finished writing itself
+      tl.from(q('.op-sub'), { autoAlpha: 0, y: 14, duration: .8 }, `type+=${xLetters.length * .09 + .5}`);
 
       // scrolling back up into the hero replays the whole claim: put every
       // letter back where it was born, refit, and run the build again
@@ -274,6 +276,7 @@ export default function Opening() {
             <span className="op-meter" />
           </span>
         </h1>
+        <p className="op-sub">Your time, budget and reputation deserve ideas worth investing in.<br />Let's make them work harder.</p>
       </div>
 
       <div className="op-mouse" aria-hidden="true">
