@@ -29,7 +29,7 @@
 /* the canvas behind everything is the brand mesh — overscroll shows it,
    never beige; the page itself paints white on top */
 html { scroll-behavior:smooth; background:var(--mesh) fixed; }
-body { margin:0; min-width:320px; background:#fff; }
+body { margin:0; min-width:320px; background:#fff; overflow-x:clip; }
 /* short pages (the blog list) still pin the footer to the window's bottom
    edge, exactly like the long pages — the page column always fills the
    viewport and the main area soaks up the slack */
@@ -285,6 +285,8 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 .case-row-fixed { align-items:center; }
 .case-row-fixed img { aspect-ratio:4/3; object-fit:cover; }
 .case-row-rounded img { border-radius:18px; box-shadow:0 0 0 1px #e6e4ef; }
+.case-row-natural { align-items:start; }
+.case-row-natural img { display:block; width:100%; height:auto; }
 .case-image-solo { background:none; display:flex; justify-content:center; }
 .case-image-solo img { width:100%; height:auto; max-height:none; object-fit:contain; }
 
@@ -413,6 +415,8 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 .case-stats { width:min(100%,1400px); margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px 32px; max-width:1100px; }
 .case-stat strong { display:block; font:400 clamp(44px,5vw,76px)/1 var(--display); letter-spacing:-.01em; color:#0f172a; }
 .case-stat span { display:block; margin-top:10px; font-size:13px; line-height:1.4; text-transform:uppercase; letter-spacing:.08em; color:#64748b; }
+.case-schole-ai .case-stat { text-align:center; }
+.case-schole-ai .case-stat span { margin-left:auto; margin-right:auto; max-width:22ch; }
 .case-stats-source { grid-column:1/-1; font:italic 400 14px/1.4 var(--display); color:#a98fe3; }
 /* case films: local mp4 with native controls */
 .case-film { width:min(100%,1400px); margin:0 auto; }
@@ -430,6 +434,14 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 .case-phone-body::after { bottom:-12px; right:19%; width:52px; border-top:0; border-radius:0 0 3px 3px; }
 .case-phone-screen { border:2px solid #17152d; border-radius:28px; overflow:hidden; background:#0b1020; padding:0 8.97%; }
 .case-phone-screen .case-video iframe, .case-phone-screen .video-facade { background:#0b1020; }
+/* the photographed iPhone on its side ({ video, frame: "phone" }): the hole measured on schole-ai-146-iphone-frame-side.webp */
+.case-phone-side { width:min(100%,900px); margin:0 auto; padding:0; }
+.ig-phone-side { position:relative; width:100%; aspect-ratio:944/482; }
+.ph-screen-side { position:absolute; left:1.7%; top:4.15%; width:96.3%; height:91.71%; border-radius:5.4% / 11%; overflow:hidden; background:#0b1020; display:grid; place-items:center; z-index:1; }
+.ph-screen-side .case-video { width:86.4%; height:100%; }
+.ph-screen-side .case-video iframe, .ph-screen-side .case-video video, .ph-screen-side .video-facade { display:block; width:100%; height:100%; aspect-ratio:auto; background:#0b1020; }
+.case-phone-side .case-phone-stand { margin-top:-16px; width:98%; height:54px; }
+.case-phone-side figcaption { margin-top:18px; text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
 .case-phone figcaption { margin-top:18px; text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
 /* the HubSpot emails, rendered live at 600 px and scaled into four columns:
    white email on the lavender panel, a small sender line above each, the
@@ -491,6 +503,37 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 .case-phone-p .case-phone-body { position:relative; z-index:1; background:#fff; box-shadow:0 22px 28px -22px rgba(23,21,45,.55); }
 .case-phone-stand { display:block; position:relative; z-index:0; width:104%; height:46px; margin:-20px auto 0; border-radius:50%; background:radial-gradient(ellipse at 50% 50%, rgba(23,21,45,.6) 0%, rgba(23,21,45,.3) 26%, rgba(23,21,45,.1) 50%, rgba(23,21,45,0) 70%); }
 .case-phone-p figcaption { margin-top:16px; }
+/* the ads and the hands-dirty film sit in the same photographed iPhone as the
+   Instagram carousel (.ig-phone + .ig-frame); .ph-screen is that frame's hole
+   with a dark screen, the radius in % of the screen so it scales with the phone */
+.case-phone-p .ig-phone { width:100%; max-width:300px; }
+.ph-screen { position:absolute; left:15.81%; top:4.93%; width:68.53%; height:87.83%; border-radius:11% / 5.4%; overflow:hidden; background:#0b1020; display:grid; place-items:center; z-index:1; }
+.ph-screen video { display:block; width:100%; height:auto; background:#0b1020; }
+.ph-screen-fill video { height:100%; object-fit:cover; }
+/* a static post screenshot (Reddit) on the feed's light background, top-aligned under the island */
+.ph-screen-post { background:#f3f4f6; place-items:start center; padding-top:7%; }
+.ph-screen-post img { display:block; width:100%; height:auto; }
+/* the next post, blank, so the feed continues under the ad like in the screenshot */
+.ph-screen-post::after { content:""; display:block; width:92%; height:30%; margin-top:4%; border-radius:8px; background:#fff linear-gradient(#e5e7eb,#e5e7eb) no-repeat; background-size:34% 5%; background-position:22% 12%; box-shadow:inset 0 0 0 1px #e5e7eb; }
+.ph-screen-post { grid-auto-rows:max-content; }
+/* { phones, full: true }: the screenshot fills the screen width on white, centred, and the phones run bigger and centred */
+.ph-screen-full { background:#fff; place-items:center; }
+.ph-screen-full img { display:block; width:100%; height:auto; }
+.case-phones-full { grid-template-columns:repeat(auto-fit,minmax(280px,400px)); justify-content:center; gap:40px 48px; }
+.case-phones-full .ig-phone { max-width:400px; }
+.case-monitor { width:100vw; max-width:none; margin:0 0 0 calc(50% - 50vw); padding:0; }
+.case-monitor-body { position:relative; }
+.case-monitor-photo { display:block; width:100%; height:auto; }
+.case-monitor-screen { position:absolute; left:17.64%; top:13.36%; width:64.81%; height:56.64%; overflow:hidden; background:#000; }
+.case-monitor-screen video, .case-monitor-screen img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
+.case-monitor-live { position:absolute; inset:0; }
+.case-monitor-live iframe { position:absolute; inset:0; width:100%; height:100%; border:0; background:#fff; overflow:auto; }
+.case-monitor figcaption { margin-top:18px; text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
+.case-monitor figcaption a { color:#9075C0; text-decoration:underline; text-underline-offset:3px; display:inline-flex; align-items:center; gap:3px; }
+.case-monitor figcaption a svg { width:13px; height:13px; }
+.case-monitor figcaption a:hover { color:#6E94CF; }
+.case-phone-up { width:min(100%,420px); margin:0 auto; padding:0; }
+.case-phone-up figcaption { margin-top:18px; text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
 .case-phone-p .case-phone-body::before { top:auto; right:auto; left:-12px; width:7px; height:46px; bottom:auto; top:120px; border:2px solid #17152d; border-right:0; border-radius:3px 0 0 3px; }
 .case-phone-p .case-phone-body::after { bottom:auto; right:-12px; top:140px; width:7px; height:64px; border:2px solid #17152d; border-left:0; border-radius:0 3px 3px 0; }
 .case-phone-p .case-phone-screen { padding:0; aspect-ratio:9/19.5; border-radius:26px; display:grid; place-items:center; }
@@ -502,6 +545,12 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 /* chapter opener: the constellation, animated in shape by shape */
 .case-divider { width:min(100%,1400px); margin:14vh auto 0; padding-top:6vh; border-top:1px solid #e6e4ef; }
 .case-mark { display:block; width:auto; height:clamp(72px,8vw,110px); margin:0 auto; overflow:visible; }
+/* the closing mark ({ mark, text }): the three shapes drawn in one after another, like the top of the case, big and centred,
+   with the line underneath set like the tagline under the logo */
+.case-divider-close { border-top:0; padding-top:0; margin-top:16vh; text-align:center; }
+.case-divider-close .case-mark { height:clamp(110px,14vw,200px); }
+.case-mark-text { margin:5vh auto 0; max-width:900px; text-align:center; font:400 clamp(26px,2.6vw,40px)/1.2 var(--display); color:#0f172a; }
+.case-schole-ai .case-mark-text { font-size:var(--fs-1); }
 /* problem / insight / solution / results labels inside case text */
 .case-lead { display:block; font:400 clamp(19px,1.5vw,22px)/1.25 var(--display); color:#8a6fd0; margin-bottom:10px; }
 .case-lead-center { text-align:center; margin-bottom:18px; }
@@ -520,7 +569,17 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 .case-chapter { display:block; font:500 11px/1 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.16em; color:#a98fe3; margin-bottom:16px; }
 /* an unnumbered chapter in the brand violet, with an italic line under it */
 .case-h2-brand { color:#8a6fd0; }
+.case-h2-center { text-align:center; }
 .case-h2-sub { display:block; margin-top:14px; font:italic 400 clamp(20px,2vw,28px)/1.3 var(--display); color:#8a6fd0; }
+
+/* the Scholé case runs on three type sizes only: --fs-1 chapter headings and the
+   tagline, --fs-2 leads and sub lines, --fs-3 everything else (body, captions, labels) */
+.case-schole-ai { --fs-1:clamp(34px,4vw,58px); --fs-2:clamp(19px,1.5vw,22px); --fs-3:16px; }
+.case-schole-ai .case-tagline, .case-schole-ai .case-h2, .case-schole-ai .case-stat strong { font-size:var(--fs-1); }
+/* every chapter title on the Scholé case: centred, slate 900, one display face */
+.case-schole-ai .case-h2 { text-align:center; color:#0f172a; font-family:var(--display); }
+.case-schole-ai .case-lead, .case-schole-ai .case-h2-sub, .case-schole-ai .case-text-italic, .case-schole-ai .case-award em, .case-schole-ai .case-film.case-film-serif figcaption, .case-schole-ai .case-phone-p figcaption strong, .case-schole-ai .case-flow li strong { font-size:var(--fs-2); }
+.case-schole-ai .case-description, .case-schole-ai .case-text, .case-schole-ai .case-stat span, .case-schole-ai .case-stats-source, .case-schole-ai .case-film figcaption, .case-schole-ai .case-phone figcaption, .case-schole-ai .case-phone-up figcaption, .case-schole-ai .case-monitor figcaption, .case-schole-ai .case-phone-p figcaption, .case-schole-ai .case-video figcaption, .case-schole-ai .case-videos-heading, .case-schole-ai .case-chapter, .case-schole-ai .case-scope-group strong, .case-schole-ai .case-scope-group li, .case-schole-ai .case-flow li::before, .case-schole-ai .case-flow li span, .case-schole-ai .post-figure figcaption, .case-schole-ai .case-embed-bar span, .case-schole-ai .case-embed-poster span, .case-schole-ai .case-back, .case-schole-ai .next-button { font-size:var(--fs-3); }
 
 /* the bridge: one paragraph between the claim and the reel that says what connects the projects */
 .bridge { background:#fff; padding:12vh 20px 2vh; display:flex; justify-content:center; }

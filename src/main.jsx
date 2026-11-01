@@ -138,6 +138,20 @@ function layoutGallery(images) {
   return blocks;
 }
 
+// a self-hosted film behind the same poster-and-play facade as the YouTube embeds:
+// nothing loads until the click, and the native controls only appear once it plays
+function FilmPlayer({ film, poster, title }) {
+  const [playing, setPlaying] = useState(false);
+  return <figure className="case-video">
+    {playing
+      ? <video src={asset(film)} poster={poster ? asset(poster) : undefined} controls autoPlay playsInline preload="auto" />
+      : <button className="video-facade" onClick={() => { track('video_played', { video_id: film, title }); setPlaying(true); }} aria-label={`Play video: ${title || film}`}>
+          <img src={asset(poster)} alt="" loading="lazy" />
+          <span className="video-play"><Play /></span>
+        </button>}
+  </figure>;
+}
+
 function VideoEmbed({ video, eager }) {
   const [playing, setPlaying] = useState(false);
   return <figure className="case-video">
@@ -159,6 +173,24 @@ function VideoEmbed({ video, eager }) {
 // live pages embedded in a case: a self-contained copy of the page sits in
 // public/<slug>/ and loads inside a browser-like frame. Copies are static
 // (no API, no LLM calls), so they keep working when the live sites change.
+// a live page inside the monitor ({ embed, frame: "monitor" }): the poster shows
+// until the monitor scrolls near the viewport, then the page loads in an iframe
+// the visitor can scroll vertically. The embed is the static copy in public/, so
+// it keeps working if the original page goes offline.
+function MonitorEmbed({ item, tr }) {
+  const ref = useRef();
+  const [live, setLive] = useState(false);
+  useEffect(() => {
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { setLive(true); io.disconnect(); } }, { rootMargin: '240px' });
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+  return <div className="case-monitor-live" ref={ref}>
+    {item.poster && <img src={asset(item.poster)} alt="" aria-hidden="true" loading="lazy" />}
+    {live && <iframe src={asset(item.embed)} title={tr(item.caption, item.captionDe)} />}
+  </div>;
+}
+
 function CaseEmbed({ item, tr }) {
   const [open, setOpen] = useState(false);
   return <figure className="case-embed" style={item.height ? { '--embed-h': item.height } : undefined}>
@@ -276,7 +308,7 @@ function renderStory(story, title, tr) {
     if (item.img && !item.width) { run.push(item.img); return; }
     flush();
     // a fixed pair/trio of images on one row, held to a given width, outside the gallery flow
-    if (item.row) out.push(<div className={item.rounded ? 'case-row case-row-fixed case-row-rounded' : 'case-row case-row-fixed'} key={i}
+    if (item.row) out.push(<div className={`case-row ${item.natural ? 'case-row-natural' : 'case-row-fixed'}${item.rounded ? ' case-row-rounded' : ''}`} key={i}
       style={{ gridTemplateColumns: `repeat(${item.row.length},1fr)`, maxWidth: item.width ? `${item.width}px` : undefined }}>
       {item.row.map((image) => <figure className="case-image case-image-small" key={image}>
         <img src={asset(image)} alt={`${title}, project image`} loading="lazy" />
@@ -287,7 +319,7 @@ function renderStory(story, title, tr) {
       <img src={asset(item.img)} alt={`${title}, project image`} loading="lazy" style={{ maxWidth: `${item.width}px` }} />
     </figure>);
     else if (item.text) out.push(<p className={item.style === 'italic' ? 'case-text case-text-italic' : 'case-text'} key={i}>{item.lead && <strong className={item.leadCenter ? 'case-lead case-lead-center' : 'case-lead'}>{tr(item.lead, item.leadDe)}</strong>}{tr(item.text, item.textDe)}</p>);
-    else if (item.mark) out.push(<div className="case-divider" key={i}><Constellation /></div>);
+    else if (item.mark) out.push(<div className={item.text ? 'case-divider case-divider-close' : 'case-divider'} key={i}><Constellation />{item.text && <p className="case-mark-text">{tr(item.text, item.textDe)}</p>}</div>);
     else if (item.quote) out.push(<blockquote className={`case-quote${item.tone === 'brand' ? ' case-quote-brand' : ''}${item.align === 'center' ? ' case-quote-center' : ''}`} key={i}>{item.quote}</blockquote>);
     // the Product Hunt badge, placed inside the story (next to the launch it belongs to)
     else if (item.award) out.push(<div className="case-award case-award-inline" key={i}>
@@ -303,13 +335,21 @@ function renderStory(story, title, tr) {
       // ends before the next begins (the animated mark can carry the rule)
       const afterMark = story[i - 1]?.mark;
       const brand = item.tone === 'brand';
-      out.push(<h2 className={`case-h2${afterMark ? ' case-h2-after-mark' : ''}${brand ? ' case-h2-brand' : ''}`} key={i}>
+      out.push(<h2 className={`case-h2${afterMark ? ' case-h2-after-mark' : ''}${brand ? ' case-h2-brand' : ''}${item.align === 'center' ? ' case-h2-center' : ''}`} key={i}>
         {tr(item.heading, item.headingDe)}
         {item.sub && <em className="case-h2-sub">{tr(item.sub, item.subDe)}</em>}
       </h2>);
     }
-    else if (item.video && item.frame === 'phone') out.push(<figure className="case-phone" key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
-      <div className="case-phone-body"><div className="case-phone-screen"><VideoEmbed video={item.video} eager /></div></div>
+    // a YouTube film in the photographed iPhone lying on its side ({ video, frame: "phone" }),
+    // same phone as the upright ones (schole-ai-146 rotated), with a shadow and the stand ellipse
+    else if ((item.video && item.frame === 'phone') || (item.film && item.frame === 'phone-side')) out.push(<figure className="case-phone-side" key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
+      <div className="ig-phone-side">
+        <div className="ph-screen-side">{item.video
+          ? <VideoEmbed video={item.video} eager />
+          : <FilmPlayer film={item.film} poster={item.poster} title={tr(item.caption, item.captionDe)} />}</div>
+        <img className="ig-frame" src={asset('/media/schole-ai-146-iphone-frame-side.webp')} alt="" aria-hidden="true" draggable="false" />
+      </div>
+      <i className="case-phone-stand" aria-hidden="true" />
       {item.caption && <figcaption>{tr(item.caption, item.captionDe)}</figcaption>}
     </figure>);
     else if (item.video) out.push(<div className={`case-videos${item.rounded ? ' case-videos-rounded' : ''}`} key={i}><div className="video-grid"><VideoEmbed video={item.video} eager /></div></div>);
@@ -319,7 +359,7 @@ function renderStory(story, title, tr) {
         <img src={asset(b.img)} alt={tr(b.alt, b.altDe)} loading="lazy" width={data.meta?.[b.img]?.w} height={data.meta?.[b.img]?.h} />
       </figure>)}
     </div>);
-    else if (item.embed) out.push(<CaseEmbed item={item} tr={tr} key={i} />);
+    else if (item.embed && item.frame !== 'monitor') out.push(<CaseEmbed item={item} tr={tr} key={i} />);
     else if (item.stats) out.push(<div className="case-stats" key={i}>
       {item.stats.map((st, k) => <div className="case-stat" key={k}><strong>{st.n}</strong><span>{tr(st.l, st.lDe)}</span></div>)}
       {item.source && <em className="case-stats-source">{tr(item.source, item.sourceDe)}</em>}
@@ -361,15 +401,41 @@ function renderStory(story, title, tr) {
     else if (item.emails) out.push(<div className="case-mails" key={i}>
       {item.emails.map((mail, k) => <EmailPreview mail={mail} key={k} />)}
     </div>);
-    else if (item.phones) out.push(<div className="case-phones" key={i}>
+    else if (item.phones) out.push(<div className={item.full ? 'case-phones case-phones-full' : 'case-phones'} key={i}>
       {item.phones.map((ph, k) => <figure className="case-phone-p" key={k}>
-        <div className="case-phone-body"><div className="case-phone-screen">
-          <video src={asset(ph.film)} poster={ph.poster ? asset(ph.poster) : undefined} autoPlay muted loop playsInline preload="metadata" />
-        </div></div>
-        <span className="case-phone-stand" aria-hidden="true" />
-        <figcaption><strong>{tr(ph.title, ph.titleDe)}</strong>{tr(ph.insight, ph.insightDe)}</figcaption>
+        <div className="ig-phone">
+          {ph.img
+            ? <div className={item.full ? 'ph-screen ph-screen-full' : 'ph-screen ph-screen-post'}><img src={asset(ph.img)} alt={tr(ph.alt, ph.altDe) || ''} loading="lazy" /></div>
+            : <div className="ph-screen"><video src={asset(ph.film)} poster={ph.poster ? asset(ph.poster) : undefined} autoPlay muted loop playsInline preload="metadata" /></div>}
+          <img className="ig-frame" src={asset('/media/schole-ai-146-iphone-frame.webp')} alt="" aria-hidden="true" draggable="false" />
+        </div>
+        {(ph.title || ph.insight) && <figcaption><strong>{tr(ph.title, ph.titleDe)}</strong>{tr(ph.insight, ph.insightDe)}</figcaption>}
       </figure>)}
     </div>);
+    // a looping film filling the same photographed iPhone ({ film, frame: "phone" })
+    else if (item.film && item.frame === 'phone') out.push(<figure className="case-phone-up" key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
+      <div className="ig-phone">
+        <div className="ph-screen ph-screen-fill"><video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} autoPlay muted loop playsInline preload="auto" /></div>
+        <img className="ig-frame" src={asset('/media/schole-ai-146-iphone-frame.webp')} alt="" aria-hidden="true" draggable="false" />
+      </div>
+      {item.caption && <figcaption>{tr(item.caption, item.captionDe)}</figcaption>}
+    </figure>);
+    // a film (or a still) playing inside the photographed monitor on the Scholé
+    // gradient ({ film, frame: "monitor" }); the screen rectangle is measured
+    // from schole-ai-164-monitor.webp and set in .case-monitor-screen
+    else if ((item.film || item.img || item.embed) && item.frame === 'monitor') out.push(<figure className="case-monitor" key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
+      <div className="case-monitor-body">
+        <img className="case-monitor-photo" src={asset('/media/schole-ai-164-monitor.webp')} alt="" aria-hidden="true" draggable="false" width="2080" height="1370" />
+        <div className="case-monitor-screen">
+          {item.embed
+            ? <MonitorEmbed item={item} tr={tr} />
+            : item.film
+              ? <video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} autoPlay muted loop playsInline preload="auto" />
+              : <img src={asset(item.img)} alt={tr(item.alt, item.altDe)} loading="lazy" />}
+        </div>
+      </div>
+      {(item.caption || item.href) && <figcaption>{item.caption && tr(item.caption, item.captionDe)}{item.caption && item.href && ' · '}{item.href && <a href={item.href} target="_blank" rel="noreferrer" onClick={() => track('case_link_clicked', { url: item.href })}>{tr('Open the page', 'Seite öffnen')} <ArrowUpRight /></a>}</figcaption>}
+    </figure>);
     else if (item.film) out.push(<figure className={`case-film${item.rounded ? ' case-film-rounded' : ''}${item.serifCaption ? ' case-film-serif' : ''}`} key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
       {item.loop
         ? <video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} autoPlay muted loop playsInline preload="auto" />
@@ -409,7 +475,7 @@ function Project({ project, close }) {
       <p className="co-caption">{tr('Stand & tee — my concept and design, printed and produced with a London agency.',
         'Stand & Shirt — mein Konzept und Design, gedruckt und produziert mit einer Londoner Agentur.')}</p>
     </section>;
-  return <main className="case" ref={root}>
+  return <main className={`case case-${project.slug}`} ref={root}>
     <button className="case-back" onClick={close}><ArrowLeft /> {tr('All work', 'Alle Projekte')}</button>
     <section className="case-title">
       {project.titleImage

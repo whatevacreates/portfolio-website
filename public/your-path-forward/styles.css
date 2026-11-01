@@ -1,0 +1,1780 @@
+@font-face {
+  font-family:"New Spirit";
+  src:url("assets/shared/fonts/NewSpirit-Regular.woff2") format("woff2");
+  font-weight:400;
+  font-display:swap}
+
+@font-face {
+  font-family:Inter;
+  src:url("assets/shared/fonts/Inter-latin.woff2") format("woff2");
+  font-weight:100 900;
+  font-display:swap}
+
+:root {
+  --purple:#6e7bb0;
+  --purple-hover:#615c9c;
+  --ink:#0f172a;
+  --copy:#475569;
+  --line:#e2e8f0;
+  --page:#f9fcfe;
+  --display:"New Spirit",Georgia,serif;
+  --sans:Inter,system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1)}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box}
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:100px}
+body {
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--page);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3 {
+  font-family:var(--display);
+  font-weight:400}
+p {
+  color:var(--copy)}
+a {
+  color:inherit;
+  text-decoration:none}
+img,svg {
+  display:block;
+  max-width:100%}
+button,input,select {
+  font:inherit}
+button,a {
+  -webkit-tap-highlight-color:transparent}
+button {
+  cursor:pointer}
+a:focus-visible,button:focus-visible {
+  outline:3px solid var(--purple-hover);
+  outline-offset:4px}
+[hidden] {
+  display:none!important}
+.skip-link {
+  position:fixed;
+  top:12px;
+  left:12px;
+  z-index:100;
+  padding:12px 20px;
+  background:white;
+  transform:translateY(-180%)}
+.skip-link:focus {
+  transform:none}
+
+/* America.gov's inset hero canvas, header, centered media and generous spacing,
+   with Scholé's New Spirit, Inter, slate and periwinkle tokens. */
+.topbar {
+  position:absolute;
+  z-index:20;
+  top:56px;
+  left:80px;
+  right:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between}
+.logo-img {
+  width:154px;
+  height:auto}
+.menu-trigger {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  border:0;
+  border-radius:999px;
+  background:var(--purple);
+  color:white;
+  padding:14px 24px;
+  min-height:48px;
+  font-size:15px;
+  font-weight:500;
+  transition:background .2s}
+.menu-trigger:hover {
+  background:var(--purple-hover)}
+.menu-icon {
+  display:grid;
+  gap:5px;
+  width:16px}
+.menu-icon i {
+  height:1.5px;
+  background:currentColor;
+  transition:transform .3s}
+.menu-trigger[aria-expanded=true] .menu-icon i:first-child {
+  transform:translateY(3.25px) rotate(45deg)}
+.menu-trigger[aria-expanded=true] .menu-icon i:last-child {
+  transform:translateY(-3.25px) rotate(-45deg)}
+.site-menu {
+  position:absolute;
+  right:0;
+  top:64px;
+  width:300px;
+  padding:16px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(110,123,176,.15);
+  border-radius:24px;
+  box-shadow:0 20px 60px #0f172a18;
+  backdrop-filter:blur(20px);
+  animation:menu-enter .3s var(--ease)}
+.site-menu a,.site-menu button {
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  width:100%;
+  padding:14px 12px;
+  border:0;
+  border-radius:12px;
+  background:none;
+  font-size:14px;
+  color:var(--ink);
+  text-align:left}
+.site-menu a:hover,.site-menu button:hover {
+  background:#eef0f7}
+.site-menu button {
+  border-top:1px solid var(--line);
+  border-radius:0;
+  margin-top:8px;
+  color:var(--copy)}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  min-height:44px;
+  padding:12px 20px;
+  border:0;
+  border-radius:8px;
+  font-size:14px;
+  line-height:20px;
+  font-weight:500;
+  transition:background .18s,transform .18s}
+.btn-primary {
+  background:var(--purple);
+  color:#fff}
+.btn-primary:hover {
+  background:var(--purple-hover);
+  transform:translateY(-2px)}
+.hero {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  margin:24px 32px 0;
+  padding:142px 40px 64px;
+  border-radius:48px;
+  background:#eef0f7;
+  text-align:center}
+.hero-backdrop {
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+  pointer-events:none}
+.hero-backdrop img {
+  position:absolute;
+  width:85%;
+  max-width:none;
+  opacity:.08;
+  filter:blur(42px);
+  animation:backdrop-drift 24s ease-in-out infinite alternate}
+.hero-backdrop img:first-child {
+  left:-25%;
+  top:-12%}
+.hero-backdrop img:last-child {
+  right:-30%;
+  bottom:-25%;
+  animation-delay:-12s}
+.eyebrow {
+  display:block;
+  margin-bottom:20px;
+  color:var(--purple-hover);
+  font-size:13px;
+  font-weight:500}
+.hero h1 {
+  max-width:960px;
+  margin:0 auto;
+  font-size:clamp(42px,4vw,56px);
+  line-height:1.13;
+  letter-spacing:-.035em;
+  text-wrap:balance}
+.hero h1 em {
+  display:block;
+  color:var(--purple);
+  font-style:normal}
+.vsl {
+  position:relative;
+  margin:36px auto 0;
+  aspect-ratio:16/9;
+  width:100%;
+  max-width:760px;
+  overflow:hidden;
+  border-radius:40px;
+  background:#e6e9f3;
+  box-shadow:0 24px 50px #0f172a18,0 4px 14px #0f172a08}
+.vsl iframe {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0}
+.vsl.is-preview iframe {
+  pointer-events:none}
+.vsl-sound {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:16px;
+  border:0;
+  background:transparent}
+.vsl-sound .pill {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:44px;
+  padding:10px 16px;
+  border-radius:999px;
+  color:var(--ink);
+  background:#ffffffed;
+  backdrop-filter:blur(12px);
+  font-size:13px;
+  font-weight:500;
+  box-shadow:0 4px 12px #0f172a10}
+.vsl-sound svg {
+  width:16px;
+  height:16px;
+  fill:none;
+  stroke:var(--purple-hover);
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round}
+.vsl.is-sound .vsl-sound {
+  display:none}
+
+/* The requested B2B form is immediately under the video. */
+.signup-form {
+  position:relative;
+  max-width:760px;
+  margin:28px auto 0;
+  padding:30px 32px 28px;
+  background:#fffffff0;
+  border:1px solid #fff;
+  border-radius:32px;
+  box-shadow:0 10px 32px #0f172a07;
+  text-align:center}
+.signup-copy h2 {
+  font-size:30px;
+  line-height:1.2}
+.signup-copy>p {
+  max-width:62ch;
+  margin:12px auto 24px;
+  font-size:14px;
+  line-height:1.6}
+.field-row {
+  display:grid;
+  grid-template-columns:1fr;
+  max-width:480px;
+  margin-inline:auto;
+  gap:16px}
+.field {
+  display:grid;
+  align-content:start;
+  gap:8px}
+.field label {
+  font-size:12px;
+  font-weight:600;
+  color:#334155}
+.field input,.field select {
+  width:100%;
+  min-width:0;
+  min-height:44px;
+  padding:10px 12px;
+  font-size:13px;
+  text-align:center;
+  text-align-last:center;
+  border:1px solid var(--line);
+  border-radius:8px;
+  color:var(--ink);
+  background:#fff}
+.field input::placeholder {
+  color:#94a3b8}
+.field input:focus,.field select:focus {
+  outline:0;
+  border-color:#8b95c4;
+  box-shadow:0 0 0 3px #8287c72e}
+.demo-price {
+  margin:24px 0 12px;
+  font-size:14px;
+  color:var(--ink)}
+.demo-price strong {
+  font-weight:600}
+.signup-fields>.btn {
+  min-width:240px}
+.learner-proof {
+  margin:32px auto 24px;
+  max-width:100%}
+.learner-proof>p {
+  color:#64748b;
+  font-size:18px;
+  line-height:1.5}
+.logo-marquee {
+  overflow:hidden;
+  margin-top:20px;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.logo-track {
+  display:flex;
+  width:max-content;
+  opacity:.8;
+  animation:logo-scroll 42s linear infinite}
+.logo-group {
+  display:flex;
+  align-items:center;
+  gap:40px;
+  padding-right:40px}
+.logo-group img {
+  flex-shrink:0;
+  width:auto;
+  height:28px;
+  max-width:none;
+  object-fit:contain}
+.logo-marquee:hover .logo-track {
+  animation-play-state:paused}
+.learner-proof .learner-more {
+  margin-top:20px;
+  font-size:14px}
+@keyframes logo-scroll {
+  to { transform:translateX(-50%); }
+}
+.signup-note {
+  margin-top:12px;
+  font-size:11px;
+  color:#64748b}
+.signup-note a {
+  text-decoration:underline;
+  text-underline-offset:2px}
+.signup-individual {
+  display:block;
+  width:fit-content;
+  margin:16px auto 0;
+  font-size:12px;
+  color:var(--purple-hover);
+  text-decoration:underline;
+  text-underline-offset:3px}
+.form-status:empty {
+  display:none}
+
+/* Large, centered statement with animated inline artwork. */
+.manifesto {
+  max-width:1110px;
+  margin:0 auto;
+  padding:180px 32px}
+.manifesto-copy {
+  text-align:center;
+  font-size:clamp(44px,6.8vw,88px);
+  line-height:1.12;
+  letter-spacing:-.045em;
+  text-wrap:balance}
+.inline-mark {
+  display:inline-flex;
+  position:relative;
+  vertical-align:middle;
+  align-items:center;
+  justify-content:center;
+  height:1.25em;
+  border:0;
+  transform:translateY(-.06em)}
+.inline-ole {
+  width:1.25em;
+  background:none;
+  margin:0 .08em}
+.character {
+  display:block;
+  position:relative;
+  width:1.25em;
+  height:1.25em;
+  overflow:hidden;
+  border:3px solid #fff;
+  border-radius:50%;
+  background:#edeef8;
+  box-shadow:0 8px 22px #0f172a18;
+}
+.character img,.character canvas {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  transition:opacity .2s;
+}
+.character img { padding:.16em; }
+.character canvas { opacity:0; transform:scale(1.45); }
+.character.is-live canvas { animation:character-bob 4s ease-in-out infinite; }
+.character.is-live canvas { opacity:1; }
+.character.is-live img { opacity:0; }
+.inline-ole .character { width:100%; height:1.25em; background:#fff0d5; }
+.inline-art {
+  width:3.1em;
+  isolation:isolate;
+  background:none;
+  margin:0 .08em;
+}
+.inline-art .character {
+  position:absolute;
+}
+.inline-art .character:nth-child(1) { left:0; background:#f0eef8; }
+.inline-art .character:nth-child(2) { left:.92em; z-index:1; background:#e6ebfc; }
+.inline-art .character:nth-child(3) { right:0; z-index:2; background:#e3f7fa; }
+.inline-art .character:nth-child(2) canvas { animation-delay:-.7s; }
+.inline-art .character:nth-child(3) canvas { animation-delay:-1.4s; }
+@keyframes character-bob { 0%,100% { translate:0 0; } 50% { translate:0 -3px; } }
+
+.features {
+  display:flex;
+  flex-direction:column;
+  gap:120px;
+  max-width:1040px;
+  margin:0 auto;
+  padding:0 40px 180px}
+.feature-row {
+  display:grid;
+  grid-template-columns:minmax(0,448px) minmax(0,360px);
+  gap:96px;
+  align-items:center;
+  justify-content:center}
+.feature-visual {
+  position:relative;
+  aspect-ratio:1;
+  width:100%;
+  overflow:hidden;
+  border-radius:40px}
+.feature-copy {
+  text-align:center}
+.feature-copy h2 {
+  font-size:40px;
+  line-height:1.13;
+  letter-spacing:-.025em;
+  text-wrap:balance}
+.feature-copy p {
+  margin:24px auto 28px;
+  font-size:16px;
+  line-height:1.65;
+  max-width:36ch}
+.text-link {
+  display:inline-block;
+  font-size:14px;
+  font-weight:500;
+  border-bottom:1px solid #6e7bb080;
+  padding-bottom:4px;
+  transition:color .2s}
+.text-link:hover {
+  color:var(--purple-hover)}
+.text-link span {
+  margin-left:10px}
+.orbit-panel {
+  background:var(--purple-hover)}
+.orbit-stage {
+  position:absolute;
+  inset:0;
+  perspective:900px;
+  transform:rotate(-8deg)}
+.lesson-orbit {
+  position:absolute;
+  left:50%;
+  top:47%;
+  transform-style:preserve-3d;
+  animation:orbit-spin 38s linear infinite}
+.orbit-tile {
+  position:absolute;
+  width:78px;
+  height:78px;
+  margin:-39px;
+  backface-visibility:hidden;
+  border:3px solid #ffffffdd;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 4px 14px #0f172a30}
+.orbit-tile img {
+  width:100%;
+  height:100%;
+  object-fit:cover}
+.visual-caption {
+  position:absolute;
+  bottom:28px;
+  left:28px;
+  max-width:180px;
+  font-size:12px;
+  color:#fff}
+.animation-control {
+  position:absolute;
+  right:24px;
+  bottom:24px;
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:50%;
+  background:#fffffff0;
+  color:var(--purple-hover);
+  font-size:20px;
+  box-shadow:0 8px 18px #0f172a16}
+.role-panel {
+  background:#ebe9f3}
+.role-art {
+  position:absolute;
+  width:100%;
+  top:5%;
+  height:50%;
+  object-fit:contain;
+  animation:art-float 8s ease-in-out infinite alternate}
+.role-example {
+  position:absolute;
+  left:7%;
+  right:7%;
+  bottom:7%;
+  padding:24px;
+  background:#fffffff2;
+  border-radius:24px;
+  box-shadow:0 16px 40px #0f172a14;
+  text-align:center}
+.example-label {
+  display:block;
+  color:var(--purple-hover);
+  font-size:11px;
+  font-weight:500;
+  margin-bottom:12px}
+.role-options {
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-bottom:16px}
+.role-options button {
+  padding:8px 14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+  color:var(--copy);
+  font-size:12px}
+.role-options button.is-active {
+  background:var(--purple);
+  border-color:var(--purple);
+  color:white}
+.role-example p {
+  font-size:14px;
+  line-height:1.55;
+  min-height:65px}
+.sources-panel {
+  background:#e6e9f3}
+.art-grid {
+  position:absolute;
+  inset:-20%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  align-content:center;
+  transform:rotate(-12deg);
+  animation:sources-drift 12s ease-in-out infinite alternate}
+.art-grid img {
+  width:100%;
+  aspect-ratio:1;
+  object-fit:contain;
+  padding:18px;
+  background:#f4f1fb;
+  border:9px solid #fff;
+  border-radius:50%;
+  box-shadow:0 8px 24px #0f172a1a}
+.practice-panel {
+  display:grid;
+  place-items:center;
+  background:#eef0f7;
+  padding:30px}
+.practice-window {
+  width:100%;
+  border:1px solid #fff;
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 24px 50px #0f172a18;
+  transform:rotate(-4deg);
+  transition:transform .7s var(--ease)}
+.practice-window:hover,.practice-window:focus-within {
+  transform:rotate(0)}
+.window-top {
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:13px 16px;
+  background:#f8fafc}
+.window-top>span {
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#cbd5e1}
+.window-top small {
+  margin:0 auto;
+  font-size:10px;
+  color:var(--copy);
+  padding-right:25px}
+.practice-art {
+  position:relative;
+  width:100%;
+  height:116px;
+  overflow:hidden;
+  background:#ebe9f3}
+.practice-art img {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  padding:16px;
+  object-fit:contain;
+  animation:art-float 5s ease-in-out infinite alternate}
+.practice-question {
+  padding:18px 24px;
+  text-align:center}
+.practice-question h3 {
+  font-size:18px;
+  line-height:1.25;
+  margin-bottom:12px}
+.practice-question button {
+  display:block;
+  width:100%;
+  padding:9px 10px;
+  margin-top:6px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#f9fcfe;
+  font-size:11px;
+  color:var(--copy)}
+.practice-question button:hover,.practice-question button.is-selected {
+  border-color:var(--purple);
+  background:#eef0f7;
+  color:var(--purple-hover)}
+.practice-question>p {
+  min-height:30px;
+  margin-top:12px;
+  font-size:10px;
+  line-height:1.5}
+
+/* The reference's overlapping showcase becomes the complete eight-lesson
+   curriculum. Every illustration, title and description stays visible. */
+.curriculum {
+  position:relative;
+  overflow:hidden;
+  background:#eef0f7;
+  padding:120px 40px 90px;
+  text-align:center}
+.curriculum-heading {
+  position:relative;
+  z-index:2;
+  max-width:760px;
+  margin:0 auto}
+.curriculum-heading h2 {
+  font-size:64px;
+  line-height:1.08;
+  letter-spacing:-.035em}
+.curriculum-heading h2 span {
+  color:var(--purple)}
+.curriculum-heading>p {
+  font-size:18px;
+  margin:24px auto 28px;
+  max-width:48ch}
+.lesson-list {
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:32px 16px;
+  max-width:1260px;
+  margin:70px auto 64px;
+  padding:0 10px 30px}
+.lesson-card {
+  position:relative;
+  min-width:0;
+  padding:16px 16px 24px;
+  background:#fff;
+  border:1px solid #fff;
+  border-radius:28px;
+  box-shadow:0 16px 36px #0f172a10,0 40px 70px #0f172a08;
+  transform:translateY(var(--offset)) rotate(var(--tilt));
+  transition:transform .65s var(--ease),box-shadow .65s,opacity .7s,filter .7s}
+.lesson-card:hover {
+  z-index:3;
+  transform:translateY(calc(var(--offset) - 14px)) rotate(0);
+  box-shadow:0 22px 46px #0f172a18}
+.lesson-art {
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:18px}
+.lesson-number {
+  display:block;
+  font-size:10px;
+  font-weight:500;
+  color:var(--purple-hover);
+  font-variant-numeric:tabular-nums;
+  margin-bottom:10px}
+.lesson-list h3 {
+  font-size:22px;
+  line-height:1.2;
+  text-wrap:balance;
+  min-height:80px}
+.lesson-list p {
+  margin-top:12px;
+  font-size:12px;
+  line-height:1.55;
+  min-height:55px}
+.curriculum-note {
+  max-width:64ch;
+  margin:0 auto;
+  font-size:13px;
+  line-height:1.6}
+footer {
+  padding:80px 32px 120px;
+  text-align:center;
+  background:#eef0f7}
+footer nav {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+  font-size:14px}
+footer a:hover {
+  color:var(--purple-hover)}
+.footer-brand {
+  display:block;
+  max-width:850px;
+  margin:60px auto 40px}
+.footer-brand img {
+  width:100%}
+footer>p {
+  font-size:16px}
+.footer-legal {
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  flex-wrap:wrap;
+  margin-top:32px;
+  color:#64748b;
+  font-size:11px}
+.floating-bar {
+  position:fixed;
+  z-index:30;
+  bottom:24px;
+  left:50%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:36px;
+  width:560px;
+  max-width:calc(100% - 32px);
+  padding:12px 14px 12px 28px;
+  background:#ffffffed;
+  border:1px solid #e2e8f0cc;
+  border-radius:999px;
+  box-shadow:0 8px 32px #0f172a18;
+  backdrop-filter:blur(18px);
+  transform:translateX(-50%);
+  animation:dock-enter .4s var(--ease)}
+.floating-bar>a:first-child {
+  font-size:14px;
+  color:var(--copy)}
+.floating-bar>a:first-child span {
+  margin-left:10px}
+.floating-bar .btn {
+  flex-shrink:0}
+
+/* Progressive enhancement: content remains visible without JavaScript. */
+@media(prefers-reduced-motion:no-preference) {
+  .hero-enter {
+  animation:hero-enter .9s var(--ease) backwards}
+.hero .eyebrow {
+  animation-delay:.06s}
+.hero h1 {
+  animation-delay:.22s}
+.hero .vsl {
+  animation-delay:.38s}
+.has-motion [data-reveal]:not(.is-visible) {
+  opacity:0;
+  filter:blur(6px);
+  transform:translateY(28px)}
+.has-motion [data-reveal] {
+  transition:opacity .8s var(--ease),filter .8s var(--ease),transform .8s var(--ease)}
+.has-motion .lesson-card[data-reveal]:not(.is-visible) {
+  transform:translateY(calc(var(--offset) + 28px)) rotate(var(--tilt))}
+.has-motion .word {
+  opacity:.16;
+  filter:blur(3px);
+  transition:opacity .6s var(--ease),filter .6s var(--ease);
+  transition-delay:var(--word-delay,0s)}
+.has-motion .manifesto-copy.is-visible .word {
+  opacity:1;
+  filter:none}
+}
+
+.motion-paused *,.is-offscreen *,.orbit-paused .lesson-orbit {
+  animation-play-state:paused!important}
+
+@keyframes hero-enter {
+  from {
+  opacity:0;
+  filter:blur(8px);
+  transform:translateY(8px)}
+to {
+  opacity:1;
+  filter:blur(0);
+  transform:none}
+}
+@keyframes menu-enter {
+  from {
+  opacity:0;
+  transform:translateY(-8px) scale(.98)}
+to {
+  opacity:1;
+  transform:none}
+}
+@keyframes dock-enter {
+  from {
+  opacity:0;
+  transform:translate(-50%,20px)}
+to {
+  opacity:1;
+  transform:translate(-50%,0)}
+}
+@keyframes backdrop-drift {
+  to {
+  transform:translate(4%,3%) rotate(8deg)}
+}
+@keyframes orbit-spin {
+  from {
+  transform:rotateY(0)}
+to {
+  transform:rotateY(360deg)}
+}
+@keyframes art-float {
+  to {
+  transform:translateY(12px) rotate(3deg)}
+}
+@keyframes sources-drift {
+  from {
+  transform:translateY(-10px) rotate(-12deg)}
+to {
+  transform:translateY(10px) rotate(-8deg)}
+}
+@keyframes arrow-run {
+  0%,100% {
+  transform:translateX(0);
+  opacity:1}
+45% {
+  transform:translateX(25%);
+  opacity:0}
+46% {
+  transform:translateX(-25%);
+  opacity:0}
+}
+@keyframes art-bounce {
+  50% {
+  transform:translateY(-12px) rotate(8deg)}
+}
+
+@media(min-width:1600px) {
+  .topbar {
+  max-width:1360px;
+  left:50%;
+  right:auto;
+  width:calc(100% - 160px);
+  transform:translateX(-50%)}
+.hero {
+  max-width:1500px;
+  margin-left:auto;
+  margin-right:auto}
+}
+
+@media(max-width:1100px) {
+  .feature-row {
+  gap:64px;
+  grid-template-columns:minmax(0,420px) minmax(0,330px)}
+.feature-copy h2 {
+  font-size:36px}
+.lesson-list {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  max-width:760px;
+  gap:44px 28px}
+.lesson-list h3 {
+  min-height:56px}
+.lesson-list p {
+  min-height:38px}
+}
+
+@media(max-width:800px) {
+  .topbar {
+  top:44px;
+  left:52px;
+  right:52px}
+.hero {
+  margin:16px 24px 0;
+  padding:140px 24px 48px;
+  border-radius:40px}
+.hero h1 {
+  font-size:50px}
+.vsl {
+  border-radius:32px}
+.field-row {
+  grid-template-columns:1fr;
+  max-width:480px;
+  margin:auto;
+  gap:14px}
+.field input,.field select {
+  font-size:16px}
+.field label {
+  font-size:13px}
+.signup-form {
+  padding:28px}
+.signup-copy h2 {
+  font-size:28px}
+.manifesto {
+  padding:100px 40px;
+  font-size:48px}
+.manifesto-copy {
+  font-size:54px}
+.features {
+  gap:80px;
+  padding:0 32px 100px}
+.feature-row {
+  grid-template-columns:1fr;
+  gap:36px;
+  max-width:448px;
+  width:100%;
+  margin:auto}
+.feature-copy h2 {
+  font-size:34px}
+.feature-copy p {
+  font-size:15px;
+  margin-top:20px}
+.curriculum {
+  padding:80px 24px 60px}
+.curriculum-heading h2 {
+  font-size:48px}
+.curriculum-heading>p {
+  font-size:16px}
+.lesson-list {
+  margin-top:52px}
+.footer-brand {
+  margin-top:48px}
+footer {
+  padding:60px 32px 110px}
+}
+
+@media(max-width:500px) {
+  html {
+  scroll-padding-top:32px}
+.topbar {
+  top:32px;
+  left:32px;
+  right:32px}
+.logo-img {
+  width:120px}
+.menu-trigger {
+  min-height:44px;
+  padding:11px 18px;
+  font-size:13px}
+.site-menu {
+  width:min(300px,calc(100vw - 64px));
+  top:58px}
+.hero {
+  margin:12px 12px 0;
+  padding:116px 16px 32px;
+  border-radius:32px}
+.hero>.eyebrow {
+  font-size:12px;
+  margin-bottom:16px}
+.hero h1 {
+  font-size:36px;
+  letter-spacing:-.035em;
+  line-height:1.15}
+.vsl {
+  margin-top:28px;
+  border-radius:24px}
+.vsl-sound {
+  padding:10px}
+.vsl-sound .pill {
+  font-size:11px;
+  min-height:36px;
+  padding:8px 12px}
+.signup-form {
+  padding:24px 18px;
+  border-radius:24px;
+  margin-top:20px}
+.signup-copy h2 {
+  font-size:25px}
+.signup-copy>p {
+  font-size:13px;
+  margin-bottom:20px}
+.signup-fields>.btn {
+  width:100%;
+  min-width:0}
+.demo-price {
+  font-size:13px}
+.signup-note {
+  font-size:10px}
+.signup-individual {
+  font-size:11px}
+.manifesto {
+  padding:80px 24px}
+.manifesto-copy {
+  font-size:41px;
+  line-height:1.16}
+.features {
+  padding:0 24px 80px;
+  gap:72px}
+.feature-visual {
+  border-radius:32px}
+.feature-copy h2 {
+  font-size:32px}
+.feature-row {
+  gap:28px}
+.orbit-stage {
+  transform:scale(.82) rotate(-8deg)}
+.visual-caption {
+  left:24px;
+  font-size:11px;
+  max-width:150px}
+.animation-control {
+  right:18px;
+  bottom:18px}
+.role-example {
+  padding:18px;
+  border-radius:20px}
+.role-options {
+  margin-bottom:12px}
+.role-example p {
+  font-size:12px;
+  min-height:56px}
+.practice-panel {
+  aspect-ratio:auto;
+  padding:22px}
+.practice-question {
+  padding:14px 18px}
+.practice-art {
+  height:85px}
+.practice-question h3 {
+  font-size:16px}
+.practice-question button {
+  font-size:10px;
+  padding:8px}
+.practice-question>p {
+  font-size:9px;
+  min-height:27px}
+.window-top {
+  padding:10px}
+.curriculum {
+  padding:72px 24px 56px}
+.curriculum-heading h2 {
+  font-size:38px}
+.curriculum-heading>p {
+  font-size:15px}
+.lesson-list {
+  grid-template-columns:1fr;
+  max-width:310px;
+  gap:36px;
+  padding:0 4px;
+  margin-bottom:40px}
+.lesson-card {
+  --offset:0px!important;
+  transform:rotate(var(--tilt));
+  padding:16px 16px 24px}
+.lesson-list h3 {
+  min-height:0;
+  font-size:25px}
+.lesson-list p {
+  min-height:0;
+  font-size:13px}
+.lesson-art {
+  margin-bottom:20px}
+.curriculum-note {
+  font-size:12px}
+footer nav {
+  gap:18px;
+  font-size:12px}
+footer>p {
+  font-size:13px}
+.footer-brand {
+  margin:40px 0 28px}
+.footer-legal {
+  gap:16px}
+.floating-bar {
+  padding:10px 10px 10px 18px;
+  gap:12px;
+  bottom:16px}
+.floating-bar>a:first-child {
+  font-size:11px}
+.floating-bar>a:first-child span {
+  display:none}
+.floating-bar .btn {
+  font-size:12px;
+  gap:10px;
+  padding:10px 14px}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+  scroll-behavior:auto}
+*,*::before,*::after {
+  animation:none!important;
+  transition:none!important}
+.lesson-card {
+  transform:none}
+.practice-window {
+  transform:none}
+.hero-backdrop img {
+  transform:none}
+.logo-marquee {
+  overflow:visible;
+  mask-image:none}
+.logo-track {
+  width:auto}
+.logo-group {
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:0}
+.logo-group[aria-hidden=true] {
+  display:none}
+}
+
+/* ------------------------------------------------------------------
+   The B2C offer. America.gov's thin top strip carries the countdown,
+   the hero carries the price, and the reference's closing showcase
+   section becomes the checkout.
+   ------------------------------------------------------------------ */
+
+.urgency {
+  position:sticky;
+  z-index:40;
+  top:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+  min-height:44px;
+  padding:9px 24px;
+  background:var(--ink);
+  color:#fff;
+  font-size:13px;
+  text-align:center}
+.urgency strong {
+  font-weight:600}
+.countdown {
+  padding:3px 10px;
+  border-radius:999px;
+  background:var(--purple);
+  font-weight:600;
+  font-variant-numeric:tabular-nums}
+.urgency-cta {
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:3px}
+
+/* The topbar keeps its inset position inside the hero, pushed down by the
+   44px offer strip that now sits above it. */
+.topbar {
+  top:100px}
+
+.hero-lede {
+  max-width:58ch;
+  margin:24px auto 0;
+  font-size:18px}
+
+.offer-block {
+  margin-top:48px}
+.offer .price {
+  margin:36px auto 0}
+.price {
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:28px}
+.price-was {
+  font-family:var(--display);
+  font-size:30px;
+  color:#94a3b8;
+  text-decoration:line-through;
+  text-decoration-thickness:2px}
+.price-was span {
+  font-size:16px}
+.price-now {
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  font-family:var(--display);
+  font-size:clamp(56px,7vw,84px);
+  line-height:1;
+  letter-spacing:-.035em}
+.btn-xl {
+  padding:20px 40px;
+  font-size:17px;
+  box-shadow:0 12px 32px #6e7bb052}
+.reassure {
+  margin-top:16px;
+  font-size:14px}
+
+.offer {
+  position:relative;
+  overflow:hidden;
+  background:#eef0f7;
+  padding:120px 40px 90px;
+  text-align:center}
+.offer-heading {
+  position:relative;
+  z-index:2;
+  max-width:760px;
+  margin:0 auto 48px}
+.offer-heading h2 {
+  font-size:clamp(34px,4.6vw,56px);
+  line-height:1.1;
+  letter-spacing:-.035em;
+  text-wrap:balance}
+.offer-heading h2 span {
+  color:var(--purple)}
+.offer-heading>p {
+  font-size:18px;
+  margin:24px auto 0;
+  max-width:46ch}
+.offer-heading>p strong {
+  color:var(--ink)}
+.offer .learner-proof {
+  margin-top:72px}
+
+.dock-explore {
+  font-size:14px;
+  font-weight:500;
+  color:var(--copy);
+  white-space:nowrap}
+.dock-explore:hover {
+  color:var(--purple-hover)}
+.dock-explore span {
+  margin-left:8px}
+
+/* Title, the proof line, then the video, then the price. */
+@media(prefers-reduced-motion:no-preference) {
+  .hero .hero-proof {
+  animation-delay:.3s}
+.hero .vsl {
+  animation-delay:.42s}
+.hero .offer-block {
+  animation-delay:.46s}
+}
+
+@media(max-width:900px) {
+  .urgency {
+  gap:10px;
+  font-size:12px}
+.offer {
+  padding:88px 22px 72px}
+.offer-heading h2 {
+  font-size:32px}
+.offer-heading>p {
+  font-size:16px}
+.btn-xl {
+  padding:18px 30px;
+  font-size:16px}
+.dock-explore {
+  display:none}
+.floating-bar {
+  justify-content:center}
+}
+
+@media(max-width:800px) {
+  .topbar {
+  top:88px}
+}
+
+@media(max-width:500px) {
+  .topbar {
+  top:76px}
+.price-was {
+  font-size:24px}
+.hero-lede {
+  font-size:16px}
+}
+
+/* The hero now holds one title, the video and the price, so it needs less
+   vertical room than the reference's text-only opening. */
+.hero {
+  padding-top:132px;
+  padding-bottom:72px}
+.hero .vsl {
+  margin-top:40px}
+
+@media(max-width:800px) {
+  .hero {
+  padding-top:132px}
+.hero .vsl {
+  margin-top:36px}
+.offer-block {
+  margin-top:36px}
+}
+
+/* ------------------------------------------------------------------
+   The scenario panel: a short run of questions with consequences.
+   ------------------------------------------------------------------ */
+
+.scenario {
+  display:grid;
+  gap:10px;
+  padding:20px 22px 24px;
+  text-align:left}
+.scenario-head {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px}
+.scenario-progress {
+  color:#94a3b8;
+  font-size:11px;
+  font-weight:600}
+.scenario-setup {
+  color:var(--copy);
+  font-size:13px;
+  line-height:1.5}
+.scenario h3 {
+  font-size:17px;
+  line-height:1.3}
+.scenario-options {
+  display:grid;
+  gap:8px;
+  margin-top:4px}
+.scenario-options button {
+  padding:11px 14px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  color:var(--ink);
+  font-size:13px;
+  font-weight:500;
+  text-align:left;
+  transition:border-color .18s,background .18s}
+.scenario-options button:hover:not(:disabled) {
+  border-color:var(--purple);
+  background:#f8f7fd}
+.scenario-options button:disabled {
+  opacity:.55}
+.scenario-options button.is-selected {
+  opacity:1;
+  border-color:var(--purple);
+  background:#f0eef8}
+.scenario-feedback {
+  min-height:1.5em;
+  font-size:12px;
+  line-height:1.5}
+.scenario-feedback.is-good {
+  color:#15803d}
+.scenario-feedback.is-off {
+  color:#b4432f}
+.scenario-next {
+  justify-self:start;
+  padding:9px 16px;
+  border:0;
+  border-radius:8px;
+  background:var(--purple);
+  color:#fff;
+  font-size:13px;
+  font-weight:600}
+.scenario-next:hover {
+  background:var(--purple-hover)}
+
+/* Six lesson cards read as three across rather than the eight-lesson row. */
+.lesson-list {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:1000px}
+
+@media(max-width:900px) {
+  .lesson-list {
+  grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:600px) {
+  .lesson-list {
+  grid-template-columns:minmax(0,1fr)}
+}
+
+/* ------------------------------------------------------------------
+   The hero collision, borrowed from ../ahead-of-ai/. BEHIND? holds the
+   hero until AHEAD. shoves it off the page. Both words share one
+   centred box so the contact is measurable at any width.
+   ------------------------------------------------------------------ */
+
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  margin:-1px;
+  padding:0;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap;
+  border:0}
+
+.crash {
+  position:relative;
+  display:grid;
+  place-items:center;
+  margin-bottom:28px}
+.crash-old {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--display);
+  font-size:clamp(68px,14.8vw,206px);
+  line-height:.8;
+  letter-spacing:-.045em;
+  color:var(--ink);
+  white-space:nowrap;
+  pointer-events:none;
+  will-change:transform}
+.crash-old span {
+  display:inline-block}
+/* Set exactly as on ../ahead-of-ai/ (deck.css): capitals, BEHIND? at
+   4.27em set solid and AHEAD. at 3.86em with the display tracking, so the
+   two words meet at one scale and the winner stays the headline. */
+.hero .crash-new,.crash-ghost {
+  grid-area:1 / 1;
+  font-family:var(--display);
+  font-size:clamp(72px,15vw,210px);
+  line-height:.9;
+  letter-spacing:-.012em;
+  white-space:nowrap;
+  will-change:transform}
+.hero .crash-new {
+  position:relative;
+  z-index:3;
+  max-width:none;
+  margin:0;
+  color:var(--ink)}
+/* Trailing copies of the incoming word: the smear, done with layers rather
+   than a filter, which stays cheap on any machine. */
+.crash-ghost {
+  z-index:2;
+  opacity:0;
+  pointer-events:none;
+  color:#9075c0}
+
+.hero-sub {
+  overflow:hidden;
+  max-width:24ch;
+  margin:0 auto;
+  font-family:var(--display);
+  font-size:clamp(20px,2.6vw,30px);
+  line-height:1.2;
+  letter-spacing:-.02em;
+  color:var(--ink)}
+.hero-sub .w {
+  display:block;
+  overflow:hidden}
+.hero-sub .w>i {
+  display:block;
+  font-style:normal}
+
+/* Without JavaScript or GSAP the hero reads as the finished state: AHEAD.
+   alone. intro.js adds crash-live once it knows it can run the collision,
+   which is what lets BEHIND? on screen in the first place. */
+.crash-old,.crash-ghost {
+  visibility:hidden}
+html.crash-live .crash-old {
+  visibility:visible}
+
+/* The phone sizes from ../ahead-of-ai/deck.css. */
+@media(max-width:680px) {
+  .crash-old {
+  font-size:clamp(40px,13.3vw,74px)}
+.hero .crash-new,.crash-ghost {
+  font-size:clamp(42px,13.5vw,76px)}
+}
+
+@media(max-width:600px) {
+  .crash {
+  margin-bottom:22px}
+.hero-sub {
+  font-size:19px}
+}
+
+/* The credibility line under the hero claim: quiet, but the first thing
+   after the headline a reader takes in. */
+.hero-proof {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:fit-content;
+  max-width:100%;
+  margin:22px auto 0;
+  padding:10px 22px 10px 16px;
+  border:1px solid #cbd5e1aa;
+  border-radius:999px;
+  background:#ffffff8c;
+  backdrop-filter:blur(6px);
+  font-size:14px;
+  line-height:1.45;
+  color:var(--copy);
+  text-align:left;
+  text-wrap:balance}
+.hero-proof img {
+  flex-shrink:0;
+  width:26px;
+  height:26px;
+  object-fit:contain}
+
+@media(max-width:600px) {
+  .hero-proof {
+  gap:10px;
+  padding:10px 14px;
+  border-radius:16px;
+  font-size:13px}
+.hero-proof img {
+  width:22px;
+  height:22px}
+}
+
+/* ------------------------------------------------------------------
+   your-path-forward: the hero runs full bleed, with no inset box.
+   Last in the file so it wins over every breakpoint above.
+   ------------------------------------------------------------------ */
+.hero {
+  max-width:none;
+  margin:0;
+  border-radius:0}
+
+/* ------------------------------------------------------------------
+   your-path-forward: the close from ../ahead-of-ai/, without its star
+   band: the footer's flat left-to-right gradient starts on a straight
+   edge under the last section.
+   ------------------------------------------------------------------ */
+.foot {
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+  min-height:36svh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:clamp(56px,7vw,96px) 24px clamp(110px,15vw,200px);
+  text-align:center;
+  background:linear-gradient(90deg,#6e7bb0 0%,#997ac9 100%)}
+.foot-inner {
+  position:relative;
+  z-index:2;
+  max-width:1000px}
+.foot h2 {
+  margin:0 0 .5em;
+  color:#fff;
+  font-size:18px;
+  line-height:1.25}
+.foot-line {
+  margin:0;
+  color:rgba(255,255,255,.86);
+  font-size:18px;
+  line-height:1.25}
+.foot-mark {
+  position:absolute;
+  z-index:1;
+  right:20px;
+  bottom:0;
+  width:min(55%,826px);
+  color:#fff;
+  opacity:.96;
+  pointer-events:none}
+.foot-mark svg {
+  width:100%;
+  height:auto;
+  fill:currentColor}
+
+@media(max-width:680px) {
+  .foot {
+  padding-bottom:clamp(120px,40vw,220px)}
+.foot-mark {
+  right:-6%;
+  width:112%}
+}
+
+.foot h2,.foot-line {
+  text-wrap:balance}
+
+/* ------------------------------------------------------------------
+   your-path-forward: the page ground is ahead-of-ai's mist
+   (assets/brand.css .bg-mist), one fixed layer behind the whole page,
+   so the sections that painted their own flat lavender let it through.
+   ------------------------------------------------------------------ */
+.page-bg {
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(90% 80% at 10% 10%,rgba(233,222,251,.95) 0%,transparent 58%),
+    radial-gradient(90% 80% at 92% 30%,rgba(210,240,247,.9) 0%,transparent 55%),
+    linear-gradient(120deg,#fdfcff 0%,#f3f0fd 40%,#eaf3fa 72%,#f6f5fe 100%)}
+body,.hero,.curriculum,.offer {
+  background:transparent}
+/* The blurred lesson art behind the hero tinted it grey and stopped in a
+   hard line at its foot. Ahead-of-ai's cover is the mist alone. */
+.hero-backdrop {
+  display:none}
+
+/* ------------------------------------------------------------------
+   your-path-forward: no menu. The header is the Scholé AI logo alone,
+   larger, on the centre axis above AHEAD.
+   ------------------------------------------------------------------ */
+.topbar {
+  justify-content:center}
+.logo-img {
+  width:clamp(170px,16vw,230px)}
+
+/* ------------------------------------------------------------------
+   your-path-forward: Vinitra joins the video once it plays with sound,
+   in a white-rimmed circle at its bottom left. It sits above YouTube's
+   control bar so it never covers the play button.
+   ------------------------------------------------------------------ */
+.vsl-host {
+  position:absolute;
+  z-index:2;
+  left:clamp(14px,2.4vw,24px);
+  bottom:clamp(62px,calc(6vw + 30px),88px);
+  width:clamp(52px,8vw,96px);
+  aspect-ratio:1;
+  overflow:hidden;
+  border:clamp(3px,.4vw,4px) solid #fff;
+  border-radius:50%;
+  box-shadow:0 10px 26px #0f172a33;
+  pointer-events:none;
+  opacity:0;
+  transform:scale(.6);
+  transition:opacity .4s var(--ease),transform .5s var(--ease)}
+.vsl-host img {
+  width:100%;
+  height:100%;
+  object-fit:cover}
+.vsl.is-sound .vsl-host {
+  opacity:1;
+  transform:none}
+
+/* ------------------------------------------------------------------
+   your-path-forward: the buttons are ahead-of-ai's pill (deck.css
+   .book-cta): white, a 2px rim, the arrow in its own disc on the right.
+   The turquoise there is the Scholé gradient here, on the rim and the
+   disc both.
+   ------------------------------------------------------------------ */
+.btn-primary {
+  justify-content:space-between;
+  gap:18px;
+  padding:7px 7px 7px 26px;
+  border:2px solid transparent;
+  border-radius:999px;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(90deg,#9075c0 0%,#7173c8 50%,#6e94cf 100%) border-box;
+  color:var(--purple-hover);
+  font-weight:600;
+  box-shadow:none}
+.btn-primary:hover {
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(90deg,#9075c0 0%,#7173c8 50%,#6e94cf 100%) border-box;
+  transform:translateY(-2px)}
+.btn-xl {
+  padding:9px 9px 9px 30px;
+  font-size:18px;
+  box-shadow:none}
+.cta-dot {
+  flex:none;
+  display:grid;
+  place-items:center;
+  width:32px;
+  aspect-ratio:1;
+  border-radius:999px;
+  background:linear-gradient(135deg,#9075c0 0%,#7173c8 50%,#6e94cf 100%);
+  color:#fff}
+.btn-xl .cta-dot {
+  width:clamp(36px,2.9vw,44px)}
+.cta-dot svg {
+  width:52%;
+  height:auto;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2.4;
+  stroke-linecap:round;
+  stroke-linejoin:round}
+.floating-bar .btn {
+  padding:5px 5px 5px 20px}
+@media(max-width:500px) {
+  .btn-xl {
+  padding:7px 7px 7px 24px;
+  font-size:16px}
+}
+
+/* ------------------------------------------------------------------
+   your-path-forward: the lessons section has no heading of its own,
+   so it does not keep the room one needed: the cards follow the hero.
+   ------------------------------------------------------------------ */
+.curriculum {
+  padding-top:24px;
+  padding-bottom:40px}
+.lesson-list {
+  margin-top:24px}
+/* The description follows its title directly, instead of waiting below a
+   fixed-height title box. */
+.lesson-list h3,.lesson-list p {
+  min-height:0}
+.lesson-list p {
+  margin-top:10px}
+/* The line under the cards reads at the page's 18px line size, the one
+   "Loved by learners at" and the footer lines use, not a size of its own. */
+.curriculum-note {
+  font-size:18px;
+  text-wrap:balance}
+
+/* ------------------------------------------------------------------
+   your-path-forward: the statement after the lessons is three sentences
+   now, so it is set at the page's section-headline size (the feature
+   rows' 40px, 32px on phones) instead of a poster size of its own, and
+   it follows the line under the cards closely.
+   ------------------------------------------------------------------ */
+.manifesto {
+  max-width:980px;
+  padding:48px 32px 140px}
+.manifesto-copy {
+  font-size:40px;
+  line-height:1.2;
+  letter-spacing:-.02em}
+@media(max-width:600px) {
+  .manifesto {
+  padding:32px 24px 80px}
+.manifesto-copy {
+  font-size:32px;
+  line-height:1.2}
+}
+
+/* Three leader roles in the tutor demo: they wrap rather than squeeze. */
+.role-options {
+  flex-wrap:wrap}
+
+/* The one link to the strategy session, under the hero button: quiet, at
+   the size of the line above it. */
+.consult-link {
+  display:inline-block;
+  margin-top:14px;
+  color:var(--purple-hover);
+  font-size:14px;
+  text-decoration:underline;
+  text-underline-offset:3px}
+.consult-link:hover {
+  color:var(--ink)}
