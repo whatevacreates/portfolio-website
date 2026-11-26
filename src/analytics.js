@@ -1,32 +1,29 @@
-// visitor analytics (PostHog, EU): anonymous pageviews and named clicks only —
-// no session recording, no identified profiles. Local dev stays out of the
-// numbers. Lazily imported into its own chunk so the hero never waits for it.
-// The app routes via location.hash, so each hash change is a pageview.
-const enabled = !/^(localhost|127\.)/.test(location.hostname);
+// visitor analytics: Google Tag Manager container (whatevacreates).
+// Local dev stays out of the numbers. Snippet as given by Google, loaded from
+// here instead of index.html so localhost is skipped.
+// The app routes via location.hash, so each hash change is pushed as a
+// 'page_view' dataLayer event; clicks are pushed under their own names.
+const GTM_ID = 'GTM-KFXW567W';
+const on = !/^(localhost|127\.)/.test(location.hostname);
 
-// clicks that land before the chunk has loaded wait here, then flush
-let posthog;
-const queue = [];
+window.dataLayer = window.dataLayer || [];
 
-if (enabled) {
-  import('posthog-js').then(({ default: ph }) => {
-    ph.init('phc_dNFSfw3l9oqvM5S2vWX0hnEJTG5jID4hEH3pmY4n7A4', {
-      api_host: 'https://eu.i.posthog.com',
-      defaults: '2025-05-24',
-      capture_pageview: true, // captures the initial load; hash routing below
-      person_profiles: 'identified_only',
-      disable_session_recording: true,
-    });
-    addEventListener('hashchange', () => ph.capture('$pageview'));
-    posthog = ph;
-    queue.splice(0).forEach(([event, props]) => ph.capture(event, props));
-  });
+if (on) {
+  window.gtag = function gtag() { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+  document.head.appendChild(s);
+  addEventListener('hashchange', () => dataLayer.push({
+    event: 'page_view',
+    page_location: location.href,
+    page_path: location.pathname + location.hash,
+    page_title: document.title,
+  }));
 }
 
-// named click events, so the PostHog event list reads as a plain sentence
-// ("video_played", "contact_clicked") instead of raw autocaptured elements
+// named click events ("video_played", "contact_clicked")
 export function track(event, props) {
-  if (!enabled) return;
-  if (posthog) posthog.capture(event, props);
-  else queue.push([event, props]);
+  if (on) dataLayer.push({ event, ...props });
 }

@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import { ArrowDown, ArrowLeft, ArrowUpRight, Menu, Play, X } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Opening from './opening.jsx';
 import HoloMesh from './holomesh.jsx';
 import { Blog, BlogPost, posts } from './blog.jsx';
 import { LangContext, useT, getLang, saveLang } from './i18n.jsx';
@@ -49,8 +48,7 @@ function Header({ page, navigate, lang, setLang }) {
 
 // the career story, not the chronology: leadership and strategy first,
 // then the depth of creative execution. Each card = gif + recruiter-keyword
-// label; names and labels live in the project data. An optional third value
-// scales the gif below the card width.
+// label; names and labels live in the project data.
 const reels = [
   ['schole-ai', '/media/schole-ai-01-schole-logo.webp'],
   ['team-nl', '/media/team-nl-01-zo-doen-we-dat3.webp'],
@@ -83,23 +81,23 @@ function Work({ openProject }) {
   useLayoutEffect(() => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
-      gsap.utils.toArray('.reel > *').forEach((el) => gsap.from(el, {
-        y: 55, opacity: 0, duration: .9, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-      }));
+      ScrollTrigger.batch('.tile', {
+        start: 'top 92%', once: true,
+        onEnter: (els) => gsap.from(els, { y: 40, opacity: 0, duration: .8, stagger: .08, ease: 'power3.out' })
+      });
     }, root);
     return () => ctx.revert();
   }, []);
-  return <main ref={root}>
-    <Opening />
-    <section className="reel">
-      {reels.map(([slug, src, size], i) => {
+  return <main className="work" ref={root}>
+    <section className="tiles">
+      {reels.map(([slug, src], i) => {
         const project = data.projects.find((p) => p.slug === slug);
-        const img = src && <img src={asset(src)} alt="" loading={i < 3 ? 'eager' : 'lazy'} style={size ? { width: `${size * 100}%` } : undefined} />;
-        return <button className="reel-item" key={slug} onClick={() => { track('project_opened', { project: slug, position: i + 1 }); openProject(slug); }} aria-label={`View project: ${project.cardTitle}`}>
-          {src
-            ? img
-            : <span className="reel-tile"><HoloMesh />{project.title}</span>}
+        return <button className="tile" key={slug} onClick={() => { track('project_opened', { project: slug, position: i + 1 }); openProject(slug); }} aria-label={`View project: ${project.cardTitle || project.title}`}>
+          <span className="tile-media">
+            {src
+              ? <img src={asset(src)} alt="" loading={i < 6 ? 'eager' : 'lazy'} />
+              : <span className="reel-tile"><HoloMesh />{project.title}</span>}
+          </span>
           <em className="reel-label">{tr(project.label, labelsDe[slug])}</em>
         </button>;
       })}

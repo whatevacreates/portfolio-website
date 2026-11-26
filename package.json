@@ -12,7 +12,6 @@
     "@vitejs/plugin-react": "latest",
     "gsap": "latest",
     "lucide-react": "latest",
-    "posthog-js": "^1.430.3",
     "react": "latest",
     "react-dom": "latest",
     "sharp": "^0.35.3",
