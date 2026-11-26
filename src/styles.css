@@ -23,9 +23,12 @@
     var(--mesh-base);
 }
 /* the live layer: a WebGL canvas (holomesh.jsx) filling its panel behind the
-   content; the element's own --mesh background is the no-WebGL fallback */
+   content. Without WebGL (none, or Chrome blocking it for the site after a GPU
+   crash) the element's own background shows: a still of the same shader
+   (src/assets/foil-still-*.webp, rendered from holomesh.jsx's FRAG), with the
+   --mesh gradient under it until the image loads */
 .holo-mesh { position:absolute; inset:0; width:100%; height:100%; z-index:-1; }
-.reel-tile { background:var(--mesh); }
+.reel-tile { background:url('./assets/foil-still-panel.webp') center/cover, var(--mesh); }
 /* the canvas behind everything is the brand mesh — overscroll shows it,
    never beige; the page itself paints white on top */
 html { scroll-behavior:smooth; background:var(--mesh) fixed; }
@@ -183,7 +186,7 @@ nav button.active:after, nav button:hover:after { right:0; }
    as the no-WebGL fallback) fills the link, and the white ink layer screens
    over it — white hides the foil, the black glyphs let it shine through */
 .contact>a { font:400 clamp(38px,6vw,96px)/1.05 var(--display); letter-spacing:0; text-decoration:none;
-  display:block; padding:0; position:relative; z-index:0; isolation:isolate; overflow:hidden; background:var(--mesh); }
+  display:block; padding:0; position:relative; z-index:0; isolation:isolate; overflow:hidden; background:url('./assets/foil-still-footer.webp') center/cover, var(--mesh); }
 .contact-ink { display:flex; justify-content:space-between; align-items:center; gap:4vw; padding:3vh 0;
   background:#fff; color:#000; mix-blend-mode:screen; }
 .contact>a svg { width:clamp(35px,5vw,80px); height:auto; flex:none; }
@@ -191,7 +194,7 @@ nav button.active:after, nav button:hover:after { right:0; }
 .contact>div a { color:#64748b; }
 /* the footer is the hero panel's hologram again — live canvas behind,
    static mesh as the no-WebGL fallback — with slate-900 type on top */
-footer { min-height:180px; background:var(--mesh); position:relative; z-index:0; overflow:hidden;
+footer { min-height:180px; background:url('./assets/foil-still-footer.webp') center/cover, var(--mesh); position:relative; z-index:0; overflow:hidden;
   padding:48px 3vw; display:flex; justify-content:space-between; align-items:center; font-size:11px; }
 footer span, footer a { color:#0f172a; }
 footer a { text-decoration:none; display:inline-flex; align-items:center; gap:5px; }
@@ -321,7 +324,7 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
    the cut lands 102px above the edge) and the hero runs out on white — the
    canvas carries its own --mesh background as the no-WebGL fallback */
 .op { height:100vh; height:100svh; position:relative; z-index:0; background:#fff; }
-.op > .holo-mesh { height:calc(100% - 102px); background:var(--mesh); }
+.op > .holo-mesh { height:calc(100% - 102px); background:url('./assets/foil-still-panel.webp') center/cover, var(--mesh); }
 .op-stage { position:relative; height:100%; display:flex; flex-direction:column;
   align-items:center; justify-content:center; padding:0 3vw; }
 
