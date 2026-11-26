@@ -67,8 +67,23 @@ export default function HoloMesh() {
     // half resolution is invisible through the soft gradients and keeps the
     // fragment cost tiny even on a large hero panel
     const scale = Math.min(devicePixelRatio, 2) * 0.5;
-    let gl, uRes, uT, raf = 0, visible = true, lost = false;
+    let gl, uRes, uT, raf = 0, visible = true, lost = false, frames = 0;
     const start = performance.now();
+
+    // a 2D copy of the last drawn foil, sitting right under the live canvas:
+    // if the browser takes the WebGL context away, the foil freezes in shape
+    // instead of collapsing to the flat --mesh gradient. Refreshed about once
+    // a second (the copy has to be taken in the same frame as the draw).
+    const snap = document.createElement('canvas');
+    snap.className = 'holo-mesh';
+    snap.setAttribute('aria-hidden', 'true');
+    snap.style.visibility = 'hidden';
+    canvas.parentNode.insertBefore(snap, canvas);
+    const keep = () => {
+      if (snap.width !== canvas.width || snap.height !== canvas.height) { snap.width = canvas.width; snap.height = canvas.height; }
+      snap.getContext('2d').drawImage(canvas, 0, 0);
+      snap.style.visibility = '';
+    };
 
     // compile and wire the shader; runs again if a lost context comes back
     const setup = () => {
@@ -110,14 +125,16 @@ export default function HoloMesh() {
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uT, (performance.now() - start) / 1000);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
+      if (frames++ % 60 === 0) keep();
       if (!reduce && visible) raf = requestAnimationFrame(frame);
     };
 
     // the browser caps live WebGL contexts per page and drops the oldest when
     // a page asks for more (the live pages embedded in the Scholé case do).
     // A lost canvas paints white with a broken-graphics icon, so it steps
-    // aside and the element's static mesh gradient shows instead; if the
-    // context is handed back, the foil resumes.
+    // aside and the frozen copy of its last frame shows instead (the static
+    // mesh gradient only if it never drew); if the context is handed back,
+    // the foil resumes.
     const onLost = (e) => {
       e.preventDefault(); // asks the browser to restore it when it can
       lost = true;
@@ -134,7 +151,7 @@ export default function HoloMesh() {
     canvas.addEventListener('webglcontextlost', onLost);
     canvas.addEventListener('webglcontextrestored', onRestored);
 
-    if (!setup()) { canvas.style.visibility = 'hidden'; return; } // fallback gradient stays visible
+    if (!setup()) { canvas.style.visibility = 'hidden'; return () => snap.remove(); } // fallback gradient stays visible
 
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
@@ -147,7 +164,7 @@ export default function HoloMesh() {
     raf = requestAnimationFrame(frame);
 
     return () => {
-      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect();
+      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); snap.remove();
       canvas.removeEventListener('webglcontextlost', onLost);
       canvas.removeEventListener('webglcontextrestored', onRestored);
       gl?.getExtension('WEBGL_lose_context')?.loseContext();

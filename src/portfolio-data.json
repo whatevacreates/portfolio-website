@@ -713,64 +713,6 @@
    ],
    "liveStory": [
     {
-     "lead": "HubSpot, hands-on",
-     "leadDe": "HubSpot, selbst gemacht",
-     "leadCenter": true,
-     "text": "Every Scholé email runs on one reusable HubSpot template I designed: an animated header, a title in New Spirit, copy that opens with the reader's situation, one button, and the footer every Scholé surface shares. Alongside it, the real thank-you email to the IATSE pilot cohort, the most clicked email Scholé has sent.",
-     "textDe": "Jede Scholé-E-Mail läuft auf einem wiederverwendbaren HubSpot-Template, das ich gestaltet habe: ein animierter Header, ein Titel in New Spirit, Text, der mit der Situation der Leserin beginnt, ein Button und der Footer, den jede Scholé-Fläche teilt. Dazu die echte Dankes-E-Mail an die IATSE-Pilot-Kohorte, die meistgeklickte E-Mail, die Scholé je verschickt hat."
-    },
-    {
-     "stats": [
-      {
-       "n": "27%",
-       "l": "click rate on the IATSE pilot thank-you email",
-       "lDe": "Klickrate der Dankes-E-Mail an die IATSE-Pilot-Kohorte"
-      },
-      {
-       "n": "49%",
-       "l": "open rate on the same email",
-       "lDe": "Öffnungsrate derselben E-Mail"
-      }
-     ]
-    },
-    {
-     "emails": [
-      {
-       "label": "Reusable HubSpot template",
-       "labelDe": "Wiederverwendbares HubSpot-Template",
-       "header": "/media/schole-ai-150-email-header-taste.webp",
-       "headerH": 508,
-       "subject": "{One promise, in the subject line}",
-       "title": "One title, in New Spirit.",
-       "body": [
-        "Hi {firstname},",
-        "Open with the reader's situation, not with Scholé. Say the thing they already feel.",
-        "Then one idea, in two or three short paragraphs. Nothing they have to scroll for."
-       ],
-       "button": "One button",
-       "closing": "One closing line, in the brand's voice."
-      },
-      {
-       "header": "/media/schole-ai-149-email-header-grow.webp",
-       "headerH": 508,
-       "subject": "Thank you. Here is a month on us.",
-       "title": "You were here first.",
-       "body": [
-        "Hi {firstname},",
-        "You tried Scholé before it was finished, told us what was broken, and kept coming back. That is what a pilot is for, and we are grateful.",
-        "So: a free month of Scholé for you, and for anyone on your team who wants to learn alongside you. New since you started: any lesson as a podcast, scenarios to practice the conversations that matter, and Olé in your browser."
-       ],
-       "button": "Claim your free month",
-       "closing": "Thank you for growing with us.",
-       "label": "Sent · IATSE pilot cohort",
-       "labelDe": "Versendet · IATSE-Pilot-Kohorte"
-      }
-     ]
-    },
-    {
-     "mark": true
-    },
-    {
      "heading": "Brand strategy and identity",
      "headingDe": "Markenstrategie und Identität"
     },

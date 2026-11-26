@@ -601,6 +601,7 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
    tagline, --fs-2 leads and sub lines, --fs-3 everything else (body, captions, labels) */
 .case-schole-ai { --fs-1:clamp(34px,4vw,58px); --fs-2:clamp(19px,1.5vw,22px); --fs-3:16px; }
 .case-schole-ai .case-tagline, .case-schole-ai .case-h2, .case-schole-ai .case-stat strong { font-size:var(--fs-1); }
+.case-schole-ai .case-tagline { grid-column:1 / -1; justify-self:center; text-align:center; margin-left:auto; margin-right:auto; }
 /* every chapter title on the Scholé case: centred, slate 900, one display face */
 .case-schole-ai .case-h2 { text-align:center; color:#0f172a; font-family:var(--display); }
 .case-schole-ai .case-lead, .case-schole-ai .case-h2-sub, .case-schole-ai .case-text-italic, .case-schole-ai .case-award em, .case-schole-ai .case-film.case-film-serif figcaption, .case-schole-ai .case-phone-p figcaption strong, .case-schole-ai .case-flow li strong { font-size:var(--fs-2); }
