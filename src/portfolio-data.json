@@ -771,20 +771,56 @@
      "mark": true
     },
     {
-     "heading": "Brand strategy, positioning and rebrand",
-     "headingDe": "Markenstrategie, Positionierung und Rebranding"
+     "heading": "Brand strategy and identity",
+     "headingDe": "Markenstrategie und Identität"
     },
     {
      "lead": "Where learning becomes progress",
      "leadDe": "Where learning becomes progress",
      "leadCenter": true,
-     "text": "Scholé is an AI tutor built on EPFL and UC Berkeley research. When I joined, it told its story through the technology, so learners could not tell what it would do for them, and the HR teams who buy training could not tell what they would get. I moved the story from what the AI is to what people achieve with it: progress. That one word links a learner's motivation to the value a company pays for, and it became the positioning. I then rebuilt the identity around it: a New Spirit wordmark whose é bends into a progress curve, a three-star constellation as the mark, and a periwinkle-to-violet gradient.",
-     "textDe": "Scholé ist ein KI-Tutor auf Basis von Forschung der EPFL und der UC Berkeley. Als ich dazukam, erzählte Scholé seine Geschichte über die Technologie: Lernende konnten nicht sagen, was es für sie tut, und die HR-Teams, die Weiterbildung kaufen, nicht, was sie bekommen. Ich habe die Geschichte von dem, was die KI ist, zu dem verschoben, was Menschen damit erreichen: Fortschritt. Dieses eine Wort verbindet die Motivation der Lernenden mit dem Wert, für den ein Unternehmen bezahlt, und wurde zur Positionierung. Darauf habe ich die Identität neu aufgebaut: eine Wortmarke in New Spirit, deren é sich in eine Fortschrittskurve biegt, eine Drei-Sterne-Konstellation als Zeichen und ein Verlauf von Periwinkle zu Violett."
+     "text": "I began with the brand strategy, not the logo, and defined a shared ambition: progress. Learners want to become more capable; HR teams need to show that learning leads to practical improvement. That one word links individual motivation to business value, and it became the positioning: Where learning becomes progress. Three pillars make it tangible: your path, your companion, your proof of progress.",
+     "textDe": "Ich habe mit der Markenstrategie begonnen, nicht mit dem Logo, und eine gemeinsame Ambition definiert: Fortschritt. Lernende wollen fähiger werden; HR-Teams müssen zeigen, dass Lernen zu praktischer Verbesserung führt. Dieses eine Wort verbindet individuelle Motivation mit geschäftlichem Wert, und daraus wurde die Positionierung: Where learning becomes progress. Drei Säulen machen sie greifbar: dein Weg, dein Begleiter, dein Beweis für Fortschritt."
     },
     {
-     "img": "/media/schole-ai-31-logo-lockup.webp",
+     "img": "/media/schole-ai-26s-logo-rationale.webp",
      "width": 740,
      "rounded": true
+    },
+    {
+     "row": [
+      "/media/schole-ai-28s-logo-progress-sketch.webp",
+      "/media/schole-ai-28b-logo-explorations.webp"
+     ],
+     "rounded": true,
+     "width": 900,
+     "caption": "Early exploration: the progress curve on paper, and the directions tried before the final identity, including the terracotta it replaced.",
+     "captionDe": "Frühe Exploration: die Fortschrittskurve auf Papier und die Richtungen vor der finalen Identität, inklusive des Terrakotta, das sie ersetzt hat."
+    },
+    {
+     "lead": "The final identity",
+     "leadDe": "Die finale Identität",
+     "leadCenter": true,
+     "text": "A New Spirit serif wordmark, because learning deserves a voice with some weight. The é bends into the progress curve, the three-star constellation is the mark, and a periwinkle-to-violet gradient replaces the terracotta. Every surface since, from the website to the stand, builds on the same four elements.",
+     "textDe": "Eine Serifen-Wortmarke in New Spirit, weil Lernen eine Stimme mit Gewicht verdient. Das é biegt sich in die Fortschrittskurve, die Drei-Sterne-Konstellation ist das Zeichen, und ein Verlauf von Periwinkle zu Violett ersetzt das Terrakotta. Jede Fläche seither, von der Website bis zum Stand, baut auf denselben vier Elementen auf."
+    },
+    {
+     "row": [
+      "/media/schole-ai-140-logo-construction.webp",
+      "/media/schole-ai-145-logo-gradient-specs.webp"
+     ],
+     "rounded": true,
+     "width": 1100,
+     "caption": "Construction grid and gradient specification.",
+     "captionDe": "Konstruktionsraster und Spezifikation des Verlaufs."
+    },
+    {
+     "film": "/media/schole-ai-brand-film-30s.mp4",
+     "poster": "/media/schole-ai-brand-film-30s-poster.jpg",
+     "width": 980,
+     "rounded": true,
+     "serifCaption": true,
+     "caption": "The need to ask. The courage to try. The hunger to know more. The refusal to stay still. The power to keep moving forward. Every question is a beginning. Every mistake can become a lesson. Every aha moment marks progress. Learning what felt impossible yesterday. Bit by bit, every day, we become a little more like ourselves. More confident. More capable. More ready for what’s next. Is this drive what makes us human? Scholé. Find your path forward.",
+     "captionDe": "Das Bedürfnis zu fragen. Der Mut, es zu versuchen. Der Hunger, mehr zu wissen. Die Weigerung, stehen zu bleiben. Die Kraft, weiterzugehen. Jede Frage ist ein Anfang. Jeder Fehler kann zur Lektion werden. Jeder Aha-Moment ist ein Fortschritt. Lernen, was gestern noch unmöglich schien. Stück für Stück, jeden Tag, werden wir ein bisschen mehr wir selbst. Selbstbewusster. Fähiger. Bereiter für das, was kommt. Ist dieser Antrieb das, was uns menschlich macht? Scholé. Find your path forward."
     },
     {
      "heading": "Flagship launch:\nthe browser extension,\nSeptember 2026",
