@@ -470,9 +470,10 @@
      "natural": true
     },
     {
-     "film": "/media/schole-ai-128-hands-dirty-film-screen.mp4",
-     "poster": "/media/schole-ai-128-poster-hands-dirty-screen.webp",
+     "film": "/media/schole-ai-128-hands-dirty-film-crop.mp4",
+     "poster": "/media/schole-ai-128-poster-hands-dirty-crop.webp",
      "frame": "phone",
+     "fit": "contain",
      "loop": true,
      "width": 420
     },
@@ -823,9 +824,10 @@
      "natural": true
     },
     {
-     "film": "/media/schole-ai-128-hands-dirty-film-screen.mp4",
-     "poster": "/media/schole-ai-128-poster-hands-dirty-screen.webp",
+     "film": "/media/schole-ai-128-hands-dirty-film-crop.mp4",
+     "poster": "/media/schole-ai-128-poster-hands-dirty-crop.webp",
      "frame": "phone",
+     "fit": "contain",
      "loop": true,
      "width": 420
     },

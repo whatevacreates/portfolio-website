@@ -44,7 +44,10 @@
       if (i < text.length) setTimeout(tick, 60 + Math.random() * 90);
       else setTimeout(done, 500);
     };
-    input.focus();
+    // preventScroll: without it the browser scrolls the portfolio page (the
+    // parent of this iframe) to bring the input into view, yanking a reader
+    // who has already scrolled past the monitor back up to it
+    input.focus({ preventScroll: true });
     tick();
   };
 

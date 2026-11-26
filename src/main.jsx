@@ -522,7 +522,9 @@ function renderStory(story, title, tr) {
     // a looping film filling the same photographed iPhone ({ film, frame: "phone" })
     else if (item.film && item.frame === 'phone') out.push(<figure className="case-phone-up" key={i} style={item.width ? { maxWidth: `${item.width}px` } : undefined}>
       <div className="ig-phone">
-        <div className="ph-screen ph-screen-fill"><video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} autoPlay muted loop playsInline preload="auto" /></div>
+        {/* { fit: "contain" }: a film that isn't phone-shaped (the 3:4 NEXT ad)
+            sits centred on the dark screen, like the ad films in .case-phones */}
+        <div className={item.fit === 'contain' ? 'ph-screen' : 'ph-screen ph-screen-fill'}><video src={asset(item.film)} poster={item.poster ? asset(item.poster) : undefined} autoPlay muted loop playsInline preload="auto" /></div>
         <img className="ig-frame" src={asset('/media/schole-ai-146-iphone-frame.webp')} alt="" aria-hidden="true" draggable="false" />
       </div>
       {item.caption && <figcaption>{tr(item.caption, item.captionDe)}</figcaption>}
