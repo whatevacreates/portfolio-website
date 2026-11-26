@@ -63,63 +63,94 @@ export default function HoloMesh() {
   const ref = useRef();
   useEffect(() => {
     const canvas = ref.current;
-    const gl = canvas.getContext('webgl', { antialias: false, alpha: false });
-    if (!gl) return; // fallback gradient stays visible
-
-    const shader = (type, src) => {
-      const s = gl.createShader(type);
-      gl.shaderSource(s, src); gl.compileShader(s);
-      return s;
-    };
-    const prog = gl.createProgram();
-    gl.attachShader(prog, shader(gl.VERTEX_SHADER, VERT));
-    gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FRAG));
-    gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
-    gl.useProgram(prog);
-    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    const loc = gl.getAttribLocation(prog, 'a');
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    const uRes = gl.getUniformLocation(prog, 'u_res');
-    const uT = gl.getUniformLocation(prog, 'u_t');
-
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     // half resolution is invisible through the soft gradients and keeps the
     // fragment cost tiny even on a large hero panel
     const scale = Math.min(devicePixelRatio, 2) * 0.5;
+    let gl, uRes, uT, raf = 0, visible = true, lost = false;
+    const start = performance.now();
+
+    // compile and wire the shader; runs again if a lost context comes back
+    const setup = () => {
+      gl = canvas.getContext('webgl', { antialias: false, alpha: false });
+      if (!gl || gl.isContextLost()) return false;
+      const shader = (type, src) => {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src); gl.compileShader(s);
+        return s;
+      };
+      const prog = gl.createProgram();
+      gl.attachShader(prog, shader(gl.VERTEX_SHADER, VERT));
+      gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FRAG));
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return false;
+      gl.useProgram(prog);
+      gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+      const loc = gl.getAttribLocation(prog, 'a');
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+      uRes = gl.getUniformLocation(prog, 'u_res');
+      uT = gl.getUniformLocation(prog, 'u_t');
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      return true;
+    };
+
     const resize = () => {
       const w = Math.max(1, Math.round(canvas.clientWidth * scale));
       const h = Math.max(1, Math.round(canvas.clientHeight * scale));
       if (canvas.width !== w || canvas.height !== h) {
         canvas.width = w; canvas.height = h;
-        gl.viewport(0, 0, w, h);
+        if (gl && !lost) gl.viewport(0, 0, w, h);
       }
     };
-    const ro = new ResizeObserver(resize);
-    ro.observe(canvas);
-
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let raf = 0, visible = true;
-    const start = performance.now();
     const frame = () => {
+      if (lost) return;
       resize();
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uT, (performance.now() - start) / 1000);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       if (!reduce && visible) raf = requestAnimationFrame(frame);
     };
+
+    // the browser caps live WebGL contexts per page and drops the oldest when
+    // a page asks for more (the live pages embedded in the Scholé case do).
+    // A lost canvas paints white with a broken-graphics icon, so it steps
+    // aside and the element's static mesh gradient shows instead; if the
+    // context is handed back, the foil resumes.
+    const onLost = (e) => {
+      e.preventDefault(); // asks the browser to restore it when it can
+      lost = true;
+      cancelAnimationFrame(raf);
+      canvas.style.visibility = 'hidden';
+    };
+    const onRestored = () => {
+      lost = false;
+      if (!setup()) return;
+      canvas.style.visibility = '';
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(frame);
+    };
+    canvas.addEventListener('webglcontextlost', onLost);
+    canvas.addEventListener('webglcontextrestored', onRestored);
+
+    if (!setup()) { canvas.style.visibility = 'hidden'; return; } // fallback gradient stays visible
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
     const io = new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
       cancelAnimationFrame(raf);
-      if (visible) raf = requestAnimationFrame(frame);
+      if (visible && !lost) raf = requestAnimationFrame(frame);
     });
     io.observe(canvas);
     raf = requestAnimationFrame(frame);
 
     return () => {
       cancelAnimationFrame(raf); ro.disconnect(); io.disconnect();
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      canvas.removeEventListener('webglcontextlost', onLost);
+      canvas.removeEventListener('webglcontextrestored', onRestored);
+      gl?.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, []);
   return <canvas className="holo-mesh" ref={ref} aria-hidden="true" />;
