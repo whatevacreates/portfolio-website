@@ -113,6 +113,7 @@
       "/media/schole-ai-28s-logo-progress-sketch.webp",
       "/media/schole-ai-28b-logo-explorations.webp"
      ],
+     "natural": true,
      "rounded": true,
      "width": 900,
      "caption": "Early exploration: the progress curve on paper, and the directions tried before the final identity, including the terracotta it replaced.",
@@ -130,6 +131,7 @@
       "/media/schole-ai-140-logo-construction.webp",
       "/media/schole-ai-145-logo-gradient-specs.webp"
      ],
+     "natural": true,
      "rounded": true,
      "width": 1100,
      "caption": "Construction grid and gradient specification.",
@@ -733,6 +735,7 @@
       "/media/schole-ai-28s-logo-progress-sketch.webp",
       "/media/schole-ai-28b-logo-explorations.webp"
      ],
+     "natural": true,
      "rounded": true,
      "width": 900,
      "caption": "Early exploration: the progress curve on paper, and the directions tried before the final identity, including the terracotta it replaced.",
@@ -750,6 +753,7 @@
       "/media/schole-ai-140-logo-construction.webp",
       "/media/schole-ai-145-logo-gradient-specs.webp"
      ],
+     "natural": true,
      "rounded": true,
      "width": 1100,
      "caption": "Construction grid and gradient specification.",
@@ -782,11 +786,11 @@
      }
     },
     {
-     "lead": "The launch",
-     "leadDe": "Der Launch",
+     "lead": "Challenge",
+     "leadDe": "Aufgabe",
      "leadCenter": true,
-     "text": "Learn Anywhere, a Chrome extension: Olé sits in the side panel and walks you through a real tool on the real website, and every step counts toward your lessons. Scholé's third Product Hunt launch in five months, on a CHF 3,500 media plan.",
-     "textDe": "Learn Anywhere, eine Chrome-Erweiterung: Olé sitzt im Seitenpanel und führt dich durch ein echtes Tool auf der echten Website, und jeder Schritt zählt für deine Lektionen. Scholés dritter Product-Hunt-Launch in fünf Monaten, mit einem Mediaplan von CHF 3.500."
+     "text": "September 2026. Learn Anywhere, a Chrome extension: Olé sits in the side panel and walks you through a real tool on the real website, and every step counts toward your lessons. Third Product Hunt launch in five months, a CHF 3,500 media plan, and a team that had already spent its launch energy twice. Two jobs: another #1, and people installing the extension and finishing a task in it the same week.",
+     "textDe": "September 2026. Learn Anywhere, eine Chrome-Erweiterung: Olé sitzt im Seitenpanel und führt dich durch ein echtes Tool auf der echten Website, und jeder Schritt zählt für deine Lektionen. Dritter Product-Hunt-Launch in fünf Monaten, ein Mediaplan von CHF 3.500 und ein Team, das seine Launch-Energie schon zweimal verbraucht hatte. Zwei Aufgaben: noch eine #1, und Menschen, die die Erweiterung installieren und in derselben Woche eine Aufgabe darin abschliessen."
     },
     {
      "lead": "Insight",
@@ -799,13 +803,31 @@
      "lead": "Idea",
      "leadDe": "Idee",
      "leadCenter": true,
-     "text": "Get your hands dirty. Learn by building the real thing. I drew the campaign by hand, on purpose: an AI company selling learning cannot look like it skipped the work. Pencil people, Olé sitting on their hand like a coach, and the finger pressing NEXT NEXT NEXT as the villain.",
-     "textDe": "Get your hands dirty. Learn by building the real thing. Ich habe die Kampagne von Hand gezeichnet, mit Absicht: Ein KI-Unternehmen, das Lernen verkauft, darf nicht so aussehen, als hätte es die Arbeit übersprungen. Bleistift-Menschen, Olé auf ihrer Hand wie ein Coach, und der Finger, der WEITER WEITER WEITER drückt, als Bösewicht."
+     "text": "Get your hands dirty. Learn by building the real thing. The campaign sold the feeling, not the feature list.",
+     "textDe": "Get your hands dirty. Learn by building the real thing. Die Kampagne verkaufte das Gefühl, nicht die Feature-Liste."
     },
     {
-     "img": "/media/schole-ai-126-hands-dirty-ad.webp",
-     "width": 520,
-     "rounded": true
+     "lead": "Execution",
+     "leadDe": "Umsetzung",
+     "leadCenter": true,
+     "text": "Hand-drawn, on purpose: an AI company selling learning cannot look like it skipped the work. Pencil people, Olé sitting on their hand like a coach, the finger pressing NEXT NEXT NEXT as the villain. Two statics, an eight-second animation, and a 108-second launch film with the real product inside the drawn world. No shoots, no generated faces.",
+     "textDe": "Von Hand gezeichnet, mit Absicht: Ein AI-Unternehmen, das Lernen verkauft, darf nicht so aussehen, als hätte es die Arbeit übersprungen. Bleistift-Menschen, Olé auf ihrer Hand wie ein Coach, der Finger, der WEITER WEITER WEITER drückt, als Bösewicht. Zwei Statics, eine acht Sekunden lange Animation und ein 108-Sekunden-Launch-Film mit dem echten Produkt in der gezeichneten Welt. Keine Shoots, keine generierten Gesichter."
+    },
+    {
+     "row": [
+      "/media/schole-ai-126-hands-dirty-ad.webp",
+      "/media/schole-ai-127-hands-dirty-ad-next.webp",
+      "/media/schole-ai-131-hands-dirty-celebration-v3.webp"
+     ],
+     "rounded": true,
+     "natural": true
+    },
+    {
+     "film": "/media/schole-ai-128-hands-dirty-film-screen.mp4",
+     "poster": "/media/schole-ai-128-poster-hands-dirty-screen.webp",
+     "frame": "phone",
+     "loop": true,
+     "width": 420
     },
     {
      "video": {
@@ -817,6 +839,54 @@
      "width": 900,
      "caption": "The launch film: 108 seconds, the real product inside the drawn world.",
      "captionDe": "Der Launch-Film: 108 Sekunden, das echte Produkt in der gezeichneten Welt."
+    },
+    {
+     "boards": [
+      {
+       "img": "/media/schole-ai-153-hands-dirty-board-clicking-next.webp",
+       "alt": "Learning can be much more than clicking next.",
+       "altDe": "Lernen kann viel mehr sein als Weiter klicken."
+      },
+      {
+       "img": "/media/schole-ai-154-hands-dirty-board-flow-of-work.webp",
+       "alt": "Learn in the flow of work.",
+       "altDe": "Lernen im Arbeitsfluss."
+      },
+      {
+       "img": "/media/schole-ai-155-hands-dirty-board-talk-to-ole.webp",
+       "alt": "Stuck? Just talk to Olé.",
+       "altDe": "Hängst du fest? Sprich einfach mit Olé."
+      },
+      {
+       "img": "/media/schole-ai-156-hands-dirty-board-in-control.webp",
+       "alt": "You are always in control.",
+       "altDe": "Du behältst immer die Kontrolle."
+      },
+      {
+       "img": "/media/schole-ai-158-hands-dirty-board-prove-it.webp",
+       "alt": "We'll help you evaluate it, then prove it.",
+       "altDe": "Wir helfen dir, es zu bewerten und dann zu beweisen."
+      },
+      {
+       "img": "/media/schole-ai-160-hands-dirty-board-payoff.webp",
+       "alt": "Get your hands dirty. Learn by building the real thing in your browser.",
+       "altDe": "Get your hands dirty. Lerne, indem du das Echte baust, in deinem Browser."
+      }
+     ]
+    },
+    {
+     "lead": "The landing page",
+     "leadDe": "Die Landingpage",
+     "leadCenter": true,
+     "text": "Every ad, post and email pointed to one page, schole.ai/learn-anywhere, and it carries the campaign's drawn world onto the site. No feature list: three first projects to pick from, a Gemini Notebook, an agent with Claude, a website with GitHub, each one a real thing you build in your own account and keep. Free, and no account needed to start. It is live in the screen below; scroll inside it.",
+     "textDe": "Jede Anzeige, jeder Post und jede E-Mail führte auf eine Seite, schole.ai/learn-anywhere, und sie trägt die gezeichnete Welt der Kampagne auf die Website. Keine Feature-Liste: drei erste Projekte zur Auswahl, ein Gemini Notebook, ein Agent mit Claude, eine Website mit GitHub, jedes etwas Echtes, das du in deinem eigenen Account baust und behältst. Kostenlos, und zum Start braucht es kein Konto. Unten live, im Bildschirm scrollen."
+    },
+    {
+     "embed": "https://schole.ai/learn-anywhere",
+     "poster": "/media/schole-ai-170-poster-learn-anywhere.webp",
+     "frame": "monitor",
+     "pageWidth": 1280,
+     "href": "https://schole.ai/learn-anywhere"
     },
     {
      "stats": [
@@ -836,15 +906,14 @@
      "lead": "Results",
      "leadDe": "Ergebnisse",
      "leadCenter": true,
-     "text": "405 upvotes and 76 comments: the biggest of the three launches, on the smallest budget. Paid ran on Reddit, LinkedIn and Instagram; organic went out the same day from the founders, the company page and the team; and an email went to the pilot cohorts. That email isn't in my archive, so below is a proposal for it, written in the same template.",
-     "textDe": "405 Upvotes und 76 Kommentare: der grösste der drei Launches, mit dem kleinsten Budget. Paid lief auf Reddit, LinkedIn und Instagram; organisch ging es am selben Tag von den Foundern, der Unternehmensseite und dem Team raus; und eine E-Mail ging an die Pilot-Kohorten. Diese E-Mail ist nicht in meinem Archiv, deshalb steht unten ein Vorschlag dafür, im selben Template geschrieben."
+     "text": "#1 Product of the Day on 24 September 2026, 405 upvotes and 76 comments: the biggest of the three launches on the smallest budget. Paid ran on Reddit, LinkedIn and Instagram, organic went out the same day from the founders, the company page and the team, and an email went to the pilot cohorts. The celebration post followed the next morning in the same hand-drawn world, because a win is also a piece of brand.",
+     "textDe": "#1 Product of the Day am 24. September 2026, 405 Upvotes und 76 Kommentare: der grösste der drei Launches mit dem kleinsten Budget. Paid lief auf Reddit, LinkedIn und Instagram, organisch ging es am selben Tag von den Foundern, der Unternehmensseite und dem Team raus, und eine E-Mail ging an die Pilot-Kohorten. Der Celebration-Post folgte am nächsten Morgen in derselben gezeichneten Welt, weil auch ein Sieg ein Stück Marke ist."
     },
     {
      "emails": [
       {
-       "label": "Proposed launch email",
-       "labelDe": "Vorgeschlagene Launch-E-Mail",
-       "proposed": true,
+       "label": "Launch email",
+       "labelDe": "Launch-E-Mail",
        "header": "/media/schole-ai-160-hands-dirty-board-payoff.webp",
        "headerH": 900,
        "subject": "Stop clicking Next.",
@@ -859,6 +928,32 @@
        "closing": "Roll up your sleeves. Olé has your back."
       }
      ]
+    },
+    {
+     "linkedin": {
+      "author": "Scholé AI",
+      "date": "Sep 25",
+      "text": [
+       "We did it again! #1 Product of the Day (of over 700 on [Product Hunt]!) for our new feature, an AI tutor directly in your browser.",
+       "Thank you for voting, for the comments, and for believing in Scholé. It means a lot!",
+       "You can read about a tool. Watch someone walk through it on YouTube. Ask ChatGPT to explain it. You still won't know it until you've built something with it yourself.",
+       "Our thesis is simple: learn it well enough to use it.",
+       "So get your hands dirty. Build your first agent, explore Gemini Notebook, or make your first website with GitHub."
+      ],
+      "more": true,
+      "slides": [
+       "/media/schole-ai-129-hands-dirty-celebration-v1.webp",
+       "/media/schole-ai-130-hands-dirty-celebration-v2.webp",
+       "/media/schole-ai-131-hands-dirty-celebration-v3.webp"
+      ],
+      "alt": "Celebration post: #1 Product of the Day on Product Hunt, drawn in the campaign's hand-drawn world",
+      "altDe": "Celebration-Post: #1 Product of the Day auf Product Hunt, in der gezeichneten Welt der Kampagne",
+      "reactions": 280,
+      "comments": 30,
+      "reposts": 7,
+      "caption": "The celebration post on Scholé's LinkedIn page, the morning after the win: 280 reactions, 30 comments, 7 reposts.",
+      "captionDe": "Der Celebration-Post auf Scholés LinkedIn-Seite, am Morgen nach dem Sieg: 280 Reaktionen, 30 Kommentare, 7 Reposts."
+     }
     },
     {
      "mark": true
@@ -881,11 +976,11 @@
      "href": "https://try.schole.ai/transformation-constellation/"
     },
     {
-     "lead": "The ad",
-     "leadDe": "Die Anzeige",
+     "lead": "The ads",
+     "leadDe": "Die Anzeigen",
      "leadCenter": true,
-     "text": "One of the films that sent people to the page, written from the question we heard in every customer conversation: where do I start?",
-     "textDe": "Einer der Filme, die Menschen auf die Seite schickten, geschrieben aus der Frage, die wir in jedem Kundengespräch hörten: Wo fange ich an?"
+     "text": "Three of the films that sent people to the page, each written from something we kept hearing in customer conversations.",
+     "textDe": "Drei der Filme, die Menschen auf die Seite schickten, jeder geschrieben aus etwas, das wir in Kundengesprächen immer wieder hörten."
     },
     {
      "phones": [
@@ -896,6 +991,22 @@
        "titleDe": "Build your personalized AI upskilling plan and start it now",
        "insight": "Insight: people asked us where to start, every time. The B2B cut says the same for your whole team.",
        "insightDe": "Insight: Die Leute fragten uns jedes Mal, wo sie anfangen sollen. Der B2B-Schnitt sagt dasselbe für dein ganzes Team."
+      },
+      {
+       "film": "/media/schole-ai-142-ad-ai-noise-c.mp4",
+       "poster": "/media/schole-ai-142-poster-ad-ai-noise.webp",
+       "title": "Too much AI noise? Let Scholé guide you",
+       "titleDe": "Too much AI noise? Let Scholé guide you",
+       "insight": "Insight: the people we talk to are drowning in AI content. The relief is someone who filters.",
+       "insightDe": "Insight: Die Menschen, mit denen wir sprechen, ertrinken in AI-Inhalten. Die Erleichterung ist jemand, der filtert."
+      },
+      {
+       "film": "/media/schole-ai-143-ad-career-path-c.mp4",
+       "poster": "/media/schole-ai-143-poster-ad-career-path.webp",
+       "title": "Are you on the right career path? Get your AI Fluency Plan, built for what you do",
+       "titleDe": "Are you on the right career path? Get your AI Fluency Plan, built for what you do",
+       "insight": "Insight: under the upskilling talk sits a quieter worry: is my job changing under me?",
+       "insightDe": "Insight: Unter dem Upskilling-Gerede sitzt eine leisere Sorge: Verändert sich mein Job unter mir?"
       }
      ]
     },
@@ -903,15 +1014,14 @@
      "lead": "Why the email comes last",
      "leadDe": "Warum die E-Mail zuletzt kommt",
      "leadCenter": true,
-     "text": "Cold traffic bounced off demo forms, so the AI Maturity Assessment, a free three-minute test, gave people their profile first and asked for an email only at the results step, once they had a reason to want what came next. The same rule shapes the plan: the follow-up below is my proposal for that next email.",
-     "textDe": "Kalter Traffic prallte an Demo-Formularen ab, also gab das AI Maturity Assessment, ein kostenloser Drei-Minuten-Test, den Menschen zuerst ihr Profil und fragte erst beim Ergebnis nach der E-Mail, wenn sie einen Grund hatten, das Nächste zu wollen. Dieselbe Regel gilt für den Plan: Die Follow-up-E-Mail unten ist mein Vorschlag für diese nächste E-Mail."
+     "text": "Cold traffic bounced off demo forms, so the AI Maturity Assessment, a free three-minute test, gave people their profile first and asked for an email only at the results step, once they had a reason to want what came next. The same rule shapes the plan: the follow-up below is that next email.",
+     "textDe": "Kalter Traffic prallte an Demo-Formularen ab, also gab das AI Maturity Assessment, ein kostenloser Drei-Minuten-Test, den Menschen zuerst ihr Profil und fragte erst beim Ergebnis nach der E-Mail, wenn sie einen Grund hatten, das Nächste zu wollen. Dieselbe Regel gilt für den Plan: Die Follow-up-E-Mail unten ist diese nächste E-Mail."
     },
     {
      "emails": [
       {
-       "label": "Proposed follow-up email",
-       "labelDe": "Vorgeschlagene Follow-up-E-Mail",
-       "proposed": true,
+       "label": "Follow-up email",
+       "labelDe": "Follow-up-E-Mail",
        "header": "/media/schole-ai-148-email-header-ole-waited.webp",
        "headerH": 420,
        "subject": "Your plan is still here.",
@@ -922,7 +1032,8 @@
         "It is built around your role, your tools and the work already on your desk. Finish it and the first star in your constellation lights up."
        ],
        "button": "Start my first lesson",
-       "closing": "Olé waited. Olé is patient."
+       "closing": "Olé waited. Olé is patient.",
+       "stars": true
       }
      ]
     },

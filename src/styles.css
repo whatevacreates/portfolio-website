@@ -481,6 +481,46 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 .mail-fit { position:relative; overflow:hidden; border-radius:12px; box-shadow:0 24px 60px -28px rgba(23,21,45,.45); }
 .mail { position:absolute; left:0; top:0; width:600px; transform-origin:0 0; background:#fff; font-family:Inter,'DM Sans',sans-serif; text-align:center; color:#605D73; }
 .mail-header { display:block; width:100%; height:auto; }
+/* a LinkedIn post as it looked in the feed (LinkedInPost): white card, system
+   type at feed sizes, the carousel's next slide peeking in */
+.li-post { width:min(100%,555px); margin:0 auto; padding:0; }
+.li-card { background:#fff; border-radius:10px; box-shadow:0 0 0 1px #e8e6ef, 0 18px 50px rgba(54,40,110,.12); overflow:hidden;
+  font:400 14px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; color:rgba(0,0,0,.9); text-align:left; }
+.li-head { display:flex; align-items:center; gap:10px; padding:14px 16px 6px; }
+.li-logo { width:46px; height:46px; flex:none; padding:7px; border-radius:6px; background:#fff; box-shadow:0 0 0 1px #ecebf2; overflow:visible; }
+.li-head strong { display:block; font-size:14px; font-weight:600; line-height:1.3; }
+.li-head span { display:flex; align-items:center; gap:4px; font-size:12px; color:rgba(0,0,0,.6); }
+.li-head span svg { width:13px; height:13px; }
+.li-text { padding:4px 16px 10px; }
+.li-text p { margin:0 0 1.05em; font-size:14px; line-height:1.45; color:rgba(0,0,0,.9); }
+.li-text p:last-child { margin-bottom:0; }
+.li-text b { font-weight:600; color:#0a66c2; }
+.li-more { color:rgba(0,0,0,.6); }
+.li-slides-wrap { position:relative; }
+.li-slides { display:grid; grid-auto-flow:column; grid-auto-columns:84%; gap:6px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; padding:0 0 0 0; }
+.li-slides::-webkit-scrollbar { display:none; }
+.li-slides img { width:100%; aspect-ratio:4/5; object-fit:cover; scroll-snap-align:start; border-radius:0; }
+.li-count { position:absolute; top:12px; right:12px; padding:3px 9px; border-radius:12px; background:rgba(0,0,0,.75); color:#fff; font-size:13px; font-weight:600; }
+.li-stats { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 16px; font-size:12px; color:rgba(0,0,0,.6); border-bottom:1px solid #e8e8e8; margin:0 16px; padding-left:0; padding-right:0; }
+.li-reacts { display:flex; align-items:center; }
+.li-r { display:inline-grid; place-items:center; width:18px; height:18px; border-radius:50%; margin-right:-4px; box-shadow:0 0 0 1.5px #fff; position:relative; }
+.li-r:last-of-type { margin-right:6px; }
+.li-r svg { width:10px; height:10px; color:#fff; fill:#fff; stroke-width:1.5; }
+.li-r-like { background:#378fe9; z-index:3; } .li-r-cele { background:#6dae4f; z-index:2; } .li-r-love { background:#df704d; z-index:1; }
+.li-r-cele svg { fill:none; stroke-width:2.2; }
+.li-actions { display:flex; justify-content:space-around; padding:4px 8px 6px; }
+.li-actions span { display:flex; align-items:center; gap:6px; padding:10px 8px; font-size:14px; font-weight:600; color:rgba(0,0,0,.6); }
+.li-actions svg { width:19px; height:19px; stroke-width:1.8; }
+.li-post .case-caption { margin-top:18px; text-align:center; }
+@media (max-width:520px) { .li-actions span { font-size:12px; gap:4px; padding:10px 4px; } .li-actions svg { width:17px; height:17px; } }
+/* the AI Fluency Plan constellation over an email header's sky (MailStars) */
+.mail-header-wrap { position:relative; }
+.mail-stars { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
+.mail-speck { animation:mail-twinkle 2.4s ease-in-out infinite; }
+.mail-star-first { animation:mail-wait 2.8s ease-in-out infinite; }
+@keyframes mail-twinkle { 0%,100% { opacity:.25; } 50% { opacity:.9; } }
+@keyframes mail-wait { 0%,100% { transform:scale(.9); opacity:.85; } 50% { transform:scale(1.08); opacity:1; } }
+@media (prefers-reduced-motion:reduce) { .mail-speck, .mail-star-first { animation:none; } .mail-speck { opacity:.6; } }
 .mail-body { padding:40px 56px 44px; }
 .mail-body h3 { margin:0 0 22px; font:400 30px/1.25 var(--display); color:#9075C0; letter-spacing:0; }
 .mail-body p { margin:0 0 16px; font-size:17px; line-height:1.55; color:#605D73; }

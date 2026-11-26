@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowDown, ArrowLeft, ArrowUpRight, Menu, Play, X } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowUpRight, Earth, Heart, Menu, MessageSquareText, PartyPopper, Play, Repeat2, Send, ThumbsUp, X } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HoloMesh from './holomesh.jsx';
@@ -15,7 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 // media lives in public/media and is referenced as "/media/..." in the data.
 // BASE_URL-relative resolution keeps those URLs working when the site is
 // hosted under a subpath (e.g. GitHub Pages project sites).
-const asset = (p) => import.meta.env.BASE_URL + p.replace(/^\//, '');
+// absolute URLs (a live page in the monitor) pass through untouched
+const asset = (p) => /^https?:/.test(p) ? p : import.meta.env.BASE_URL + p.replace(/^\//, '');
 
 const nav = [
   ['work', 'Work', 'Arbeit'],
@@ -181,6 +182,8 @@ function VideoEmbed({ video, eager }) {
 // until the monitor scrolls near the viewport, then the page loads in an iframe
 // the visitor can scroll vertically. The embed is the static copy in public/, so
 // it keeps working if the original page goes offline.
+// An absolute embed URL (the Learn Anywhere page on schole.ai) loads the live
+// page instead; its poster stays underneath if the site is ever unreachable.
 // On a phone the monitor's screen is ~250 px wide, so an unscaled iframe would
 // show the page's own mobile layout blown up inside a desktop monitor. Below
 // MONITOR_MIN the page is laid out at MONITOR_W and scaled down to the screen,
@@ -195,9 +198,12 @@ function MonitorEmbed({ item, tr }) {
   useEffect(() => {
     const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { setLive(true); io.disconnect(); } }, { rootMargin: '240px' });
     io.observe(ref.current);
+    // { pageWidth } lays the page out at that width at every size (a site that
+    // would otherwise switch to its tablet layout inside a ~900 px screen)
+    const W = item.pageWidth || MONITOR_W, min = item.pageWidth ? Infinity : MONITOR_MIN;
     const ro = new ResizeObserver(() => {
       const w = ref.current?.clientWidth || 0;
-      setScale(w && w < MONITOR_MIN ? w / MONITOR_W : 1);
+      setScale(w && w < min ? Math.min(1, w / W) : 1);
     });
     ro.observe(ref.current);
     return () => { io.disconnect(); ro.disconnect(); };
@@ -254,6 +260,73 @@ function Constellation() {
   </svg>;
 }
 
+// the AI Fluency Plan constellation, in the style of its ads (white four-point
+// star with a glow, diamond nodes, a dotted line), drawn over the sky of an
+// email header ({ stars: true } on the email). It sits in the right of the
+// sky, where Olé never walks: the star nearest him is the first one, pulsing
+// because it is waiting; the rest of the plan waits dim behind it.
+// Coordinates are the header at the email's 600 px width (600 x 210).
+const SPARK = (x, y, R) => { const r = R * 0.13; return `M${x},${y - R}C${x + r},${y - r} ${x + r},${y - r} ${x + R},${y}C${x + r},${y + r} ${x + r},${y + r} ${x},${y + R}C${x - r},${y + r} ${x - r},${y + r} ${x - R},${y}C${x - r},${y - r} ${x - r},${y - r} ${x},${y - R}Z`; };
+const DIAMOND = (x, y, s) => `M${x},${y - s}L${x + s},${y}L${x},${y + s}L${x - s},${y}Z`;
+function MailStars() {
+  const first = [474, 70];
+  const plan = [[505, 98], [533, 62], [562, 88], [585, 38]];
+  const path = [first, ...plan].map(([x, y], i) => `${i ? 'L' : 'M'}${x},${y}`).join('');
+  const specks = [[452, 18, 1.1], [520, 16, .9], [590, 14, 1.2], [552, 34, .8], [498, 44, 1], [590, 118, 1], [470, 128, .9], [544, 124, 1.2], [510, 136, .8], [578, 66, .8]];
+  return <svg className="mail-stars" viewBox="0 0 600 210" aria-hidden="true">
+    <defs>
+      <radialGradient id="mail-star-glow"><stop offset="0" stopColor="#fff" stopOpacity=".85" /><stop offset=".35" stopColor="#fff" stopOpacity=".35" /><stop offset="1" stopColor="#fff" stopOpacity="0" /></radialGradient>
+    </defs>
+    {specks.map(([x, y, r], i) => <circle className="mail-speck" key={i} cx={x} cy={y} r={r} fill="#fff" style={{ animationDelay: `${(i * .37) % 2.4}s` }} />)}
+    <path d={path} fill="none" stroke="#fff" strokeOpacity=".55" strokeWidth="1" strokeDasharray="1.5 4" strokeLinecap="round" />
+    {plan.map(([x, y], i) => <path key={i} d={DIAMOND(x, y, 3.2)} fill="#fff" fillOpacity=".7" />)}
+    <g className="mail-star-first" style={{ transformOrigin: `${first[0]}px ${first[1]}px` }}>
+      <circle cx={first[0]} cy={first[1]} r="30" fill="url(#mail-star-glow)" />
+      <path d={SPARK(first[0], first[1], 13)} fill="#fff" />
+    </g>
+  </svg>;
+}
+
+// a real LinkedIn post shown as it looked in the feed ({ linkedin: {...} } in a
+// story): page header, the post copy (cut with "…more" like the feed does),
+// the image carousel (swipeable, with the 1/3 counter) and the engagement
+// it earned. Built in HTML rather than pasted as a screenshot, so the copy
+// stays sharp and the slides stay the original artwork.
+function LinkedInPost({ post, tr }) {
+  const [slide, setSlide] = useState(0);
+  const onScroll = (e) => { const el = e.currentTarget; setSlide(Math.round(el.scrollLeft / (el.firstChild.offsetWidth + 6))); };
+  const fmt = (n) => n.toLocaleString('en-US');
+  return <figure className="li-post">
+    <div className="li-card">
+      <div className="li-head">
+        <svg className="li-logo" viewBox="-6 -6 200 226" aria-hidden="true">
+          <circle fill="#b6aaf2" cx="17.97" cy="192.98" r="17.97" />
+          <path fill="#a2a3f2" d="M113.46,144.16l-5.41-4.22c-3.74-2.92-7.12-6.29-10.04-10.04l-4.22-5.41c-2.06-2.64-6.05-2.64-8.11,0l-4.22,5.41c-2.92,3.74-6.29,7.12-10.04,10.04l-5.41,4.22c-2.64,2.06-2.64,6.05,0,8.11l5.41,4.22c3.74,2.92,7.12,6.29,10.04,10.04l4.22,5.41c2.06,2.64,6.05,2.64,8.11,0l4.22-5.41c2.92-3.74,6.29-7.12,10.04-10.04l5.41-4.22c2.64-2.06,2.64-6.05,0-8.11Z" />
+          <path fill="#96aef2" d="M178.68,51.35s-.04,0-.06,0c-15.01,0-27.74-20.58-28.28-45.3.01-.59.02-1.18.02-1.78,0-2.16-1.61-3.93-3.74-4.23-2.15-.3-4.19,1.07-4.79,3.15-.11.39-.17.8-.17,1.21,0,.55,0,1.1.01,1.64-.58,24.67-13.3,45.18-28.28,45.18-.13,0-.25.05-.38.06h-12.29c-2.4,0-4.34,1.94-4.34,4.34s1.94,4.34,4.34,4.34h13.79c14.85,1,27.19,22.07,27.19,47.01,0,2.4,1.94,4.34,4.34,4.34s4.34-1.94,4.34-4.34c0-25.45,12.96-46.95,28.3-46.95,2.4,0,4.34-1.94,4.34-4.34s-1.94-4.34-4.34-4.34Z" />
+        </svg>
+        <div><strong>{post.author}</strong><span>{post.date} · <Earth /></span></div>
+      </div>
+      <div className="li-text">
+        {post.text.map((para, i) => <p key={i}>{para.split(/(\[[^\]]+\])/).map((bit, j) => bit.startsWith('[') ? <b key={j}>{bit.slice(1, -1)}</b> : bit)}{post.more && i === post.text.length - 1 && <span className="li-more"> …more</span>}</p>)}
+      </div>
+      <div className="li-slides-wrap">
+        <div className="li-slides" onScroll={onScroll}>
+          {post.slides.map((s, i) => <img key={s} src={asset(s)} alt={i === 0 ? tr(post.alt, post.altDe) : ''} loading="lazy" />)}
+        </div>
+        <span className="li-count">{slide + 1}/{post.slides.length}</span>
+      </div>
+      <div className="li-stats">
+        <span className="li-reacts"><i className="li-r li-r-like"><ThumbsUp /></i><i className="li-r li-r-cele"><PartyPopper /></i><i className="li-r li-r-love"><Heart /></i>{fmt(post.reactions)}</span>
+        <span>{fmt(post.comments)} comments · {fmt(post.reposts)} reposts</span>
+      </div>
+      <div className="li-actions" aria-hidden="true">
+        <span><ThumbsUp />Like</span><span><MessageSquareText />Comment</span><span><Repeat2 />Repost</span><span><Send />Send</span>
+      </div>
+    </div>
+    {post.caption && <figcaption className="case-caption">{tr(post.caption, post.captionDe)}</figcaption>}
+  </figure>;
+}
+
 // a HubSpot email rendered live, so the animated header keeps moving: the
 // email is laid out at its real 600 px width and scaled down to the column
 // it sits in (ResizeObserver sets the scale and the reserved height)
@@ -283,7 +356,9 @@ function EmailPreview({ mail }) {
     </div>
     <div className="mail-fit" ref={wrap}>
       <div className="mail" ref={inner}>
-        <img className="mail-header" src={asset(mail.header)} alt="" />
+        {mail.stars
+          ? <div className="mail-header-wrap"><img className="mail-header" src={asset(mail.header)} alt="" /><MailStars /></div>
+          : <img className="mail-header" src={asset(mail.header)} alt="" />}
         <div className="mail-body">
           <h3>{mail.title}</h3>
           {mail.body.map((para, i) => <p key={i}>{para}</p>)}
@@ -327,8 +402,9 @@ function renderStory(story, title, tr) {
   story.forEach((item, i) => {
     if (item.img && !item.width) { run.push(item.img); return; }
     flush();
+    if (item.linkedin) out.push(<LinkedInPost key={i} post={item.linkedin} tr={tr} />);
     // a fixed pair/trio of images on one row, held to a given width, outside the gallery flow
-    if (item.row) out.push(<figure className="case-row-figure" key={i} style={{ maxWidth: item.width ? `${item.width}px` : undefined }}>
+    else if (item.row) out.push(<figure className="case-row-figure" key={i} style={{ maxWidth: item.width ? `${item.width}px` : undefined }}>
       <div className={`case-row ${item.natural ? 'case-row-natural' : 'case-row-fixed'}${item.rounded ? ' case-row-rounded' : ''}`}
         style={{ gridTemplateColumns: `repeat(${item.row.length},1fr)` }}>
         {item.row.map((image) => <span className="case-image case-image-small" key={image}>
