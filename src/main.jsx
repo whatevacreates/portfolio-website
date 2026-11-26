@@ -64,14 +64,14 @@ const reels = [
 // the reel labels, in German — content-level German (case stories, blog
 // articles) stays English; the chrome and labels switch
 const labelsDe = {
-  'schole-ai': 'Marketing-Leadership · Markenstrategie · Kreative Leitung · Growth · KI',
-  'team-nl': 'Markenstrategie · Integrierte Kampagne · Kreative Leitung',
+  'schole-ai': 'Markenstrategie · Produkt-Launches · Digitales Marketing',
+  'team-nl': 'Integrierte Kampagne · Markenstrategie · Kreative Leitung',
   'new-page': 'Service-Launch · Integriertes Marketing · Digitales Produkt',
-  'adidas-email': 'CRM · Lifecycle-Marketing · Kundenbindung',
+  'adidas-email': 'CRM · E-Mail-Marketing · Rollout in mehreren Märkten',
   slime: 'Produkt-Launch · Globale Kampagne · Kreativstrategie',
   'royal-canin-social-campaign-2': 'Behavioural Insight · Markenstrategie · Social-Kampagne',
   reebok: 'Digitale Kampagne · Mobile Experience · Kreativkonzept',
-  mcwalk: 'Markenaktivierung · Experience-Marketing · Kreative Leitung',
+  mcwalk: 'Markenaktivierung · Erlebnismarketing',
   'adidas-ub': 'Produkt-Storytelling · Launch-Kampagne · Art Direction',
 };
 
@@ -181,17 +181,31 @@ function VideoEmbed({ video, eager }) {
 // until the monitor scrolls near the viewport, then the page loads in an iframe
 // the visitor can scroll vertically. The embed is the static copy in public/, so
 // it keeps working if the original page goes offline.
+// On a phone the monitor's screen is ~250 px wide, so an unscaled iframe would
+// show the page's own mobile layout blown up inside a desktop monitor. Below
+// MONITOR_MIN the page is laid out at MONITOR_W and scaled down to the screen,
+// so the monitor shows the desktop page, the way a real monitor would.
+const MONITOR_W = 1280;
+const MONITOR_MIN = 700;
+
 function MonitorEmbed({ item, tr }) {
   const ref = useRef();
   const [live, setLive] = useState(false);
+  const [scale, setScale] = useState(1);
   useEffect(() => {
     const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { setLive(true); io.disconnect(); } }, { rootMargin: '240px' });
     io.observe(ref.current);
-    return () => io.disconnect();
+    const ro = new ResizeObserver(() => {
+      const w = ref.current?.clientWidth || 0;
+      setScale(w && w < MONITOR_MIN ? w / MONITOR_W : 1);
+    });
+    ro.observe(ref.current);
+    return () => { io.disconnect(); ro.disconnect(); };
   }, []);
+  const fit = scale < 1 ? { width: `${100 / scale}%`, height: `${100 / scale}%`, transform: `scale(${scale})`, transformOrigin: '0 0' } : undefined;
   return <div className="case-monitor-live" ref={ref}>
     {item.poster && <img src={asset(item.poster)} alt="" aria-hidden="true" loading="lazy" />}
-    {live && <iframe src={asset(item.embed)} title={tr(item.caption, item.captionDe)} />}
+    {live && <iframe src={asset(item.embed)} title={tr(item.caption, item.captionDe)} style={fit} />}
   </div>;
 }
 

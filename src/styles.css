@@ -644,3 +644,59 @@ footer a svg { width:15px; height:auto; stroke-width:1.6; }
 @media (max-width:520px) { .case-schole-ai .case-row { grid-template-columns:1fr !important; } }
 /* a text heading right above the hand-lettered one: the lettering keeps no rule of its own */
 .case-story .case-h2 + .case-h2-img { margin-top:3vh; padding-top:0; border-top:0; }
+
+/* ── Scholé case on phones ─────────────────────────────────────────────
+   One column of ~350 px: tighter type, a steadier rhythm between blocks,
+   artwork shown whole, and long runs of phones/slides as swipeable rows
+   instead of screen after screen of scrolling. */
+@media (max-width:620px) {
+  .case-schole-ai { --fs-1:28px; --fs-2:19px; --fs-3:15px; }
+  /* the head: wordmark centred over the centred tagline, not jammed to the edge */
+  .case-schole-ai .case-title { margin:6vh 0 7vh; }
+  .case-schole-ai .case-logo img { width:84%; margin:0 auto; }
+  .case-schole-ai .case-tagline { font-size:26px; margin-top:4vh; }
+  .case-schole-ai .case-tagline + .case-description { margin-top:3.5vh; }
+  /* the story's gap was 4vw (~15 px): text and images touched */
+  .case-schole-ai .case-story { gap:24px; }
+  /* chapter breaks: one clear pause, not a screen of white */
+  .case-schole-ai .case-story .case-h2 { margin-top:7vh; padding-top:5vh; }
+  .case-schole-ai .case-story .case-h2:first-child { margin-top:0; padding-top:0; }
+  .case-schole-ai .case-story .case-h2-after-mark { margin-top:2vh; padding-top:0; }
+  .case-schole-ai .case-divider { margin-top:7vh; padding-top:5vh; }
+  .case-schole-ai .case-divider-close { margin-top:10vh; padding-top:0; }
+  .case-schole-ai .case-h2-sub { margin-top:10px; }
+  .case-schole-ai .case-film.case-film-serif figcaption { font-size:17px; }
+  /* scope list: three groups with air between them */
+  .case-schole-ai .case-scope { gap:22px; }
+  /* numbers: a compact ledger, figure left, plain-case label right,
+     instead of a tall centred stack of wrapping uppercase lines */
+  .case-schole-ai .case-stats { grid-template-columns:1fr; gap:0; margin:8px 0; }
+  .case-schole-ai .case-stat { display:grid; grid-template-columns:96px 1fr; align-items:center; gap:16px;
+    text-align:left; padding:14px 0; border-top:1px solid #e6e4ef; }
+  .case-schole-ai .case-stat:last-of-type { border-bottom:1px solid #e6e4ef; }
+  .case-schole-ai .case-stat strong { font-size:30px; white-space:nowrap; }
+  .case-schole-ai .case-stat span { margin:0; max-width:none; font-size:14px; line-height:1.4;
+    text-transform:none; letter-spacing:0; color:#475569; }
+  /* boards and photos are never cropped to 4:3 here: the wordmarks sit on their edges */
+  .case-schole-ai .case-row-fixed img { aspect-ratio:auto; object-fit:contain; }
+  /* runs of phones and three-slide posts: a swipeable row bleeding to the
+     screen edges, the next item peeking in as the cue */
+  .case-schole-ai .case-phones,
+  .case-schole-ai .case-row:has(> :nth-child(3)) {
+    display:grid; grid-template-columns:none !important; grid-auto-flow:column; grid-auto-columns:78%;
+    align-items:start; gap:16px; width:auto; margin:0 -20px; padding:4px 20px 10px;
+    overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-inline:20px;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .case-schole-ai .case-phones::-webkit-scrollbar,
+  .case-schole-ai .case-row:has(> :nth-child(3))::-webkit-scrollbar { display:none; }
+  .case-schole-ai .case-phones > *,
+  .case-schole-ai .case-row:has(> :nth-child(3)) > * { scroll-snap-align:start; min-width:0; }
+  .case-schole-ai .case-phones-full { grid-auto-columns:86%; }
+  .case-schole-ai .case-phone-p figcaption { max-width:none; padding:0 4px; }
+  /* the Instagram carousel: phone sized to the column, cards following it */
+  .case-schole-ai .case-carousel { overflow:visible; }
+  .case-schole-ai .case-carousel-row { margin:0 -20px; padding:6px 20px 12px; scroll-snap-type:x mandatory; scroll-padding-inline:20px; scrollbar-width:none; }
+  .case-schole-ai .case-carousel-row > * { scroll-snap-align:start; }
+  .case-schole-ai .case-ig-wrap { width:300px; margin-right:-28px; }
+  .case-schole-ai .case-carousel-card { width:206px; margin-top:80px; }
+}
