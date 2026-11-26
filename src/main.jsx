@@ -78,15 +78,21 @@ const labelsDe = {
 function Work({ openProject }) {
   const root = useRef();
   const tr = useT();
+  // tiles rise in as they scroll into view. A plain IntersectionObserver and a
+  // CSS transition: the ScrollTrigger batch left tiles stuck invisible on phones
   useLayoutEffect(() => {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const ctx = gsap.context(() => {
-      ScrollTrigger.batch('.tile', {
-        start: 'top 92%', once: true,
-        onEnter: (els) => gsap.from(els, { y: 40, opacity: 0, duration: .8, stagger: .08, ease: 'power3.out' })
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+    const tiles = [...root.current.querySelectorAll('.tile')];
+    tiles.forEach((t) => t.classList.add('tile-wait'));
+    const io = new IntersectionObserver((entries) => {
+      entries.filter((e) => e.isIntersecting).forEach((e, k) => {
+        e.target.style.transitionDelay = `${k * 80}ms`;
+        e.target.classList.remove('tile-wait');
+        io.unobserve(e.target);
       });
-    }, root);
-    return () => ctx.revert();
+    }, { rootMargin: '0px 0px -6% 0px' });
+    tiles.forEach((t) => io.observe(t));
+    return () => io.disconnect();
   }, []);
   return <main className="work" ref={root}>
     <section className="tiles">
