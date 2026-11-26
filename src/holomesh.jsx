@@ -70,19 +70,23 @@ export default function HoloMesh() {
     let gl, uRes, uT, raf = 0, visible = true, lost = false, frames = 0;
     const start = performance.now();
 
-    // a 2D copy of the last drawn foil, sitting right under the live canvas:
+    // a still of the last drawn foil, sitting right under the live canvas:
     // if the browser takes the WebGL context away, the foil freezes in shape
-    // instead of collapsing to the flat --mesh gradient. Refreshed about once
-    // a second (the copy has to be taken in the same frame as the draw).
-    const snap = document.createElement('canvas');
+    // instead of collapsing to the flat --mesh gradient. It is an <img> of an
+    // encoded frame, not a 2D canvas: a GPU crash (the Scholé case's embedded
+    // WebGL2 page can trigger one on Macs) wipes GPU-backed 2D canvases too,
+    // while an image survives. Refreshed every ~3 s; the frame has to be
+    // read in the same rAF as the draw. Inline styles so img rules (.reel-item
+    // img) can't resize it.
+    const snap = document.createElement('img');
     snap.className = 'holo-mesh';
+    snap.alt = '';
     snap.setAttribute('aria-hidden', 'true');
-    snap.style.visibility = 'hidden';
+    snap.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;pointer-events:none;visibility:hidden';
+    snap.onload = () => { snap.style.visibility = ''; };
     canvas.parentNode.insertBefore(snap, canvas);
     const keep = () => {
-      if (snap.width !== canvas.width || snap.height !== canvas.height) { snap.width = canvas.width; snap.height = canvas.height; }
-      snap.getContext('2d').drawImage(canvas, 0, 0);
-      snap.style.visibility = '';
+      try { snap.src = canvas.toDataURL('image/jpeg', 0.9); } catch { /* keep the previous still */ }
     };
 
     // compile and wire the shader; runs again if a lost context comes back
@@ -125,7 +129,7 @@ export default function HoloMesh() {
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uT, (performance.now() - start) / 1000);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
-      if (frames++ % 60 === 0) keep();
+      if (frames++ % 180 === 0) keep();
       if (!reduce && visible) raf = requestAnimationFrame(frame);
     };
 
