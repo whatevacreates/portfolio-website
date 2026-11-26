@@ -258,6 +258,7 @@ function Constellation() {
 // email is laid out at its real 600 px width and scaled down to the column
 // it sits in (ResizeObserver sets the scale and the reserved height)
 function EmailPreview({ mail }) {
+  const tr = useT();
   const wrap = useRef();
   const inner = useRef();
   useEffect(() => {
@@ -274,6 +275,7 @@ function EmailPreview({ mail }) {
     return () => ro.disconnect();
   }, []);
   return <figure className="case-mail">
+    {mail.label && <span className={`mail-label${mail.proposed ? ' mail-label-proposed' : ''}`}>{tr(mail.label, mail.labelDe)}</span>}
     <div className="mail-meta">
       <i className="mail-avatar" />
       <div><strong>Scholé AI</strong><span>hello@schole.ai</span></div>
@@ -424,9 +426,12 @@ function renderStory(story, title, tr) {
         </div>)}
       </div>
     </figure>);
-    else if (item.emails) out.push(<div className={`case-mails${item.emails.length <= 2 ? ' case-mails-two' : ''}`} key={i}>
-      {item.emails.map((mail, k) => <EmailPreview mail={mail} key={k} />)}
-    </div>);
+    else if (item.emails) out.push(<figure className="case-mails-figure" key={i}>
+      <div className={`case-mails${item.emails.length === 1 ? ' case-mails-one' : item.emails.length === 2 ? ' case-mails-two' : ''}`}>
+        {item.emails.map((mail, k) => <EmailPreview mail={mail} key={k} />)}
+      </div>
+      {item.caption && <figcaption className="case-caption">{tr(item.caption, item.captionDe)}</figcaption>}
+    </figure>);
     else if (item.phones) out.push(<div className={item.full ? 'case-phones case-phones-full' : 'case-phones'} key={i}>
       {item.phones.map((ph, k) => <figure className="case-phone-p" key={k}>
         <div className="ig-phone">
@@ -485,6 +490,14 @@ function Project({ project, close }) {
     return () => ctx.revert();
   }, [project.slug]);
   const tr = useT();
+  // a case can carry a shortened live version (liveStory and its opening): it
+  // renders instead of the full story, which stays in the data, unrendered
+  const live = Boolean(project.liveStory);
+  const story = live ? project.liveStory : project.story;
+  const tagline = live ? project.liveTagline : project.tagline;
+  const taglineDe = live ? project.liveTaglineDe : project.taglineDe;
+  const description = live ? project.liveDescription : project.description;
+  const descriptionDe = live ? project.liveDescriptionDe : project.descriptionDe;
   const polaroids = project.polaroids && <section className="case-offline">
       <div className="case-polaroids">
         {project.polaroids.map((p) => <figure className="polaroid" key={p.img}>
@@ -507,8 +520,8 @@ function Project({ project, close }) {
       {project.titleImage
         ? <h1 className="case-logo"><img src={asset(project.titleImage)} alt={project.title} /></h1>
         : <h1>{project.title}</h1>}
-      {project.tagline && <p className={`case-tagline${project.tagline.includes('\n') ? ' case-tagline--stacked' : ''}`}>{tr(project.tagline, project.taglineDe)}</p>}
-      {[].concat(tr(project.description, project.descriptionDe)).map((para, i) => <p className="case-description" key={i}>{para}</p>)}
+      {tagline && <p className={`case-tagline${tagline.includes('\n') ? ' case-tagline--stacked' : ''}`}>{tr(tagline, taglineDe)}</p>}
+      {[].concat(tr(description, descriptionDe) ?? []).map((para, i) => <p className="case-description" key={i}>{para}</p>)}
     </section>
     {project.opener && <div className="case-opener">{renderStory([project.opener], project.title, tr)}</div>}
     {project.clip && <figure className="case-clip">
@@ -520,7 +533,7 @@ function Project({ project, close }) {
       <em>{tr(project.award.text, project.award.textDe)}</em>
       <img src={asset(project.award.badge)} alt="Product Hunt — #1 Product of the Day" />
     </div>}
-    {project.story ? <div className="case-story">{renderStory(project.story, project.title, tr)}</div> : <>
+    {story ? <div className="case-story">{renderStory(story, project.title, tr)}</div> : <>
     {project.videos?.length > 0 && <section className="case-videos">
       <h2 className="case-videos-heading">{project.videos.length > 1 ? tr(`Films · ${project.videos.length}`, `Filme · ${project.videos.length}`) : 'Film'}</h2>
       <div className={`video-grid${project.videos.length > 1 ? ' video-grid-multi' : ''}`}>

@@ -703,6 +703,257 @@
      "textDe": "Find your path forward."
     }
    ],
+   "liveTagline": "Building the brand and launching Scholé AI",
+   "liveTaglineDe": "Die Marke aufbauen und Scholé AI launchen",
+   "liveDescription": [
+    "I shaped Scholé’s positioning and visual identity, led three product launches, and worked hands-on across landing pages, paid campaigns and HubSpot email."
+   ],
+   "liveDescriptionDe": [
+    "Ich habe Scholés Positionierung und visuelle Identität geprägt, drei Produkt-Launches geleitet und selbst an Landingpages, Paid-Kampagnen und HubSpot-E-Mails gearbeitet."
+   ],
+   "liveStory": [
+    {
+     "lead": "HubSpot, hands-on",
+     "leadDe": "HubSpot, selbst gemacht",
+     "leadCenter": true,
+     "text": "Every Scholé email runs on one reusable HubSpot template I designed: an animated header, a title in New Spirit, copy that opens with the reader's situation, one button, and the footer every Scholé surface shares. Alongside it, the real thank-you email to the IATSE pilot cohort, the most clicked email Scholé has sent.",
+     "textDe": "Jede Scholé-E-Mail läuft auf einem wiederverwendbaren HubSpot-Template, das ich gestaltet habe: ein animierter Header, ein Titel in New Spirit, Text, der mit der Situation der Leserin beginnt, ein Button und der Footer, den jede Scholé-Fläche teilt. Dazu die echte Dankes-E-Mail an die IATSE-Pilot-Kohorte, die meistgeklickte E-Mail, die Scholé je verschickt hat."
+    },
+    {
+     "stats": [
+      {
+       "n": "27%",
+       "l": "click rate on the IATSE pilot thank-you email",
+       "lDe": "Klickrate der Dankes-E-Mail an die IATSE-Pilot-Kohorte"
+      },
+      {
+       "n": "49%",
+       "l": "open rate on the same email",
+       "lDe": "Öffnungsrate derselben E-Mail"
+      }
+     ]
+    },
+    {
+     "emails": [
+      {
+       "label": "Reusable HubSpot template",
+       "labelDe": "Wiederverwendbares HubSpot-Template",
+       "header": "/media/schole-ai-150-email-header-taste.webp",
+       "headerH": 508,
+       "subject": "{One promise, in the subject line}",
+       "title": "One title, in New Spirit.",
+       "body": [
+        "Hi {firstname},",
+        "Open with the reader's situation, not with Scholé. Say the thing they already feel.",
+        "Then one idea, in two or three short paragraphs. Nothing they have to scroll for."
+       ],
+       "button": "One button",
+       "closing": "One closing line, in the brand's voice."
+      },
+      {
+       "header": "/media/schole-ai-149-email-header-grow.webp",
+       "headerH": 508,
+       "subject": "Thank you. Here is a month on us.",
+       "title": "You were here first.",
+       "body": [
+        "Hi {firstname},",
+        "You tried Scholé before it was finished, told us what was broken, and kept coming back. That is what a pilot is for, and we are grateful.",
+        "So: a free month of Scholé for you, and for anyone on your team who wants to learn alongside you. New since you started: any lesson as a podcast, scenarios to practice the conversations that matter, and Olé in your browser."
+       ],
+       "button": "Claim your free month",
+       "closing": "Thank you for growing with us.",
+       "label": "Sent · IATSE pilot cohort",
+       "labelDe": "Versendet · IATSE-Pilot-Kohorte"
+      }
+     ]
+    },
+    {
+     "mark": true
+    },
+    {
+     "heading": "Brand strategy, positioning and rebrand",
+     "headingDe": "Markenstrategie, Positionierung und Rebranding"
+    },
+    {
+     "lead": "Where learning becomes progress",
+     "leadDe": "Where learning becomes progress",
+     "leadCenter": true,
+     "text": "Scholé is an AI tutor built on EPFL and UC Berkeley research. When I joined, it told its story through the technology, so learners could not tell what it would do for them, and the HR teams who buy training could not tell what they would get. I moved the story from what the AI is to what people achieve with it: progress. That one word links a learner's motivation to the value a company pays for, and it became the positioning. I then rebuilt the identity around it: a New Spirit wordmark whose é bends into a progress curve, a three-star constellation as the mark, and a periwinkle-to-violet gradient.",
+     "textDe": "Scholé ist ein KI-Tutor auf Basis von Forschung der EPFL und der UC Berkeley. Als ich dazukam, erzählte Scholé seine Geschichte über die Technologie: Lernende konnten nicht sagen, was es für sie tut, und die HR-Teams, die Weiterbildung kaufen, nicht, was sie bekommen. Ich habe die Geschichte von dem, was die KI ist, zu dem verschoben, was Menschen damit erreichen: Fortschritt. Dieses eine Wort verbindet die Motivation der Lernenden mit dem Wert, für den ein Unternehmen bezahlt, und wurde zur Positionierung. Darauf habe ich die Identität neu aufgebaut: eine Wortmarke in New Spirit, deren é sich in eine Fortschrittskurve biegt, eine Drei-Sterne-Konstellation als Zeichen und ein Verlauf von Periwinkle zu Violett."
+    },
+    {
+     "img": "/media/schole-ai-31-logo-lockup.webp",
+     "width": 740,
+     "rounded": true
+    },
+    {
+     "heading": "Flagship launch:\nthe browser extension,\nSeptember 2026",
+     "headingDe": "Flagship-Launch:\ndie Browser-Erweiterung,\nSeptember 2026"
+    },
+    {
+     "headingImg": "/media/schole-ai-161-hands-dirty-headline.webp",
+     "alt": "Get your hands dirty",
+     "altDe": "Get your hands dirty",
+     "width": 560
+    },
+    {
+     "award": {
+      "text": "Product Hunt · #1 Product of the Day · 24 September 2026",
+      "textDe": "Product Hunt · #1 Product of the Day · 24. September 2026",
+      "badge": "/media/product-hunt-badge.svg"
+     }
+    },
+    {
+     "lead": "The launch",
+     "leadDe": "Der Launch",
+     "leadCenter": true,
+     "text": "Learn Anywhere, a Chrome extension: Olé sits in the side panel and walks you through a real tool on the real website, and every step counts toward your lessons. Scholé's third Product Hunt launch in five months, on a CHF 3,500 media plan.",
+     "textDe": "Learn Anywhere, eine Chrome-Erweiterung: Olé sitzt im Seitenpanel und führt dich durch ein echtes Tool auf der echten Website, und jeder Schritt zählt für deine Lektionen. Scholés dritter Product-Hunt-Launch in fünf Monaten, mit einem Mediaplan von CHF 3.500."
+    },
+    {
+     "lead": "Insight",
+     "leadDe": "Insight",
+     "leadCenter": true,
+     "text": "It started on the stand at Learning Technologies London. Every customer conversation went the same way: people lit up the moment they talked about building something. Corporate training is a Next button. Everyone has pressed it. Nothing stuck. The pride people feel at work comes from the opposite: making something real with their own hands.",
+     "textDe": "Es begann am Stand der Learning Technologies London. Jedes Kundengespräch lief gleich: Die Leute leuchteten auf, sobald es ums Bauen ging. Weiterbildung im Unternehmen ist ein Weiter-Button. Jeder hat ihn gedrückt. Hängen geblieben ist nichts. Der Stolz, den Menschen bei der Arbeit fühlen, kommt vom Gegenteil: etwas Echtes mit den eigenen Händen machen."
+    },
+    {
+     "lead": "Idea",
+     "leadDe": "Idee",
+     "leadCenter": true,
+     "text": "Get your hands dirty. Learn by building the real thing. I drew the campaign by hand, on purpose: an AI company selling learning cannot look like it skipped the work. Pencil people, Olé sitting on their hand like a coach, and the finger pressing NEXT NEXT NEXT as the villain.",
+     "textDe": "Get your hands dirty. Learn by building the real thing. Ich habe die Kampagne von Hand gezeichnet, mit Absicht: Ein KI-Unternehmen, das Lernen verkauft, darf nicht so aussehen, als hätte es die Arbeit übersprungen. Bleistift-Menschen, Olé auf ihrer Hand wie ein Coach, und der Finger, der WEITER WEITER WEITER drückt, als Bösewicht."
+    },
+    {
+     "img": "/media/schole-ai-126-hands-dirty-ad.webp",
+     "width": 520,
+     "rounded": true
+    },
+    {
+     "video": {
+      "id": "a9aam45epLI",
+      "title": "Learn by Building! · the Product Hunt launch film",
+      "poster": "/media/schole-ai-162-poster-learn-by-building.webp"
+     },
+     "frame": "phone",
+     "width": 900,
+     "caption": "The launch film: 108 seconds, the real product inside the drawn world.",
+     "captionDe": "Der Launch-Film: 108 Sekunden, das echte Produkt in der gezeichneten Welt."
+    },
+    {
+     "stats": [
+      {
+       "n": "#1",
+       "l": "Product of the Day on Product Hunt, 24 September 2026",
+       "lDe": "Product of the Day auf Product Hunt, 24. September 2026"
+      },
+      {
+       "n": "405",
+       "l": "upvotes, the most of Scholé's three launches",
+       "lDe": "Upvotes, die meisten von Scholés drei Launches"
+      }
+     ]
+    },
+    {
+     "lead": "Results",
+     "leadDe": "Ergebnisse",
+     "leadCenter": true,
+     "text": "405 upvotes and 76 comments: the biggest of the three launches, on the smallest budget. Paid ran on Reddit, LinkedIn and Instagram; organic went out the same day from the founders, the company page and the team; and an email went to the pilot cohorts. That email isn't in my archive, so below is a proposal for it, written in the same template.",
+     "textDe": "405 Upvotes und 76 Kommentare: der grösste der drei Launches, mit dem kleinsten Budget. Paid lief auf Reddit, LinkedIn und Instagram; organisch ging es am selben Tag von den Foundern, der Unternehmensseite und dem Team raus; und eine E-Mail ging an die Pilot-Kohorten. Diese E-Mail ist nicht in meinem Archiv, deshalb steht unten ein Vorschlag dafür, im selben Template geschrieben."
+    },
+    {
+     "emails": [
+      {
+       "label": "Proposed launch email",
+       "labelDe": "Vorgeschlagene Launch-E-Mail",
+       "proposed": true,
+       "header": "/media/schole-ai-160-hands-dirty-board-payoff.webp",
+       "headerH": 900,
+       "subject": "Stop clicking Next.",
+       "title": "Get your hands dirty.",
+       "body": [
+        "Hi {firstname},",
+        "You have pressed Next on a hundred training slides. Be honest: how many of them do you remember?",
+        "Today we launch Learn Anywhere. Olé moves into your browser's side panel and walks you through the real tool, on the real website, while you build the real thing. Every step counts toward your lessons.",
+        "We are live on Product Hunt today. You were with us in the pilot, so you know what it took. An upvote would mean a lot."
+       ],
+       "button": "Add Olé to Chrome",
+       "closing": "Roll up your sleeves. Olé has your back."
+      }
+     ]
+    },
+    {
+     "mark": true
+    },
+    {
+     "heading": "AI Transformation",
+     "headingDe": "AI-Transformation"
+    },
+    {
+     "lead": "Your AI Fluency Plan",
+     "leadDe": "Dein AI Fluency Plan",
+     "leadCenter": true,
+     "text": "People kept asking us where to start with AI. A catalogue is a wall; a plan drawn for your role is a door. On the AI Fluency Plan page you say what you do, and Olé draws your plan as a constellation, star by star: the AI skills that matter for your role, as lessons you can start straight away. I designed and coded the page myself, constellation animation included. It is live in the screen below; scroll inside it.",
+     "textDe": "Die Leute fragten uns immer wieder, wo sie mit AI anfangen sollen. Ein Katalog ist eine Wand; ein Plan für deine Rolle ist eine Tür. Auf der AI-Fluency-Plan-Seite sagst du, was du tust, und Olé zeichnet deinen Plan als Sternbild, Stern für Stern: die AI-Fähigkeiten, die für deine Rolle zählen, als Lektionen, die du sofort starten kannst. Die Seite habe ich selbst gestaltet und programmiert, die Sternbild-Animation eingeschlossen. Sie ist unten live, im Bildschirm scrollen."
+    },
+    {
+     "embed": "/transformation-constellation/index.html",
+     "poster": "/media/schole-ai-125-poster-constellation-film-2x.webp",
+     "frame": "monitor",
+     "href": "https://try.schole.ai/transformation-constellation/"
+    },
+    {
+     "lead": "The ad",
+     "leadDe": "Die Anzeige",
+     "leadCenter": true,
+     "text": "One of the films that sent people to the page, written from the question we heard in every customer conversation: where do I start?",
+     "textDe": "Einer der Filme, die Menschen auf die Seite schickten, geschrieben aus der Frage, die wir in jedem Kundengespräch hörten: Wo fange ich an?"
+    },
+    {
+     "phones": [
+      {
+       "film": "/media/schole-ai-141-ad-journey-c.mp4",
+       "poster": "/media/schole-ai-141-poster-ad-journey.webp",
+       "title": "Build your personalized AI upskilling plan and start it now",
+       "titleDe": "Build your personalized AI upskilling plan and start it now",
+       "insight": "Insight: people asked us where to start, every time. The B2B cut says the same for your whole team.",
+       "insightDe": "Insight: Die Leute fragten uns jedes Mal, wo sie anfangen sollen. Der B2B-Schnitt sagt dasselbe für dein ganzes Team."
+      }
+     ]
+    },
+    {
+     "lead": "Why the email comes last",
+     "leadDe": "Warum die E-Mail zuletzt kommt",
+     "leadCenter": true,
+     "text": "Cold traffic bounced off demo forms, so the AI Maturity Assessment, a free three-minute test, gave people their profile first and asked for an email only at the results step, once they had a reason to want what came next. The same rule shapes the plan: the follow-up below is my proposal for that next email.",
+     "textDe": "Kalter Traffic prallte an Demo-Formularen ab, also gab das AI Maturity Assessment, ein kostenloser Drei-Minuten-Test, den Menschen zuerst ihr Profil und fragte erst beim Ergebnis nach der E-Mail, wenn sie einen Grund hatten, das Nächste zu wollen. Dieselbe Regel gilt für den Plan: Die Follow-up-E-Mail unten ist mein Vorschlag für diese nächste E-Mail."
+    },
+    {
+     "emails": [
+      {
+       "label": "Proposed follow-up email",
+       "labelDe": "Vorgeschlagene Follow-up-E-Mail",
+       "proposed": true,
+       "header": "/media/schole-ai-148-email-header-ole-waited.webp",
+       "headerH": 420,
+       "subject": "Your plan is still here.",
+       "title": "Your first star is waiting.",
+       "body": [
+        "Hi {firstname},",
+        "Last week you told Olé what you do, and Olé drew your AI Fluency Plan. It is still there, and so is your first lesson.",
+        "It is built around your role, your tools and the work already on your desk. Finish it and the first star in your constellation lights up."
+       ],
+       "button": "Start my first lesson",
+       "closing": "Olé waited. Olé is patient."
+      }
+     ]
+    },
+    {
+     "mark": true,
+     "text": "Find your path forward.",
+     "textDe": "Find your path forward."
+    }
+   ],
    "tagline": "Shaping Scholé’s brand.\nLeading its launches.\nBuilding its marketing.",
    "taglineDe": "Scholés Marke geformt.\nDie Launches geführt.\nDas Marketing aufgebaut."
   },
